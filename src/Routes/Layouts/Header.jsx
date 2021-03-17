@@ -341,7 +341,7 @@ const Header = ({ history, location, width }) => {
           <Wrapper
             width={`auto`}
             fontSize={`16px !important`}
-            fontWeight={`700`}
+            fontWeight={`bold`}
           >
             1588-1684
           </Wrapper>

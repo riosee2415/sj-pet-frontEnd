@@ -111,18 +111,26 @@ const editorCss = css`
 `;
 
 export default createGlobalStyle`
+@font-face {
+     font-family: 'S-CoreDream-3Light';
+     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff');
+     font-weight: normal;
+     font-style: normal;
+}
+
     ${reset};
     ${scrollCss};
     ${sliderCss};
     ${editorCss};
     * {
         box-sizing : border-box;
-        font-family: 'Nanum Gothic', sans-serif;
+        font-family: 'S-CoreDream-3Light';
+        
     }
     body {
         background-color: ${(props) => props.theme.bgColor};
         color : ${(props) => props.theme.blackColor};
-        font-family: 'Nanum Gothic', sans-serif;
+        font-family: 'S-CoreDream-3Light';
     }
     a {
         color : inherit;
