@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import {
   WholeWrapper,
-  RsWrapper,
   Wrapper,
   Text,
   Image,
@@ -11,6 +10,13 @@ import { withResizeDetector } from "react-resize-detector";
 import { GET_FOOTER_INFO } from "./LayoutQueries";
 import { useQuery } from "@apollo/client";
 import Theme from "../../Styles/Theme";
+import { styled } from "@material-ui/core";
+
+// const Footer = styled(Wrapper)`
+//   width: 40px;
+//   height: 40px;
+//   background-color: #fff;
+// `;
 
 const Footer = ({ width }) => {
   ////////////// - USE STATE - ///////////////
@@ -20,43 +26,65 @@ const Footer = ({ width }) => {
 
   return (
     <WholeWrapper
-      padding={`100px 0px`}
-      bgColor={Theme.darkGrey_C}
-      color={Theme.white_C}
+      padding={`40px 0px`}
+      bgColor={Theme.grey_C}
+      color={Theme.black_C}
     >
-      <RsWrapper dr={`row`} ju={`space-around`}>
-        <Image
-          width={`250px`}
-          margin={width < 900 && `0px 0px 20px`}
-          alt="logo"
-          src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/EBONE%2Fassets%2Fimages%2Flogo%2Flogo-1.png?alt=media&token=4070322e-aa10-4d38-b115-d07e0bb6d11ehttps://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/EBONE%2Fassets%2Fimages%2Flogo%2Flogo-1.png?alt=media&token=4070322e-aa10-4d38-b115-d07e0bb6d11e`}
-        />
-        <Wrapper
-          dr={`row`}
-          width={`auto`}
-          ju={width < 700 ? `center` : `flex-start`}
-        >
-          <Wrapper al={width < 700 ? `center` : `flex-start`} width={`auto`}>
-            <Text margin={`0px 0px 15px`}>
-              상호 {data && data.getFooterInfo.businessName}
-            </Text>
-            <Text margin={width < 700 && `0px 0px 15px`}>
-              대표 {data && data.getFooterInfo.cheifName}
-            </Text>
+      <Wrapper width={`1810px`} dr={`row`} ju={`flex-start`}>
+        <Wrapper width={`20%`} al={`flex-start`}>
+          <Image
+            width={`250px`}
+            margin={width < 900 && `0px 0px 20px`}
+            alt="logo"
+            src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2Flogo%2Flogo.png?alt=media&token=293d0a5b-53e7-446d-bdb8-d74903051e16`}
+          />
+        </Wrapper>
+        <Wrapper dr={`row`} width={`80%`} ju={`space-between`}>
+          <Wrapper dr={`row`} width={`auto`}>
+            <Wrapper al={width < 700 ? `center` : `flex-start`} width={`auto`}>
+              <Text>
+                주식회사 선진펫{data && data.getFooterInfo.businessName}
+              </Text>
+              <Text margin={`15px 0`}>
+                주소 {data && data.getFooterInfo.address}
+              </Text>
+              <Text>Copyright (c) 선진펫. All Rights Reserved</Text>
+            </Wrapper>
+            <Wrapper
+              al={width < 700 ? `center` : `flex-start`}
+              width={`auto`}
+              margin={`0px 35px`}
+            >
+              <Text>평일 : 08:30 ~ 17:30</Text>
+              <Text margin={`15px 0`}>점심시간 : 12:30 ~ 13:30</Text>
+              <Text>토,일/공휴일은 휴무</Text>
+            </Wrapper>
           </Wrapper>
-          <Wrapper
-            al={width < 700 ? `center` : `flex-start`}
-            width={`auto`}
-            margin={`0px 35px`}
-          >
-            <Text margin={`0px 0px 15px`}>
-              사업자 등록번호 {data && data.getFooterInfo.businessNumber}
-            </Text>
-            <Text margin={width < 700 && `0px 0px 15px`}>
-              개인정보책임관리자 {data && data.getFooterInfo.privacyOfficer}
-            </Text>
+          <Wrapper dr={`row`} width={`auto`}>
+            <Wrapper width={`auto`}>
+              <Text>펫마트 가맹문의</Text>
+              <Wrapper dr={`row`} ju={`flex-start`}>
+                <Wrapper></Wrapper>
+                <Text fontSize={`25px`} fontWeight={`700`}>
+                  1588-1684
+                </Text>
+              </Wrapper>
+              <Text color={`#868686`}>ebajslee@sunjinpet.co.kr</Text>
+              <Wrapper></Wrapper>
+            </Wrapper>
+            <Wrapper width={`auto`} margin={`0 0 0 50px`}>
+              <Text>수도권/경기창업문의</Text>
+              <Wrapper dr={`row`} ju={`flex-start`}>
+                <Wrapper></Wrapper>
+                <Text fontSize={`25px`} fontWeight={`700`}>
+                  1577-0731
+                </Text>
+              </Wrapper>
+              <Text color={`#868686`}>vvvkmvvv@sunjinpet.co.kr</Text>
+            </Wrapper>
           </Wrapper>
-          <Wrapper al={width < 700 ? `center` : `flex-start`} width={`auto`}>
+
+          {/* <Wrapper al={width < 700 ? `center` : `flex-start`} width={`auto`}>
             <Text margin={`0px 0px 15px`} display={`flex`} dr={`row`}>
               <a href={`mailto:${data && data.getFooterInfo.email}`}>
                 E. {data && data.getFooterInfo.email}
@@ -65,9 +93,9 @@ const Footer = ({ width }) => {
               <a href="tel:">C S. {data && data.getFooterInfo.tel} </a>
             </Text>
             <Text>A. {data && data.getFooterInfo.address}</Text>
-          </Wrapper>
+          </Wrapper> */}
         </Wrapper>
-      </RsWrapper>
+      </Wrapper>
     </WholeWrapper>
   );
 };

@@ -61,7 +61,7 @@ const HeaderWrapper = styled.div`
 `;
 
 const H_Wrapper = styled.div`
-  width: 1815px;
+  width: 1810px;
   height: ${(props) => props.height || `100%`};
   color: ${(props) => props.theme.white_C};
   display: flex;

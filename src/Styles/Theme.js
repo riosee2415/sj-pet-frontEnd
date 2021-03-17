@@ -24,7 +24,7 @@ export default {
   subBlack_C: "#1e272e",
   white_C: "#FFF",
   red_C: "#EE5A24",
-  grey_C: "#ccc",
+  grey_C: "#E3E3E3",
   greyArea_C: "#ecf0f1",
   darkGrey_C: "#565656",
   lightGrey_C: "#dcdcdc",
