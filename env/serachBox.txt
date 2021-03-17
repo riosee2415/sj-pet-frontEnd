@@ -1,0 +1,58 @@
+[Container]
+////////////// - VARIABLE- ////////////////
+  const {
+    currentYear,
+    comboYear,
+    comboMonth,
+    currentMonth,
+  } = searchYearAndMonth();
+
+
+////////////// - USE SATTE- ///////////////
+  const seachYear = useInput(currentYear);
+  const searchMonth = useInput(currentMonth);
+
+
+
+
+
+return Area <Precenter 
+                comboYear={comboYear}
+                comboMonth={comboMonth}
+                seachYear={seachYear}
+                searchMonth={searchMonth}
+            />
+
+
+
+[Precenter]
+      <Wrapper
+          isSearchBox={true}
+          height={`35px`}
+          dr={`row`}
+          ju={`flex-start`}
+          margin={`0px 0px 10px 0px`}
+          padding={`0px 20px`}
+        >
+          <Combo margin={`0px 10px 0px 0px`} height={`25px`} {...seachYear}>
+            {comboYear &&
+              comboYear.map((data) => {
+                return (
+                  <ComboOption key={data} value={data}>
+                    {data}
+                  </ComboOption>
+                );
+              })}
+          </Combo>
+
+          <Combo margin={`0px 10px 0px 0px`} height={`25px`} {...searchMonth}>
+            {comboMonth &&
+              comboMonth.map((data) => {
+                return (
+                  <ComboOption key={data} value={data}>
+                    {data}
+                  </ComboOption>
+                );
+              })}
+          </Combo>
+        </Wrapper>
