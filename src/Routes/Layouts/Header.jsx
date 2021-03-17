@@ -3,7 +3,6 @@ import {
   UlWrapper,
   LiWrapper,
   Wrapper,
-  CommonButton,
 } from "../../Components/CommonComponents";
 import { Link, withRouter, NavLink } from "react-router-dom";
 import styled from "styled-components";
@@ -38,11 +37,10 @@ const OnlyHeadAbsoluteWrapper = styled.div`
 const HeaderWrapper = styled.div`
   width: ${(props) => props.width || `100%`};
   height: ${(props) => props.height};
-  color: ${(props) => props.theme.darkGrey_C};
+  color: ${(props) => props.theme.white_C};
   display: flex;
-  background: ${(props) => props.bgColor || `${props.theme.white_C}`};
-  border-bottom: ${(props) =>
-    props.borderBottom || `1px solid ${props.theme.lightGrey_C}`};
+  background: ${(props) => props.bgColor};
+  border-bottom: ${(props) => props.borderBottom};
   color: ${(props) => props.color};
   flex-direction: ${(props) => props.dr || `column`};
   align-items: ${(props) => props.al || `center`};
@@ -56,18 +54,16 @@ const HeaderWrapper = styled.div`
   bottom: ${(props) => props.bottom};
   margin: ${(props) => props.margin};
   padding: ${(props) => props.padding};
-  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
   transition: 0.4s;
 
   & .background {
-    height: 0;
   }
 `;
 
 const H_Wrapper = styled.div`
-  width: 1350px;
+  width: 1815px;
   height: ${(props) => props.height || `100%`};
-  color: ${(props) => props.theme.darkGrey_C};
+  color: ${(props) => props.theme.white_C};
   display: flex;
   background: ${(props) => props.bgColor};
   color: ${(props) => props.color};
@@ -117,7 +113,7 @@ const Logo = styled.div`
   }
 
   @media (max-width: 800px) {
-    width: 130px;
+    width: 120px;
   }
 `;
 
@@ -125,39 +121,15 @@ const LogoImg = styled.img`
   width: 100%;
 
   @media (max-width: 800px) {
-    width: 130px;
+    width: 120px;
   }
 `;
 
 const Menu = styled(LiWrapper)`
-  position: relative;
   cursor: pointer;
 
-  &:before {
-    content: "";
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: ${(props) => (props.isActive ? `100%` : `0%`)};
-    height: 2px;
-    background-color: ${(props) => props.theme.subTheme_C};
-  }
-
-  &:after {
-    content: "";
-    position: absolute;
-    top: -5px;
-    left: 0;
-    width: ${(props) => (props.isActive ? `100%` : `0%`)};
-    height: 2px;
-    background-color: ${(props) => props.theme.subTheme_C};
-  }
-
   &:hover {
-    &:before,
-    &:after {
-      animation: ${fullWidth} 0.5s forwards;
-    }
+    color: ${(props) => props.theme.basicTheme_C};
   }
 `;
 
@@ -183,7 +155,7 @@ const MobileHeader = styled.div`
 const MobileMenu = styled.div`
   width: 100%;
   height: 100vh;
-  background: linear-gradient(#4f58a6, #010c71);
+  background: linear-gradient(#4b95c1, #0d3a56);
   z-index: 10000;
 
   & svg {
@@ -254,53 +226,26 @@ const Header = ({ history, location, width }) => {
 
   return (
     <HeaderWrapper isFixed={true} top={`0px`} left={`0px`}>
-      <Wrapper
-        className={headerScroll && "background"}
-        height={`10px`}
-        bgColor={Theme.subTheme_C}
-      ></Wrapper>
       <H_Wrapper dr={`row`} margin={`0 auto`}>
         <Wrapper
           height={`100%`}
           dr={`row`}
           al={`center`}
           ju={`space-between`}
-          padding={`10px 0px`}
+          padding={`20px 0px`}
         >
           <Logo>
             <Link to="/">
               <LogoImg
-                src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/E-BOOK3%2Fassets%2Fimages%2Flogo%2Flogo.png?alt=media&token=3956abaf-6158-4c4a-9726-cc181313c757`}
+                src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2Flogo%2Flogo.png?alt=media&token=293d0a5b-53e7-446d-bdb8-d74903051e16`}
                 alt="LOGO"
               />
             </Link>
           </Logo>
 
           <UlWrapper width={`auto`} dr={`row`}>
-            <Menu
-              onClick={() => moveLinkHandler(`/`)}
-              isActive={location.pathname === `/`}
-              margin={
-                width < 1350 ? (width < 1100 ? `0 15px` : `0 30px`) : `0px 60px`
-              }
-            >
-              HOME
-            </Menu>
-
-            <Menu
-              onClick={() => moveLinkHandler(`/courses`)}
-              isActive={location.pathname === `/courses`}
-              margin={
-                width < 1350 ? (width < 1100 ? `0 15px` : `0 30px`) : `0px 60px`
-              }
-            >
-              COURSES
-            </Menu>
-
-            {login ? (
+            <Link to="/">
               <Menu
-                onClick={() => moveLinkHandler(`/dashboard`)}
-                isActive={location.pathname === `/dashboard`}
                 margin={
                   width < 1350
                     ? width < 1100
@@ -309,12 +254,11 @@ const Header = ({ history, location, width }) => {
                     : `0px 60px`
                 }
               >
-                DASHBOARD
+                펫마트
               </Menu>
-            ) : (
+            </Link>
+            <Link to="">
               <Menu
-                onClick={() => moveLinkHandler(`/roadmap`)}
-                isActive={location.pathname === `/roadmap`}
                 margin={
                   width < 1350
                     ? width < 1100
@@ -323,59 +267,89 @@ const Header = ({ history, location, width }) => {
                     : `0px 60px`
                 }
               >
-                ROADMAP
+                회사
               </Menu>
-            )}
-            <Menu
-              onClick={() => moveLinkHandler(`/event`)}
-              isActive={location.pathname === `/event`}
-              margin={
-                width < 1350 ? (width < 1100 ? `0 15px` : `0 30px`) : `0px 60px`
-              }
-            >
-              COMMUNITY
-            </Menu>
+            </Link>
+            <Link to="">
+              <Menu
+                margin={
+                  width < 1350
+                    ? width < 1100
+                      ? `0 15px`
+                      : `0 30px`
+                    : `0px 60px`
+                }
+              >
+                인테리어
+              </Menu>
+            </Link>
+            <Link to="">
+              <Menu
+                margin={
+                  width < 1350
+                    ? width < 1100
+                      ? `0 15px`
+                      : `0 30px`
+                    : `0px 60px`
+                }
+              >
+                매장안내
+              </Menu>
+            </Link>
+            <Link to="">
+              <Menu
+                margin={
+                  width < 1350
+                    ? width < 1100
+                      ? `0 15px`
+                      : `0 30px`
+                    : `0px 60px`
+                }
+              >
+                가맹절차
+              </Menu>
+            </Link>
+            <Link to="">
+              <Menu
+                margin={
+                  width < 1350
+                    ? width < 1100
+                      ? `0 15px`
+                      : `0 30px`
+                    : `0px 60px`
+                }
+              >
+                기맹상담
+              </Menu>
+            </Link>
           </UlWrapper>
-          <Wrapper width={`auto`} dr={`row`}>
-            {login ? (
-              <CommonButton
-                width={`100px`}
-                margin={`0 5px`}
-                onClick={logoutHandler}
-              >
-                LOGOUT
-              </CommonButton>
-            ) : (
-              <>
-                <Link to="/login">
-                  <CommonButton width={`100px`} margin={`0 5px`}>
-                    LOGIN
-                  </CommonButton>
-                </Link>
-                <Link to="/join">
-                  <CommonButton
-                    width={`100px`}
-                    kindOf={`white`}
-                    margin={`0 5px`}
-                  >
-                    JOIN US
-                  </CommonButton>
-                </Link>
-              </>
-            )}
+
+          <Wrapper
+            width={`200px`}
+            padding={`10px`}
+            radius={`25px`}
+            bgColor={Theme.lightBasicTheme_c}
+            color={Theme.white_C}
+            fontSize={`18px`}
+          >
+            가맹문의 1588-1684
           </Wrapper>
         </Wrapper>
       </H_Wrapper>
       <MobileHeader>
-        <Wrapper dr={`row`} ju={`space-between`}>
-          <Link to="/login">
-            <CommonButton width={`60px`}>LOGIN</CommonButton>
-          </Link>
+        <Wrapper dr={`row`} ju={`space-between`} padding={`10px 0`}>
+          <Wrapper
+            width={`auto`}
+            fontSize={`16px !important`}
+            fontWeight={`700`}
+          >
+            1588-1684
+          </Wrapper>
           <Logo>
             <Link to="/">
               <LogoImg
                 alt="logo"
-                src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/E-BOOK3%2Fassets%2Fimages%2Flogo%2Flogo.png?alt=media&token=3956abaf-6158-4c4a-9726-cc181313c757`}
+                src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2Flogo%2Flogo.png?alt=media&token=293d0a5b-53e7-446d-bdb8-d74903051e16`}
               />
             </Link>
           </Logo>
@@ -402,28 +376,42 @@ const Header = ({ history, location, width }) => {
               <Link to="/">
                 <Bounce delay={0}>
                   <MobileSubMenu fontSize={`18px`} margin={`25px 0px`}>
-                    HOME
+                    펫마트
                   </MobileSubMenu>
                 </Bounce>
               </Link>
-              <Link to="/courses">
+              <Link to="">
                 <Bounce delay={100}>
                   <MobileSubMenu fontSize={`18px`} margin={`25px 0px`}>
-                    COURSES
+                    회사
                   </MobileSubMenu>
                 </Bounce>
               </Link>
-              <Link to="/dashboard">
+              <Link to="">
                 <Bounce delay={200}>
                   <MobileSubMenu fontSize={`18px`} margin={`25px 0px`}>
-                    DASHBOARD
+                    인테리어
                   </MobileSubMenu>
                 </Bounce>
               </Link>
-              <Link to="/event">
+              <Link to="">
                 <Bounce delay={300}>
                   <MobileSubMenu fontSize={`18px`} margin={`25px 0px`}>
-                    COMMUNITY
+                    매장안내
+                  </MobileSubMenu>
+                </Bounce>
+              </Link>
+              <Link to="">
+                <Bounce delay={300}>
+                  <MobileSubMenu fontSize={`18px`} margin={`25px 0px`}>
+                    가맹절차
+                  </MobileSubMenu>
+                </Bounce>
+              </Link>
+              <Link to="">
+                <Bounce delay={300}>
+                  <MobileSubMenu fontSize={`18px`} margin={`25px 0px`}>
+                    가맹상담
                   </MobileSubMenu>
                 </Bounce>
               </Link>

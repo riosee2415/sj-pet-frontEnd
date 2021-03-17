@@ -8,11 +8,11 @@ const BOX_SHADOW_V2 = "0px 5px 10px rgba(220,220,220,1)";
 const BOX_SHADOW_DARK = "0px 10px  rgba(70,70,70,1)";
 
 export default {
-  basicTheme_C: "#ffa801",
-  subTheme_C: "#ffed00",
+  basicTheme_C: "#fdd000",
+  subTheme_C: "#0D3A56",
   adminBasicTheme_C: "#ffa801",
   adminHoverSubTxt_C: "#ffed00",
-  lightBasicTheme_c: "#F6FFDB",
+  lightBasicTheme_c: "#165174",
   //
   naver_C: "#1CC020",
   google_C: "rgb(253, 56, 50)",

@@ -3,6 +3,7 @@ import withSplitting from "../../../Lib/withSplitting";
 import { WholeWrapper } from "../../../Components/CommonComponents";
 import styled from "styled-components";
 import { withResizeDetector } from "react-resize-detector";
+import Theme from "../../../Styles/Theme";
 
 const Popup = withSplitting(() =>
   import("../../../Components/popup/Popup.jsx")
@@ -19,7 +20,7 @@ const MM00Presenter = ({
   mainBannerData,
 }) => {
   return (
-    <WholeWrapper>
+    <WholeWrapper bgColor={Theme.grey_C}>
       <MainSlider
         mainBannerData={width < 700 ? mobileBannerData : mainBannerData}
       />
