@@ -606,25 +606,25 @@ export const FlipButton = styled.div`
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
 
 export const CommonSubTitle = styled.h2`
-  width: ${(props) => props.width || `100%`};
+  width: ${(props) => props.width || `auto`};
   display: ${(props) => props.display || `flex`};
   align-items: ${(props) => props.al || `center`};
   justify-content: ${(props) => props.ju || `center`};
   position: relative;
-  margin: ${(props) => props.margin || `100px 0 30px`};
+  margin: ${(props) => props.margin || `100px 0`};
   font-size: ${(props) => props.fontSize || `60px`};
   padding: 10px 0;
   font-weight: 600;
   color: ${(props) => props.color};
   text-align: left;
-  border-top: 1px solid ${(props) => props.theme.basicTheme_C};
-  border-bottom: 1px solid ${(props) => props.theme.basicTheme_C};
+  border-top: 3px solid ${(props) => props.theme.lightBasicTheme_c};
+  border-bottom: 3px solid ${(props) => props.theme.lightBasicTheme_c};
 
   @media (max-width: 800px) {
-    font-size: 20px;
+    font-size: 40px;
   }
   @media (max-width: 500px) {
-    font-size: 18px;
+    font-size: 30px;
   }
 `;
 
