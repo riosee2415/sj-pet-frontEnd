@@ -41,6 +41,7 @@
 | 18   | AD17         | 회원 권환 변경         | AD17     | "/admin/userRightControllManagement" |
 | 19   | AD18         | 모바일 베너 관리       | AD18     | "/admin/mobileMainBannerManagement"  |
 | 20   | AD19         | 1:1문의 관리           | AD19     | "/admin/directRequestManagement"     |
+| 21   | AD30         | 가맹점 관리            | AD30     | "/admin/storeManagement"             |
 
 ## CLIENT DEVELOPMENT
 
@@ -67,6 +68,7 @@
 - [x] (사업자)차단 회원 관리 [4LEAF.SJH]
 - [x] 회원 권한 변경 [4LEAF.YSH]
 - [x] 1:1 문의 관리 [4LEAF.SJH]
+- [x] 가맹점 관리 [4LEAF.YSH]
 
 # commonUtils
 

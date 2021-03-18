@@ -104,4 +104,13 @@ export const allMenus = [
       },
     ],
   },
+  {
+    menuName: "가맹점 관리",
+    subMenu: [
+      {
+        subMenuName: "가맹점 등록관리",
+        subMenuLink: "/admin/storeManagement",
+      },
+    ],
+  },
 ];
