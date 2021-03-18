@@ -37,6 +37,10 @@ export default ({ history }) => {
     setIsLoading(false);
   };
 
+  const moveDetailPageHandler = (id) => {
+    history.push(`/admin/storeDetailManagement/${id}`);
+  };
+
   ////////////// - USE EFFECT- ///////////////
   useEffect(() => {}, []);
 
@@ -52,6 +56,7 @@ export default ({ history }) => {
       sDatum={sDatum && sDatum.getAllStore}
       //
       fileChangeHandler={fileChangeHandler}
+      moveDetailPageHandler={moveDetailPageHandler}
     />
   );
 };

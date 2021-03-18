@@ -42,6 +42,7 @@
 | 19   | AD18         | 모바일 베너 관리       | AD18     | "/admin/mobileMainBannerManagement"  |
 | 20   | AD19         | 1:1문의 관리           | AD19     | "/admin/directRequestManagement"     |
 | 21   | AD30         | 가맹점 관리            | AD30     | "/admin/storeManagement"             |
+| 22   | AD31         | 가맹점 상세정보        | AD31     | "/admin/storeDetailManagement/:id"   |
 
 ## CLIENT DEVELOPMENT
 

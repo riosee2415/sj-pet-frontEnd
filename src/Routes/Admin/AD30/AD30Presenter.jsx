@@ -46,6 +46,7 @@ export default ({
   sDatum,
   //
   fileChangeHandler,
+  moveDetailPageHandler,
 }) => {
   useTitle("ADMIN | 가맹점 관리");
 
@@ -115,6 +116,7 @@ export default ({
                       isData={true}
                       width={`50%`}
                       isToday={true}
+                      onClick={() => moveDetailPageHandler(data._id)}
                     >
                       {data.title}
                     </TableHeadColumn>
