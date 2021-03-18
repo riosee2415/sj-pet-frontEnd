@@ -49,7 +49,10 @@ const Footer = ({ width }) => {
       bgColor={Theme.grey_C}
       color={Theme.black_C}
     >
-      <Wrapper dr={`row`} ju={width < 900 ? `center` : `flex-start`}>
+      <Wrapper
+        dr={width < 900 ? `column` : `row`}
+        ju={width < 900 ? `center` : `flex-start`}
+      >
         <Wrapper width={`auto`} al={width < 900 ? `center` : `flex-start`}>
           <Image
             width={width < 900 ? `200px` : `250px`}
@@ -60,7 +63,7 @@ const Footer = ({ width }) => {
         </Wrapper>
 
         <Wrapper
-          width={`calc(100% - 250px)`}
+          width={width < 900 ? `100%` : `calc(100% - 250px)`}
           dr={`row`}
           padding={`0 0 0 30px`}
           ju={width < 900 ? `center` : `space-between`}
