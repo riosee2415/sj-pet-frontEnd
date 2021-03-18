@@ -389,35 +389,35 @@ const Header = ({ history, location, width }) => {
                   </MobileSubMenu>
                 </Bounce>
               </Link>
-              <Link to="">
+              <Link to="/about">
                 <Bounce delay={100}>
                   <MobileSubMenu fontSize={`18px`} margin={`25px 0px`}>
                     회사
                   </MobileSubMenu>
                 </Bounce>
               </Link>
-              <Link to="">
+              <Link to="/interior">
                 <Bounce delay={200}>
                   <MobileSubMenu fontSize={`18px`} margin={`25px 0px`}>
                     인테리어
                   </MobileSubMenu>
                 </Bounce>
               </Link>
-              <Link to="">
+              <Link to="/info">
                 <Bounce delay={300}>
                   <MobileSubMenu fontSize={`18px`} margin={`25px 0px`}>
                     매장안내
                   </MobileSubMenu>
                 </Bounce>
               </Link>
-              <Link to="">
+              <Link to="/franchisee">
                 <Bounce delay={300}>
                   <MobileSubMenu fontSize={`18px`} margin={`25px 0px`}>
                     가맹절차
                   </MobileSubMenu>
                 </Bounce>
               </Link>
-              <Link to="">
+              <Link to="/contect">
                 <Bounce delay={300}>
                   <MobileSubMenu fontSize={`18px`} margin={`25px 0px`}>
                     가맹상담
