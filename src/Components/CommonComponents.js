@@ -612,7 +612,7 @@ export const CommonSubTitle = styled.h2`
   justify-content: ${(props) => props.ju || `center`};
   position: relative;
   margin: ${(props) => props.margin || `100px 0`};
-  font-size: ${(props) => props.fontSize || `60px`};
+  font-size: ${(props) => props.fontSize || `45px`};
   padding: 10px 0;
   font-weight: 600;
   color: ${(props) => props.color};
