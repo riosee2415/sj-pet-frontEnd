@@ -56,8 +56,9 @@ const Footer = ({ width }) => {
         </Wrapper>
 
         <Wrapper
-          width={`calc(100% - 250px)`}
+          width={`auto`}
           dr={`row`}
+          padding={`0 0 0 30px`}
           ju={width < 900 ? `center` : `space-between`}
         >
           <Wrapper
@@ -87,7 +88,7 @@ const Footer = ({ width }) => {
           <Wrapper
             dr={width < 900 ? `column` : `row`}
             width={width < 1100 ? `100%` : `auto`}
-            padding={width < 1100 && `30px 0 0`}
+            padding={width < 1350 && `30px 0 0`}
             al={width < 1100 && `center`}
           >
             <Wrapper width={`auto`} margin={width < 900 ? `0` : `0 0 0 50px`}>
@@ -130,7 +131,7 @@ const Footer = ({ width }) => {
 
             <Wrapper
               width={`auto`}
-              margin={width < 900 ? `30px 0 0 35px` : `0 0 0 50px`}
+              margin={width < 900 ? `30px 0 0 0` : `0 0 0 50px`}
             >
               <Text
                 fontSize={width < 900 ? `16px !important` : `18px`}
