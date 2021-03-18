@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import AD30Presenter from "./AD30Presenter";
 import { useMutation, useQuery } from "@apollo/client";
-import {} from "./AD30Queries.js";
+import { GET_ALL_STORE } from "./AD30Queries.js";
 import { toast } from "react-toastify";
 import storageFn from "../../../fsStorage";
 import useInput from "../../../Components/Hooks/useInput";
@@ -17,6 +17,7 @@ export default ({ history }) => {
   ////////////// - VARIABLE- ////////////////
 
   ////////////// - USE QUERY- ///////////////
+  const { data: sDatum, refetch: sRefetch } = useQuery(GET_ALL_STORE);
 
   ////////////// - USE MUTATION- //////////////
 
@@ -47,6 +48,8 @@ export default ({ history }) => {
       setCurrentTab={setCurrentTab}
       isLoading={isLoading}
       fileRef={fileRef}
+      //
+      sDatum={sDatum && sDatum.getAllStore}
       //
       fileChangeHandler={fileChangeHandler}
     />
