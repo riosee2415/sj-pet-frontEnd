@@ -61,7 +61,7 @@ const HeaderWrapper = styled.div`
 `;
 
 const H_Wrapper = styled.div`
-  width: 1810px;
+  width: 100%;
   height: ${(props) => props.height || `100%`};
   color: ${(props) => props.theme.white_C};
   display: flex;
@@ -226,7 +226,11 @@ const Header = ({ history, location, width }) => {
 
   return (
     <HeaderWrapper isFixed={true} top={`0px`} left={`0px`}>
-      <H_Wrapper dr={`row`} margin={`0 auto`}>
+      <H_Wrapper
+        dr={`row`}
+        margin={`0 auto`}
+        padding={width < 1100 ? `0 20px` : `0 40px`}
+      >
         <Wrapper
           height={`100%`}
           dr={`row`}

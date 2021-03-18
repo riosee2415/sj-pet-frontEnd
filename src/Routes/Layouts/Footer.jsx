@@ -44,24 +44,27 @@ const Footer = ({ width }) => {
   const { data, loading, refetch } = useQuery(GET_FOOTER_INFO);
 
   return (
-    <WholeWrapper
-      padding={`40px 0px`}
-      bgColor={Theme.grey_C}
-      color={Theme.black_C}
-    >
-      <Wrapper width={`1810px`} dr={`row`} ju={`flex-start`}>
-        <Wrapper width={`20%`} al={`flex-start`}>
-          <Image
-            width={`250px`}
-            margin={width < 900 && `0px 0px 20px`}
-            alt="logo"
-            src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2Flogo%2Flogo.png?alt=media&token=293d0a5b-53e7-446d-bdb8-d74903051e16`}
-          />
-        </Wrapper>
-        <Wrapper dr={`row`} width={`80%`} ju={`space-between`}>
-          <Wrapper dr={`row`} width={`auto`}>
-            <Wrapper al={width < 700 ? `center` : `flex-start`} width={`auto`}>
-              <Text>
+    <WholeWrapper padding={`40px`} bgColor={Theme.grey_C} color={Theme.black_C}>
+      <Wrapper dr={`row`} ju={width < 900 ? `center` : `flex-start`}>
+        <Image
+          width={width < 900 ? `200px` : `250px`}
+          al={width < 900 ? `center` : `flex-start`}
+          margin={`0 30px 0 0`}
+          alt="logo"
+          src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2Flogo%2Flogo.png?alt=media&token=293d0a5b-53e7-446d-bdb8-d74903051e16`}
+        />
+
+        <Wrapper
+          dr={`row`}
+          width={width < 900 ? `100%` : `80%`}
+          ju={width < 900 ? `center` : `space-between`}
+        >
+          <Wrapper
+            dr={width < 900 ? `column` : `row`}
+            width={width < 1100 ? `100%` : `auto`}
+          >
+            <Wrapper al={width < 900 ? `center` : `flex-start`} width={`auto`}>
+              <Text margin={width < 900 && `10px 0 0`}>
                 주식회사 선진펫{data && data.getFooterInfo.businessName}
               </Text>
               <Text margin={`10px 0`}>
@@ -72,7 +75,7 @@ const Footer = ({ width }) => {
             <Wrapper
               al={width < 700 ? `center` : `flex-start`}
               width={`auto`}
-              margin={`0px 35px`}
+              margin={width < 900 ? `10px 0 0` : `0px 0px 0px 35px`}
             >
               <Text>평일 : 08:30 ~ 17:30</Text>
               <Text margin={`10px 0`}>점심시간 : 12:30 ~ 13:30</Text>
@@ -80,47 +83,82 @@ const Footer = ({ width }) => {
             </Wrapper>
           </Wrapper>
 
-          <Wrapper dr={`row`} width={`auto`}>
-            <Wrapper width={`auto`} margin={`0 0 0 50px`}>
-              <Text fontWeight={`700`}>펫마트 가맹문의</Text>
+          <Wrapper
+            dr={width < 900 ? `column` : `row`}
+            width={width < 1100 ? `100%` : `auto`}
+            padding={width < 1100 && `30px 0 0`}
+            al={width < 1100 && `center`}
+          >
+            <Wrapper width={`auto`} margin={width < 900 ? `0` : `0 0 0 50px`}>
+              <Text
+                fontSize={width < 900 ? `16px !important` : `18px`}
+                fontWeight={`700`}
+              >
+                펫마트 가맹문의
+              </Text>
 
-              <Wrapper dr={`row`} ju={`flex-start`} padding={`10px 0`}>
-                <TelWrapper>
-                  <BiPhoneCall />
-                </TelWrapper>
+              <Wrapper ju={`flex-start`} dr={`row`} padding={`10px 0`}>
+                <Wrapper width={`50px`} margin={`0 10px 0 0`}>
+                  <TelWrapper>
+                    <BiPhoneCall />
+                  </TelWrapper>
+                </Wrapper>
                 <a href="tel:15881684">
-                  <Text fontSize={`25px`} fontWeight={`700`}>
+                  <Text
+                    al={`flex-start`}
+                    fontSize={width < 900 ? `20px !important` : `25px`}
+                    fontWeight={`700`}
+                  >
                     1588-1684
                   </Text>
                 </a>
               </Wrapper>
-              <Wrapper dr={`row`} ju={`flex-start`}>
-                <MailWrapper>
-                  <BiMailSend />
-                </MailWrapper>
+              <Wrapper ju={`flex-start`} dr={`row`}>
+                <Wrapper width={`50px`} margin={`0 10px 0 0`}>
+                  <MailWrapper>
+                    <BiMailSend />
+                  </MailWrapper>
+                </Wrapper>
                 <a href={`mailto:ebajslee@sunjinpet.co.kr`}>
-                  <Text color={`#868686`}>ebajslee@sunjinpet.co.kr</Text>
+                  <Text al={`flex-start`} color={`#868686`}>
+                    ebajslee@sunjinpet.co.kr
+                  </Text>
                 </a>
               </Wrapper>
             </Wrapper>
 
-            <Wrapper width={`auto`} margin={`0 0 0 50px`}>
-              <Text fontWeight={`700`}>수도권/경기창업문의</Text>
+            <Wrapper
+              width={`auto`}
+              margin={width < 900 ? `30px 0 0 35px` : `0 0 0 50px`}
+            >
+              <Text
+                fontSize={width < 900 ? `16px !important` : `18px`}
+                fontWeight={`700`}
+              >
+                수도권/경기창업문의
+              </Text>
 
               <Wrapper dr={`row`} ju={`flex-start`} padding={`10px 0`}>
-                <TelWrapper>
-                  <BiPhoneCall />
-                </TelWrapper>
+                <Wrapper width={`50px`} margin={`0 10px 0 0`}>
+                  <TelWrapper>
+                    <BiPhoneCall />
+                  </TelWrapper>
+                </Wrapper>
                 <a href="tel:15770731">
-                  <Text fontSize={`25px`} fontWeight={`700`}>
+                  <Text
+                    fontSize={width < 900 ? `20px !important` : `25px`}
+                    fontWeight={`700`}
+                  >
                     1577-0731
                   </Text>
                 </a>
               </Wrapper>
               <Wrapper dr={`row`} ju={`flex-start`}>
-                <MailWrapper>
-                  <BiMailSend />
-                </MailWrapper>
+                <Wrapper width={`50px`} margin={`0 10px 0 0`}>
+                  <MailWrapper>
+                    <BiMailSend />
+                  </MailWrapper>
+                </Wrapper>
                 <a href={`mailto:vvvkmvvv@sunjinpet.co.kr`}>
                   <Text color={`#868686`}>vvvkmvvv@sunjinpet.co.kr</Text>
                 </a>
