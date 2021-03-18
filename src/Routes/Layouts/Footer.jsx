@@ -44,7 +44,11 @@ const Footer = ({ width }) => {
   const { data, loading, refetch } = useQuery(GET_FOOTER_INFO);
 
   return (
-    <WholeWrapper padding={`40px`} bgColor={Theme.grey_C} color={Theme.black_C}>
+    <WholeWrapper
+      padding={width < 900 ? `40px 10px` : `40px`}
+      bgColor={Theme.grey_C}
+      color={Theme.black_C}
+    >
       <Wrapper dr={`row`} ju={width < 900 ? `center` : `flex-start`}>
         <Wrapper width={`auto`} al={width < 900 ? `center` : `flex-start`}>
           <Image
