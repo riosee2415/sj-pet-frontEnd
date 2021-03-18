@@ -10,13 +10,13 @@ import { withResizeDetector } from "react-resize-detector";
 import { GET_FOOTER_INFO } from "./LayoutQueries";
 import { useQuery } from "@apollo/client";
 import Theme from "../../Styles/Theme";
-import { styled } from "@material-ui/core";
+import styled from "styled-components";
 
-// const Footer = styled(Wrapper)`
-//   width: 40px;
-//   height: 40px;
-//   background-color: #fff;
-// `;
+const FooterArea = styled(Wrapper)`
+  width: 40px;
+  height: 40px;
+  background-color: #fff;
+`;
 
 const Footer = ({ width }) => {
   ////////////// - USE STATE - ///////////////
@@ -45,7 +45,7 @@ const Footer = ({ width }) => {
               <Text>
                 주식회사 선진펫{data && data.getFooterInfo.businessName}
               </Text>
-              <Text margin={`15px 0`}>
+              <Text margin={`10px 0`}>
                 주소 {data && data.getFooterInfo.address}
               </Text>
               <Text>Copyright (c) 선진펫. All Rights Reserved</Text>
@@ -56,7 +56,7 @@ const Footer = ({ width }) => {
               margin={`0px 35px`}
             >
               <Text>평일 : 08:30 ~ 17:30</Text>
-              <Text margin={`15px 0`}>점심시간 : 12:30 ~ 13:30</Text>
+              <Text margin={`10px 0`}>점심시간 : 12:30 ~ 13:30</Text>
               <Text>토,일/공휴일은 휴무</Text>
             </Wrapper>
           </Wrapper>
@@ -64,7 +64,7 @@ const Footer = ({ width }) => {
             <Wrapper width={`auto`}>
               <Text>펫마트 가맹문의</Text>
               <Wrapper dr={`row`} ju={`flex-start`}>
-                <Wrapper></Wrapper>
+                <FooterArea></FooterArea>
                 <Text fontSize={`25px`} fontWeight={`700`}>
                   1588-1684
                 </Text>
