@@ -25,7 +25,6 @@ export default ({ mainBannerData, width }) => {
     overflow: hidden;
 
     @media (max-width: 700px) {
-      margin-top: 59px;
       height: 500px;
     }
 
