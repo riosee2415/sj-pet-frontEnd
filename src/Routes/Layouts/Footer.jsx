@@ -60,7 +60,7 @@ const Footer = ({ width }) => {
         </Wrapper>
 
         <Wrapper
-          width={`auto`}
+          width={`calc(100% - 250px)`}
           dr={`row`}
           padding={`0 0 0 30px`}
           ju={width < 900 ? `center` : `space-between`}
