@@ -263,7 +263,7 @@ const Header = ({ history, location, width }) => {
                 펫마트
               </Menu>
             </Link>
-            <Link to="">
+            <Link to="/about">
               <Menu
                 margin={
                   width < 1350
@@ -276,7 +276,7 @@ const Header = ({ history, location, width }) => {
                 회사
               </Menu>
             </Link>
-            <Link to="">
+            <Link to="/interior">
               <Menu
                 margin={
                   width < 1350
@@ -289,7 +289,7 @@ const Header = ({ history, location, width }) => {
                 인테리어
               </Menu>
             </Link>
-            <Link to="">
+            <Link to="/info">
               <Menu
                 margin={
                   width < 1350
@@ -302,7 +302,7 @@ const Header = ({ history, location, width }) => {
                 매장안내
               </Menu>
             </Link>
-            <Link to="">
+            <Link to="/franchisee">
               <Menu
                 margin={
                   width < 1350
@@ -315,7 +315,7 @@ const Header = ({ history, location, width }) => {
                 가맹절차
               </Menu>
             </Link>
-            <Link to="">
+            <Link to="/contect">
               <Menu
                 margin={
                   width < 1350

@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import withSplitting from "../../../Lib/withSplitting";
-import { WholeWrapper } from "../../../Components/CommonComponents";
+import {
+  WholeWrapper,
+  Wrapper,
+  CommonSubTitle,
+} from "../../../Components/CommonComponents";
 import styled from "styled-components";
 import { withResizeDetector } from "react-resize-detector";
 import Theme from "../../../Styles/Theme";
@@ -24,7 +28,7 @@ const MM00Presenter = ({
       <MainSlider
         mainBannerData={width < 700 ? mobileBannerData : mainBannerData}
       />
-      <h1>Hello 4LEAF</h1>
+
       <Popup />
     </WholeWrapper>
   );
