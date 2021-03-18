@@ -11,11 +11,30 @@ import { GET_FOOTER_INFO } from "./LayoutQueries";
 import { useQuery } from "@apollo/client";
 import Theme from "../../Styles/Theme";
 import styled from "styled-components";
+import { BiPhoneCall, BiMailSend } from "react-icons/bi";
 
-const FooterArea = styled(Wrapper)`
-  width: 40px;
-  height: 40px;
+const TelWrapper = styled(Wrapper)`
+  width: 42px;
+  height: 42px;
+  border-radius: 42px;
+  box-shadow: 0 3px 6px ${(props) => props.theme.grey_C};
   background-color: #fff;
+
+  & svg {
+    font-size: 25px;
+  }
+`;
+
+const MailWrapper = styled(Wrapper)`
+  width: 30px;
+  height: 30px;
+  border-radius: 40px;
+  box-shadow: 0 3px 6px ${(props) => props.theme.grey_C};
+  background-color: #fff;
+
+  & svg {
+    font-size: 18px;
+  }
 `;
 
 const Footer = ({ width }) => {
@@ -60,40 +79,54 @@ const Footer = ({ width }) => {
               <Text>토,일/공휴일은 휴무</Text>
             </Wrapper>
           </Wrapper>
+
           <Wrapper dr={`row`} width={`auto`}>
-            <Wrapper width={`auto`}>
+            <Wrapper width={`auto`} margin={`0 0 0 50px`}>
               <Text>펫마트 가맹문의</Text>
-              <Wrapper dr={`row`} ju={`flex-start`}>
-                <FooterArea></FooterArea>
-                <Text fontSize={`25px`} fontWeight={`700`}>
-                  1588-1684
-                </Text>
+
+              <Wrapper dr={`row`} ju={`flex-start`} padding={`10px 0`}>
+                <TelWrapper>
+                  <BiPhoneCall />
+                </TelWrapper>
+                <a href="tel:15881684">
+                  <Text fontSize={`25px`} fontWeight={`700`}>
+                    1588-1684
+                  </Text>
+                </a>
               </Wrapper>
-              <Text color={`#868686`}>ebajslee@sunjinpet.co.kr</Text>
-              <Wrapper></Wrapper>
+              <Wrapper dr={`row`} ju={`flex-start`}>
+                <MailWrapper>
+                  <BiMailSend />
+                </MailWrapper>
+                <a href={`mailto:ebajslee@sunjinpet.co.kr`}>
+                  <Text color={`#868686`}>ebajslee@sunjinpet.co.kr</Text>
+                </a>
+              </Wrapper>
             </Wrapper>
+
             <Wrapper width={`auto`} margin={`0 0 0 50px`}>
               <Text>수도권/경기창업문의</Text>
-              <Wrapper dr={`row`} ju={`flex-start`}>
-                <Wrapper></Wrapper>
-                <Text fontSize={`25px`} fontWeight={`700`}>
-                  1577-0731
-                </Text>
+
+              <Wrapper dr={`row`} ju={`flex-start`} padding={`10px 0`}>
+                <TelWrapper>
+                  <BiPhoneCall />
+                </TelWrapper>
+                <a href="tel:15770731">
+                  <Text fontSize={`25px`} fontWeight={`700`}>
+                    1577-0731
+                  </Text>
+                </a>
               </Wrapper>
-              <Text color={`#868686`}>vvvkmvvv@sunjinpet.co.kr</Text>
+              <Wrapper dr={`row`} ju={`flex-start`}>
+                <MailWrapper>
+                  <BiMailSend />
+                </MailWrapper>
+                <a href={`mailto:vvvkmvvv@sunjinpet.co.kr`}>
+                  <Text color={`#868686`}>vvvkmvvv@sunjinpet.co.kr</Text>
+                </a>
+              </Wrapper>
             </Wrapper>
           </Wrapper>
-
-          {/* <Wrapper al={width < 700 ? `center` : `flex-start`} width={`auto`}>
-            <Text margin={`0px 0px 15px`} display={`flex`} dr={`row`}>
-              <a href={`mailto:${data && data.getFooterInfo.email}`}>
-                E. {data && data.getFooterInfo.email}
-              </a>
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <a href="tel:">C S. {data && data.getFooterInfo.tel} </a>
-            </Text>
-            <Text>A. {data && data.getFooterInfo.address}</Text>
-          </Wrapper> */}
         </Wrapper>
       </Wrapper>
     </WholeWrapper>
