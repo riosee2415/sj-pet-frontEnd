@@ -57,6 +57,7 @@ const HeaderWrapper = styled.div`
   transition: 0.4s;
 
   & .background {
+    height: 0;
   }
 `;
 
@@ -127,6 +128,7 @@ const LogoImg = styled.img`
 
 const Menu = styled(LiWrapper)`
   cursor: pointer;
+  font-size: 17px;
 
   &:hover {
     color: ${(props) => props.theme.basicTheme_C};
@@ -323,7 +325,7 @@ const Header = ({ history, location, width }) => {
                     : `0px 60px`
                 }
               >
-                기맹상담
+                가맹상담
               </Menu>
             </Link>
           </UlWrapper>

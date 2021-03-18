@@ -20,7 +20,7 @@ const MM00Presenter = ({
   mainBannerData,
 }) => {
   return (
-    <WholeWrapper bgColor={Theme.darkGrey_C}>
+    <WholeWrapper>
       <MainSlider
         mainBannerData={width < 700 ? mobileBannerData : mainBannerData}
       />
