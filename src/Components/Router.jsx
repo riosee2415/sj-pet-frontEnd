@@ -6,6 +6,11 @@ import { withResizeDetector } from "react-resize-detector";
 
 const ScrollToTop = withSplitting(() => import("./ScrollToTop"));
 const MM00 = withSplitting(() => import("../Routes/Client/MM00"));
+const MM01 = withSplitting(() => import("../Routes/Client/MM01"));
+const MM02 = withSplitting(() => import("../Routes/Client/MM02"));
+const MM03 = withSplitting(() => import("../Routes/Client/MM03"));
+const MM04 = withSplitting(() => import("../Routes/Client/MM04"));
+const MM05 = withSplitting(() => import("../Routes/Client/MM05"));
 
 const Header = withSplitting(() => import("../Routes/Layouts/Header"));
 const Footer = withSplitting(() => import("../Routes/Layouts/Footer"));
@@ -22,46 +27,47 @@ const AppRouter = ({ width }) => {
       {/* <ScrollToTop> */}
       {/* HEADER */}
       <Route exact path="/" component={Header} />
-      <Route exact path="/brand" component={Header} />
-      <Route exact path="/operation" component={Header} />
-      <Route exact path="/founded/:key" component={Header} />
-      <Route exact path="/guide" component={Header} />
-      <Route exact path="/menu/:key" component={Header} />
-      <Route exact path="/store/:key" component={Header} />
+      <Route exact path="/about" component={Header} />
+      <Route exact path="/interior" component={Header} />
+      <Route exact path="/info" component={Header} />
+      <Route exact path="/franchisee" component={Header} />
+      <Route exact path="/contect" component={Header} />
 
       {/* FixedNav  */}
       <Route exact path="/" component={FixedNav} />
-      <Route exact path="/brand" component={FixedNav} />
-      <Route exact path="/operation" component={FixedNav} />
-      <Route exact path="/founded/:key" component={FixedNav} />
-      <Route exact path="/guide" component={FixedNav} />
-      <Route exact path="/menu/:key" component={FixedNav} />
-      <Route exact path="/store/:key" component={FixedNav} />
+      <Route exact path="/about" component={FixedNav} />
+      <Route exact path="/interior" component={FixedNav} />
+      <Route exact path="/info" component={FixedNav} />
+      <Route exact path="/franchisee" component={FixedNav} />
+      <Route exact path="/contect" component={FixedNav} />
 
       {/* ScrollTopBtn */}
       <Route exact path="/" component={ScrollTopBtn} />
-      <Route exact path="/brand" component={ScrollTopBtn} />
-      <Route exact path="/operation" component={ScrollTopBtn} />
-      <Route exact path="/founded/:key" component={ScrollTopBtn} />
-      <Route exact path="/guide" component={ScrollTopBtn} />
-      <Route exact path="/menu/:key" component={ScrollTopBtn} />
-      <Route exact path="/store/:key" component={ScrollTopBtn} />
+      <Route exact path="/about" component={ScrollTopBtn} />
+      <Route exact path="/interior" component={ScrollTopBtn} />
+      <Route exact path="/info" component={ScrollTopBtn} />
+      <Route exact path="/franchisee" component={ScrollTopBtn} />
+      <Route exact path="/contect" component={ScrollTopBtn} />
 
       <Route path="/admin" component={A_Header} />
 
       {/* CONTENT */}
       <Route exact path="/" component={MM00} />
+      <Route exact path="/about" component={MM01} />
+      <Route exact path="/interior" component={MM02} />
+      <Route exact path="/info" component={MM03} />
+      <Route exact path="/franchisee" component={MM04} />
+      <Route exact path="/contect" component={MM05} />
 
       <Route path="/admin" component={A_Content} />
 
       {/* FOOTER */}
       <Route exact path="/" component={Footer} />
-      <Route exact path="/brand" component={Footer} />
-      <Route exact path="/operation" component={Footer} />
-      <Route exact path="/founded/:key" component={Footer} />
-      <Route exact path="/guide" component={Footer} />
-      <Route exact path="/menu/:key" component={Footer} />
-      <Route exact path="/store/:key" component={Footer} />
+      <Route exact path="/about" component={Footer} />
+      <Route exact path="/interior" component={Footer} />
+      <Route exact path="/info" component={Footer} />
+      <Route exact path="/franchisee" component={Footer} />
+      <Route exact path="/contect" component={Footer} />
       {/* </ScrollToTop> */}
     </Router>
   );

@@ -8,15 +8,14 @@
 
 ## MAIN SCREEN
 
-| 번호 | 화면명(영어) | 화면설명(한글) | 화면코드 | 연결URL      |
-| :--- | :----------- | :------------- | :------- | :----------- |
-| 1    | MAIN         | 메인           | MM00     | "/"          |
-| 2    | BRAND        | 브랜드 소개    | MM01     | "/brand"     |
-| 3    | OPERATION    | 경영철학       | MM02     | "/operation" |
-| 4    | FOUNDED      | 배달창업안내   | MM03     | "/founded"   |
-| 5    | GUIDE        | 운영가이드     | MM04     | "/guide"     |
-| 6    | MENU         | 메뉴소개       | MM05     | "/menu"      |
-| 7    | STORE        | 지점안내       | MM06     | "/store"     |
+| 번호 | 화면명(영어) | 화면설명(한글) | 화면코드 | 연결URL       |
+| :--- | :----------- | :------------- | :------- | :------------ |
+| 1    | MAIN         | 메인           | MM00     | "/"           |
+| 2    | ABOUT        | 회사           | MM01     | "/about"      |
+| 3    | INTERIOR     | 인테리어       | MM02     | "/interior"   |
+| 4    | INFO         | 매장안내       | MM03     | "/info"       |
+| 5    | FRANCHISEE   | 가맹절차       | MM04     | "/franchisee" |
+| 6    | CONTECT      | 가맹상담 QNA   | MM05     | "/contect"    |
 
 ## ADMIN SCREEN
 
