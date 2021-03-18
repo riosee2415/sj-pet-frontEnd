@@ -57,6 +57,7 @@ const HeaderWrapper = styled.div`
   transition: 0.4s;
 
   & .background {
+    height: 0;
   }
 `;
 
@@ -127,6 +128,7 @@ const LogoImg = styled.img`
 
 const Menu = styled(LiWrapper)`
   cursor: pointer;
+  font-size: 17px;
 
   &:hover {
     color: ${(props) => props.theme.basicTheme_C};
@@ -155,7 +157,7 @@ const MobileHeader = styled.div`
 const MobileMenu = styled.div`
   width: 100%;
   height: 100vh;
-  background: linear-gradient(#4b95c1, #0d3a56);
+  background: linear-gradient(#80c2e8, #0d3a56);
   z-index: 10000;
 
   & svg {
@@ -323,32 +325,35 @@ const Header = ({ history, location, width }) => {
                     : `0px 60px`
                 }
               >
-                기맹상담
+                가맹상담
               </Menu>
             </Link>
           </UlWrapper>
-
-          <Wrapper
-            width={`200px`}
-            padding={`10px`}
-            radius={`25px`}
-            bgColor={Theme.lightBasicTheme_c}
-            color={Theme.white_C}
-            fontSize={`18px`}
-          >
-            가맹문의 1588-1684
-          </Wrapper>
+          <a href="tel:15881684">
+            <Wrapper
+              width={`200px`}
+              padding={`10px`}
+              radius={`25px`}
+              bgColor={Theme.lightBasicTheme_c}
+              color={Theme.white_C}
+              fontSize={`18px`}
+            >
+              가맹문의 1588-1684
+            </Wrapper>
+          </a>
         </Wrapper>
       </H_Wrapper>
       <MobileHeader>
         <Wrapper dr={`row`} ju={`space-between`} padding={`10px 0`}>
-          <Wrapper
-            width={`auto`}
-            fontSize={`16px !important`}
-            fontWeight={`bold`}
-          >
-            1588-1684
-          </Wrapper>
+          <a href="tel:15881684">
+            <Wrapper
+              width={`auto`}
+              fontSize={`16px !important`}
+              fontWeight={`bold`}
+            >
+              1588-1684
+            </Wrapper>
+          </a>
           <Logo>
             <Link to="/">
               <LogoImg

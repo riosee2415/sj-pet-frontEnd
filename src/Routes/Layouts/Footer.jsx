@@ -44,19 +44,28 @@ const Footer = ({ width }) => {
   const { data, loading, refetch } = useQuery(GET_FOOTER_INFO);
 
   return (
-    <WholeWrapper padding={`40px`} bgColor={Theme.grey_C} color={Theme.black_C}>
-      <Wrapper dr={`row`} ju={width < 900 ? `center` : `flex-start`}>
-        <Image
-          width={width < 900 ? `200px` : `250px`}
-          al={width < 900 ? `center` : `flex-start`}
-          margin={`0 30px 0 0`}
-          alt="logo"
-          src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2Flogo%2Flogo.png?alt=media&token=293d0a5b-53e7-446d-bdb8-d74903051e16`}
-        />
+    <WholeWrapper
+      padding={width < 900 ? `40px 10px` : `40px`}
+      bgColor={Theme.grey_C}
+      color={Theme.black_C}
+    >
+      <Wrapper
+        dr={width < 900 ? `column` : `row`}
+        ju={width < 900 ? `center` : `flex-start`}
+      >
+        <Wrapper width={`auto`} al={width < 900 ? `center` : `flex-start`}>
+          <Image
+            width={width < 900 ? `200px` : `250px`}
+            margin={width < `0 30px 0 0`}
+            alt="logo"
+            src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2Flogo%2Flogo.png?alt=media&token=293d0a5b-53e7-446d-bdb8-d74903051e16`}
+          />
+        </Wrapper>
 
         <Wrapper
+          width={width < 900 ? `100%` : `calc(100% - 250px)`}
           dr={`row`}
-          width={width < 900 ? `100%` : `80%`}
+          padding={`0 0 0 30px`}
           ju={width < 900 ? `center` : `space-between`}
         >
           <Wrapper
@@ -86,7 +95,7 @@ const Footer = ({ width }) => {
           <Wrapper
             dr={width < 900 ? `column` : `row`}
             width={width < 1100 ? `100%` : `auto`}
-            padding={width < 1100 && `30px 0 0`}
+            padding={width < 1350 && `30px 0 0`}
             al={width < 1100 && `center`}
           >
             <Wrapper width={`auto`} margin={width < 900 ? `0` : `0 0 0 50px`}>
@@ -129,7 +138,7 @@ const Footer = ({ width }) => {
 
             <Wrapper
               width={`auto`}
-              margin={width < 900 ? `30px 0 0 35px` : `0 0 0 50px`}
+              margin={width < 900 ? `30px 0 0 0` : `0 0 0 50px`}
             >
               <Text
                 fontSize={width < 900 ? `16px !important` : `18px`}

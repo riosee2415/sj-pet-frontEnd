@@ -21,12 +21,10 @@ export default ({ mainBannerData, width }) => {
   const Container = styled.div`
     width: 100%;
     height: 820px;
-    margin-top: 86px;
     position: relative;
     overflow: hidden;
 
     @media (max-width: 700px) {
-      margin-top: 59px;
       height: 500px;
     }
 
