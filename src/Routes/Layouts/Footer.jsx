@@ -82,7 +82,7 @@ const Footer = ({ width }) => {
 
           <Wrapper dr={`row`} width={`auto`}>
             <Wrapper width={`auto`} margin={`0 0 0 50px`}>
-              <Text>펫마트 가맹문의</Text>
+              <Text fontWeight={`700`}>펫마트 가맹문의</Text>
 
               <Wrapper dr={`row`} ju={`flex-start`} padding={`10px 0`}>
                 <TelWrapper>
@@ -105,7 +105,7 @@ const Footer = ({ width }) => {
             </Wrapper>
 
             <Wrapper width={`auto`} margin={`0 0 0 50px`}>
-              <Text>수도권/경기창업문의</Text>
+              <Text fontWeight={`700`}>수도권/경기창업문의</Text>
 
               <Wrapper dr={`row`} ju={`flex-start`} padding={`10px 0`}>
                 <TelWrapper>
