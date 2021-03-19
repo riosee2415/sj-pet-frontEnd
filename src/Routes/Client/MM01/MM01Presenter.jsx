@@ -15,13 +15,15 @@ import { withResizeDetector } from "react-resize-detector";
 import useTitle from "@4leaf.ysh/use-title";
 import Theme from "../../../Styles/Theme";
 import SubBanner from "../../../Components/SubBanner";
+const Fade = withSplitting(() => import("react-reveal/Fade"));
+const LightSpeed = withSplitting(() => import("react-reveal/LightSpeed"));
 
 const Span = styled(SpanText)`
   background-color: ${(props) => props.theme.basicTheme_C};
 `;
 
 const MM01Presenter = ({ width }) => {
-  useTitle("셈플");
+  useTitle("회사 | 펫마트");
 
   return (
     <WholeWrapper>
@@ -46,13 +48,14 @@ const MM01Presenter = ({ width }) => {
       </Wrapper>
       <RsWrapper dr={`row`} ju={`space-between`} padding={`100px 0`}>
         <Wrapper width={width < 900 ? `100%` : `60%`} al={`flex-start`}>
-          <Text
-            fontSize={width < 900 ? `18px !important` : `35px`}
-            fontWeight={`700`}
-          >
-            선진적 반려동물 문화를 선도하는 기업
-          </Text>
-
+          <Fade bottom>
+            <Text
+              fontSize={width < 900 ? `18px !important` : `35px`}
+              fontWeight={`700`}
+            >
+              선진적 반려동물 문화를 선도하는 기업
+            </Text>
+          </Fade>
           <Text margin={`50px 0 0`}>안녕하십니까?</Text>
           <Text>주식회사 선진펫의 회장 이상득입니다.</Text>
           <Text>코로나19로 인한 경제침체 속에서 펫마트는 지난해</Text>
@@ -108,22 +111,27 @@ const MM01Presenter = ({ width }) => {
             회장 <SpanText fontSize={`25px`}>이상득</SpanText>
           </Text>
         </Wrapper>
-        <Image
-          width={width < 900 ? `100%` : `40%`}
-          alt="CEO"
-          src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM01%2Fabout-01.png?alt=media&token=6832c9e0-94d3-41d2-8198-6b283ec5215f`}
-        />
+        <Wrapper width={width < 900 ? `100%` : `40%`}>
+          <Fade right>
+            <Image
+              alt="CEO"
+              src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM01%2Fabout-01.png?alt=media&token=6832c9e0-94d3-41d2-8198-6b283ec5215f`}
+            />
+          </Fade>
+        </Wrapper>
 
         <Wrapper padding={`100px 0 0`}>
           <CommonSubTitle>연혁</CommonSubTitle>
-          <Text
-            fontSize={width < 900 ? `16px !important` : `30px`}
-            textAlign={`center`}
-            fontWeight={`700`}
-          >
-            반려동물용품 유통분야 전국 매출 1위 (주)선진펫이 지나온
-            발자취입니다.
-          </Text>
+          <LightSpeed>
+            <Text
+              fontSize={width < 900 ? `16px !important` : `30px`}
+              textAlign={`center`}
+              fontWeight={`700`}
+            >
+              반려동물용품 유통분야 전국 매출 1위 (주)선진펫이 지나온
+              발자취입니다.
+            </Text>
+          </LightSpeed>
         </Wrapper>
       </RsWrapper>
       <Wrapper padding={width < 900 ? `0 0 100px` : `0 50px 100px`}>
