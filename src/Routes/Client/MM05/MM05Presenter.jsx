@@ -21,6 +21,11 @@ import Theme from "../../../Styles/Theme";
 import SubBanner from "../../../Components/SubBanner";
 import { FaRegCheckCircle, FaCheckCircle } from "react-icons/fa";
 import { FiCheck } from "react-icons/fi";
+import Dialog from "@material-ui/core/Dialog";
+import DialogActions from "@material-ui/core/DialogActions";
+import DialogContent from "@material-ui/core/DialogContent";
+import DialogTitle from "@material-ui/core/DialogTitle";
+import Button from "@material-ui/core/Button";
 
 const Board = withSplitting(() => import("../../../Components/faq/Board"));
 
@@ -70,6 +75,9 @@ const MM05Presenter = ({
   inputDesc,
   isAgree,
   setIsAgree,
+  isToggle,
+  setIsToggle,
+  //
   createRequestHandler,
   //
   inputSearch,
@@ -79,6 +87,7 @@ const MM05Presenter = ({
   currentType,
   faqDatum,
   toggleFaqAnswer,
+  //
   changeFaqTypeHandler,
   prevAndNextPageChangeHandler,
   changePageHandler,
@@ -90,7 +99,6 @@ const MM05Presenter = ({
   return (
     <WholeWrapper>
       <SubBanner title={`가맹상담`} />
-
       <Wrapper
         dr={`row`}
         height={`70px`}
@@ -109,7 +117,6 @@ const MM05Presenter = ({
           가맹FAQ
         </Wrapper>
       </Wrapper>
-
       <RsWrapper>
         <CommonSubTitle>가맹상담</CommonSubTitle>
         <Wrapper>
@@ -138,7 +145,6 @@ const MM05Presenter = ({
             </Wrapper>
           </Fade>
         </Wrapper>
-
         <Wrapper>
           <Fade right>
             <Wrapper dr={`row`} ju={`space-around`}>
@@ -185,7 +191,6 @@ const MM05Presenter = ({
             </Wrapper>
           </Fade>
         </Wrapper>
-
         <Wrapper>
           <Fade left>
             <Wrapper dr={`row`} ju={`space-around`}>
@@ -249,7 +254,6 @@ const MM05Presenter = ({
             </Wrapper>
           </Fade>
         </Wrapper>
-
         <Wrapper width={width < 700 ? `100%` : `90%`}>
           <Fade right>
             <Wrapper
@@ -263,7 +267,6 @@ const MM05Presenter = ({
             </Wrapper>
           </Fade>
         </Wrapper>
-
         <Wrapper width={width < 700 ? `100%` : `90%`}>
           <Fade left>
             <Wrapper
@@ -318,6 +321,10 @@ const MM05Presenter = ({
                 width={width < 700 ? `80px` : `100px`}
                 kindOf={`subTheme2`}
                 fontSize={width < 700 ? `11px` : `24ㅔㅌ`}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setIsToggle(true);
+                }}
               >
                 자세히 보기
               </CommonButton>
@@ -338,7 +345,6 @@ const MM05Presenter = ({
             </CommonButton>
           </Fade>
         </Wrapper>
-
         <Wrapper>
           <Board
             inputSearch={inputSearch}
@@ -357,6 +363,33 @@ const MM05Presenter = ({
           />
         </Wrapper>
       </RsWrapper>
+
+      <Dialog
+        open={isToggle}
+        keepMounted
+        onClose={() => setIsToggle(false)}
+        aria-labelledby="alert-dialog-slide-title"
+        aria-describedby="alert-dialog-slide-description"
+        fullWidth={true}
+        maxWidth={`lg`}
+      >
+        <DialogTitle id="alert-dialog-slide-title">{`개인정보취급방침`}</DialogTitle>
+        <DialogContent>
+          <Wrapper
+            height={`400px`}
+            overflow={`auto`}
+            className="scroll"
+            ju={`flex-start`}
+          >
+            <pre>{` `}</pre>
+          </Wrapper>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={() => setIsToggle(false)} color="secondary">
+            닫기
+          </Button>
+        </DialogActions>
+      </Dialog>
     </WholeWrapper>
   );
 };

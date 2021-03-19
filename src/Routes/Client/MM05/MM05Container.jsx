@@ -30,6 +30,7 @@ const MM05Container = ({ history }) => {
   const inputDesc = useInput("");
 
   const [isAgree, setIsAgree] = useState(false);
+  const [isToggle, setIsToggle] = useState(false);
 
   //
   const [actionFaqView, setActionFaqView] = useState(null);
@@ -247,6 +248,8 @@ const MM05Container = ({ history }) => {
       inputDesc={inputDesc}
       isAgree={isAgree}
       setIsAgree={setIsAgree}
+      isToggle={isToggle}
+      setIsToggle={setIsToggle}
       //
       createRequestHandler={createRequestHandler}
       ///////////////////// FAQ
