@@ -1,5 +1,23 @@
 import { createGlobalStyle, css } from "styled-components";
 import reset from "styled-reset";
+import SCDream1_otf from "./fonts/SCDream1.otf";
+import SCDream1_woff from "./fonts/SCDream1.woff";
+import SCDream2_otf from "./fonts/SCDream2.otf";
+import SCDream2_woff from "./fonts/SCDream2.woff";
+import SCDream3_otf from "./fonts/SCDream3.otf";
+import SCDream3_woff from "./fonts/SCDream3.woff";
+import SCDream4_otf from "./fonts/SCDream4.otf";
+import SCDream4_woff from "./fonts/SCDream4.woff";
+import SCDream5_otf from "./fonts/SCDream5.otf";
+import SCDream5_woff from "./fonts/SCDream5.woff";
+import SCDream6_otf from "./fonts/SCDream6.otf";
+import SCDream6_woff from "./fonts/SCDream6.woff";
+import SCDream7_otf from "./fonts/SCDream7.otf";
+import SCDream7_woff from "./fonts/SCDream7.woff";
+import SCDream8_otf from "./fonts/SCDream8.otf";
+import SCDream8_woff from "./fonts/SCDream8.woff";
+import SCDream9_otf from "./fonts/SCDream9.otf";
+import SCDream9_woff from "./fonts/SCDream9.woff";
 
 const sliderCss = css`
   /* gallerySlider */
@@ -111,7 +129,70 @@ const editorCss = css`
 `;
 
 export default createGlobalStyle`
-
+/* font */
+@font-face {
+      font-family: 'SCDream';
+      font-style: 100;
+      font-weight: 100;
+      src: url(${SCDream1_woff}) format('woff'),
+           url(${SCDream1_otf}) format('opentype');
+    }
+    @font-face {
+      font-family: 'SCDream';
+      font-style: 200;
+      font-weight: 200;
+      src: url(${SCDream2_woff}) format('woff'),
+           url(${SCDream2_otf}) format('opentype');
+    }
+    @font-face {
+      font-family: 'SCDream';
+      font-style: 300;
+      font-weight: 300;
+      src: url(${SCDream3_woff}) format('woff'),
+           url(${SCDream3_otf}) format('opentype');
+    }
+    @font-face {
+      font-family: 'SCDream';
+      font-style: 400;
+      font-weight: 400;
+      src: url(${SCDream4_woff}) format('woff'),
+           url(${SCDream4_otf}) format('opentype');
+    }
+    @font-face {
+      font-family: 'SCDream';
+      font-style: 500;
+      font-weight: 500;
+      src: url(${SCDream5_woff}) format('woff'),
+           url(${SCDream5_otf}) format('opentype');
+    }
+    @font-face {
+      font-family: 'SCDream';
+      font-style: 600;
+      font-weight: 600;
+      src: url(${SCDream6_woff}) format('woff'),
+           url(${SCDream6_otf}) format('opentype');
+    }
+    @font-face {
+      font-family: 'SCDream';
+      font-style: 700;
+      font-weight: 700;
+      src: url(${SCDream7_woff}) format('woff'),
+           url(${SCDream7_otf}) format('opentype');
+    }
+    @font-face {
+      font-family: 'SCDream';
+      font-style: 800;
+      font-weight: 800;
+      src: url(${SCDream8_woff}) format('woff')
+           url(${SCDream8_otf}) format('opentype');
+    }
+    @font-face {
+      font-family: 'SCDream';
+      font-style: 900;
+      font-weight: 900;
+      src: url(${SCDream9_woff}) format('woff')
+           url(${SCDream9_otf}) format('opentype');
+    }
 
     ${reset};
     ${scrollCss};
@@ -119,14 +200,14 @@ export default createGlobalStyle`
     ${editorCss};
     * {
         box-sizing : border-box;
-        font-family: 'Montserrat', sans-serif;
+        font-family: 'SCDream', sans-serif;
         
         
     }
     body {
         background-color: ${(props) => props.theme.bgColor};
         color : ${(props) => props.theme.blackColor};
-        font-family: 'Montserrat', sans-serif;
+        font-family: 'SCDream', sans-serif;
         
     }
     a {
