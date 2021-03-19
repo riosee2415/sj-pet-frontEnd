@@ -55,10 +55,6 @@ const HeaderWrapper = styled.div`
   margin: ${(props) => props.margin};
   padding: ${(props) => props.padding};
   transition: 0.4s;
-
-  & .background {
-    height: 0;
-  }
 `;
 
 const H_Wrapper = styled.div`
@@ -75,7 +71,7 @@ const H_Wrapper = styled.div`
   position: ${(props) => (props.isRelative ? `relative` : ``)};
   margin: ${(props) => props.margin};
   padding: ${(props) => props.padding};
-
+  box-shadow: ${(props) => props.shadow};
   transition: ${(props) => props.theme.transition};
 
   &:hover ${OnlyHeadAbsoluteWrapper} {
@@ -129,6 +125,7 @@ const LogoImg = styled.img`
 const Menu = styled(LiWrapper)`
   cursor: pointer;
   font-size: 17px;
+  color: ${(props) => (props.isActive ? `#fdd000` : `#fff`)};
 
   &:hover {
     color: ${(props) => props.theme.basicTheme_C};
@@ -180,6 +177,8 @@ const MobileSubMenu = styled.li`
 `;
 
 const Header = ({ history, location, width }) => {
+  console.log(location.pathname);
+
   //state
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileSubMenu, setMobileSubMenu] = useState(null);
@@ -228,11 +227,7 @@ const Header = ({ history, location, width }) => {
 
   return (
     <HeaderWrapper isFixed={true} top={`0px`} left={`0px`}>
-      <H_Wrapper
-        dr={`row`}
-        margin={`0 auto`}
-        padding={width < 1100 ? `0 20px` : `0 40px`}
-      >
+      <H_Wrapper dr={`row`} padding={width < 1100 ? `0 20px` : `0 40px`}>
         <Wrapper
           height={`100%`}
           dr={`row`}
@@ -252,6 +247,7 @@ const Header = ({ history, location, width }) => {
           <UlWrapper width={`auto`} dr={`row`}>
             <Link to="/">
               <Menu
+                isActive={location.pathname === "/"}
                 margin={
                   width < 1350
                     ? width < 1100
@@ -265,6 +261,7 @@ const Header = ({ history, location, width }) => {
             </Link>
             <Link to="/about">
               <Menu
+                isActive={location.pathname === "/about"}
                 margin={
                   width < 1350
                     ? width < 1100
@@ -278,6 +275,7 @@ const Header = ({ history, location, width }) => {
             </Link>
             <Link to="/interior">
               <Menu
+                isActive={location.pathname === "/interior"}
                 margin={
                   width < 1350
                     ? width < 1100
@@ -291,6 +289,7 @@ const Header = ({ history, location, width }) => {
             </Link>
             <Link to="/info">
               <Menu
+                isActive={location.pathname === "/info"}
                 margin={
                   width < 1350
                     ? width < 1100
@@ -304,6 +303,7 @@ const Header = ({ history, location, width }) => {
             </Link>
             <Link to="/franchisee">
               <Menu
+                isActive={location.pathname === "/franchisee"}
                 margin={
                   width < 1350
                     ? width < 1100
@@ -317,6 +317,7 @@ const Header = ({ history, location, width }) => {
             </Link>
             <Link to="/contect">
               <Menu
+                isActive={location.pathname === "/contect"}
                 margin={
                   width < 1350
                     ? width < 1100
