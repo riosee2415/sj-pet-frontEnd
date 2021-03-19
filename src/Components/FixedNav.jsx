@@ -44,7 +44,7 @@ const FixedNav = ({ width }) => {
         >
           가맹문의 1588.1684
         </Wrapper>
-        <Link to="/">
+        <Link to="/contect">
           <CommonButton
             width={width < 900 ? `100px` : `150px`}
             height={width < 900 ? `30px` : `40px`}

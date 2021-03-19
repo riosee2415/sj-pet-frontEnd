@@ -1,5 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "rs-swiper/react";
+import SwiperCore, {
+  Navigation,
+  Pagination,
+  Controller,
+  Thumbs,
+  Autoplay,
+} from "rs-swiper";
 import styled from "styled-components";
 import "swiper/swiper-bundle.min.css";
 import { Image, SpanText, Text, Wrapper } from "../CommonComponents";
@@ -16,19 +23,21 @@ export default ({ width, datum, isColumn, moveLinkHandler }) => {
       flex-direction: ${(props) => (props.isColumn ? `row` : `column`)};
     }
     .swiper-slide {
-      margin-top: ${(props) => (props.isColumn ? `0 !important` : `0`)};
+      display: flex;
+      justify-content: center;
     }
   `;
+
+  SwiperCore.use([Navigation, Pagination, Controller, Thumbs, Autoplay]);
 
   return (
     <Container isColumn={isColumn}>
       <Swiper
-        spaceBetween={2}
         slidesPerView={isColumn ? 4.5 : 6}
         slidesPerColumn={isColumn ? 2 : 1}
         centeredSlides={isColumn}
-        autoplay={true}
-        navigation={false}
+        autoplay
+        loop
       >
         <SwiperSlide>
           <Wrapper
