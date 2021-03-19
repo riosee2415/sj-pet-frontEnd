@@ -28,17 +28,23 @@ const Title = styled(Wrapper)`
   font-size: 18px;
   position: relative;
   margin: 0 0 20px;
+  padding-left: 40px;
 
   &:before {
     content: "";
     position: absolute;
-    bottom: -25%;
+    top: 50%;
+    left: 0;
+    width: 30px;
+    height: 1px;
+    background: ${(props) => props.theme.subTheme_C};
+    /* bottom: -25%;
     left: 0;
     width: 150%;
     height: 15px;
     border-radius: 10px;
     background-color: ${Theme.basicTheme_C};
-    z-index: -1;
+    z-index: -1; */
   }
 
   @media (max-width: 700px) {
