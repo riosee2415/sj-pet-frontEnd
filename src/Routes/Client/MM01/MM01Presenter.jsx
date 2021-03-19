@@ -28,7 +28,10 @@ const MM01Presenter = ({ width }) => {
       <SubBanner title={`인사말`} />
       <RsWrapper dr={`row`} ju={`space-between`} padding={`100px 0`}>
         <Wrapper width={width < 900 ? `100%` : `60%`} al={`flex-start`}>
-          <Text fontSize={width < 900 ? `18px !important` : `35px`}>
+          <Text
+            fontSize={width < 900 ? `18px !important` : `35px`}
+            fontWeight={`700`}
+          >
             선진적 반려동물 문화를 선도하는 기업
           </Text>
 
@@ -43,7 +46,7 @@ const MM01Presenter = ({ width }) => {
             영예를 안게 되었습니다.
           </Text>
 
-          <Text margin={`30px 0`}>
+          <Text margin={`30px 0 0`}>
             대구에서 시작한 펫 마트는 경북, 부산, 경남, 광주, 전라를 거쳐
           </Text>
           <Text>수도권까지 진출하고 있습니다.</Text>
@@ -60,7 +63,7 @@ const MM01Presenter = ({ width }) => {
             때문입니다.
           </Text>
 
-          <Text margin={`30px 0`}>
+          <Text margin={`30px 0 0`}>
             반려인들의 변함없는 신뢰와 사랑에 보답하는 길은 더 좋은 상품과
             서비스를
           </Text>
@@ -73,7 +76,7 @@ const MM01Presenter = ({ width }) => {
             생각합니다.
           </Text>
 
-          <Text margin={`30px 0`}>
+          <Text margin={`30px 0 0`}>
             앞으로 저희 (주)선진펫은 반려동물의 건강과 행복 그리고 편의를 위한
           </Text>
           <Text>
@@ -83,7 +86,7 @@ const MM01Presenter = ({ width }) => {
           <Text>든든한 파트너로서 힘이 되어드리겠습니다.</Text>
 
           <Text margin={`0 0 30px`}>감사합니다.</Text>
-          <Text>
+          <Text fontSize={`20px`}>
             회장 <SpanText fontSize={`25px`}>이상득</SpanText>
           </Text>
         </Wrapper>
@@ -92,20 +95,25 @@ const MM01Presenter = ({ width }) => {
           alt="CEO"
           src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM01%2Fabout-01.png?alt=media&token=6832c9e0-94d3-41d2-8198-6b283ec5215f`}
         />
+
+        <Wrapper padding={`100px 0 0`}>
+          <CommonSubTitle>연혁</CommonSubTitle>
+          <Text
+            fontSize={width < 900 ? `16px !important` : `30px`}
+            textAlign={`center`}
+            fontWeight={`700`}
+          >
+            반려동물용품 유통분야 전국 매출 1위 (주)선진펫이 지나온
+            발자취입니다.
+          </Text>
+        </Wrapper>
       </RsWrapper>
-      <Wrapper padding={`0 0 150px`}>
-        <CommonSubTitle>연혁</CommonSubTitle>
-        <Text fontSize={`30px`}>
-          반려동물용품 유통분야 전국 매출 1위 (주)선진펫이 지나온 발자취입니다.
-        </Text>
+      <Wrapper padding={width < 900 ? `0 0 100px` : `0 50px 100px`}>
+        <Image
+          alt="연혁"
+          src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM01%2Fhistory.png?alt=media&token=df244ee1-cc42-4026-af29-42e958adb4ff`}
+        />
       </Wrapper>
-      <RsWrapper>
-        <Image height={`700px`} bgColor={`#eee`} />
-      </RsWrapper>
-      {/* <Wrapper fontSize={`45px`}>
-        지금 펫마트를 시작해야 하는&nbsp;
-        <DotTitle>이유</DotTitle> !
-      </Wrapper> */}
     </WholeWrapper>
   );
 };
