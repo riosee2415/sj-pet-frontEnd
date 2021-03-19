@@ -64,7 +64,6 @@ const MM03Container = ({ history, match }) => {
 
   useEffect(() => {
     if (pData) {
-      console.log(pData);
       const temp = [];
 
       for (let i = 0; i < pData.getStoreTotalPageClient; i++) temp.push(i);
