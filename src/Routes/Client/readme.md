@@ -9,8 +9,8 @@
 
 ## Info Page
 
-- [ ] Render All Layouts.
-- [ ] Find Icons.
+- [x] Render All Layouts.
+- [x] Find Icons.
 - [ ] Detail Design.
 
 ## Franchisee Page
