@@ -155,7 +155,7 @@ const MM04Presenter = ({ width }) => {
                 <Image
                   width={`140px`}
                   alt="step3"
-                  margin={`0 0 -1px 0`}
+                  margin={`0 0 -2px 0`}
                   src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2Ficon%2Fnumber03.png?alt=media&token=9a972a7a-4738-48b5-8335-efba9158dd6c`}
                 />
                 <Step>step</Step>
