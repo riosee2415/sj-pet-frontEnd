@@ -196,7 +196,7 @@ const MM05Presenter = ({ width }) => {
                     // {...inputManager}
                   />
                   <Combo width={`25%`}>
-                    <ComboOption value={`-`}>-</ComboOption>
+                    <ComboOption value={`선택`}>선택</ComboOption>
                     <ComboOption value={`naver.com`}>naver.com</ComboOption>
                     <ComboOption value={`gmail.com`}>gmail.com</ComboOption>
                     <ComboOption value={`hanmail.net`}>hanmail.net</ComboOption>
@@ -252,6 +252,7 @@ const MM05Presenter = ({ width }) => {
         <Wrapper width={width < 700 ? `100%` : `90%`}>
           <Fade left>
             <Wrapper
+              cursor={`pointer`}
               dr={`row`}
               padding={`10px 20px`}
               margin={`10px 0`}
@@ -266,7 +267,6 @@ const MM05Presenter = ({ width }) => {
                   radius={`50%`}
                   bgColor={Theme.subTheme_C}
                   margin={`0 10px 0 0`}
-                  cursor={`pointer`}
                 >
                   <FiCheck color={Theme.white_C} />
                 </Wrapper>
@@ -278,7 +278,6 @@ const MM05Presenter = ({ width }) => {
               bgColor={Theme.white_C}
               margin={`0 10px 0 0`}
               border={`1px solid ${Theme.subTheme_C}`}
-              cursor={`pointer`}
             >
               <FiCheck color={Theme.subTheme_C} />
             </Wrapper> */}
