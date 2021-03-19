@@ -8,7 +8,6 @@ import {
   SpanText,
   CommonSubTitle,
   Image,
-  DotTitle,
 } from "../../../Components/CommonComponents";
 import styled from "styled-components";
 import { withResizeDetector } from "react-resize-detector";

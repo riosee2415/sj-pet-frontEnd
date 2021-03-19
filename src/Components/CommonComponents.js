@@ -921,7 +921,7 @@ export const Pagenation = styled.div`
   padding-top: 3px;
 
   &.active {
-    background-color: ${(props) => props.theme.basicTheme_C};
+    background-color: ${(props) => props.theme.subTheme_C};
     color: ${(props) => props.theme.white_C};
     border-radius: 25px;
     box-shadow: 0px 10px 15px rgba(220, 220, 220, 1);
