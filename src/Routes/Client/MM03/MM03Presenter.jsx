@@ -12,6 +12,9 @@ import { withResizeDetector } from "react-resize-detector";
 import useTitle from "@4leaf.ysh/use-title";
 import Theme from "../../../Styles/Theme";
 import SubBanner from "../../../Components/SubBanner";
+import KakaoMap from "react-kakao-maps/lib/MapLib/KakaoMap";
+import Marker from "react-kakao-maps/lib/MapLib/Marker";
+import CustomOverlay from "react-kakao-maps/lib/MapLib/CustomOverlay";
 
 const InnerTitle = styled.h2`
   font-size: 24px;
@@ -207,7 +210,30 @@ const MM03Presenter = ({ width }) => {
       </RsWrapper>
 
       <CommonSubTitle>매장찾기</CommonSubTitle>
-      <Wrapper width={`100%`} height={`600px`} bgColor={`#d2d2d2`}></Wrapper>
+      <Wrapper width={`100%`} height={`600px`}>
+        <KakaoMap
+          apiUrl={`//dapi.kakao.com/v2/maps/sdk.js?appkey=434be05b9efb9664b63c52aa8e2210a7&autoload=false`}
+          width={`100%`}
+          level={5}
+          lat={35.87612923970815}
+          lng={128.68324850753916}
+        >
+          <CustomOverlay
+            content={
+              <Wrapper
+                width={`50px`}
+                height={`50px`}
+                radius={`50%`}
+                bgColor={`${Theme.basicTheme_C}`}
+              >
+                매장
+              </Wrapper>
+            }
+            lat={35.87612923970815}
+            lng={128.68324850753916}
+          ></CustomOverlay>
+        </KakaoMap>
+      </Wrapper>
 
       <RsWrapper margin={`50px 0px`}>
         <Wrapper dr={`row`} ju={`flex-start`} padding={`30px 0px`}>

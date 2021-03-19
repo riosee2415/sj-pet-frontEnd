@@ -331,10 +331,10 @@ export const LiWrapper = styled.li`
  *  */
 export const TextInput = styled.input`
   width: ${(props) => props.width};
-  height: ${(props) => props.height || `30px`};
-  border: ${(props) => props.theme.border};
+  height: ${(props) => props.height || `40px`};
+  border: ${(props) => props.border || `1px solid ${props.theme.lightGrey_C}`};
   padding: ${(props) => props.padding || props.theme.inputPadding};
-  border-radius: ${(props) => props.theme.radius};
+  /* border-radius: ${(props) => props.theme.radius}; */
   transition: ${(props) => props.transition || props.theme.transition};
   margin: ${(props) => props.margin};
   background-color: ${(props) => props.bgColor};
@@ -371,9 +371,9 @@ export const TextInput2 = styled.input`
 export const TextArea = styled.textarea`
   width: ${(props) => props.width};
   height: ${(props) => props.height || `100px`};
-  border: ${(props) => props.theme.border};
   padding: ${(props) => props.padding || `10px`};
-  border-radius: ${(props) => props.theme.radius};
+  border: ${(props) => props.border || `1px solid ${props.theme.lightGrey_C}`};
+  /* border-radius: ${(props) => props.theme.radius}; */
   transition: ${(props) => props.transition || props.theme.transition};
   margin: ${(props) => props.margin};
   resize: none;
@@ -385,11 +385,11 @@ export const TextArea = styled.textarea`
 
 export const Combo = styled.select`
   width: ${(props) => props.width};
-  height: ${(props) => (props.height ? props.height : `30px`)};
+  height: ${(props) => (props.height ? props.height : `40px`)};
 
-  border: ${(props) => props.border};
+  border: ${(props) => props.border || `1px solid ${props.theme.lightGrey_C}`};
   color: ${(props) => props.color};
-  border-radius: ${(props) => props.theme.radius};
+  /* border-radius: ${(props) => props.theme.radius}; */
   margin: ${(props) => props.margin || `0px 5px`};
   box-shadow: ${(props) =>
     props.shadow ? props.shadow : `0px 3px 6px ${props.theme.grey_C};`};
