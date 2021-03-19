@@ -137,7 +137,9 @@ const Menu = styled(LiWrapper)`
   cursor: pointer;
   font-size: 17px;
   color: ${(props) =>
-    props.isActive ? `${props.theme.basicTheme_C}` : `${props.theme.white_C}`};
+    props.isActive
+      ? `${props.theme.basicTheme_C} !important`
+      : `${props.theme.white_C}`};
 
   &:hover {
     color: ${(props) => props.theme.basicTheme_C};
@@ -189,8 +191,6 @@ const MobileSubMenu = styled.li`
 `;
 
 const Header = ({ history, location, width }) => {
-  console.log(location.pathname);
-
   //state
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileSubMenu, setMobileSubMenu] = useState(null);

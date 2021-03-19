@@ -13,6 +13,7 @@ import { withResizeDetector } from "react-resize-detector";
 import useTitle from "@4leaf.ysh/use-title";
 import Theme from "../../../Styles/Theme";
 import SubBanner from "../../../Components/SubBanner";
+import InteriorSlider from "../../../Components/slider/InteriorSlider";
 
 const MM02Presenter = ({ width }) => {
   useTitle("셈플");
@@ -27,6 +28,8 @@ const MM02Presenter = ({ width }) => {
           <SpanText color={Theme.lightBasicTheme_c}> 꼭</SpanText> 필요한 것만
           담았습니다.
         </Text>
+
+        <InteriorSlider />
       </RsWrapper>
     </WholeWrapper>
   );
