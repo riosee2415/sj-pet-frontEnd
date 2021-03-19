@@ -31,7 +31,7 @@ const AppRouter = ({ width }) => {
       <Route exact path="/interior" component={Header} />
       <Route exact path="/info" component={Header} />
       <Route exact path="/franchisee" component={Header} />
-      <Route exact path="/contect" component={Header} />
+      <Route exact path="/contact" component={Header} />
 
       {/* FixedNav  */}
       <Route exact path="/" component={FixedNav} />
@@ -39,7 +39,7 @@ const AppRouter = ({ width }) => {
       <Route exact path="/interior" component={FixedNav} />
       <Route exact path="/info" component={FixedNav} />
       <Route exact path="/franchisee" component={FixedNav} />
-      <Route exact path="/contect" component={FixedNav} />
+      <Route exact path="/contact" component={FixedNav} />
 
       {/* ScrollTopBtn */}
       <Route exact path="/" component={ScrollTopBtn} />
@@ -47,7 +47,7 @@ const AppRouter = ({ width }) => {
       <Route exact path="/interior" component={ScrollTopBtn} />
       <Route exact path="/info" component={ScrollTopBtn} />
       <Route exact path="/franchisee" component={ScrollTopBtn} />
-      <Route exact path="/contect" component={ScrollTopBtn} />
+      <Route exact path="/contact" component={ScrollTopBtn} />
 
       <Route path="/admin" component={A_Header} />
 
@@ -57,7 +57,7 @@ const AppRouter = ({ width }) => {
       <Route exact path="/interior" component={MM02} />
       <Route exact path="/info" component={MM03} />
       <Route exact path="/franchisee" component={MM04} />
-      <Route exact path="/contect" component={MM05} />
+      <Route exact path="/contact" component={MM05} />
 
       <Route path="/admin" component={A_Content} />
 
@@ -67,7 +67,7 @@ const AppRouter = ({ width }) => {
       <Route exact path="/interior" component={Footer} />
       <Route exact path="/info" component={Footer} />
       <Route exact path="/franchisee" component={Footer} />
-      <Route exact path="/contect" component={Footer} />
+      <Route exact path="/contact" component={Footer} />
       {/* </ScrollToTop> */}
     </Router>
   );
