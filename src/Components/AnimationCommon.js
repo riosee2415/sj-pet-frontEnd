@@ -57,6 +57,16 @@ export const translate102 = keyframes`
 }
 `;
 
+export const translate10Fixed = keyframes`
+0%{
+  transform:translateY(0);
+}
+100%{
+  transform:translateY(-10px);
+}
+
+`;
+
 export const translate = keyframes`
 0%{
   transform:translateY(50px);
