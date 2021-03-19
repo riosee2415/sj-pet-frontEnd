@@ -22,6 +22,8 @@ import SubBanner from "../../../Components/SubBanner";
 import { FaRegCheckCircle, FaCheckCircle } from "react-icons/fa";
 import { FiCheck } from "react-icons/fi";
 
+const Fade = withSplitting(() => import("react-reveal/Fade"));
+
 const Title = styled(Wrapper)`
   width: auto;
   height: auto;
@@ -35,8 +37,8 @@ const Title = styled(Wrapper)`
     position: absolute;
     top: 50%;
     left: 0;
-    width: 30px;
-    height: 1px;
+    width: 20px;
+    height: 2px;
     background: ${(props) => props.theme.subTheme_C};
     /* bottom: -25%;
     left: 0;
@@ -53,7 +55,7 @@ const Title = styled(Wrapper)`
 `;
 
 const MM05Presenter = ({ width }) => {
-  useTitle("셈플");
+  useTitle("가맹상담 | 펫마트");
 
   return (
     <WholeWrapper>
@@ -80,181 +82,196 @@ const MM05Presenter = ({ width }) => {
 
       <RsWrapper>
         <CommonSubTitle>가맹상담</CommonSubTitle>
-
-        <Wrapper dr={`row`} ju={`space-around`}>
-          <Wrapper
-            al={width < 700 ? `center` : `flex-start`}
-            width={width < 700 ? `100%` : `40%`}
-          >
-            <Wrapper al={`flex-start`} width={`100%`}>
-              <Title margin={`10px 0`}>이름</Title>
-            </Wrapper>
-            <TextInput
-              width={`100%`}
-
-              // {...inputName}
-            />
-          </Wrapper>
-
-          <Wrapper
-            al={width < 700 ? `center` : `flex-start`}
-            margin={`30px 0`}
-            width={width < 700 ? `100%` : `40%`}
-          >
-            <Wrapper al={`flex-start`} width={`100%`}>
-              <Title margin={`10px 0`}>창업희망지역</Title>
-            </Wrapper>
-            <TextInput
-              width={`100%`}
-
-              // {...inputName}
-            />
-          </Wrapper>
-        </Wrapper>
-
-        <Wrapper dr={`row`} ju={`space-around`}>
-          <Wrapper
-            al={width < 700 ? `center` : `flex-start`}
-            width={width < 700 ? `100%` : `40%`}
-          >
-            <Wrapper al={`flex-start`} width={`100%`}>
-              <Title margin={`10px 0`}>연락처</Title>
-            </Wrapper>
-            <TextInput
-              width={`100%`}
-
-              // {...inputManager}
-            />
-          </Wrapper>
-          <Wrapper
-            al={width < 700 ? `center` : `flex-start`}
-            width={width < 700 ? `100%` : `40%`}
-            margin={width < 700 ? `30px 0` : `0`}
-          >
-            <Wrapper width={`100%`} dr={`row`} ju={`flex-start`}>
-              <Wrapper al={`flex-start`} width={`auto`}>
-                <Title margin={`10px 0`}>예상창업비용</Title>
-              </Wrapper>
-              <Text
-                margin={width < 700 ? `0 0 20px 13%` : `0 0 20px 10%`}
-                fontSize={`13px`}
-                color={Theme.darkGrey_C}
-              >
-                (숫자만 입력)
-              </Text>
-            </Wrapper>
-            <Wrapper isRelative={true} width={`100%`}>
-              <TextInput
-                width={`100%`}
-
-                // {...inputManager}
-              />
+        <Wrapper>
+          <Fade left>
+            <Wrapper dr={`row`} ju={`space-around`}>
               <Wrapper
-                width={`auto`}
-                isAbsolute={true}
-                top={`50%`}
-                right={`0`}
-                color={Theme.darkGrey_C}
-                margin={`-7px 10px 0`}
+                al={width < 700 ? `center` : `flex-start`}
+                width={width < 700 ? `100%` : `40%`}
               >
-                만원
+                <Wrapper al={`flex-start`} width={`100%`}>
+                  <Title margin={`10px 0`}>이름</Title>
+                </Wrapper>
+                <TextInput
+                  width={`100%`}
+
+                  // {...inputName}
+                />
+              </Wrapper>
+
+              <Wrapper
+                al={width < 700 ? `center` : `flex-start`}
+                margin={`30px 0`}
+                width={width < 700 ? `100%` : `40%`}
+              >
+                <Wrapper al={`flex-start`} width={`100%`}>
+                  <Title margin={`10px 0`}>창업희망지역</Title>
+                </Wrapper>
+                <TextInput
+                  width={`100%`}
+
+                  // {...inputName}
+                />
               </Wrapper>
             </Wrapper>
-          </Wrapper>
+          </Fade>
         </Wrapper>
 
-        <Wrapper dr={`row`} ju={`space-around`}>
-          <Wrapper
-            al={width < 700 ? `center` : `flex-start`}
-            width={width < 700 ? `100%` : `40%`}
-            margin={width < 700 ? `0` : `30px 0`}
-          >
-            <Wrapper al={`flex-start`} width={`100%`}>
-              <Title margin={`10px 0`}>이메일</Title>
-            </Wrapper>
-            <Wrapper dr={`row`} ju={`space-between`} width={`100%`}>
-              <TextInput
-                width={width < 1100 ? `30%` : `33%`}
-
-                // {...inputManager}
-              />
-              &nbsp;@&nbsp;
-              <TextInput
-                width={width < 1100 ? `30%` : `33%`}
-
-                // {...inputManager}
-              />
-              <Combo width={`25%`}>
-                <ComboOption value={`-`}>-</ComboOption>
-                <ComboOption value={`naver.com`}>naver.com</ComboOption>
-                <ComboOption value={`gmail.com`}>gmail.com</ComboOption>
-                <ComboOption value={`hanmail.net`}>hanmail.net</ComboOption>
-                <ComboOption value={`직접 입력`}>직접 입력</ComboOption>
-              </Combo>
-            </Wrapper>
-          </Wrapper>
-
-          <Wrapper
-            al={width < 700 ? `center` : `flex-start`}
-            width={width < 700 ? `100%` : `40%`}
-            margin={width < 700 ? `30px 0` : `0`}
-          >
-            <Wrapper al={`flex-start`} width={`100%`}>
-              <Title margin={`10px 0`}>점포보유유무</Title>
-            </Wrapper>
-            <Wrapper dr={`row`} ju={`flex-start`} width={`100%`}>
-              <CommonButton
-                width={width < 800 ? `100px` : `120px`}
-                height={width < 800 ? `35px` : `40px`}
-                kindOf={`subTheme`}
+        <Wrapper>
+          <Fade right>
+            <Wrapper dr={`row`} ju={`space-around`}>
+              <Wrapper
+                al={width < 700 ? `center` : `flex-start`}
+                width={width < 700 ? `100%` : `40%`}
               >
-                없음
-              </CommonButton>
-              <CommonButton
-                width={width < 800 ? `100px` : `120px`}
-                height={width < 800 ? `35px` : `40px`}
-                margin={`0 10px`}
-                kindOf={`subTheme2`}
+                <Wrapper al={`flex-start`} width={`100%`}>
+                  <Title margin={`10px 0`}>연락처</Title>
+                </Wrapper>
+                <TextInput
+                  width={`100%`}
+
+                  // {...inputManager}
+                />
+              </Wrapper>
+              <Wrapper
+                al={width < 700 ? `center` : `flex-start`}
+                width={width < 700 ? `100%` : `40%`}
+                margin={width < 700 ? `30px 0` : `0`}
               >
-                있음
-              </CommonButton>
+                <Wrapper width={`100%`} dr={`row`} ju={`flex-start`}>
+                  <Wrapper al={`flex-start`} width={`auto`}>
+                    <Title margin={`10px 0`}>예상창업비용</Title>
+                  </Wrapper>
+                  <Text
+                    margin={`0 0 20px 10px`}
+                    fontSize={`13px`}
+                    color={Theme.darkGrey_C}
+                  >
+                    (숫자만 입력)
+                  </Text>
+                </Wrapper>
+                <Wrapper isRelative={true} width={`100%`}>
+                  <TextInput
+                    width={`100%`}
+
+                    // {...inputManager}
+                  />
+                  <Wrapper
+                    width={`auto`}
+                    isAbsolute={true}
+                    top={`50%`}
+                    right={`0`}
+                    color={Theme.darkGrey_C}
+                    margin={`-7px 10px 0`}
+                  >
+                    만원
+                  </Wrapper>
+                </Wrapper>
+              </Wrapper>
             </Wrapper>
-          </Wrapper>
+          </Fade>
         </Wrapper>
 
-        <Wrapper
-          margin={width < 700 ? `0 0 10px` : `30px 0`}
-          al={width < 700 ? `center` : `flex-start`}
-          width={width < 700 ? `100%` : `90%`}
-        >
-          <Wrapper al={`flex-start`} width={width < 700 ? `100%` : `70%`}>
-            <Title margin={`10px 0`}>문의 내용</Title>
-          </Wrapper>
-          <TextArea width={`100%`} height={`250px`} />
+        <Wrapper>
+          <Fade left>
+            <Wrapper dr={`row`} ju={`space-around`}>
+              <Wrapper
+                al={width < 700 ? `center` : `flex-start`}
+                width={width < 700 ? `100%` : `40%`}
+                margin={width < 700 ? `0` : `30px 0`}
+              >
+                <Wrapper al={`flex-start`} width={`100%`}>
+                  <Title margin={`10px 0`}>이메일</Title>
+                </Wrapper>
+                <Wrapper dr={`row`} ju={`space-between`} width={`100%`}>
+                  <TextInput
+                    width={width < 1100 ? `30%` : `33%`}
+
+                    // {...inputManager}
+                  />
+                  &nbsp;@&nbsp;
+                  <TextInput
+                    width={width < 1100 ? `30%` : `33%`}
+
+                    // {...inputManager}
+                  />
+                  <Combo width={`25%`}>
+                    <ComboOption value={`-`}>-</ComboOption>
+                    <ComboOption value={`naver.com`}>naver.com</ComboOption>
+                    <ComboOption value={`gmail.com`}>gmail.com</ComboOption>
+                    <ComboOption value={`hanmail.net`}>hanmail.net</ComboOption>
+                    <ComboOption value={`직접 입력`}>직접 입력</ComboOption>
+                  </Combo>
+                </Wrapper>
+              </Wrapper>
+
+              <Wrapper
+                al={width < 700 ? `center` : `flex-start`}
+                width={width < 700 ? `100%` : `40%`}
+                margin={width < 700 ? `30px 0` : `0`}
+              >
+                <Wrapper al={`flex-start`} width={`100%`}>
+                  <Title margin={`10px 0`}>점포보유유무</Title>
+                </Wrapper>
+                <Wrapper dr={`row`} ju={`flex-start`} width={`100%`}>
+                  <CommonButton
+                    width={width < 800 ? `100px` : `120px`}
+                    height={width < 800 ? `35px` : `40px`}
+                    kindOf={`subTheme`}
+                  >
+                    없음
+                  </CommonButton>
+                  <CommonButton
+                    width={width < 800 ? `100px` : `120px`}
+                    height={width < 800 ? `35px` : `40px`}
+                    margin={`0 10px`}
+                    kindOf={`subTheme2`}
+                  >
+                    있음
+                  </CommonButton>
+                </Wrapper>
+              </Wrapper>
+            </Wrapper>
+          </Fade>
         </Wrapper>
 
-        <Wrapper
-          dr={`row`}
-          padding={`10px 20px`}
-          margin={`10px 0`}
-          ju={`space-between`}
-          border={`1px solid ${Theme.grey_C}`}
-          width={width < 700 ? `100%` : `90%`}
-        >
-          {/* //////check 됐을때///// */}
-          <Wrapper width={`auto`} dr={`row`}>
+        <Wrapper width={width < 700 ? `100%` : `90%`}>
+          <Fade right>
             <Wrapper
-              width={width < 700 ? `20px` : `25px`}
-              height={width < 700 ? `20px` : `25px`}
-              radius={`50%`}
-              bgColor={Theme.subTheme_C}
-              margin={`0 10px 0 0`}
-              cursor={`pointer`}
+              margin={width < 700 ? `0 0 10px` : `30px 0`}
+              al={width < 700 ? `center` : `flex-start`}
             >
-              <FiCheck color={Theme.white_C} />
+              <Wrapper al={`flex-start`} width={width < 700 ? `100%` : `70%`}>
+                <Title margin={`10px 0`}>문의 내용</Title>
+              </Wrapper>
+              <TextArea width={`100%`} height={`250px`} />
             </Wrapper>
-            {/* ////check 안됐을때 //// */}
-            {/* <Wrapper
+          </Fade>
+        </Wrapper>
+
+        <Wrapper width={width < 700 ? `100%` : `90%`}>
+          <Fade left>
+            <Wrapper
+              dr={`row`}
+              padding={`10px 20px`}
+              margin={`10px 0`}
+              ju={`space-between`}
+              border={`1px solid ${Theme.grey_C}`}
+            >
+              {/* //////check 됐을때///// */}
+              <Wrapper width={`auto`} dr={`row`}>
+                <Wrapper
+                  width={width < 700 ? `20px` : `25px`}
+                  height={width < 700 ? `20px` : `25px`}
+                  radius={`50%`}
+                  bgColor={Theme.subTheme_C}
+                  margin={`0 10px 0 0`}
+                  cursor={`pointer`}
+                >
+                  <FiCheck color={Theme.white_C} />
+                </Wrapper>
+                {/* ////check 안됐을때 //// */}
+                {/* <Wrapper
               width={width < 700 ? `20px` : `25px`}
               height={width < 700 ? `20px` : `25px`}
               radius={`50%`}
@@ -266,35 +283,41 @@ const MM05Presenter = ({ width }) => {
               <FiCheck color={Theme.subTheme_C} />
             </Wrapper> */}
 
-            <Text display={width < 700 ? `none` : `flex`}>
-              개인정보취급방침을 읽었으며 이에 동의합니다.
-            </Text>
-            <Wrapper
-              width={`auto`}
-              display={width < 700 ? `flex` : `none`}
-              al={`flex-start`}
-            >
-              <Text>개인정보취급방침을 읽었으며</Text>
-              <Text>이에 동의합니다.</Text>
+                <Text display={width < 700 ? `none` : `flex`}>
+                  개인정보취급방침을 읽었으며 이에 동의합니다.
+                </Text>
+                <Wrapper
+                  width={`auto`}
+                  display={width < 700 ? `flex` : `none`}
+                  al={`flex-start`}
+                >
+                  <Text>개인정보취급방침을 읽었으며</Text>
+                  <Text>이에 동의합니다.</Text>
+                </Wrapper>
+              </Wrapper>
+              <CommonButton
+                width={width < 700 ? `80px` : `100px`}
+                kindOf={`subTheme2`}
+                fontSize={width < 700 ? `11px` : `24ㅔㅌ`}
+              >
+                자세히 보기
+              </CommonButton>
             </Wrapper>
-          </Wrapper>
-          <CommonButton
-            width={width < 700 ? `80px` : `100px`}
-            kindOf={`subTheme2`}
-            fontSize={width < 700 ? `11px` : `24ㅔㅌ`}
-          >
-            자세히 보기
-          </CommonButton>
+          </Fade>
         </Wrapper>
 
-        <CommonButton
-          width={`150px`}
-          height={`40px`}
-          kindOf={`subTheme`}
-          margin={`50px 0 100px`}
-        >
-          신청하기
-        </CommonButton>
+        <Wrapper width={`150px`}>
+          <Fade bottom>
+            <CommonButton
+              width={`100%`}
+              height={`40px`}
+              kindOf={`subTheme`}
+              margin={`50px 0 100px`}
+            >
+              신청하기
+            </CommonButton>
+          </Fade>
+        </Wrapper>
       </RsWrapper>
     </WholeWrapper>
   );
