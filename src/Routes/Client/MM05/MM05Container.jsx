@@ -185,9 +185,9 @@ const MM05Container = ({ history }) => {
   };
 
   const scrollMoveHandler = (type) => {
-    if (type === "인사말" && conRef.current) {
+    if (type === "가맹상담" && conRef.current) {
       scroll.scrollTo(conRef.current.offsetTop - 85);
-    } else if (type === "연혁" && faqRef.current) {
+    } else if (type === "가맹FAQ" && faqRef.current) {
       scroll.scrollTo(faqRef.current.offsetTop - 100);
     }
   };
