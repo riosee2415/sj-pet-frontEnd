@@ -8,23 +8,21 @@ import useInput from "../../../Components/Hooks/useInput";
 import { toast } from "react-toastify";
 
 const MM03Container = ({ history }) => {
+  ////////////// - USE STATE- ///////////////
 
-////////////// - USE STATE- ///////////////
+  ////////////// - USE QUERY- ///////////////
 
-////////////// - USE QUERY- ///////////////
+  ///////////// - USE MUTATION- /////////////
 
-///////////// - USE MUTATION- /////////////
+  ///////////// - EVENT HANDLER- ////////////
 
-///////////// - EVENT HANDLER- ////////////
+  ////////////// - USE EFFECT- //////////////
 
-////////////// - USE EFFECT- //////////////
+  useEffect(() => {
+    scroll.scrollTo(0);
+  }, []);
 
-useEffect(() => {
-  scroll.scrollTo(0);
-}, []);
-
-return <MM03Presenter />;
+  return <MM03Presenter />;
 };
 
 export default MM03Container;
-  
