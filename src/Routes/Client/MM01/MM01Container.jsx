@@ -8,23 +8,39 @@ import useInput from "../../../Components/Hooks/useInput";
 import { toast } from "react-toastify";
 
 const MM01Container = ({ history }) => {
+  ////////////// - USE REF- ///////////////
+  const greRef = useRef();
+  const hisRef = useRef();
 
-////////////// - USE STATE- ///////////////
+  ////////////// - USE STATE- ///////////////
 
-////////////// - USE QUERY- ///////////////
+  ////////////// - USE QUERY- ///////////////
 
-///////////// - USE MUTATION- /////////////
+  ///////////// - USE MUTATION- /////////////
 
-///////////// - EVENT HANDLER- ////////////
+  ///////////// - EVENT HANDLER- ////////////
+  const scrollMoveHandler = (type) => {
+    if (type === "인사말" && greRef.current) {
+      scroll.scrollTo(greRef.current.offsetTop - 85);
+    } else if (type === "연혁" && hisRef.current) {
+      scroll.scrollTo(hisRef.current.offsetTop - 100);
+    }
+  };
 
-////////////// - USE EFFECT- //////////////
+  ////////////// - USE EFFECT- //////////////
 
-useEffect(() => {
-  scroll.scrollTo(0);
-}, []);
+  useEffect(() => {
+    scroll.scrollTo(0);
+  }, []);
 
-return <MM01Presenter />;
+  return (
+    <MM01Presenter
+      greRef={greRef}
+      hisRef={hisRef}
+      //
+      scrollMoveHandler={scrollMoveHandler}
+    />
+  );
 };
 
 export default MM01Container;
-  
