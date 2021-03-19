@@ -431,7 +431,7 @@ export const CommonButton = styled.button`
   align-items: ${(props) => props.al || `center`};
   justify-content: ${(props) => props.ju || `center`};
   color: ${(props) => props.theme.white_C};
-  border-radius: 10px;
+  /* border-radius: 10px; */
 
   ${(props) => !props.kindOf && `background : ${props.theme.basicTheme_C};`}
   ${(props) =>
