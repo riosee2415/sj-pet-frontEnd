@@ -51,10 +51,11 @@ export default ({
       <Wrapper>
         <TableWrapper>
           <TableHeadColumn width={`5%`}>번호</TableHeadColumn>
-          <TableHeadColumn width={`5%`}>이름</TableHeadColumn>
-          <TableHeadColumn width={`20%`}>내용</TableHeadColumn>
-          <TableHeadColumn width={`20%`}>이메일</TableHeadColumn>
-          <TableHeadColumn width={`10%`}>모바일</TableHeadColumn>
+          <TableHeadColumn width={`10%`}>이름</TableHeadColumn>
+          <TableHeadColumn width={`10%`}>연락처</TableHeadColumn>
+          <TableHeadColumn width={`15%`}>이메일</TableHeadColumn>
+          <TableHeadColumn width={`10%`}>창업희망지역</TableHeadColumn>
+          <TableHeadColumn width={`10%`}>예상창업비용</TableHeadColumn>
           <TableHeadColumn width={`10%`}>처리상태</TableHeadColumn>
           <TableHeadColumn width={`15%`}>작성일</TableHeadColumn>
           <TableHeadColumn width={`15%`}>메모작성일</TableHeadColumn>
@@ -97,15 +98,16 @@ export default ({
                         {data.name}
                       </TableHeadColumn>
                       <TableHeadColumn isData={true} width={`20%`}>
-                        {data.description.length > 20
-                          ? data.description.substring(0, 20) + `...`
-                          : data.description}
+                        {data.mobile}
                       </TableHeadColumn>
                       <TableHeadColumn isData={true} width={`20%`}>
                         {data.email}
                       </TableHeadColumn>
                       <TableHeadColumn isData={true} width={`10%`}>
-                        {data.mobile}
+                        {data.isExistStore}
+                      </TableHeadColumn>
+                      <TableHeadColumn isData={true} width={`10%`}>
+                        {data.maypay}
                       </TableHeadColumn>
                       <TableHeadColumn isData={true} width={`10%`}>
                         <StatusText status={data.isComplete ? false : true}>

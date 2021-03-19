@@ -1,23 +1,26 @@
 import { gql } from "@apollo/client";
 
-export const GET_DIRECTREQUEST = gql`
-  query getDirectRequest($isComplete: Boolean!) {
-    getDirectRequest(isComplete: $isComplete) {
+export const GET_STORECONTACT = gql`
+  query getStoreContact($isComplete: Boolean!) {
+    getStoreContact(isComplete: $isComplete) {
       _id
       name
-      email
-      memo
+      loc
       mobile
+      mayPay
+      email
+      isExistStore
       description
-      isComplete
       createdAt
       completedAt
+      isComplete
+      isAgreement
     }
   }
 `;
 
-export const MODIFY_DIRECTREQUEST_COMPLETE = gql`
-  mutation modifyDirectRequestComplete($id: String!, $memo: String!) {
-    modifyDirectRequestComplete(id: $id, memo: $memo)
+export const MODIFY_STORECONTACT_COMPLETE = gql`
+  mutation modifyStoreContactComplete($id: String!, $memo: String!) {
+    modifyStoreContactComplete(id: $id, memo: $memo)
   }
 `;
