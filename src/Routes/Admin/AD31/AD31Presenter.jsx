@@ -45,6 +45,13 @@ export default ({
   setCurrentTab,
   isLoading,
   fileRef,
+  dataTitle,
+  dataAddress,
+  dataLnt,
+  dataAtt,
+  dataThumbnailPath,
+  dataTel,
+  dataWorkTime,
   //
   fileChangeHandler,
 }) => {
@@ -61,7 +68,7 @@ export default ({
             <DataGuideWrapper height={`300px`}>로드쇼 썸네일</DataGuideWrapper>
             <DataWrapper height={`300px`}>
               <Image
-                src={``}
+                src={dataThumbnailPath.value}
                 width={`280px`}
                 height={`210px`}
                 margin={`0px 0px 5px 0px`}
@@ -95,44 +102,70 @@ export default ({
           <Wrapper dr={`row`}>
             <DataGuideWrapper>가맹점명</DataGuideWrapper>
             <DataWrapper>
-              <TextInput height={`25px`} />
+              <TextInput height={`25px`} {...dataTitle} />
             </DataWrapper>
           </Wrapper>
 
           <Wrapper dr={`row`}>
             <DataGuideWrapper>가맹점 주소</DataGuideWrapper>
             <DataWrapper>
-              <TextInput height={`25px`} />
+              <TextInput height={`25px`} {...dataAddress} />
             </DataWrapper>
           </Wrapper>
 
           <Wrapper dr={`row`}>
             <DataGuideWrapper>위도 값</DataGuideWrapper>
             <DataWrapper>
-              <TextInput height={`25px`} />
+              <TextInput height={`25px`} {...dataLnt} />
             </DataWrapper>
           </Wrapper>
 
           <Wrapper dr={`row`}>
             <DataGuideWrapper>경도 값</DataGuideWrapper>
             <DataWrapper>
-              <TextInput height={`25px`} />
+              <TextInput height={`25px`} {...dataAtt} />
             </DataWrapper>
           </Wrapper>
 
           <Wrapper dr={`row`}>
             <DataGuideWrapper>연락처</DataGuideWrapper>
             <DataWrapper>
-              <TextInput height={`25px`} />
+              <TextInput height={`25px`} {...dataTel} />
             </DataWrapper>
           </Wrapper>
 
           <Wrapper dr={`row`}>
             <DataGuideWrapper>영업시간</DataGuideWrapper>
             <DataWrapper>
-              <TextInput height={`25px`} />
+              <TextInput height={`25px`} {...dataWorkTime} />
             </DataWrapper>
           </Wrapper>
+        </Wrapper>
+
+        <Wrapper margin={`10px 0px`} al={`flex-end`} ju={`flex-end`} dr={`row`}>
+          <CommonButton
+            kindOf={`update`}
+            margin={`0px 5px`}
+            onClick={() => moveListPageHandler()}
+          >
+            목록으로
+          </CommonButton>
+
+          <CommonButton
+            kindOf={`delete`}
+            margin={`0px 5px`}
+            onClick={() => deleteBoardHandler()}
+          >
+            삭제하기
+          </CommonButton>
+
+          <CommonButton
+            kindOf={`create`}
+            margin={`0px 5px`}
+            onClick={() => updateRoadShowHandler()}
+          >
+            저장하기
+          </CommonButton>
         </Wrapper>
       </Fade>
     </WholeWrapper>
