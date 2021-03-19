@@ -15,6 +15,7 @@ import styled from "styled-components";
 import { withResizeDetector } from "react-resize-detector";
 import Theme from "../../../Styles/Theme";
 import { Link } from "react-router-dom";
+import useTitle from "@4leaf.ysh/use-title";
 
 const Popup = withSplitting(() =>
   import("../../../Components/popup/Popup.jsx")
@@ -57,6 +58,7 @@ const MM00Presenter = ({
   mobileBannerData,
   mainBannerData,
 }) => {
+  useTitle("PET MART 선진펫");
   return (
     <WholeWrapper>
       <Wrapper height={`700px`} bgColor={`${Theme.grey_C}`}>
