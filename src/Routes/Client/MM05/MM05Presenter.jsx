@@ -21,28 +21,23 @@ import Theme from "../../../Styles/Theme";
 import SubBanner from "../../../Components/SubBanner";
 import { FaRegCheckCircle, FaCheckCircle } from "react-icons/fa";
 
-const Teb = styled(Wrapper)`
-  width: 100px;
-  padding: 20px 0;
+const Title = styled(Wrapper)`
+  width: auto;
+  height: auto;
   font-size: 18px;
-  color: ${Theme.darkGrey_C};
-  border-bottom: 1px solid transparent;
   position: relative;
-  cursor: pointer;
-  margin: 0 30px;
+  margin: 0 0 20px;
 
   &:before {
     content: "";
     position: absolute;
-    width: 0%;
-    height: 2px;
-    bottom: 0;
+    bottom: -25%;
     left: 0;
+    width: 150%;
+    height: 15px;
+    border-radius: 10px;
     background-color: ${Theme.basicTheme_C};
-  }
-
-  &:hover:before {
-    animation: ${fullWidth} 1s forwards;
+    z-index: -1;
   }
 `;
 
@@ -53,47 +48,60 @@ const MM05Presenter = ({ width }) => {
     <WholeWrapper>
       <SubBanner title={`가맹상담`} />
 
-      <Wrapper borderBottom={`1px solid ${Theme.lightGrey_C}`}>
-        <Teb>
-          <Text borderRight={`1px solid ${Theme.darkGrey_C}`}>가맹상담</Text>
-        </Teb>
+      <Wrapper
+        dr={`row`}
+        height={`70px`}
+        borderBottom={`1px solid ${Theme.grey_C}`}
+      >
+        <Wrapper
+          width={`150px`}
+          height={`100%`}
+          cursor={`pointer`}
+          borderBottom={`2px solid ${Theme.basicTheme_C}`}
+        >
+          가맹상담
+        </Wrapper>
+        <Wrapper height={`20px`} bgColor={Theme.grey_C} width={`1px`}></Wrapper>
+        <Wrapper cursor={`pointer`} width={`150px`} height={`100%`}>
+          가맹FAQ
+        </Wrapper>
       </Wrapper>
 
       <RsWrapper>
         <CommonSubTitle>가맹상담</CommonSubTitle>
 
-        <Wrapper dr={`row`}>
+        <Wrapper dr={`row`} ju={`space-around`}>
           <Wrapper margin={`10px 0`} width={`50%`}>
             <Wrapper al={`flex-start`} margin={`0 0 10px`}>
-              <Text margin={`10px 0`}>이름</Text>
+              <Title margin={`10px 0`}>이름</Title>
               <TextInput
                 width={`70%`}
-                height={`30px`}
+
                 // {...inputName}
               />
             </Wrapper>
 
-            <Wrapper al={`flex-start`}>
-              <Text margin={`10px 0`}>연락처</Text>
+            <Wrapper al={`flex-start`} margin={`40px 0`}>
+              <Title margin={`10px 0`}>연락처</Title>
               <TextInput
                 width={`70%`}
-                height={`30px`}
+
                 // {...inputManager}
               />
             </Wrapper>
 
             <Wrapper al={`flex-start`}>
-              <Text margin={`10px 0`}>이메일</Text>
+              <Title margin={`10px 0`}>이메일</Title>
               <Wrapper dr={`row`} ju={`space-between`} width={`70%`}>
                 <TextInput
                   width={`33%`}
-                  height={`30px`}
+
                   // {...inputManager}
                 />
                 &nbsp;@&nbsp;
                 <TextInput
                   width={`33%`}
-                  height={`30px`}
+
                   // {...inputManager}
                 />
                 <Combo width={`25%`}>
@@ -109,25 +117,25 @@ const MM05Presenter = ({ width }) => {
 
           <Wrapper margin={`10px 0`} width={`50%`}>
             <Wrapper al={`flex-start`} margin={`0 0 10px`}>
-              <Text margin={`10px 0`}>창업희망지역</Text>
+              <Title margin={`10px 0`}>창업희망지역</Title>
               <TextInput
                 width={`70%`}
-                height={`30px`}
+
                 // {...inputName}
               />
             </Wrapper>
 
-            <Wrapper al={`flex-start`}>
-              <Text margin={`10px 0`}>예상창업비용</Text>
+            <Wrapper al={`flex-start`} margin={`40px 0`}>
+              <Title margin={`10px 0`}>예상창업비용</Title>
               <TextInput
                 width={`70%`}
-                height={`30px`}
+
                 // {...inputManager}
               />
             </Wrapper>
 
             <Wrapper al={`flex-start`}>
-              <Text margin={`10px 0`}>점포보유유무</Text>
+              <Title margin={`10px 0`}>점포보유유무</Title>
               <Wrapper dr={`row`} ju={`flex-start`}>
                 <CommonButton width={`60px`} height={`30px`}>
                   없음
@@ -139,8 +147,8 @@ const MM05Presenter = ({ width }) => {
             </Wrapper>
           </Wrapper>
 
-          <Wrapper margin={`10px 0`} al={`flex-start`}>
-            <Text margin={`10px 0`}>문의 내용</Text>
+          <Wrapper margin={`10px 0`} al={`flex-start`} margin={`40px 0`}>
+            <Title margin={`10px 0`}>문의 내용</Title>
             <TextArea width={`100%`} height={`250px`} />
           </Wrapper>
 
