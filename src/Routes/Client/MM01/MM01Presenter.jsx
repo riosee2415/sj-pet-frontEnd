@@ -20,12 +20,19 @@ const Span = styled(SpanText)`
   background-color: ${(props) => props.theme.basicTheme_C};
 `;
 
-const MM01Presenter = ({ width }) => {
+const MM01Presenter = ({
+  width,
+  //
+  greRef,
+  hisRef,
+  //
+  scrollMoveHandler,
+}) => {
   useTitle("셈플");
 
   return (
     <WholeWrapper>
-      <SubBanner title={`인사말`} />
+      <SubBanner title={``} />
       <Wrapper
         dr={`row`}
         height={`70px`}
@@ -36,16 +43,26 @@ const MM01Presenter = ({ width }) => {
           height={`100%`}
           cursor={`pointer`}
           borderBottom={`2px solid ${Theme.basicTheme_C}`}
+          onClick={() => scrollMoveHandler("인사말")}
         >
           인사말
         </Wrapper>
         <Wrapper height={`20px`} bgColor={Theme.grey_C} width={`1px`}></Wrapper>
-        <Wrapper cursor={`pointer`} width={`150px`} height={`100%`}>
+        <Wrapper
+          cursor={`pointer`}
+          width={`150px`}
+          height={`100%`}
+          onClick={() => scrollMoveHandler("연혁")}
+        >
           연혁
         </Wrapper>
       </Wrapper>
       <RsWrapper dr={`row`} ju={`space-between`} padding={`100px 0`}>
-        <Wrapper width={width < 900 ? `100%` : `60%`} al={`flex-start`}>
+        <Wrapper
+          width={width < 900 ? `100%` : `60%`}
+          al={`flex-start`}
+          ref={greRef}
+        >
           <Text
             fontSize={width < 900 ? `18px !important` : `35px`}
             fontWeight={`700`}
@@ -115,7 +132,7 @@ const MM01Presenter = ({ width }) => {
         />
 
         <Wrapper padding={`100px 0 0`}>
-          <CommonSubTitle>연혁</CommonSubTitle>
+          <CommonSubTitle ref={hisRef}>연혁</CommonSubTitle>
           <Text
             fontSize={width < 900 ? `16px !important` : `30px`}
             textAlign={`center`}
