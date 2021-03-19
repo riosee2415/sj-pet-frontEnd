@@ -75,16 +75,16 @@ const MM05Presenter = ({ width }) => {
       <RsWrapper>
         <CommonSubTitle>가맹상담</CommonSubTitle>
 
-        <Wrapper dr={`row`}>
+        <Wrapper dr={`row`} ju={`space-around`}>
           <Wrapper
             al={width < 700 ? `center` : `flex-start`}
-            width={width < 700 ? `100%` : `50%`}
+            width={width < 700 ? `100%` : `40%`}
           >
-            <Wrapper al={`flex-start`} width={width < 700 ? `100%` : `70%`}>
+            <Wrapper al={`flex-start`} width={`100%`}>
               <Title margin={`10px 0`}>이름</Title>
             </Wrapper>
             <TextInput
-              width={width < 700 ? `100%` : `70%`}
+              width={`100%`}
 
               // {...inputName}
             />
@@ -92,99 +92,111 @@ const MM05Presenter = ({ width }) => {
 
           <Wrapper
             al={width < 700 ? `center` : `flex-start`}
-            width={width < 700 ? `100%` : `50%`}
-            margin={width < 700 ? `30px 0` : `0`}
+            margin={`30px 0`}
+            width={width < 700 ? `100%` : `40%`}
           >
-            <Wrapper al={`flex-start`} width={width < 700 ? `100%` : `70%`}>
+            <Wrapper al={`flex-start`} width={`100%`}>
+              <Title margin={`10px 0`}>창업희망지역</Title>
+            </Wrapper>
+            <TextInput
+              width={`100%`}
+
+              // {...inputName}
+            />
+          </Wrapper>
+        </Wrapper>
+
+        <Wrapper dr={`row`} ju={`space-around`}>
+          <Wrapper
+            al={width < 700 ? `center` : `flex-start`}
+            width={width < 700 ? `100%` : `40%`}
+          >
+            <Wrapper al={`flex-start`} width={`100%`}>
               <Title margin={`10px 0`}>연락처</Title>
             </Wrapper>
             <TextInput
-              width={width < 700 ? `100%` : `70%`}
+              width={`100%`}
 
               // {...inputManager}
             />
           </Wrapper>
-
-          <Wrapper dr={`row`}>
-            <Wrapper
-              al={width < 700 ? `center` : `flex-start`}
-              width={width < 700 ? `100%` : `50%`}
-              margin={width < 700 ? `0` : `30px 0`}
-            >
-              <Wrapper al={`flex-start`} width={width < 700 ? `100%` : `70%`}>
-                <Title margin={`10px 0`}>이메일</Title>
+          <Wrapper
+            al={width < 700 ? `center` : `flex-start`}
+            width={width < 700 ? `100%` : `40%`}
+            margin={width < 700 ? `30px 0` : `0`}
+          >
+            <Wrapper width={`100%`} dr={`row`} ju={`flex-start`}>
+              <Wrapper al={`flex-start`} width={`auto`}>
+                <Title margin={`10px 0`}>예상창업비용</Title>
               </Wrapper>
-              <Wrapper
-                dr={`row`}
-                ju={`space-between`}
-                width={width < 700 ? `100%` : `70%`}
+              <Text
+                margin={width < 700 ? `0 0 20px 13%` : `0 0 20px 10%`}
+                fontSize={`13px`}
+                color={Theme.darkGrey_C}
               >
-                <TextInput
-                  width={width < 1100 ? `30%` : `33%`}
-
-                  // {...inputManager}
-                />
-                &nbsp;@&nbsp;
-                <TextInput
-                  width={width < 1100 ? `30%` : `33%`}
-
-                  // {...inputManager}
-                />
-                <Combo width={`25%`}>
-                  <ComboOption value={`-`}>-</ComboOption>
-                  <ComboOption value={`naver.com`}>naver.com</ComboOption>
-                  <ComboOption value={`gmail.com`}>gmail.com</ComboOption>
-                  <ComboOption value={`hanmail.net`}>hanmail.net</ComboOption>
-                  <ComboOption value={`직접 입력`}>직접 입력</ComboOption>
-                </Combo>
-              </Wrapper>
+                (숫자만 입력)
+              </Text>
             </Wrapper>
-
-            <Wrapper
-              al={width < 700 ? `center` : `flex-start`}
-              margin={`30px 0`}
-              width={width < 700 ? `100%` : `50%`}
-            >
-              <Wrapper al={`flex-start`} width={width < 700 ? `100%` : `70%`}>
-                <Title margin={`10px 0`}>창업희망지역</Title>
-              </Wrapper>
+            <Wrapper isRelative={true} width={`100%`}>
               <TextInput
-                width={width < 700 ? `100%` : `70%`}
+                width={`100%`}
 
-                // {...inputName}
+                // {...inputManager}
               />
+              <Wrapper
+                width={`auto`}
+                isAbsolute={true}
+                top={`50%`}
+                right={`0`}
+                color={Theme.darkGrey_C}
+                margin={`-7px 10px 0`}
+              >
+                만원
+              </Wrapper>
             </Wrapper>
           </Wrapper>
         </Wrapper>
 
-        <Wrapper dr={`row`}>
+        <Wrapper dr={`row`} ju={`space-around`}>
           <Wrapper
             al={width < 700 ? `center` : `flex-start`}
-            width={width < 700 ? `100%` : `50%`}
+            width={width < 700 ? `100%` : `40%`}
+            margin={width < 700 ? `0` : `30px 0`}
           >
-            <Wrapper al={`flex-start`} width={width < 700 ? `100%` : `70%`}>
-              <Title margin={`10px 0`}>예상창업비용</Title>
+            <Wrapper al={`flex-start`} width={`100%`}>
+              <Title margin={`10px 0`}>이메일</Title>
             </Wrapper>
-            <TextInput
-              width={width < 700 ? `100%` : `70%`}
+            <Wrapper dr={`row`} ju={`space-between`} width={`100%`}>
+              <TextInput
+                width={width < 1100 ? `30%` : `33%`}
 
-              // {...inputManager}
-            />
+                // {...inputManager}
+              />
+              &nbsp;@&nbsp;
+              <TextInput
+                width={width < 1100 ? `30%` : `33%`}
+
+                // {...inputManager}
+              />
+              <Combo width={`25%`}>
+                <ComboOption value={`-`}>-</ComboOption>
+                <ComboOption value={`naver.com`}>naver.com</ComboOption>
+                <ComboOption value={`gmail.com`}>gmail.com</ComboOption>
+                <ComboOption value={`hanmail.net`}>hanmail.net</ComboOption>
+                <ComboOption value={`직접 입력`}>직접 입력</ComboOption>
+              </Combo>
+            </Wrapper>
           </Wrapper>
 
           <Wrapper
             al={width < 700 ? `center` : `flex-start`}
-            width={width < 700 ? `100%` : `50%`}
+            width={width < 700 ? `100%` : `40%`}
             margin={width < 700 ? `30px 0` : `0`}
           >
-            <Wrapper al={`flex-start`} width={width < 700 ? `100%` : `70%`}>
+            <Wrapper al={`flex-start`} width={`100%`}>
               <Title margin={`10px 0`}>점포보유유무</Title>
             </Wrapper>
-            <Wrapper
-              dr={`row`}
-              ju={`flex-start`}
-              width={width < 700 ? `100%` : `70%`}
-            >
+            <Wrapper dr={`row`} ju={`flex-start`} width={`100%`}>
               <CommonButton
                 width={width < 800 ? `100px` : `120px`}
                 height={width < 800 ? `35px` : `40px`}
@@ -207,6 +219,7 @@ const MM05Presenter = ({ width }) => {
         <Wrapper
           margin={width < 700 ? `0 0 10px` : `30px 0`}
           al={width < 700 ? `center` : `flex-start`}
+          width={width < 700 ? `100%` : `90%`}
         >
           <Wrapper al={`flex-start`} width={width < 700 ? `100%` : `70%`}>
             <Title margin={`10px 0`}>문의 내용</Title>
@@ -220,7 +233,9 @@ const MM05Presenter = ({ width }) => {
           margin={`10px 0`}
           ju={`space-between`}
           border={`1px solid ${Theme.grey_C}`}
+          width={width < 700 ? `100%` : `90%`}
         >
+          {/* //////check 됐을때///// */}
           <Wrapper width={`auto`} dr={`row`}>
             <Wrapper
               width={width < 700 ? `20px` : `25px`}
@@ -228,9 +243,23 @@ const MM05Presenter = ({ width }) => {
               radius={`50%`}
               bgColor={Theme.subTheme_C}
               margin={`0 10px 0 0`}
+              cursor={`pointer`}
             >
               <FiCheck color={Theme.white_C} />
             </Wrapper>
+            {/* ////check 안됐을때 //// */}
+            {/* <Wrapper
+              width={width < 700 ? `20px` : `25px`}
+              height={width < 700 ? `20px` : `25px`}
+              radius={`50%`}
+              bgColor={Theme.white_C}
+              margin={`0 10px 0 0`}
+              border={`1px solid ${Theme.subTheme_C}`}
+              cursor={`pointer`}
+            >
+              <FiCheck color={Theme.subTheme_C} />
+            </Wrapper> */}
+
             <Text display={width < 700 ? `none` : `flex`}>
               개인정보취급방침을 읽었으며 이에 동의합니다.
             </Text>
@@ -246,7 +275,7 @@ const MM05Presenter = ({ width }) => {
           <CommonButton
             width={width < 700 ? `80px` : `100px`}
             kindOf={`subTheme2`}
-            fontSize={width < 700 ? `11px` : `16px`}
+            fontSize={width < 700 ? `11px` : `24ㅔㅌ`}
           >
             자세히 보기
           </CommonButton>
