@@ -617,8 +617,17 @@ export const CommonSubTitle = styled.h2`
   font-weight: 600;
   color: ${(props) => props.color};
   text-align: left;
-  border-top: 3px solid ${(props) => props.theme.lightBasicTheme_c};
-  border-bottom: 3px solid ${(props) => props.theme.lightBasicTheme_c};
+
+  &:before {
+    content: "";
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    width: 100%;
+    height: 25px;
+    background-color: ${(props) => props.theme.basicTheme_C};
+    z-index: -100;
+  }
 
   @media (max-width: 800px) {
     font-size: 40px;
