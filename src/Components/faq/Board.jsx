@@ -44,7 +44,7 @@ const Board = ({
 }) => {
   return (
     <WholeWrapper>
-      <SearchWrapper width={`auto`} dr={`row`} isRelative={true}>
+      {/* <SearchWrapper width={`auto`} dr={`row`} isRelative={true}>
         <TextInput
           type="text"
           width={`190px`}
@@ -55,9 +55,9 @@ const Board = ({
         />
 
         <AiOutlineSearch onClick={searchHandler} />
-      </SearchWrapper>
+      </SearchWrapper> */}
 
-      <TabWrapper
+      {/* <TabWrapper
         dr={`row`}
         isWrap={true}
         ju={width < 700 ? `center` : `flex-start`}
@@ -83,7 +83,7 @@ const Board = ({
               </TabBtn>
             );
           })}
-      </TabWrapper>
+      </TabWrapper> */}
 
       <Wrapper>
         {faqDatum ? (

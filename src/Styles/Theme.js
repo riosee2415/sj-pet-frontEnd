@@ -27,7 +27,7 @@ export default {
   grey_C: "#E3E3E3",
   greyArea_C: "#ecf0f1",
   darkGrey_C: "#565656",
-  lightGrey_C: "#dcdcdc",
+  lightGrey_C: "#f7f7f7",
   create_B_C: "#4834d4",
   check_B_C: "#686de0",
   update_B_C: "#3867d6",

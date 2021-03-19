@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { appearAnimation } from "./AnimationCommon";
+import { appearAnimation, scale } from "./AnimationCommon";
 
 ////////////////////////////////////////////////Wrapper////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -127,6 +127,10 @@ export const Wrapper = styled.div`
       props.isShadowHover4
         ? `-15px -20px ${props.theme.lightBasicTheme_c};`
         : ``};
+  }
+
+  & .react-reveal {
+    width: 100%;
   }
 
   @media (max-width: 700px) {
@@ -624,7 +628,7 @@ export const CommonSubTitle = styled.h2`
     bottom: 5px;
     left: -2%;
     width: 104%;
-    height: 40px;
+    height: 40%;
     background-color: ${(props) => props.theme.basicTheme_C};
     z-index: -100;
     border-radius: 5px 5px 0 0;
@@ -634,7 +638,11 @@ export const CommonSubTitle = styled.h2`
     font-size: 40px;
   }
   @media (max-width: 500px) {
-    font-size: 30px;
+    font-size: 20px;
+
+    & p {
+      font-size: 20px;
+    }
   }
 `;
 
@@ -1152,6 +1160,11 @@ export const Image = styled.img`
   right: ${(props) => props.right};
   transition: 0.3s;
   filter: ${(props) => (props.isFilter ? `brightness(30%) opacity(0.4)` : ` `)};
+
+  &.title {
+    animation: ${scale} 1s forwards;
+  }
+
   &:hover {
     filter: ${(props) => (props.isHover ? `brightness(100%) opacity(1)` : ` `)};
 

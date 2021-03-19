@@ -31,12 +31,13 @@ export default ({ width, datum, isColumn, moveLinkHandler }) => {
         navigation={false}
       >
         <SwiperSlide>
-          <Wrapper
+          <Image
+            alt="brand"
+            src={``}
+            isFilter={true}
             width={`200px`}
-            height={`150px`}
             margin={`10px 0`}
-            border={`1px solid ${Theme.black_C}`}
-          ></Wrapper>
+          />
           <Wrapper
             width={`200px`}
             height={`150px`}

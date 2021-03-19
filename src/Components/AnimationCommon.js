@@ -74,3 +74,12 @@ export const translateX = keyframes`
   transform:translateX(0px);
 }
 `;
+
+export const scale = keyframes`
+0%{
+  transform:scale(0);
+}
+100%{
+  transform:scale(1);
+}
+`;
