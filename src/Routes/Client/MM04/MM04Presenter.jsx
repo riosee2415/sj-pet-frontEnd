@@ -97,6 +97,7 @@ const MM04Presenter = ({ width }) => {
                   <Image
                     width={`140px`}
                     alt="step"
+                    margin={`0 0 -1px 0`}
                     src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2Ficon%2Fnumber01.png?alt=media&token=8b3fb94f-2ddd-4fd9-9ca8-8e85fd634227`}
                   />
                 </Wrapper>
@@ -125,7 +126,8 @@ const MM04Presenter = ({ width }) => {
               <Wrapper dr={`row`}>
                 <Image
                   width={`140px`}
-                  alt="step"
+                  alt="step2"
+                  margin={`0 0 -1px 0`}
                   src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2Ficon%2Fnumber02.png?alt=media&token=891db61f-3090-4333-8cf6-c50cbbb86fa7`}
                 />
                 <Step>step</Step>
@@ -153,6 +155,7 @@ const MM04Presenter = ({ width }) => {
                 <Image
                   width={`140px`}
                   alt="step3"
+                  margin={`0 0 -1px 0`}
                   src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2Ficon%2Fnumber03.png?alt=media&token=9a972a7a-4738-48b5-8335-efba9158dd6c`}
                 />
                 <Step>step</Step>
@@ -180,6 +183,7 @@ const MM04Presenter = ({ width }) => {
                 <Image
                   width={`140px`}
                   alt="step4"
+                  margin={`0 0 -1px 0`}
                   src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2Ficon%2Fnumber04.png?alt=media&token=718e81dd-686d-48ba-bf42-0c4f9a93db2e`}
                 />
                 <Step>step</Step>
@@ -207,6 +211,7 @@ const MM04Presenter = ({ width }) => {
                 <Image
                   width={`140px`}
                   alt="step5"
+                  margin={`0 0 -1px 0`}
                   src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2Ficon%2Fnumber05.png?alt=media&token=6366a7bf-a10a-4182-8228-ec637998c046`}
                 />
                 <Step>step</Step>
@@ -234,7 +239,8 @@ const MM04Presenter = ({ width }) => {
               <Wrapper dr={`row`}>
                 <Image
                   width={`140px`}
-                  alt="step"
+                  alt="step6"
+                  margin={`0 0 -1px 0`}
                   src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2Ficon%2Fnumber06.png?alt=media&token=b268e6c1-24ae-4e48-9c1a-f2e2d8b86060`}
                 />
                 <Step>step</Step>
@@ -261,7 +267,8 @@ const MM04Presenter = ({ width }) => {
               <Wrapper dr={`row`}>
                 <Image
                   width={`140px`}
-                  alt="step"
+                  alt="step7"
+                  margin={`0 0 -1px 0`}
                   src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2Ficon%2Fnumber07.png?alt=media&token=dcf914e4-ddeb-43fe-8ec9-ab9ef80ae3de`}
                 />
                 <Step>step</Step>
@@ -288,7 +295,8 @@ const MM04Presenter = ({ width }) => {
               <Wrapper dr={`row`}>
                 <Image
                   width={`140px`}
-                  alt="step"
+                  alt="step8"
+                  margin={`0 0 -1px 0`}
                   src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2Ficon%2Fnumber08.png?alt=media&token=272141a9-31e4-4efa-8698-4419826d388a`}
                 />
                 <Step>step</Step>
@@ -316,7 +324,8 @@ const MM04Presenter = ({ width }) => {
               <Wrapper dr={`row`}>
                 <Image
                   width={`140px`}
-                  alt="step"
+                  alt="step9"
+                  margin={`0 0 -1px 0`}
                   src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2Ficon%2Fnumber09.png?alt=media&token=9c8e9dad-cb60-4261-90ec-5697a2a884aa`}
                 />
                 <Step>step</Step>
