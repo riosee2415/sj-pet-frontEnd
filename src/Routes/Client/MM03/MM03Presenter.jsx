@@ -6,6 +6,10 @@ import {
   CommonSubTitle,
   RsWrapper,
   Image,
+  EmptyList,
+  PagenationWrapper,
+  PagenationBtn,
+  Pagenation,
 } from "../../../Components/CommonComponents";
 import styled from "styled-components";
 import { withResizeDetector } from "react-resize-detector";
@@ -15,6 +19,8 @@ import SubBanner from "../../../Components/SubBanner";
 import KakaoMap from "react-kakao-maps/lib/MapLib/KakaoMap";
 import Marker from "react-kakao-maps/lib/MapLib/Marker";
 import CustomOverlay from "react-kakao-maps/lib/MapLib/CustomOverlay";
+import CircularIndeterminate from "../../../Components/loading/CircularIndeterminate";
+import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
 const InnerTitle = styled.h2`
   font-size: 24px;
@@ -47,7 +53,19 @@ const MartWrapper = styled(Wrapper)`
   }
 `;
 
-const MM03Presenter = ({ width }) => {
+const MM03Presenter = ({
+  width,
+  //
+  limit,
+  pages,
+  currentPage,
+  currentList,
+  //
+  sDatum,
+  //
+  changePageHandler,
+  prevAndNextPageChangeHandler,
+}) => {
   useTitle("매장안내 | 펫마트");
 
   return (
@@ -237,103 +255,73 @@ const MM03Presenter = ({ width }) => {
 
       <RsWrapper margin={`50px 0px`}>
         <Wrapper dr={`row`} ju={`flex-start`} padding={`30px 0px`}>
-          <MartWrapper
-            isRelative={true}
-            margin={`20px`}
-            shadow={Theme.boxShadowV2}
-            isShadowHover={true}
-          >
-            <Image alt="썸네일" src={``} height={`300px`} />
-            <Wrapper
-              isAbsolute={true}
-              width={`100%`}
-              height={`100px`}
-              bgColor={`#fff`}
-              left={`0`}
-              bottom={`0`}
-              al={`flex-start`}
-              padding={`10px 20px`}
-              ju={`space-around`}
-            >
-              <InnerTitle>TITLE</InnerTitle>
-              <InnerSubTitle>
-                String Length 48번 넘어가면 슬라이스 "..." 처리 요망
-              </InnerSubTitle>
-            </Wrapper>
-          </MartWrapper>
-          <MartWrapper
-            isRelative={true}
-            margin={`20px`}
-            shadow={Theme.boxShadowV2}
-            isShadowHover={true}
-          >
-            <Image alt="썸네일" src={``} height={`300px`} />
-            <Wrapper
-              isAbsolute={true}
-              width={`100%`}
-              height={`100px`}
-              bgColor={`#fff`}
-              left={`0`}
-              bottom={`0`}
-              al={`flex-start`}
-              padding={`10px 20px`}
-              ju={`space-around`}
-            >
-              <InnerTitle>TITLE</InnerTitle>
-              <InnerSubTitle>
-                String Length 48번 넘어가면 슬라이스 "..." 처리 요망
-              </InnerSubTitle>
-            </Wrapper>
-          </MartWrapper>
-          <MartWrapper
-            isRelative={true}
-            margin={`20px`}
-            shadow={Theme.boxShadowV2}
-            isShadowHover={true}
-          >
-            <Image alt="썸네일" src={``} height={`300px`} />
-            <Wrapper
-              isAbsolute={true}
-              width={`100%`}
-              height={`100px`}
-              bgColor={`#fff`}
-              left={`0`}
-              bottom={`0`}
-              al={`flex-start`}
-              padding={`10px 20px`}
-              ju={`space-around`}
-            >
-              <InnerTitle>TITLE</InnerTitle>
-              <InnerSubTitle>
-                String Length 48번 넘어가면 슬라이스 "..." 처리 요망
-              </InnerSubTitle>
-            </Wrapper>
-          </MartWrapper>
-          <MartWrapper
-            isRelative={true}
-            margin={`20px`}
-            shadow={Theme.boxShadowV2}
-            isShadowHover={true}
-          >
-            <Image alt="썸네일" src={``} height={`300px`} />
-            <Wrapper
-              isAbsolute={true}
-              width={`100%`}
-              height={`100px`}
-              bgColor={`#fff`}
-              left={`0`}
-              bottom={`0`}
-              al={`flex-start`}
-              padding={`10px 20px`}
-              ju={`space-around`}
-            >
-              <InnerTitle>TITLE</InnerTitle>
-              <InnerSubTitle>
-                String Length 48번 넘어가면 슬라이스 "..." 처리 요망
-              </InnerSubTitle>
-            </Wrapper>
-          </MartWrapper>
+          {sDatum ? (
+            sDatum.length === 0 ? (
+              <EmptyList>조회 된 데이터가 없습니다.</EmptyList>
+            ) : (
+              sDatum.map((data, idx) => (
+                <MartWrapper
+                  key={data._id}
+                  isRelative={true}
+                  margin={`20px`}
+                  shadow={Theme.boxShadowV2}
+                  isShadowHover={true}
+                >
+                  <Image
+                    alt="썸네일"
+                    src={data.thumbnailPath}
+                    height={`300px`}
+                  />
+                  <Wrapper
+                    isAbsolute={true}
+                    width={`100%`}
+                    height={`100px`}
+                    bgColor={`#fff`}
+                    left={`0`}
+                    bottom={`0`}
+                    al={`flex-start`}
+                    padding={`10px 20px`}
+                    ju={`space-around`}
+                  >
+                    <InnerTitle>{data.title}</InnerTitle>
+                    <InnerSubTitle>{data.address}</InnerSubTitle>
+                  </Wrapper>
+                </MartWrapper>
+              ))
+            )
+          ) : (
+            <CircularIndeterminate />
+          )}
         </Wrapper>
+        {console.log(pages)}
+        {pages && pages.length > 0 && (
+          <PagenationWrapper width={`auto`}>
+            <PagenationBtn
+              onClick={() => prevAndNextPageChangeHandler(currentPage - 1)}
+            >
+              <IoIosArrowBack />
+            </PagenationBtn>
+            {pages.map((data, idx) => {
+              return (
+                (currentList + 1) * 5 > idx &&
+                currentList * 5 <= idx && (
+                  <Pagenation
+                    className={data === currentPage ? `active` : ``}
+                    key={data}
+                    onClick={() => changePageHandler(data)}
+                  >
+                    {data + 1}
+                  </Pagenation>
+                )
+              );
+            })}
+            <PagenationBtn
+              onClick={() => prevAndNextPageChangeHandler(currentPage + 1)}
+            >
+              <IoIosArrowForward />
+            </PagenationBtn>
+          </PagenationWrapper>
+        )}
       </RsWrapper>
     </WholeWrapper>
   );
