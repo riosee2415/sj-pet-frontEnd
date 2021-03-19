@@ -15,6 +15,8 @@ import styled from "styled-components";
 import { withResizeDetector } from "react-resize-detector";
 import Theme from "../../../Styles/Theme";
 import { Link } from "react-router-dom";
+import useTitle from "@4leaf.ysh/use-title";
+import { scale2 } from "../../../Components/AnimationCommon";
 
 const Popup = withSplitting(() =>
   import("../../../Components/popup/Popup.jsx")
@@ -32,7 +34,8 @@ const StartSilder = withSplitting(() =>
   import("../../../Components/slider/StartSilder.jsx")
 );
 const Fade = withSplitting(() => import("react-reveal/Fade"));
-const Zoom = withSplitting(() => import("react-reveal/Zoom"));
+const LightSpeed = withSplitting(() => import("react-reveal/LightSpeed"));
+const Bounce = withSplitting(() => import("react-reveal/Bounce"));
 
 const DotTitle = styled(Text)`
   position: relative;
@@ -50,24 +53,74 @@ const DotTitle = styled(Text)`
   }
 `;
 
+const MainImage = styled(Image)`
+  animation: ${scale2} 60s forwards;
+`;
+
 const MM00Presenter = ({
   width,
   //
   mobileBannerData,
   mainBannerData,
 }) => {
+  useTitle("PET MART 선진펫");
   return (
     <WholeWrapper>
-      <Wrapper height={`700px`} bgColor={`${Theme.grey_C}`}>
-        <Text fontWeight={`700`} fontSize={`40px`}>
-          반려동물 업종 최초
-        </Text>
-        <Text fontWeight={`700`} fontSize={`40px`} margin={`20px 0`}>
-          한국프랜차이즈 대상 수상
-        </Text>
+      <Wrapper height={`700px`} isRelative={true} overflow={`hidden`}>
+        <MainImage
+          height={`100%`}
+          alt="mainbanner"
+          isAbsolute={true}
+          top={`0`}
+          left={`0`}
+          src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2F%E1%84%86%E1%85%A2%E1%84%8C%E1%85%A1%E1%86%BC%E1%84%8B%E1%85%B5%E1%86%B8%E1%84%80%E1%85%AE.jpg?alt=media&token=6b76c565-fff0-45e2-b4da-c7b82e003d09`}
+        />
+        <Wrapper
+          width={`100%`}
+          height={`100%`}
+          isAbsolute={true}
+          top={`0`}
+          left={`0`}
+          bgColor={`rgba(0, 0, 0, 0.7)`}
+        ></Wrapper>
+
+        <Bounce>
+          <Wrapper
+            dr={`row`}
+            color={Theme.white_C}
+            fontWeight={`700`}
+            fontSize={width < 900 ? `20px !important` : `45px`}
+          >
+            <Text
+              fontWeight={`700`}
+              fontSize={width < 900 ? `20px !important` : `45px`}
+            >
+              반려동물 업종&nbsp;
+            </Text>
+            <DotTitle fontWeight={`700`}>최</DotTitle>
+            <DotTitle fontWeight={`700`}>초</DotTitle>
+          </Wrapper>
+        </Bounce>
+        <Wrapper
+          dr={`row`}
+          color={Theme.white_C}
+          fontWeight={`700`}
+          fontSize={width < 900 ? `20px !important` : `45px`}
+        >
+          <Text
+            fontWeight={`700`}
+            fontSize={width < 900 ? `20px !important` : `45px`}
+            color={Theme.white_C}
+            margin={`20px 0`}
+          >
+            한국프랜차이즈&nbsp;
+          </Text>
+          <DotTitle fontWeight={`700`}>대</DotTitle>
+          <DotTitle fontWeight={`700`}>상</DotTitle>&nbsp;수상
+        </Wrapper>
         <Image
           className={`title`}
-          width={`50%`}
+          width={width < 900 ? `80%` : `50%`}
           src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2F%E1%84%8F%E1%85%A9%E1%84%85%E1%85%A9%E1%84%82%E1%85%A1.png?alt=media&token=7934f011-a1ac-41d1-b8c3-9e915cb29407`}
           alt="text"
         />
@@ -109,128 +162,138 @@ const MM00Presenter = ({
             width={width < 1000 ? `100%` : `50%`}
             margin={width < 1000 && `0 0 15px`}
           >
-            <Image
-              width={`80%`}
-              src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2Fgraph.png?alt=media&token=56cf3323-f0cc-4d08-abab-caaac17c53bf`}
-            />
+            <Fade left>
+              <Image
+                width={`80%`}
+                src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2Fgraph.png?alt=media&token=56cf3323-f0cc-4d08-abab-caaac17c53bf`}
+              />
+            </Fade>
           </Wrapper>
           <Wrapper width={width < 1000 ? `100%` : `50%`}>
-            <UlWrapper
-              dr={`row`}
-              height={`60px`}
-              margin={`0 0 2px`}
-              fontSize={`20px`}
-              borderTop={`3px solid ${Theme.subTheme_C}`}
-              borderBottom={`1px solid ${Theme.subTheme_C}`}
-            >
-              <LiWrapper width={`20%`}>항목</LiWrapper>
-              <LiWrapper width={`60%`}>금액</LiWrapper>
-              <LiWrapper width={`20%`}>구성비</LiWrapper>
-            </UlWrapper>
+            <Fade right>
+              <UlWrapper
+                dr={`row`}
+                height={`60px`}
+                margin={`0 0 2px`}
+                fontSize={`20px`}
+                borderTop={`3px solid ${Theme.subTheme_C}`}
+                borderBottom={`1px solid ${Theme.subTheme_C}`}
+              >
+                <LiWrapper width={`20%`}>항목</LiWrapper>
+                <LiWrapper width={`60%`}>금액</LiWrapper>
+                <LiWrapper width={`20%`}>구성비</LiWrapper>
+              </UlWrapper>
 
-            <UlWrapper
-              dr={`row`}
-              height={`60px`}
-              fontSize={`20px`}
-              borderTop={`1px solid ${Theme.subTheme_C}`}
-              borderBottom={`1px solid ${Theme.subTheme_C}`}
-            >
-              <LiWrapper width={`20%`} fontWeight={`700`}>
-                월 매출
-              </LiWrapper>
-              <LiWrapper width={`60%`} fontWeight={`700`}>
-                80,000,000
-              </LiWrapper>
-              <LiWrapper width={`20%`} fontWeight={`700`}>
-                100%
-              </LiWrapper>
-            </UlWrapper>
+              <UlWrapper
+                dr={`row`}
+                height={`60px`}
+                fontSize={`20px`}
+                borderTop={`1px solid ${Theme.subTheme_C}`}
+                borderBottom={`1px solid ${Theme.subTheme_C}`}
+              >
+                <LiWrapper width={`20%`} fontWeight={`700`}>
+                  월 매출
+                </LiWrapper>
+                <LiWrapper width={`60%`} fontWeight={`700`}>
+                  80,000,000
+                </LiWrapper>
+                <LiWrapper width={`20%`} fontWeight={`700`}>
+                  100%
+                </LiWrapper>
+              </UlWrapper>
 
-            <UlWrapper dr={`row`} height={`45px`}>
-              <LiWrapper width={`20%`}>영업이익</LiWrapper>
-              <LiWrapper width={`60%`}>28,000,000</LiWrapper>
-              <LiWrapper width={`20%`}>35%</LiWrapper>
-            </UlWrapper>
+              <UlWrapper dr={`row`} height={`45px`}>
+                <LiWrapper width={`20%`}>영업이익</LiWrapper>
+                <LiWrapper width={`60%`}>28,000,000</LiWrapper>
+                <LiWrapper width={`20%`}>35%</LiWrapper>
+              </UlWrapper>
 
-            <UlWrapper
-              dr={`row`}
-              height={`45px`}
-              borderTop={`1px solid ${Theme.subTheme_C}`}
-              borderBottom={`1px solid ${Theme.subTheme_C}`}
-            >
-              <LiWrapper width={`20%`}>임차료</LiWrapper>
-              <LiWrapper width={`60%`}>5,000,000</LiWrapper>
-              <LiWrapper width={`20%`}>6.3%</LiWrapper>
-            </UlWrapper>
+              <UlWrapper
+                dr={`row`}
+                height={`45px`}
+                borderTop={`1px solid ${Theme.subTheme_C}`}
+                borderBottom={`1px solid ${Theme.subTheme_C}`}
+              >
+                <LiWrapper width={`20%`}>임차료</LiWrapper>
+                <LiWrapper width={`60%`}>5,000,000</LiWrapper>
+                <LiWrapper width={`20%`}>6.3%</LiWrapper>
+              </UlWrapper>
 
-            <UlWrapper dr={`row`} height={`45px`}>
-              <LiWrapper width={`20%`}>인건비</LiWrapper>
-              <LiWrapper width={`60%`}>4,500,000</LiWrapper>
-              <LiWrapper width={`20%`}>5.6%</LiWrapper>
-            </UlWrapper>
+              <UlWrapper dr={`row`} height={`45px`}>
+                <LiWrapper width={`20%`}>인건비</LiWrapper>
+                <LiWrapper width={`60%`}>4,500,000</LiWrapper>
+                <LiWrapper width={`20%`}>5.6%</LiWrapper>
+              </UlWrapper>
 
-            <UlWrapper
-              dr={`row`}
-              height={`45px`}
-              borderTop={`1px solid ${Theme.subTheme_C}`}
-              borderBottom={`1px solid ${Theme.subTheme_C}`}
-            >
-              <LiWrapper width={`20%`}>제세공과금</LiWrapper>
-              <LiWrapper width={`60%`}>1,000,000</LiWrapper>
-              <LiWrapper width={`20%`}>1.3%</LiWrapper>
-            </UlWrapper>
+              <UlWrapper
+                dr={`row`}
+                height={`45px`}
+                borderTop={`1px solid ${Theme.subTheme_C}`}
+                borderBottom={`1px solid ${Theme.subTheme_C}`}
+              >
+                <LiWrapper width={`20%`}>제세공과금</LiWrapper>
+                <LiWrapper width={`60%`}>1,000,000</LiWrapper>
+                <LiWrapper width={`20%`}>1.3%</LiWrapper>
+              </UlWrapper>
 
-            <UlWrapper dr={`row`} height={`45px`}>
-              <LiWrapper width={`20%`}>기타 재미용</LiWrapper>
-              <LiWrapper width={`60%`}>3,500,000</LiWrapper>
-              <LiWrapper width={`20%`}>4.3%</LiWrapper>
-            </UlWrapper>
+              <UlWrapper dr={`row`} height={`45px`}>
+                <LiWrapper width={`20%`}>기타 재미용</LiWrapper>
+                <LiWrapper width={`60%`}>3,500,000</LiWrapper>
+                <LiWrapper width={`20%`}>4.3%</LiWrapper>
+              </UlWrapper>
 
-            <UlWrapper
-              dr={`row`}
-              height={`45px`}
-              borderTop={`1px solid ${Theme.subTheme_C}`}
-              borderBottom={`1px solid ${Theme.subTheme_C}`}
-            >
-              <LiWrapper width={`20%`}>물류비</LiWrapper>
-              <LiWrapper width={`60%`}>24,000,000</LiWrapper>
-              <LiWrapper width={`20%`}>30%</LiWrapper>
-            </UlWrapper>
+              <UlWrapper
+                dr={`row`}
+                height={`45px`}
+                borderTop={`1px solid ${Theme.subTheme_C}`}
+                borderBottom={`1px solid ${Theme.subTheme_C}`}
+              >
+                <LiWrapper width={`20%`}>물류비</LiWrapper>
+                <LiWrapper width={`60%`}>24,000,000</LiWrapper>
+                <LiWrapper width={`20%`}>30%</LiWrapper>
+              </UlWrapper>
 
-            <UlWrapper
-              dr={`row`}
-              height={`60px`}
-              fontSize={`20px`}
-              borderBottom={`3px solid ${Theme.subTheme_C}`}
-            >
-              <LiWrapper width={`20%`} fontWeight={`700`}>
-                순 이익 (월)
-              </LiWrapper>
-              <LiWrapper width={`60%`} fontWeight={`700`}>
-                14,000,000
-              </LiWrapper>
-              <LiWrapper width={`20%`} fontWeight={`700`}>
-                17.5%
-              </LiWrapper>
-            </UlWrapper>
+              <UlWrapper
+                dr={`row`}
+                height={`60px`}
+                fontSize={`20px`}
+                borderBottom={`3px solid ${Theme.subTheme_C}`}
+              >
+                <LiWrapper width={`20%`} fontWeight={`700`}>
+                  순 이익 (월)
+                </LiWrapper>
+                <LiWrapper width={`60%`} fontWeight={`700`}>
+                  14,000,000
+                </LiWrapper>
+                <LiWrapper width={`20%`} fontWeight={`700`}>
+                  17.5%
+                </LiWrapper>
+              </UlWrapper>
+            </Fade>
           </Wrapper>
         </Wrapper>
 
-        <CommonSubTitle>펫마트 입점 브랜드</CommonSubTitle>
-
-        <Text margin={`50px 0`} fontSize={`30px`} fontWeight={`700`}>
-          펫마트는 약 700여개의 유명, 신규 브랜드와 5000여개의 품목을 취급하고
-          있습니다.
-        </Text>
-
+        <CommonSubTitle>
+          펫마트 입점&nbsp;<DotTitle fontWeight={`900`}>브</DotTitle>
+          <DotTitle fontWeight={`900`}>랜</DotTitle>
+          <DotTitle fontWeight={`900`}>드</DotTitle>
+        </CommonSubTitle>
+        <LightSpeed>
+          <Text margin={`50px 0`} fontSize={`30px`} fontWeight={`700`}>
+            펫마트는 약 700여개의 유명, 신규 브랜드와 5000여개의 품목을 취급하고
+            있습니다.
+          </Text>
+        </LightSpeed>
         <BrandSilder />
       </RsWrapper>
 
-      <CommonSubTitle>
-        지금 펫마트를 시작해야 하는&nbsp;
-        <DotTitle fontWeight={`900`}>이</DotTitle>
-        <DotTitle fontWeight={`900`}>유</DotTitle> !
-      </CommonSubTitle>
+      <Bounce>
+        <CommonSubTitle>
+          지금 펫마트를 시작해야 하는&nbsp;
+          <DotTitle fontWeight={`900`}>이</DotTitle>
+          <DotTitle fontWeight={`900`}>유</DotTitle> !
+        </CommonSubTitle>
+      </Bounce>
       <Fade bottom>
         <Image
           margin={`50px 0 20px`}
@@ -258,7 +321,7 @@ const MM00Presenter = ({
 
       <Wrapper
         dr={`row`}
-        margin={`60px 0 100px`}
+        margin={`0px 0 100px`}
         padding={`100px 50px`}
         bgColor={`${Theme.black_C}`}
       >
@@ -351,7 +414,10 @@ const MM00Presenter = ({
           margin={width < 900 ? `5px` : `50px 10px`}
         >
           <Fade bottom>
-            <Wrapper height={`270px`} bgColor={`${Theme.grey_C}`}></Wrapper>
+            <Image
+              src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2FKakaoTalk_20210316_152709002_02.jpg?alt=media&token=660f0200-9865-4d91-bfb3-3b8b646105a4`}
+              alt="펫마트사진"
+            />
             <Wrapper
               padding={`30px 20px`}
               border={`1px solid ${Theme.lightGrey_C}`}
@@ -390,7 +456,10 @@ const MM00Presenter = ({
           margin={width < 900 ? `5px` : `10px`}
         >
           <Fade bottom>
-            <Wrapper height={`270px`} bgColor={`${Theme.grey_C}`}></Wrapper>
+            <Image
+              src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2FKakaoTalk_20210302_114556833_25.jpg?alt=media&token=240708f6-a176-44e4-825e-93bd3ed8e94f`}
+              alt="펫마트사진"
+            />
             <Wrapper
               padding={`30px 20px`}
               border={`1px solid ${Theme.lightGrey_C}`}
@@ -425,7 +494,10 @@ const MM00Presenter = ({
           margin={width < 900 ? `5px` : `50px 10px`}
         >
           <Fade bottom>
-            <Wrapper height={`270px`} bgColor={`${Theme.grey_C}`}></Wrapper>
+            <Image
+              src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2Fgraphic-design-color-swatches-pens-desk-architectural-drawing-with-work-tools-accessories.jpg?alt=media&token=0519e65b-2b91-40d2-a95f-78ed8596f9e6`}
+              alt="펫마트사진"
+            />
             <Wrapper
               padding={`30px 20px`}
               border={`1px solid ${Theme.lightGrey_C}`}
@@ -463,7 +535,10 @@ const MM00Presenter = ({
           margin={width < 900 ? `5px` : `10px`}
         >
           <Fade bottom>
-            <Wrapper height={`270px`} bgColor={`${Theme.grey_C}`}></Wrapper>
+            <Image
+              src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2FKakaoTalk_20210316_152709002_06.jpg?alt=media&token=64add936-638a-473b-b205-56d949c799f0`}
+              alt="펫마트사진"
+            />
             <Wrapper
               padding={`30px 20px`}
               border={`1px solid ${Theme.lightGrey_C}`}
@@ -500,7 +575,10 @@ const MM00Presenter = ({
           }
         >
           <Fade bottom>
-            <Wrapper height={`270px`} bgColor={`${Theme.grey_C}`}></Wrapper>
+            <Image
+              src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2F%E1%84%92%E1%85%AA%E1%84%86%E1%85%A7%E1%86%AB%20%E1%84%8F%E1%85%A2%E1%86%B8%E1%84%8E%E1%85%A5%202021-03-16%20154300.jpg?alt=media&token=26494f59-2093-4eb7-bd61-4ead17ffe68f`}
+              alt="펫마트사진"
+            />
             <Wrapper
               padding={`30px 20px`}
               border={`1px solid ${Theme.lightGrey_C}`}
@@ -537,7 +615,10 @@ const MM00Presenter = ({
           }
         >
           <Fade bottom>
-            <Wrapper height={`270px`} bgColor={`${Theme.grey_C}`}></Wrapper>
+            <Image
+              src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2Fteam-work-process-young-business-managers-crew-working-with-new-startup-project-labtop-wood-table-typing-keyboard-texting-message-analyze-graph-plans.jpg?alt=media&token=4fcf8786-ee42-4e45-adea-6b2bbd46f888`}
+              alt="펫마트사진"
+            />
             <Wrapper
               padding={`30px 20px`}
               border={`1px solid ${Theme.lightGrey_C}`}
@@ -575,7 +656,10 @@ const MM00Presenter = ({
           margin={width < 900 ? `5px` : `10px`}
         >
           <Fade bottom>
-            <Wrapper height={`270px`} bgColor={`${Theme.grey_C}`}></Wrapper>
+            <Image
+              src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2Fmillennial-asia-businessmen-businesswomen-having-conference-video-call-meeting-brainstorming-ideas-about-new-project-colleagues-working-together-planning-strategy-enjoy-teamwork-modern-office.jpg?alt=media&token=dc4feadc-7f4f-4970-8f1e-720df702f2d3`}
+              alt="펫마트사진"
+            />
             <Wrapper
               padding={`30px 20px`}
               border={`1px solid ${Theme.lightGrey_C}`}
@@ -615,7 +699,10 @@ const MM00Presenter = ({
           }
         >
           <Fade bottom>
-            <Wrapper height={`270px`} bgColor={`${Theme.grey_C}`}></Wrapper>
+            <Image
+              src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2FKakaoTalk_20210316_161418607.jpg?alt=media&token=724db890-bf7c-46f9-b9a9-ac6eed524cf8`}
+              alt="펫마트사진"
+            />
             <Wrapper
               padding={`30px 20px`}
               border={`1px solid ${Theme.lightGrey_C}`}

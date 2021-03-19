@@ -1,17 +1,17 @@
 import { gql } from "@apollo/client";
 
 export const CREATE_DIRECTREQUEST = gql`
-  mutation createDirectRequest(
+  mutation createStoreContact(
     $name: String!
     $loc: String!
     $mobile: String!
     $mayPay: String!
     $email: String!
-    $isExistStore: String!
+    $isExistStore: Boolean!
     $description: String!
     $isAgreement: Boolean!
   ) {
-    createDirectRequest(
+    createStoreContact(
       name: $name
       loc: $loc
       mobile: $mobile

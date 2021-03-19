@@ -3,6 +3,7 @@ import {
   UlWrapper,
   LiWrapper,
   Wrapper,
+  ATag,
 } from "../../Components/CommonComponents";
 import { Link, withRouter, NavLink } from "react-router-dom";
 import styled from "styled-components";
@@ -59,11 +60,19 @@ const HeaderWrapper = styled.div`
   &.background {
     background: ${(props) => props.theme.white_C};
 
+    & svg {
+      color: ${(props) => props.theme.black_C};
+    }
+
     & li {
       color: ${(props) =>
         props.isActive
           ? `${props.theme.basicTheme_C}`
           : `${props.theme.black_C}`};
+    }
+
+    & .call {
+      color: ${(props) => props.theme.basicTheme_C};
     }
   }
 `;
@@ -332,9 +341,9 @@ const Header = ({ history, location, width }) => {
                 가맹절차
               </Menu>
             </Link>
-            <Link to="/contect">
+            <Link to="/contact">
               <Menu
-                isActive={location.pathname === "/contect"}
+                isActive={location.pathname === "/contact"}
                 margin={
                   width < 1350
                     ? width < 1100
@@ -347,7 +356,7 @@ const Header = ({ history, location, width }) => {
               </Menu>
             </Link>
           </UlWrapper>
-          <a href="tel:15881684">
+          <ATag width={`auto`} href="tel:15881684">
             <Wrapper
               width={`200px`}
               padding={`10px`}
@@ -358,20 +367,21 @@ const Header = ({ history, location, width }) => {
             >
               가맹문의 1588-1684
             </Wrapper>
-          </a>
+          </ATag>
         </Wrapper>
       </H_Wrapper>
       <MobileHeader>
         <Wrapper dr={`row`} ju={`space-between`} padding={`10px 0`}>
-          <a href="tel:15881684">
+          <ATag width={`auto`} href="tel:15881684">
             <Wrapper
               width={`auto`}
               fontSize={`16px !important`}
-              fontWeight={`bold`}
+              fontWeight={`800`}
+              className={`call`}
             >
               1588-1684
             </Wrapper>
-          </a>
+          </ATag>
           <Logo>
             <Link to="/">
               <LogoImg

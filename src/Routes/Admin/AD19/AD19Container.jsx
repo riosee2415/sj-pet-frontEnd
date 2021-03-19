@@ -2,8 +2,8 @@ import React, { useEffect, useRef, useState } from "react";
 import AD19Presenter from "./AD19Presenter";
 import { useMutation, useQuery } from "@apollo/client";
 import {
-  GET_DIRECTREQUEST,
-  MODIFY_DIRECTREQUEST_COMPLETE,
+  GET_STORECONTACT,
+  MODIFY_STORECONTACT_COMPLETE,
 } from "./AD19Queries.js";
 import { toast } from "react-toastify";
 import storageFn from "../../../fsStorage";
@@ -27,7 +27,7 @@ export default ({ history }) => {
 
   ////////////// - USE QUERY- ///////////////
   const { data: dqDatum, loading: dqLoading, refetch: dqRefetch } = useQuery(
-    GET_DIRECTREQUEST,
+    GET_STORECONTACT,
     {
       variables: {
         isComplete: currentTab === 0 ? false : true,
@@ -36,8 +36,8 @@ export default ({ history }) => {
   );
 
   ///////////// - USE MUTATION- /////////////
-  const [modifyDirectRequestCompleteMutation] = useMutation(
-    MODIFY_DIRECTREQUEST_COMPLETE,
+  const [modifyStoreContactCompleteMutation] = useMutation(
+    MODIFY_STORECONTACT_COMPLETE,
     {
       variables: {
         id: currentId,
@@ -56,7 +56,7 @@ export default ({ history }) => {
 
   const completeHandler = () => {
     confirmAlert({
-      title: "COMPLETE DIRECTREQUEST",
+      title: "COMPLETE STORECONTACT",
       message: "문의 처리를 완료하시겠습니까?",
       buttons: [
         {
@@ -74,14 +74,14 @@ export default ({ history }) => {
   };
 
   const completeHandlerAfter = async () => {
-    const { data } = await modifyDirectRequestCompleteMutation({
+    const { data } = await modifyStoreContactCompleteMutation({
       variables: {
         id: currentData.id,
       },
     });
 
-    if (data.modifyDirectRequestComplete) {
-      toast.info("UPDATE DIRECTREQUEST!");
+    if (data.modifyStoreContactComplete) {
+      toast.info("UPDATE STORECONTACT!");
       dqRefetch();
       dialogOpenToggleHandler();
     } else {
@@ -117,7 +117,7 @@ export default ({ history }) => {
       //
       descRef={descRef}
       //
-      dqDatum={dqDatum && dqDatum.getDirectRequest}
+      dqDatum={dqDatum && dqDatum.getStoreContact}
       //
       getDetailDataHandler={getDetailDataHandler}
       completeHandler={completeHandler}

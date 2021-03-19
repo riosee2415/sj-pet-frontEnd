@@ -113,4 +113,17 @@ export const allMenus = [
       },
     ],
   },
+  {
+    menuName: "스토리뷰 관리",
+    subMenu: [
+      {
+        subMenuName: "스토리뷰 등록",
+        subMenuLink: "/admin/storyViewManagement",
+      },
+      {
+        subMenuName: "스토리뷰 리스트",
+        subMenuLink: "/admin/storyViewDetailManagement",
+      },
+    ],
+  },
 ];

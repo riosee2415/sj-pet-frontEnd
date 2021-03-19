@@ -387,12 +387,12 @@ export const Combo = styled.select`
   width: ${(props) => props.width};
   height: ${(props) => (props.height ? props.height : `40px`)};
 
-  border: ${(props) => props.border || `1px solid ${props.theme.lightGrey_C}`};
+  border: ${(props) => props.border || `1px solid ${props.theme.grey_C}`};
   color: ${(props) => props.color};
   /* border-radius: ${(props) => props.theme.radius}; */
   margin: ${(props) => props.margin || `0px 5px`};
-  box-shadow: ${(props) =>
-    props.shadow ? props.shadow : `0px 3px 6px ${props.theme.grey_C};`};
+  /* box-shadow: ${(props) =>
+    props.shadow ? props.shadow : `0px 3px 6px ${props.theme.grey_C};`}; */
   outline: none;
 `;
 
