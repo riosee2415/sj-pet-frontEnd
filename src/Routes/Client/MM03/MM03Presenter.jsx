@@ -8,12 +8,14 @@ import styled from "styled-components";
 import { withResizeDetector } from "react-resize-detector";
 import useTitle from "@4leaf.ysh/use-title";
 import Theme from "../../../Styles/Theme";
+import SubBanner from "../../../Components/SubBanner";
 
 const MM03Presenter = ({ width }) => {
   useTitle("셈플");
 
   return (
     <WholeWrapper>
+      <SubBanner title={`매장안내`} />
       <CommonSubTitle>SELECT STORE NAME</CommonSubTitle>
     </WholeWrapper>
   );

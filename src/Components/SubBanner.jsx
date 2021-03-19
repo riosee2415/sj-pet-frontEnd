@@ -50,7 +50,7 @@ const SubBannerTitle = styled.h2`
   }
 `;
 
-const SubBanner = ({ location, width }) => {
+const SubBanner = ({ location, width, title }) => {
   const [subButton, setSubButton] = useState(null);
   const [currentActive, setCurrentActive] = useState(null);
 
@@ -84,7 +84,7 @@ const SubBanner = ({ location, width }) => {
   return (
     <SubBannerBox>
       <Fade bottom delay={0}>
-        <SubBannerTitle>인사말</SubBannerTitle>
+        <SubBannerTitle>{title}</SubBannerTitle>
       </Fade>
       <Wrapper dr={`row`} margin={`30px 0px 0px`} wrap={`inherit`}></Wrapper>
     </SubBannerBox>

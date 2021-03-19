@@ -25,7 +25,7 @@ const MM01Presenter = ({ width }) => {
 
   return (
     <WholeWrapper>
-      <SubBanner Title={`인사말`} />
+      <SubBanner title={`인사말`} />
       <RsWrapper dr={`row`} ju={`space-between`} padding={`100px 0`}>
         <Wrapper width={width < 900 ? `100%` : `60%`} al={`flex-start`}>
           <Text fontSize={width < 900 ? `18px !important` : `35px`}>
