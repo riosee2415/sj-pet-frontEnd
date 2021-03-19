@@ -612,7 +612,8 @@ export const CommonSubTitle = styled.h2`
   justify-content: ${(props) => props.ju || `center`};
   position: relative;
   margin: ${(props) => props.margin || `100px 0`};
-  font-size: ${(props) => props.fontSize || `45px`};
+  font-size: ${(props) => props.fontSize || `67px`};
+  font-weight: ${(props) => props.fontWeight || `900`};
   padding: 10px 0;
   color: ${(props) => props.color};
   text-align: left;
@@ -621,11 +622,12 @@ export const CommonSubTitle = styled.h2`
     content: "";
     position: absolute;
     bottom: 5px;
-    left: 0;
-    width: 100%;
-    height: 25px;
+    left: -2%;
+    width: 104%;
+    height: 40px;
     background-color: ${(props) => props.theme.basicTheme_C};
     z-index: -100;
+    border-radius: 5px 5px 0 0;
   }
 
   @media (max-width: 800px) {
