@@ -112,11 +112,13 @@ const MM04Presenter = ({ width }) => {
                   src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM04%2Fstep-01.png?alt=media&token=f28f0185-f64f-4dc8-aff5-8020f16639f9`}
                 />
               </Wrapper>
-              <Wrapper>
-                <StepTitle>가맹희망자 상담</StepTitle>
-                <Text>가맹점개설 적합여부</Text>
-                <Text>운용능력, 기타사항</Text>
-              </Wrapper>
+              <Fade bottom>
+                <Wrapper>
+                  <StepTitle>가맹희망자 상담</StepTitle>
+                  <Text>가맹점개설 적합여부</Text>
+                  <Text>운용능력, 기타사항</Text>
+                </Wrapper>
+              </Fade>
             </BoxWrapper>
 
             <BoxWrapper margin={`0 0 50px`}>
@@ -138,11 +140,13 @@ const MM04Presenter = ({ width }) => {
                   src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM04%2Fstep-02.png?alt=media&token=63099004-c70a-4316-898f-739dc742daf8`}
                 />
               </Wrapper>
-              <Wrapper>
-                <StepTitle>입지,상권조사</StepTitle>
-                <Text>상권분석 프로그램을 이용</Text>
-                <Text>입점후보지 확정</Text>
-              </Wrapper>
+              <Fade bottom>
+                <Wrapper>
+                  <StepTitle>입지,상권조사</StepTitle>
+                  <Text>상권분석 프로그램을 이용</Text>
+                  <Text>입점후보지 확정</Text>
+                </Wrapper>
+              </Fade>
             </BoxWrapper>
             <BoxWrapper margin={`0 0 50px`}>
               <Wrapper dr={`row`}>
@@ -163,11 +167,13 @@ const MM04Presenter = ({ width }) => {
                   src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM04%2Fstep-03.png?alt=media&token=baeec8a1-eb61-4652-a562-bc3e5e0ca672`}
                 />
               </Wrapper>
-              <Wrapper>
-                <StepTitle>현장실측,도면협의</StepTitle>
-                <Text>현장실측 및 도면협의</Text>
-                <Text>layout확정</Text>
-              </Wrapper>
+              <Fade bottom>
+                <Wrapper>
+                  <StepTitle>현장실측,도면협의</StepTitle>
+                  <Text>현장실측 및 도면협의</Text>
+                  <Text>layout확정</Text>
+                </Wrapper>
+              </Fade>
             </BoxWrapper>
             <BoxWrapper margin={`0 0 50px`}>
               <Wrapper dr={`row`}>
@@ -188,11 +194,13 @@ const MM04Presenter = ({ width }) => {
                   src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM04%2Fstep-04.png?alt=media&token=12988e0e-48fa-45b5-a616-0b385979d6b7`}
                 />
               </Wrapper>
-              <Wrapper>
-                <StepTitle>가맹계약,개설일정</StepTitle>
-                <Text>가맹계약서 체결</Text>
-                <Text>개설일정 확정</Text>
-              </Wrapper>
+              <Fade bottom>
+                <Wrapper>
+                  <StepTitle>가맹계약,개설일정</StepTitle>
+                  <Text>가맹계약서 체결</Text>
+                  <Text>개설일정 확정</Text>
+                </Wrapper>
+              </Fade>
             </BoxWrapper>
             <BoxWrapper margin={`0 0 50px`}>
               <Wrapper dr={`row`}>
@@ -214,11 +222,13 @@ const MM04Presenter = ({ width }) => {
                   src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM04%2Fstep-05.png?alt=media&token=1cb8f1e4-4fb9-4810-948b-05723aed7c6c`}
                 />
               </Wrapper>
-              <Wrapper>
-                <StepTitle>매장내,외부 시공</StepTitle>
-                <Text>진열장설치,간판설치</Text>
-                <Text>타운터설치 기타설치</Text>
-              </Wrapper>
+              <Fade bottom>
+                <Wrapper>
+                  <StepTitle>매장내,외부 시공</StepTitle>
+                  <Text>진열장설치,간판설치</Text>
+                  <Text>타운터설치 기타설치</Text>
+                </Wrapper>
+              </Fade>
             </BoxWrapper>
             <BoxWrapper margin={`0 0 50px`}>
               <Wrapper dr={`row`}>
@@ -239,11 +249,13 @@ const MM04Presenter = ({ width }) => {
                   src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM04%2Fstep-01.png?alt=media&token=6cdbe410-621d-42e2-a5f0-747795491def`}
                 />
               </Wrapper>
-              <Wrapper>
-                <StepTitle>가맹점 교육</StepTitle>
-                <Text>가맹계약서 체결</Text>
-                <Text>개설일정확정</Text>
-              </Wrapper>
+              <Fade bottom>
+                <Wrapper>
+                  <StepTitle>가맹점 교육</StepTitle>
+                  <Text>가맹계약서 체결</Text>
+                  <Text>개설일정확정</Text>
+                </Wrapper>
+              </Fade>
             </BoxWrapper>
             <BoxWrapper margin={`0 0 50px`}>
               <Wrapper dr={`row`}>
@@ -264,11 +276,13 @@ const MM04Presenter = ({ width }) => {
                   src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM04%2Fstep-07.png?alt=media&token=8067f50e-83fa-49b3-89d3-397db1dd855e`}
                 />
               </Wrapper>
-              <Wrapper>
-                <StepTitle>상품진열</StepTitle>
-                <Text>초도상품배송</Text>
-                <Text>코너별 제품 진열</Text>
-              </Wrapper>
+              <Fade bottom>
+                <Wrapper>
+                  <StepTitle>상품진열</StepTitle>
+                  <Text>초도상품배송</Text>
+                  <Text>코너별 제품 진열</Text>
+                </Wrapper>
+              </Fade>
             </BoxWrapper>
             <BoxWrapper margin={`0 0 50px`}>
               <Wrapper dr={`row`}>
@@ -290,11 +304,13 @@ const MM04Presenter = ({ width }) => {
                   src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM04%2Fstep-08.png?alt=media&token=a532c41a-0c0c-40d9-9504-a18e56fc54bc`}
                 />
               </Wrapper>
-              <Wrapper>
-                <StepTitle>OPEN준비</StepTitle>
-                <Text>최종사항 점검완료 확인</Text>
-                <Text>가오픈실시</Text>
-              </Wrapper>
+              <Fade bottom>
+                <Wrapper>
+                  <StepTitle>OPEN준비</StepTitle>
+                  <Text>최종사항 점검완료 확인</Text>
+                  <Text>가오픈실시</Text>
+                </Wrapper>
+              </Fade>
             </BoxWrapper>
             <BoxWrapper margin={`0 0 50px`}>
               <Wrapper dr={`row`}>
@@ -316,11 +332,13 @@ const MM04Presenter = ({ width }) => {
                   src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM04%2Fstep-09.png?alt=media&token=2cb23144-47cb-49ec-9663-282d54fb0832`}
                 />
               </Wrapper>
-              <Wrapper>
-                <StepTitle>OPEN 및 관리</StepTitle>
-                <Text>오픈개점행사 지속적인</Text>
-                <Text>점포현황체크 및 S/V관리</Text>
-              </Wrapper>
+              <Fade bottom>
+                <Wrapper>
+                  <StepTitle>OPEN 및 관리</StepTitle>
+                  <Text>오픈개점행사 지속적인</Text>
+                  <Text>점포현황체크 및 S/V관리</Text>
+                </Wrapper>
+              </Fade>
             </BoxWrapper>
           </Wrapper>
         </Fade>
@@ -340,51 +358,55 @@ const MM04Presenter = ({ width }) => {
               padding={`20px`}
               ju={`space-around`}
             >
-              <Wrapper>
-                <Image
-                  width={`40%`}
-                  margin={`0 0 20px`}
-                  alt="logo"
-                  src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2Flogo%2Flogo.png?alt=media&token=293d0a5b-53e7-446d-bdb8-d74903051e16`}
-                />
-                <Text
-                  fontSize={
-                    width < 1100
-                      ? width < 900
-                        ? `13px !important`
-                        : `16px`
-                      : `20px`
-                  }
-                >
-                  펫마트는 상권별 개설비용이 상이하므로
-                </Text>
-                <Text
-                  fontSize={
-                    width < 1100
-                      ? width < 900
-                        ? `13px !important`
-                        : `16px`
-                      : `20px`
-                  }
-                >
-                  본사로 문의주시면 보다 저렴한 개설비용을 안내해드리겠습니다.
-                </Text>
-              </Wrapper>
-              <Wrapper>
-                <a href="tel:15881684">
+              <Fade bottom>
+                <Wrapper>
+                  <Image
+                    width={`40%`}
+                    margin={`0 0 20px`}
+                    alt="logo"
+                    src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2Flogo%2Flogo.png?alt=media&token=293d0a5b-53e7-446d-bdb8-d74903051e16`}
+                  />
                   <Text
                     fontSize={
                       width < 1100
                         ? width < 900
-                          ? `20px !important`
-                          : `25px`
-                        : `40px`
+                          ? `13px !important`
+                          : `16px`
+                        : `20px`
                     }
                   >
-                    문의전화 1588-1684
+                    펫마트는 상권별 개설비용이 상이하므로
                   </Text>
-                </a>
-              </Wrapper>
+                  <Text
+                    fontSize={
+                      width < 1100
+                        ? width < 900
+                          ? `13px !important`
+                          : `16px`
+                        : `20px`
+                    }
+                  >
+                    본사로 문의주시면 보다 저렴한 개설비용을 안내해드리겠습니다.
+                  </Text>
+                </Wrapper>
+              </Fade>
+              <Fade bottom>
+                <Wrapper>
+                  <a href="tel:15881684">
+                    <Text
+                      fontSize={
+                        width < 1100
+                          ? width < 900
+                            ? `20px !important`
+                            : `25px`
+                          : `40px`
+                      }
+                    >
+                      문의전화 1588-1684
+                    </Text>
+                  </a>
+                </Wrapper>
+              </Fade>
             </Wrapper>
           </Wrapper>
         </Wrapper>
