@@ -34,7 +34,7 @@ const MM01Presenter = ({
 
   return (
     <WholeWrapper>
-      <SubBanner title={``} />
+      <SubBanner title={`회사`} />
       <Wrapper
         dr={`row`}
         height={`70px`}

@@ -15,6 +15,7 @@ import styled from "styled-components";
 import { withResizeDetector } from "react-resize-detector";
 import Theme from "../../../Styles/Theme";
 import { Link } from "react-router-dom";
+import useTitle from "@4leaf.ysh/use-title";
 
 const Popup = withSplitting(() =>
   import("../../../Components/popup/Popup.jsx")
@@ -57,18 +58,26 @@ const MM00Presenter = ({
   mobileBannerData,
   mainBannerData,
 }) => {
+  useTitle("PET MART 선진펫");
   return (
     <WholeWrapper>
       <Wrapper height={`700px`} bgColor={`${Theme.grey_C}`}>
-        <Text fontWeight={`700`} fontSize={`40px`}>
+        <Text
+          fontWeight={`700`}
+          fontSize={width < 900 ? `20px !important` : `40px`}
+        >
           반려동물 업종 최초
         </Text>
-        <Text fontWeight={`700`} fontSize={`40px`} margin={`20px 0`}>
+        <Text
+          fontWeight={`700`}
+          fontSize={width < 900 ? `20px !important` : `40px`}
+          margin={`20px 0`}
+        >
           한국프랜차이즈 대상 수상
         </Text>
         <Image
           className={`title`}
-          width={`50%`}
+          width={width < 900 ? `80%` : `50%`}
           src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2F%E1%84%8F%E1%85%A9%E1%84%85%E1%85%A9%E1%84%82%E1%85%A1.png?alt=media&token=7934f011-a1ac-41d1-b8c3-9e915cb29407`}
           alt="text"
         />
@@ -221,7 +230,11 @@ const MM00Presenter = ({
           </Wrapper>
         </Wrapper>
 
-        <CommonSubTitle>펫마트 입점 브랜드</CommonSubTitle>
+        <CommonSubTitle>
+          펫마트 입점&nbsp;<DotTitle fontWeight={`900`}>브</DotTitle>
+          <DotTitle fontWeight={`900`}>랜</DotTitle>
+          <DotTitle fontWeight={`900`}>드</DotTitle>
+        </CommonSubTitle>
         <LightSpeed>
           <Text margin={`50px 0`} fontSize={`30px`} fontWeight={`700`}>
             펫마트는 약 700여개의 유명, 신규 브랜드와 5000여개의 품목을 취급하고
