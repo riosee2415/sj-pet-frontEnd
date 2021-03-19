@@ -12,13 +12,14 @@ import styled from "styled-components";
 import { withResizeDetector } from "react-resize-detector";
 import useTitle from "@4leaf.ysh/use-title";
 import Theme from "../../../Styles/Theme";
+import SubBanner from "../../../Components/SubBanner";
 
 const MM02Presenter = ({ width }) => {
   useTitle("셈플");
 
   return (
     <WholeWrapper>
-      <Wrapper height={`450px`} bgColor={`#666`}></Wrapper>
+      <SubBanner title={`인테리어`} />
       <RsWrapper>
         <CommonSubTitle>매장 인테리어</CommonSubTitle>
         <Text fontSize={`30px`}>
