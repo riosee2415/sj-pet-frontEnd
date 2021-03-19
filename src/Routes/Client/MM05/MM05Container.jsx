@@ -34,25 +34,17 @@ const MM05Container = ({ history }) => {
 
   const { data: faqDatum, refetch: faqRefetch } = useQuery(GET_FAQ, {
     variables: {
-      typeName: faqTypeDatum
-        ? faqTypeDatum.getFaqType[currentType].typeName
-        : "",
       limit,
       currentPage,
       searchValue,
     },
-    skip: !faqTypeDatum,
   });
 
   const { data: pData, refetch: pRefetch } = useQuery(GET_FAQ_TOTALPAGE, {
     variables: {
-      typeName: faqTypeDatum
-        ? faqTypeDatum.getFaqType[currentType].typeName
-        : "",
       searchValue,
       limit,
     },
-    skip: !faqTypeDatum,
   });
 
   ///////////// - USE MUTATION- /////////////
@@ -191,7 +183,6 @@ const MM05Container = ({ history }) => {
   ////////////// - USE EFFECT- //////////////
 
   useEffect(() => {
-    faqTypeRefetch();
     faqRefetch();
     pRefetch();
     scroll.scrollTo(0);

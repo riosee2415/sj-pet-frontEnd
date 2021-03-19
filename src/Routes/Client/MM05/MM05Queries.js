@@ -25,14 +25,8 @@ export const CREATE_DIRECTREQUEST = gql`
 `;
 
 export const GET_FAQ = gql`
-  query getFaqDetail(
-    $typeName: String!
-    $searchValue: String!
-    $limit: Int!
-    $currentPage: Int!
-  ) {
+  query getFaqDetail($searchValue: String!, $limit: Int!, $currentPage: Int!) {
     getFaqDetail(
-      typeName: $typeName
       searchValue: $searchValue
       limit: $limit
       currentPage: $currentPage
@@ -47,15 +41,7 @@ export const GET_FAQ = gql`
 `;
 
 export const GET_FAQ_TOTALPAGE = gql`
-  query getFaqTotalPage(
-    $typeName: String!
-    $searchValue: String!
-    $limit: Int!
-  ) {
-    getFaqTotalPage(
-      typeName: $typeName
-      searchValue: $searchValue
-      limit: $limit
-    )
+  query getFaqTotalPage($searchValue: String!, $limit: Int!) {
+    getFaqTotalPage(searchValue: $searchValue, limit: $limit)
   }
 `;
