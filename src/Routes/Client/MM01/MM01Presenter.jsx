@@ -8,6 +8,7 @@ import {
   SpanText,
   CommonSubTitle,
   Image,
+  DotTitle,
 } from "../../../Components/CommonComponents";
 import styled from "styled-components";
 import { withResizeDetector } from "react-resize-detector";
@@ -96,6 +97,11 @@ const MM01Presenter = ({ width }) => {
         <Text fontSize={`30px`}>
           반려동물용품 유통분야 전국 매출 1위 (주)선진펫이 지나온 발자취입니다.
         </Text>
+      </Wrapper>
+
+      <Wrapper fontSize={`45px`}>
+        지금 펫마트를 시작해야 하는&nbsp;
+        <DotTitle>이유</DotTitle> !
       </Wrapper>
     </WholeWrapper>
   );

@@ -614,7 +614,6 @@ export const CommonSubTitle = styled.h2`
   margin: ${(props) => props.margin || `100px 0`};
   font-size: ${(props) => props.fontSize || `45px`};
   padding: 10px 0;
-  font-weight: 600;
   color: ${(props) => props.color};
   text-align: left;
 
@@ -1115,6 +1114,16 @@ export const SpanText = styled.span`
   cursor: ${(props) => props.cursor};
   z-index: 1;
   border: ${(props) => props.border};
+`;
+
+export const DotTitle = styled.span`
+  width: auto;
+  display: ${(props) => props.display || `contents`};
+  color: ${(props) => props.theme.black_C};
+  text-emphasis-style: dot;
+  text-emphasis-position: over left;
+  -webkit-text-emphasis-style: dot;
+  -webkit-text-emphasis-position: over;
 `;
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
