@@ -14,6 +14,16 @@ import useTitle from "@4leaf.ysh/use-title";
 import Theme from "../../../Styles/Theme";
 import SubBanner from "../../../Components/SubBanner";
 
+const Step = styled(Text)`
+  font-size: 30px;
+  font-weight: 600;
+  color: ${(props) => props.theme.subTheme_C};
+
+  @media (max-width: 900px) {
+    font-size: 25px !important;
+  }
+`;
+
 const StepTitle = styled(Text)`
   font-size: 25px;
   font-weight: 600;
@@ -69,13 +79,7 @@ const MM04Presenter = ({ width }) => {
                   src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2Ficon%2Fnumber01.png?alt=media&token=8b3fb94f-2ddd-4fd9-9ca8-8e85fd634227`}
                 />
               </Wrapper>
-              <Text
-                fontSize={`30px`}
-                fontWeight={`600`}
-                color={Theme.subTheme_C}
-              >
-                step
-              </Text>
+              <Step>step</Step>
             </Wrapper>
             <Wrapper
               width={`220px`}
@@ -101,13 +105,7 @@ const MM04Presenter = ({ width }) => {
                 alt="step"
                 src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2Ficon%2Fnumber02.png?alt=media&token=891db61f-3090-4333-8cf6-c50cbbb86fa7`}
               />
-              <Text
-                fontSize={`30px`}
-                fontWeight={`600`}
-                color={Theme.subTheme_C}
-              >
-                step
-              </Text>
+              <Step>step</Step>
             </Wrapper>
             <Wrapper
               width={`220px`}
@@ -132,13 +130,7 @@ const MM04Presenter = ({ width }) => {
                 alt="step3"
                 src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2Ficon%2Fnumber03.png?alt=media&token=9a972a7a-4738-48b5-8335-efba9158dd6c`}
               />
-              <Text
-                fontSize={`30px`}
-                fontWeight={`600`}
-                color={Theme.subTheme_C}
-              >
-                step
-              </Text>
+              <Step>step</Step>
             </Wrapper>
             <Wrapper
               width={`220px`}
@@ -163,13 +155,7 @@ const MM04Presenter = ({ width }) => {
                 alt="step4"
                 src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2Ficon%2Fnumber04.png?alt=media&token=718e81dd-686d-48ba-bf42-0c4f9a93db2e`}
               />
-              <Text
-                fontSize={`30px`}
-                fontWeight={`600`}
-                color={Theme.subTheme_C}
-              >
-                step
-              </Text>
+              <Step>step</Step>
             </Wrapper>
             <Wrapper
               width={`220px`}
@@ -194,13 +180,7 @@ const MM04Presenter = ({ width }) => {
                 alt="step5"
                 src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2Ficon%2Fnumber05.png?alt=media&token=6366a7bf-a10a-4182-8228-ec637998c046`}
               />
-              <Text
-                fontSize={`30px`}
-                fontWeight={`600`}
-                color={Theme.subTheme_C}
-              >
-                step
-              </Text>
+              <Step>step</Step>
             </Wrapper>
             <Wrapper
               width={`220px`}
@@ -229,13 +209,7 @@ const MM04Presenter = ({ width }) => {
                 alt="step"
                 src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2Ficon%2Fnumber06.png?alt=media&token=b268e6c1-24ae-4e48-9c1a-f2e2d8b86060`}
               />
-              <Text
-                fontSize={`30px`}
-                fontWeight={`600`}
-                color={Theme.subTheme_C}
-              >
-                step
-              </Text>
+              <Step>step</Step>
             </Wrapper>
             <Wrapper
               width={`220px`}
@@ -260,13 +234,7 @@ const MM04Presenter = ({ width }) => {
                 alt="step"
                 src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2Ficon%2Fnumber07.png?alt=media&token=dcf914e4-ddeb-43fe-8ec9-ab9ef80ae3de`}
               />
-              <Text
-                fontSize={`30px`}
-                fontWeight={`600`}
-                color={Theme.subTheme_C}
-              >
-                step
-              </Text>
+              <Step>step</Step>
             </Wrapper>
             <Wrapper
               width={`220px`}
@@ -291,13 +259,7 @@ const MM04Presenter = ({ width }) => {
                 alt="step"
                 src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2Ficon%2Fnumber08.png?alt=media&token=272141a9-31e4-4efa-8698-4419826d388a`}
               />
-              <Text
-                fontSize={`30px`}
-                fontWeight={`600`}
-                color={Theme.subTheme_C}
-              >
-                step
-              </Text>
+              <Step>step</Step>
             </Wrapper>
             <Wrapper
               width={`220px`}
@@ -323,13 +285,7 @@ const MM04Presenter = ({ width }) => {
                 alt="step"
                 src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2Ficon%2Fnumber09.png?alt=media&token=9c8e9dad-cb60-4261-90ec-5697a2a884aa`}
               />
-              <Text
-                fontSize={`30px`}
-                fontWeight={`600`}
-                color={Theme.subTheme_C}
-              >
-                step
-              </Text>
+              <Step>step</Step>
             </Wrapper>
             <Wrapper
               width={`220px`}
