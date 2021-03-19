@@ -16,6 +16,11 @@ import {
   Image,
   FileInput,
   FileLabel,
+  FieldsSet,
+  DataGuideWrapper,
+  DataWrapper,
+  InfoText,
+  StatusButton,
 } from "../../../Components/AdminCommonComponents";
 import { Title, Tabs } from "../Components";
 import Fade from "react-reveal/Fade";
@@ -49,6 +54,86 @@ export default ({
     <WholeWrapper al={`flex-start`} ju={`flex-start`}>
       <Fade>
         <Title text="가맹정 상세정보" />
+
+        <Wrapper margin={`0px 0px 20px 0px`}>
+          <FieldsSet margin={`0px 0px 5px 0px`}>가맹점 기본정보</FieldsSet>
+          <Wrapper dr={`row`}>
+            <DataGuideWrapper height={`300px`}>로드쇼 썸네일</DataGuideWrapper>
+            <DataWrapper height={`300px`}>
+              <Image
+                src={``}
+                width={`280px`}
+                height={`210px`}
+                margin={`0px 0px 5px 0px`}
+              />
+
+              <FileInput
+                id="file-js"
+                type="file"
+                accept="image/jpeg,image/gif,image/png"
+                onChange={fileChangeHandler}
+                ref={fileRef}
+              />
+
+              {isLoading ? (
+                <CircularIndeterminate />
+              ) : (
+                <FileLabel
+                  width={`280px`}
+                  htmlFor={`file-js`}
+                  margin={`0px 0px 15px 0px`}
+                >
+                  THUMBNAIL UPLOAD
+                </FileLabel>
+              )}
+              <InfoText width={`100%`} size={`13px`}>
+                이미지 사이즈는 16:9 비율을 기준으로 합니다. 업로드 시
+                주의해주세요.
+              </InfoText>
+            </DataWrapper>
+          </Wrapper>
+          <Wrapper dr={`row`}>
+            <DataGuideWrapper>가맹점명</DataGuideWrapper>
+            <DataWrapper>
+              <TextInput height={`25px`} />
+            </DataWrapper>
+          </Wrapper>
+
+          <Wrapper dr={`row`}>
+            <DataGuideWrapper>가맹점 주소</DataGuideWrapper>
+            <DataWrapper>
+              <TextInput height={`25px`} />
+            </DataWrapper>
+          </Wrapper>
+
+          <Wrapper dr={`row`}>
+            <DataGuideWrapper>위도 값</DataGuideWrapper>
+            <DataWrapper>
+              <TextInput height={`25px`} />
+            </DataWrapper>
+          </Wrapper>
+
+          <Wrapper dr={`row`}>
+            <DataGuideWrapper>경도 값</DataGuideWrapper>
+            <DataWrapper>
+              <TextInput height={`25px`} />
+            </DataWrapper>
+          </Wrapper>
+
+          <Wrapper dr={`row`}>
+            <DataGuideWrapper>연락처</DataGuideWrapper>
+            <DataWrapper>
+              <TextInput height={`25px`} />
+            </DataWrapper>
+          </Wrapper>
+
+          <Wrapper dr={`row`}>
+            <DataGuideWrapper>영업시간</DataGuideWrapper>
+            <DataWrapper>
+              <TextInput height={`25px`} />
+            </DataWrapper>
+          </Wrapper>
+        </Wrapper>
       </Fade>
     </WholeWrapper>
   );
