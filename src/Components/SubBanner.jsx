@@ -9,10 +9,9 @@ import { withResizeDetector } from "react-resize-detector";
 
 const SubBannerBox = styled.div`
   width: 100%;
-  height: 300px;
-  margin-top: 110px;
-  margin-bottom: 30px;
+  height: 450px;
   background-image: url(${(props) => props.src});
+  background-color: ${(props) => props.theme.black_C};
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
@@ -30,13 +29,13 @@ const SubBannerBox = styled.div`
 `;
 
 const SubBannerTitle = styled.h2`
-  font-size: 40px;
+  font-size: 60px;
   color: ${(props) => props.theme.white_C};
-  text-shadow: 1px 1px 1px ${(props) => props.theme.black_C};
+  text-shadow: 1px 2px 3px ${(props) => props.theme.white_C};
   padding: 15px 40px;
   background-color: rgba(0, 0, 0, 0.2);
   border-radius: ${(props) => props.theme.radius};
-  backdrop-filter: blur(10px);
+  /* backdrop-filter: blur(10px); */
 
   @media (max-width: 900px) {
     font-size: 40px;
@@ -83,36 +82,11 @@ const SubBanner = ({ location, width }) => {
   }
 
   return (
-    <SubBannerBox
-      src={`https://images.unsplash.com/photo-1558980663-3685c1d673c4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60`}
-    >
+    <SubBannerBox>
       <Fade bottom delay={0}>
-        <SubBannerTitle>
-          {currentActive && currentActive.toUpperCase()}
-        </SubBannerTitle>
+        <SubBannerTitle>인사말</SubBannerTitle>
       </Fade>
-      <Wrapper dr={`row`} margin={`30px 0px 0px`} wrap={`inherit`}>
-        {subButton &&
-          subButton.map((data, idx) => {
-            return (
-              <Fade key={idx} delay={50 * idx}>
-                <NavLink exact to={data.link}>
-                  <CommonButton
-                    width={width < 700 ? `115px` : `160px`}
-                    kindOf={
-                      data.name.toUpperCase() !== currentActive.toUpperCase() &&
-                      `white`
-                    }
-                    margin={`0px 3px`}
-                  >
-                    {data.name}
-                  </CommonButton>
-                </NavLink>
-              </Fade>
-            );
-          })}
-        {/* <CommonButton margin={`0px 3px`}>active</CommonButton> */}
-      </Wrapper>
+      <Wrapper dr={`row`} margin={`30px 0px 0px`} wrap={`inherit`}></Wrapper>
     </SubBannerBox>
   );
 };
