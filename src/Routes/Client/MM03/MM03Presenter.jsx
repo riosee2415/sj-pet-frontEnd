@@ -5,6 +5,7 @@ import {
   Wrapper,
   CommonSubTitle,
   RsWrapper,
+  Image,
 } from "../../../Components/CommonComponents";
 import styled from "styled-components";
 import { withResizeDetector } from "react-resize-detector";
@@ -17,7 +18,9 @@ const InnerTitle = styled.h2`
   font-weight: 700;
 `;
 
-const InnerSubTitle = styled.h3``;
+const InnerSubTitle = styled.h3`
+  line-height: 1.3;
+`;
 
 const MM03Presenter = ({ width }) => {
   useTitle("셈플");
@@ -29,76 +32,151 @@ const MM03Presenter = ({ width }) => {
       <Wrapper width={`100%`} height={`600px`} bgColor={`#d2d2d2`}></Wrapper>
 
       <RsWrapper margin={`50px 0px`}>
-        <Wrapper height={`250px`}>
-          <Wrapper height={`50%`} dr={`row`}>
+        <Wrapper
+          borderTop={`2px solid ${Theme.subTheme_C}`}
+          borderBottom={`2px solid ${Theme.subTheme_C}`}
+        >
+          <Wrapper dr={`row`}>
             <Wrapper
-              width={`50%`}
+              width={width < 900 ? `100%` : `50%`}
+              ju={`flex-start`}
               height={`100%`}
-              bgColor={`#d2d2d2`}
-              padding={`15px`}
+              padding={`25px 15px`}
               dr={`row`}
             >
-              <Wrapper al={`flex-start`} width={`120px`}>
-                IMAGE
+              <Wrapper
+                width={width < 900 ? `40px` : `70px`}
+                height={width < 900 ? `40px` : `70px`}
+                radius={`100%`}
+                shadow={`0 3px 6px ${Theme.lightGrey_C}`}
+              >
+                <Image
+                  alt="icon"
+                  width={`50%`}
+                  src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2Ficon%2F%E1%84%8B%E1%85%B5%E1%84%86%E1%85%B5%E1%84%8C%E1%85%B5%201.png?alt=media&token=61a9c3d7-2330-435f-bb8b-d6d660f57ac7`}
+                />
               </Wrapper>
-              <Wrapper al={`flex-start`} width={`160px`}>
-                TITLE
+              <Wrapper
+                al={`flex-start`}
+                width={`100px`}
+                fontWeight={`800`}
+                padding={`0 15px`}
+              >
+                매장주소
               </Wrapper>
-              <Wrapper al={`flex-start`} width={`calc(100% - 120px - 220px)`}>
+              <Wrapper
+                al={`flex-start`}
+                width={`auto`}
+                color={Theme.darkGrey_C}
+              >
                 CONTENTS
               </Wrapper>
             </Wrapper>
             <Wrapper
-              width={`50%`}
+              width={width < 900 ? `100%` : `50%`}
+              ju={`flex-start`}
               height={`100%`}
-              bgColor={`#919191`}
-              padding={`15px`}
+              padding={`25px 15px`}
               dr={`row`}
             >
-              <Wrapper al={`flex-start`} width={`120px`}>
-                IMAGE
+              <Wrapper
+                width={width < 900 ? `40px` : `70px`}
+                height={width < 900 ? `40px` : `70px`}
+                radius={`100%`}
+                shadow={`0 3px 6px ${Theme.lightGrey_C}`}
+              >
+                <Image
+                  alt="icon"
+                  width={`50%`}
+                  src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2Ficon%2F%E1%84%8B%E1%85%B5%E1%84%86%E1%85%B5%E1%84%8C%E1%85%B5%202.png?alt=media&token=c1cca145-67e6-4c9d-8aa3-93807ac77e6a`}
+                />
               </Wrapper>
-              <Wrapper al={`flex-start`} width={`160px`}>
-                TITLE
+              <Wrapper
+                al={`flex-start`}
+                width={`100px`}
+                fontWeight={`800`}
+                padding={`0 15px`}
+              >
+                영업시간
               </Wrapper>
-              <Wrapper al={`flex-start`} width={`calc(100% - 120px - 220px)`}>
+              <Wrapper
+                al={`flex-start`}
+                width={`auto`}
+                color={Theme.darkGrey_C}
+              >
                 CONTENTS
               </Wrapper>
             </Wrapper>
           </Wrapper>
           <Wrapper height={`50%`} dr={`row`}>
             <Wrapper
-              width={`50%`}
+              width={width < 900 ? `100%` : `50%`}
+              ju={`flex-start`}
               height={`100%`}
-              bgColor={`#919191`}
-              padding={`15px`}
+              padding={`25px 15px`}
               dr={`row`}
             >
-              <Wrapper al={`flex-start`} width={`120px`}>
-                IMAGE
+              <Wrapper
+                width={width < 900 ? `40px` : `70px`}
+                height={width < 900 ? `40px` : `70px`}
+                radius={`100%`}
+                shadow={`0 3px 6px ${Theme.lightGrey_C}`}
+              >
+                <Image
+                  alt="icon"
+                  width={`50%`}
+                  src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2Ficon%2F%E1%84%8B%E1%85%B5%E1%84%86%E1%85%B5%E1%84%8C%E1%85%B5%204.png?alt=media&token=ce66b3cb-082e-47d4-b413-6af3ee51f8e4`}
+                />
               </Wrapper>
-              <Wrapper al={`flex-start`} width={`160px`}>
-                TITLE
+              <Wrapper
+                al={`flex-start`}
+                width={`100px`}
+                fontWeight={`800`}
+                padding={`0 15px`}
+              >
+                전화번호
               </Wrapper>
-              <Wrapper al={`flex-start`} width={`calc(100% - 120px - 220px)`}>
+              <Wrapper
+                al={`flex-start`}
+                width={`auto`}
+                color={Theme.darkGrey_C}
+              >
                 CONTENTS
               </Wrapper>
             </Wrapper>
 
             <Wrapper
-              width={`50%`}
+              width={width < 900 ? `100%` : `50%`}
+              ju={`flex-start`}
               height={`100%`}
-              bgColor={`#d2d2d2`}
-              padding={`15px`}
+              padding={`25px 15px`}
               dr={`row`}
             >
-              <Wrapper al={`flex-start`} width={`120px`}>
-                IMAGE
+              <Wrapper
+                width={width < 900 ? `40px` : `70px`}
+                height={width < 900 ? `40px` : `70px`}
+                radius={`100%`}
+                shadow={`0 3px 6px ${Theme.lightGrey_C}`}
+              >
+                <Image
+                  alt="icon"
+                  width={`50%`}
+                  src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2Ficon%2F%E1%84%8B%E1%85%B5%E1%84%86%E1%85%B5%E1%84%8C%E1%85%B5%203.png?alt=media&token=38a45295-2421-4751-83fa-77758c2127a9`}
+                />
               </Wrapper>
-              <Wrapper al={`flex-start`} width={`160px`}>
-                TITLE
+              <Wrapper
+                al={`flex-start`}
+                width={`100px`}
+                fontWeight={`800`}
+                padding={`0 15px`}
+              >
+                휴무
               </Wrapper>
-              <Wrapper al={`flex-start`} width={`calc(100% - 120px - 220px)`}>
+              <Wrapper
+                al={`flex-start`}
+                width={`auto`}
+                color={Theme.darkGrey_C}
+              >
                 CONTENTS
               </Wrapper>
             </Wrapper>
@@ -121,6 +199,7 @@ const MM03Presenter = ({ width }) => {
             bgColor={`#d3d3d3`}
             margin={`20px`}
             shadow={Theme.boxShadowV2}
+            isShadowHover={true}
           >
             <Wrapper
               isAbsolute={true}

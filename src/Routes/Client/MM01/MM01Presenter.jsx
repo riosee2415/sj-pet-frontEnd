@@ -26,6 +26,24 @@ const MM01Presenter = ({ width }) => {
   return (
     <WholeWrapper>
       <SubBanner title={`인사말`} />
+      <Wrapper
+        dr={`row`}
+        height={`70px`}
+        borderBottom={`1px solid ${Theme.grey_C}`}
+      >
+        <Wrapper
+          width={`150px`}
+          height={`100%`}
+          cursor={`pointer`}
+          borderBottom={`2px solid ${Theme.basicTheme_C}`}
+        >
+          인사말
+        </Wrapper>
+        <Wrapper height={`20px`} bgColor={Theme.grey_C} width={`1px`}></Wrapper>
+        <Wrapper cursor={`pointer`} width={`150px`} height={`100%`}>
+          연혁
+        </Wrapper>
+      </Wrapper>
       <RsWrapper dr={`row`} ju={`space-between`} padding={`100px 0`}>
         <Wrapper width={width < 900 ? `100%` : `60%`} al={`flex-start`}>
           <Text

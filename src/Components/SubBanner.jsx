@@ -23,8 +23,7 @@ const SubBannerBox = styled.div`
   box-shadow: 0px 2px 10px #eee;
 
   @media (max-width: 700px) {
-    margin-top: 90px;
-    height: 200px;
+    height: 300px;
   }
 `;
 

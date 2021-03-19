@@ -5,6 +5,7 @@ import {
   RsWrapper,
   WholeWrapper,
   Wrapper,
+  Image,
 } from "../../../Components/CommonComponents";
 import styled from "styled-components";
 import { withResizeDetector } from "react-resize-detector";
@@ -18,6 +19,24 @@ const MM04Presenter = ({ width }) => {
   return (
     <WholeWrapper>
       <SubBanner title={`가맹절차`} />
+      <Wrapper
+        dr={`row`}
+        height={`70px`}
+        borderBottom={`1px solid ${Theme.grey_C}`}
+      >
+        <Wrapper
+          width={`150px`}
+          height={`100%`}
+          cursor={`pointer`}
+          borderBottom={`2px solid ${Theme.basicTheme_C}`}
+        >
+          가맹절차
+        </Wrapper>
+        <Wrapper height={`20px`} bgColor={Theme.grey_C} width={`1px`}></Wrapper>
+        <Wrapper cursor={`pointer`} width={`150px`} height={`100%`}>
+          개설비용
+        </Wrapper>
+      </Wrapper>
       <CommonSubTitle>가맹절차</CommonSubTitle>
       <RsWrapper>
         <Wrapper dr={`row`}>
@@ -79,12 +98,19 @@ const MM04Presenter = ({ width }) => {
           ></Wrapper>
         </Wrapper>
         <CommonSubTitle>개설비용</CommonSubTitle>
-        <Wrapper height={`900px`} bgColor={`#eee`}>
-          <Wrapper
-            width={`50%`}
-            height={`700px`}
-            border={`5px solid ${Theme.subTheme_C}`}
-          ></Wrapper>
+        <Wrapper isRelative={true}>
+          <Image
+            alt="개설비용"
+            src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM04%2Fprice.png?alt=media&token=45132959-f351-4ea0-8de9-1e8f4258783d`}
+          />
+          <Wrapper isAbsolute={true} top={`0`} left={`0`} height={`100%`}>
+            <Wrapper
+              width={`50%`}
+              height={`50%`}
+              border={`5px solid ${Theme.subTheme_C}`}
+              bgColor={Theme.white_C}
+            ></Wrapper>
+          </Wrapper>
         </Wrapper>
       </RsWrapper>
     </WholeWrapper>

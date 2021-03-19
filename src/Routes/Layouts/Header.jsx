@@ -55,6 +55,17 @@ const HeaderWrapper = styled.div`
   margin: ${(props) => props.margin};
   padding: ${(props) => props.padding};
   transition: 0.4s;
+
+  &.background {
+    background: ${(props) => props.theme.white_C};
+
+    & li {
+      color: ${(props) =>
+        props.isActive
+          ? `${props.theme.basicTheme_C}`
+          : `${props.theme.black_C}`};
+    }
+  }
 `;
 
 const H_Wrapper = styled.div`
@@ -125,7 +136,8 @@ const LogoImg = styled.img`
 const Menu = styled(LiWrapper)`
   cursor: pointer;
   font-size: 17px;
-  color: ${(props) => (props.isActive ? `#fdd000` : `#fff`)};
+  color: ${(props) =>
+    props.isActive ? `${props.theme.basicTheme_C}` : `${props.theme.white_C}`};
 
   &:hover {
     color: ${(props) => props.theme.basicTheme_C};
@@ -226,7 +238,12 @@ const Header = ({ history, location, width }) => {
   }, [pageY]);
 
   return (
-    <HeaderWrapper isFixed={true} top={`0px`} left={`0px`}>
+    <HeaderWrapper
+      isFixed={true}
+      top={`0px`}
+      left={`0px`}
+      className={headerScroll && `background`}
+    >
       <H_Wrapper dr={`row`} padding={width < 1100 ? `0 20px` : `0 40px`}>
         <Wrapper
           height={`100%`}
