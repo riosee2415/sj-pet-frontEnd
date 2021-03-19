@@ -93,3 +93,15 @@ export const scale = keyframes`
   transform:scale(1);
 }
 `;
+
+export const scale2 = keyframes`
+0%{
+  transform:scale(1);
+}
+50%{
+  transform:scale(1.5);
+}
+100%{
+  transform:scale(1);
+}
+`;

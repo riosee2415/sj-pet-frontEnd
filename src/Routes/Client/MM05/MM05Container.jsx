@@ -2,10 +2,16 @@ import React, { useEffect, useRef, useState } from "react";
 import withSplitting from "../../../Lib/withSplitting";
 const MM05Presenter = withSplitting(() => import("./MM05Presenter"));
 import { useQuery, useMutation } from "@apollo/client";
-import { GET_FAQ, GET_FAQ_TOTALPAGE } from "./MM05Queries";
+import {
+  CREATE_DIRECTREQUEST,
+  GET_FAQ,
+  GET_FAQ_TOTALPAGE,
+} from "./MM05Queries";
 import { animateScroll as scroll } from "react-scroll";
 import useInput from "../../../Components/Hooks/useInput";
 import { toast } from "react-toastify";
+import { confirmAlert } from "react-confirm-alert";
+import "react-confirm-alert/src/react-confirm-alert.css";
 
 const MM05Container = ({ history }) => {
   ////////////// - USE REF- ///////////////
@@ -52,6 +58,7 @@ const MM05Container = ({ history }) => {
   });
 
   ///////////// - USE MUTATION- /////////////
+  const [createDirectRequestMutation] = useMutation(CREATE_DIRECTREQUEST);
 
   ///////////// - EVENT HANDLER- ////////////
   const createRequestHandler = () => {
@@ -91,7 +98,7 @@ const MM05Container = ({ history }) => {
       toast.error("문의 내용을 입력해주세요.");
       return;
     }
-    if (!isAgree.value || isAgree.value.trim() === "") {
+    if (!isAgree) {
       toast.error("개인정보취급방침에 동의해주세요.");
       return;
     }
@@ -116,7 +123,7 @@ const MM05Container = ({ history }) => {
 
   const createRequestHandlerAfter = async () => {
     const { data } = await createDirectRequestMutation({
-      variable: {
+      variables: {
         name: inputName.value,
         loc: inputLoc.value,
         mobile: inputMobile.value,
@@ -131,8 +138,8 @@ const MM05Container = ({ history }) => {
       },
     });
 
-    if (data.createDirectRequest) {
-      toast.error("가맹점 상담을 신청하셨습니다.");
+    if (data.createStoreContact) {
+      toast.success("가맹점 상담을 신청하셨습니다.");
       inputName.setValue("");
       inputMobile.setValue("");
       inputEmail.setValue("");

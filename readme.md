@@ -15,7 +15,7 @@
 | 3    | INTERIOR     | 인테리어       | MM02     | "/interior"   |
 | 4    | INFO         | 매장안내       | MM03     | "/info"       |
 | 5    | FRANCHISEE   | 가맹절차       | MM04     | "/franchisee" |
-| 6    | CONTECT      | 가맹상담 QNA   | MM05     | "/contect"    |
+| 6    | CONTECT      | 가맹상담 QNA   | MM05     | "/contact"    |
 
 ## ADMIN SCREEN
 

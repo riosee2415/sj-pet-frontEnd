@@ -341,9 +341,9 @@ const Header = ({ history, location, width }) => {
                 가맹절차
               </Menu>
             </Link>
-            <Link to="/contect">
+            <Link to="/contact">
               <Menu
-                isActive={location.pathname === "/contect"}
+                isActive={location.pathname === "/contact"}
                 margin={
                   width < 1350
                     ? width < 1100
