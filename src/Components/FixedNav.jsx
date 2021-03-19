@@ -1,73 +1,61 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { BiPhoneCall } from "react-icons/bi";
-import { IoIosArrowDropup } from "react-icons/io";
-import { translate10 } from "../Components/AnimationCommon";
-import { Text, Wrapper, Image } from "../Components/CommonComponents";
-import { animateScroll as scroll } from "react-scroll";
+import {
+  Text,
+  Wrapper,
+  Image,
+  CommonButton,
+} from "../Components/CommonComponents";
+import Theme from "../Styles/Theme";
+import { translate } from "../Components/AnimationCommon";
+import { withResizeDetector } from "react-resize-detector";
 
 const FixedWraper = styled.div`
   position: fixed;
-  top: 40%;
-  right: 5px;
+  bottom: 0;
+  right: 0;
   z-index: 1000;
+  height: 80px;
+  width: 100%;
+  background: ${(props) => props.theme.subTheme_C};
+  animation: ${translate} 1s forwards;
 
-  @media (max-width: 700px) {
-    top: auto;
-    bottom: 60px;
-    right: 10px;
+  @media (max-width: 900px) {
+    height: 55px;
   }
 `;
 
-const FixedContents = styled.div`
-  width: 135px;
-  height: 48px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  background: rgba(134, 134, 134, 0.28);
-  color: #fff;
-  border-radius: 4px;
-  margin: ${(props) => props.margin};
-  font-size: ${(props) => props.fontSize};
-  cursor: pointer;
-  transition: 0.3s;
-  line-height: 1.4;
-  text-align: center;
-
-  &:hover {
-    background: rgba(134, 134, 134, 0.78);
-  }
-
-  @media (max-width: 700px) {
-    margin: 0px 0px 10px;
-  }
-`;
-
-const FixedNav = () => {
+const FixedNav = ({ width }) => {
   return (
     <FixedWraper>
-      <a href="" target="_blank">
-        <FixedContents margin={`0px 0px 60px`}>
-          <Image
-            width={`22px`}
-            radius={`4px`}
-            margin={`0px 8px 0px 0px`}
-            alt="카카오톡 아이콘"
-            src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/EBONE%2Fassets%2Fimages%2Ficon%2Fkakao-icon.png?alt=media&token=27dfa1a1-5780-489b-92f9-d01212b4903c`}
-          />
-          1:1 카톡상담
-        </FixedContents>
-      </a>
-      <a href="tel:">
-        <FixedContents fontSize={`14px`}>
-          창업문의 C.S
-          <br />
-        </FixedContents>
-      </a>
+      <Wrapper height={`100%`} dr={`row`}>
+        <Image
+          alt="로고"
+          src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2Flogo%2Flogo.png?alt=media&token=293d0a5b-53e7-446d-bdb8-d74903051e16`}
+          width={width < 900 ? `100px` : `200px`}
+        />
+        <Wrapper
+          width={`auto`}
+          margin={`0 20px`}
+          fontWeight={`800`}
+          fontSize={`30px`}
+          color={Theme.white_C}
+        >
+          가맹문의 1588.1684
+        </Wrapper>
+        <Link to="/">
+          <CommonButton
+            width={width < 900 ? `100px` : `150px`}
+            height={width < 900 ? `30px` : `40px`}
+            fontSize={width < 900 ? `15px` : `17px`}
+          >
+            신청하기
+          </CommonButton>
+        </Link>
+      </Wrapper>
     </FixedWraper>
   );
 };
 
-export default FixedNav;
+export default withResizeDetector(FixedNav);

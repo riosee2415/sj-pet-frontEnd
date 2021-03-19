@@ -9,7 +9,7 @@ const FixedWraper = styled.div`
   background: rgb(0, 0, 0);
   backdrop-filter: blur(4px);
   position: fixed;
-  bottom: 10px;
+  bottom: 90px;
   right: 10px;
   display: flex;
   flex-direction: column;
@@ -27,8 +27,8 @@ const FixedWraper = styled.div`
     transform: rotateY(360deg);
   }
   @media (max-width: 700px) {
-    bottom: 20px;
-    right: 20px;
+    bottom: 65px;
+    right: 10px;
   }
 `;
 

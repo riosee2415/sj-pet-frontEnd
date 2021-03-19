@@ -48,6 +48,7 @@ const Footer = ({ width }) => {
       padding={width < 900 ? `40px 10px` : `40px`}
       bgColor={Theme.grey_C}
       color={Theme.black_C}
+      margin={width < 900 ? `0 0 55px` : `0 0 80px`}
     >
       <Wrapper
         dr={width < 900 ? `column` : `row`}
