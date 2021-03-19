@@ -8,6 +8,10 @@ import useInput from "../../../Components/Hooks/useInput";
 import { toast } from "react-toastify";
 
 const MM05Container = ({ history }) => {
+  ////////////// - USE REF- ///////////////
+  const conRef = useRef();
+  const faqRef = useRef();
+
   ////////////// - USE STATE- ///////////////
   const inputName = useInput("");
   const inputMobile = useInput("");
@@ -180,6 +184,14 @@ const MM05Container = ({ history }) => {
     setSearchValue(inputSearch.value);
   };
 
+  const scrollMoveHandler = (type) => {
+    if (type === "인사말" && conRef.current) {
+      scroll.scrollTo(conRef.current.offsetTop - 85);
+    } else if (type === "연혁" && faqRef.current) {
+      scroll.scrollTo(faqRef.current.offsetTop - 100);
+    }
+  };
+
   ////////////// - USE EFFECT- //////////////
 
   useEffect(() => {
@@ -214,6 +226,8 @@ const MM05Container = ({ history }) => {
 
   return (
     <MM05Presenter
+      conRef={conRef}
+      faqRef={faqRef}
       //
       inputName={inputName}
       inputMobile={inputMobile}
@@ -242,6 +256,7 @@ const MM05Container = ({ history }) => {
       prevAndNextPageChangeHandler={prevAndNextPageChangeHandler}
       changePageHandler={changePageHandler}
       searchHandler={searchHandler}
+      scrollMoveHandler={scrollMoveHandler}
     />
   );
 };
