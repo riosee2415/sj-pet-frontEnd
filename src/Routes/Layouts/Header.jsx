@@ -142,7 +142,7 @@ const Menu = styled(LiWrapper)`
       : `${props.theme.white_C}`};
 
   &:hover {
-    color: ${(props) => props.theme.basicTheme_C};
+    color: ${(props) => props.theme.basicTheme_C} !important;
   }
 `;
 

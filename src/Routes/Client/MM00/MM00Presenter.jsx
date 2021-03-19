@@ -9,10 +9,12 @@ import {
   Image,
   UlWrapper,
   LiWrapper,
+  CommonButton,
 } from "../../../Components/CommonComponents";
 import styled from "styled-components";
 import { withResizeDetector } from "react-resize-detector";
 import Theme from "../../../Styles/Theme";
+import { Link } from "react-router-dom";
 
 const Popup = withSplitting(() =>
   import("../../../Components/popup/Popup.jsx")
@@ -29,6 +31,24 @@ const BrandSilder = withSplitting(() =>
 const StartSilder = withSplitting(() =>
   import("../../../Components/slider/StartSilder.jsx")
 );
+const Fade = withSplitting(() => import("react-reveal/Fade"));
+const Zoom = withSplitting(() => import("react-reveal/Zoom"));
+
+const DotTitle = styled(Text)`
+  position: relative;
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    border-radius: 100%;
+    width: 14px;
+    height: 14px;
+    background: ${(props) => props.theme.basicTheme_C};
+    margin-left: -7px;
+  }
+`;
 
 const MM00Presenter = ({
   width,
@@ -39,25 +59,30 @@ const MM00Presenter = ({
   return (
     <WholeWrapper>
       <Wrapper height={`700px`} bgColor={`${Theme.grey_C}`}>
-        <Text fontWeight={`600`}>반려동물 업종 최초</Text>
-        <Text fontWeight={`600`} margin={`20px 0`}>
+        <Text fontWeight={`700`} fontSize={`40px`}>
+          반려동물 업종 최초
+        </Text>
+        <Text fontWeight={`700`} fontSize={`40px`} margin={`20px 0`}>
           한국프랜차이즈 대상 수상
         </Text>
-        <Text fontSize={`30px`} color={`${Theme.basicTheme_C}`}>
-          코로나도 뚫는 돋보적 매출
-        </Text>
+        <Image
+          className={`title`}
+          width={`50%`}
+          src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2F%E1%84%8F%E1%85%A9%E1%84%85%E1%85%A9%E1%84%82%E1%85%A1.png?alt=media&token=7934f011-a1ac-41d1-b8c3-9e915cb29407`}
+          alt="text"
+        />
       </Wrapper>
 
       {/* <MainSlider
         mainBannerData={width < 700 ? mobileBannerData : mainBannerData}
       /> */}
+
+      <CommonSubTitle>매장현황</CommonSubTitle>
+
+      <Wrapper margin={`70px 0`}>
+        <ShopSilder />
+      </Wrapper>
       <RsWrapper>
-        <CommonSubTitle>매장현황</CommonSubTitle>
-
-        <Wrapper margin={`70px 0`}>
-          <ShopSilder />
-        </Wrapper>
-
         <CommonSubTitle>업계유일</CommonSubTitle>
 
         <Text
@@ -80,13 +105,16 @@ const MM00Presenter = ({
         </Text>
 
         <Wrapper dr={`row`} margin={`60px 0 100px`}>
-          <Wrapper width={`50%`}>
+          <Wrapper
+            width={width < 1000 ? `100%` : `50%`}
+            margin={width < 1000 && `0 0 15px`}
+          >
             <Image
-              width={`60%`}
+              width={`80%`}
               src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2Fgraph.png?alt=media&token=56cf3323-f0cc-4d08-abab-caaac17c53bf`}
             />
           </Wrapper>
-          <Wrapper width={`50%`}>
+          <Wrapper width={width < 1000 ? `100%` : `50%`}>
             <UlWrapper
               dr={`row`}
               height={`60px`}
@@ -107,12 +135,18 @@ const MM00Presenter = ({
               borderTop={`1px solid ${Theme.subTheme_C}`}
               borderBottom={`1px solid ${Theme.subTheme_C}`}
             >
-              <LiWrapper width={`20%`}>월 매출</LiWrapper>
-              <LiWrapper width={`60%`}>80,000,000</LiWrapper>
-              <LiWrapper width={`20%`}>100%</LiWrapper>
+              <LiWrapper width={`20%`} fontWeight={`700`}>
+                월 매출
+              </LiWrapper>
+              <LiWrapper width={`60%`} fontWeight={`700`}>
+                80,000,000
+              </LiWrapper>
+              <LiWrapper width={`20%`} fontWeight={`700`}>
+                100%
+              </LiWrapper>
             </UlWrapper>
 
-            <UlWrapper dr={`row`} height={`40px`}>
+            <UlWrapper dr={`row`} height={`45px`}>
               <LiWrapper width={`20%`}>영업이익</LiWrapper>
               <LiWrapper width={`60%`}>28,000,000</LiWrapper>
               <LiWrapper width={`20%`}>35%</LiWrapper>
@@ -120,7 +154,7 @@ const MM00Presenter = ({
 
             <UlWrapper
               dr={`row`}
-              height={`40px`}
+              height={`45px`}
               borderTop={`1px solid ${Theme.subTheme_C}`}
               borderBottom={`1px solid ${Theme.subTheme_C}`}
             >
@@ -129,7 +163,7 @@ const MM00Presenter = ({
               <LiWrapper width={`20%`}>6.3%</LiWrapper>
             </UlWrapper>
 
-            <UlWrapper dr={`row`} height={`40px`}>
+            <UlWrapper dr={`row`} height={`45px`}>
               <LiWrapper width={`20%`}>인건비</LiWrapper>
               <LiWrapper width={`60%`}>4,500,000</LiWrapper>
               <LiWrapper width={`20%`}>5.6%</LiWrapper>
@@ -137,7 +171,7 @@ const MM00Presenter = ({
 
             <UlWrapper
               dr={`row`}
-              height={`40px`}
+              height={`45px`}
               borderTop={`1px solid ${Theme.subTheme_C}`}
               borderBottom={`1px solid ${Theme.subTheme_C}`}
             >
@@ -146,7 +180,7 @@ const MM00Presenter = ({
               <LiWrapper width={`20%`}>1.3%</LiWrapper>
             </UlWrapper>
 
-            <UlWrapper dr={`row`} height={`40px`}>
+            <UlWrapper dr={`row`} height={`45px`}>
               <LiWrapper width={`20%`}>기타 재미용</LiWrapper>
               <LiWrapper width={`60%`}>3,500,000</LiWrapper>
               <LiWrapper width={`20%`}>4.3%</LiWrapper>
@@ -154,7 +188,7 @@ const MM00Presenter = ({
 
             <UlWrapper
               dr={`row`}
-              height={`40px`}
+              height={`45px`}
               borderTop={`1px solid ${Theme.subTheme_C}`}
               borderBottom={`1px solid ${Theme.subTheme_C}`}
             >
@@ -169,16 +203,22 @@ const MM00Presenter = ({
               fontSize={`20px`}
               borderBottom={`3px solid ${Theme.subTheme_C}`}
             >
-              <LiWrapper width={`20%`}>순 이익 (월)</LiWrapper>
-              <LiWrapper width={`60%`}>14,000,000</LiWrapper>
-              <LiWrapper width={`20%`}>17.5%</LiWrapper>
+              <LiWrapper width={`20%`} fontWeight={`700`}>
+                순 이익 (월)
+              </LiWrapper>
+              <LiWrapper width={`60%`} fontWeight={`700`}>
+                14,000,000
+              </LiWrapper>
+              <LiWrapper width={`20%`} fontWeight={`700`}>
+                17.5%
+              </LiWrapper>
             </UlWrapper>
           </Wrapper>
         </Wrapper>
 
         <CommonSubTitle>펫마트 입점 브랜드</CommonSubTitle>
 
-        <Text margin={`50px 0`}>
+        <Text margin={`50px 0`} fontSize={`30px`} fontWeight={`700`}>
           펫마트는 약 700여개의 유명, 신규 브랜드와 5000여개의 품목을 취급하고
           있습니다.
         </Text>
@@ -186,51 +226,74 @@ const MM00Presenter = ({
         <BrandSilder />
       </RsWrapper>
 
-      <CommonSubTitle>지금 펫마트를 시작해야 하는 이유 !</CommonSubTitle>
-
-      <Image
-        height={`300px`}
-        margin={`50px 0 20px`}
-        src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2F%E1%84%91%E1%85%A6%E1%86%BA%E1%84%86%E1%85%A1%E1%84%90%E1%85%B3.png?alt=media&token=02eeecf3-dfbd-4274-8c90-6d6ce834598e`}
-      />
-      <Image
-        height={`300px`}
-        src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2F%E1%84%91%E1%85%A6%E1%86%BA%E1%84%86%E1%85%A1%E1%84%90%E1%85%B32.png?alt=media&token=cffd58f0-7688-488b-b05d-663422388207`}
-      />
-      <Image
-        height={`300px`}
-        margin={`20px 0`}
-        src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2F%E1%84%91%E1%85%A6%E1%86%BA%E1%84%86%E1%85%A1%E1%84%90%E1%85%B33.png?alt=media&token=52f9c5da-c020-4861-9ee7-a106f1b2b172`}
-      />
-      <Image
-        height={`300px`}
-        src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2F%E1%84%91%E1%85%A6%E1%86%BA%E1%84%86%E1%85%A1%E1%84%90%E1%85%B34.png?alt=media&token=7eb3e81b-935a-4abf-b4e0-af10cdd73a99`}
-      />
+      <CommonSubTitle>
+        지금 펫마트를 시작해야 하는&nbsp;
+        <DotTitle fontWeight={`900`}>이</DotTitle>
+        <DotTitle fontWeight={`900`}>유</DotTitle> !
+      </CommonSubTitle>
+      <Fade bottom>
+        <Image
+          margin={`50px 0 20px`}
+          src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2F%E1%84%91%E1%85%A6%E1%86%BA%E1%84%86%E1%85%A1%E1%84%90%E1%85%B3.png?alt=media&token=02eeecf3-dfbd-4274-8c90-6d6ce834598e`}
+        />
+      </Fade>
+      <Fade bottom>
+        <Image
+          src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2F%E1%84%91%E1%85%A6%E1%86%BA%E1%84%86%E1%85%A1%E1%84%90%E1%85%B32.png?alt=media&token=cffd58f0-7688-488b-b05d-663422388207`}
+        />
+      </Fade>
+      <Fade bottom>
+        <Image
+          margin={`20px 0`}
+          src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2F%E1%84%91%E1%85%A6%E1%86%BA%E1%84%86%E1%85%A1%E1%84%90%E1%85%B33.png?alt=media&token=52f9c5da-c020-4861-9ee7-a106f1b2b172`}
+        />
+      </Fade>
+      <Fade bottom>
+        <Image
+          src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2F%E1%84%91%E1%85%A6%E1%86%BA%E1%84%86%E1%85%A1%E1%84%90%E1%85%B34.png?alt=media&token=7eb3e81b-935a-4abf-b4e0-af10cdd73a99`}
+        />
+      </Fade>
 
       <CommonSubTitle>펫마트와 함께 인생 제 2막 시작</CommonSubTitle>
 
       <Wrapper
         dr={`row`}
         margin={`60px 0 100px`}
-        padding={`60px 30px`}
+        padding={`100px 50px`}
         bgColor={`${Theme.black_C}`}
       >
         <Wrapper
-          width={`calc(100% - 1280px)`}
+          width={width < 1300 ? `100%` : `30%`}
           padding={`0 60px 0 0`}
           al={`flex-start`}
         >
-          <Text fontSize={`60px`} color={`${Theme.white_C}`}>
-            가맹점
-          </Text>
-          <Text
-            fontSize={`60px`}
-            fontWeight={`600`}
-            borderBottom={`3px solid ${Theme.kakao_C}`}
-            color={`${Theme.white_C}`}
-          >
-            성공스토리
-          </Text>
+          <Fade left>
+            <Wrapper
+              fontSize={`60px`}
+              color={`${Theme.white_C}`}
+              dr={`row`}
+              width={`auto`}
+              ju={`flex-start`}
+            >
+              <DotTitle fontSize={width < 1000 && `40px !important`}>
+                가
+              </DotTitle>
+              <DotTitle fontSize={width < 1000 && `40px !important`}>
+                맹
+              </DotTitle>
+              <DotTitle fontSize={width < 1000 && `40px !important`}>
+                점
+              </DotTitle>
+            </Wrapper>
+            <Text
+              fontSize={width < 1000 ? `40px !important` : `60px`}
+              fontWeight={`600`}
+              borderBottom={`3px solid ${Theme.kakao_C}`}
+              color={`${Theme.white_C}`}
+            >
+              성공스토리
+            </Text>
+          </Fade>
           <Text margin={`40px 0 30px`} color={`${Theme.white_C}`}>
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nobis
             porro voluptatibus pariatur. Quisquam nulla atque voluptas officia
@@ -244,7 +307,11 @@ const MM00Presenter = ({
           </Text>
         </Wrapper>
 
-        <Wrapper width={`1280px`} height={`720px`} bgColor={`${Theme.grey_C}`}>
+        <Wrapper
+          width={width < 1300 ? `100%` : `70%`}
+          height={`720px`}
+          bgColor={`${Theme.grey_C}`}
+        >
           1280*720
         </Wrapper>
 
@@ -256,120 +323,320 @@ const MM00Presenter = ({
       <CommonSubTitle>왜 펫마트일까 ?</CommonSubTitle>
 
       <Wrapper
-        height={`100px`}
         margin={`50px 0`}
+        padding={`30px 0`}
         fontSize={`40px`}
         fontWeight={`600`}
-        bgColor={`${Theme.kakao_C}`}
+        bgColor={`${Theme.basicTheme_C}`}
       >
         예비 창업자들이 펫마트를 선택하는 이유 !
       </Wrapper>
 
-      <Wrapper dr={`row`}>
-        <Wrapper dr={`row`} width={`calc(100% / 4 - 20px)`} margin={`10px`}>
-          <Wrapper height={`270px`} bgColor={`${Theme.grey_C}`}></Wrapper>
-          <Wrapper height={`230px`} border={`1px solid ${Theme.grey_C}`}>
-            <Wrapper dr={`row`} margin={`0 0 30px`}>
-              <Image alt="아이콘" width={`30px`} />
-              <Text fontSize={`20px`}>재고 부담율 제로</Text>
+      <Wrapper
+        dr={`row`}
+        al={`flex-start`}
+        padding={width < 900 ? `30px 0` : `30px`}
+      >
+        <Wrapper
+          width={
+            width < 1200
+              ? width < 900
+                ? width < 700
+                  ? `100%`
+                  : `calc(100% / 2 - 10px)`
+                : `calc(100% / 3 - 20px)`
+              : `calc(100% / 4 - 20px)`
+          }
+          isShadowHover2={true}
+          margin={width < 900 ? `5px` : `50px 10px`}
+        >
+          <Fade bottom>
+            <Wrapper height={`270px`} bgColor={`${Theme.grey_C}`}></Wrapper>
+            <Wrapper
+              padding={`30px 20px`}
+              border={`1px solid ${Theme.lightGrey_C}`}
+            >
+              <Wrapper dr={`row`} margin={`0 0 30px`}>
+                <Image
+                  alt="아이콘"
+                  width={`20px`}
+                  margin={`0 10px 0 0`}
+                  src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2Ficon%2F1.jpg?alt=media&token=400a25ae-2588-4a81-bf5f-23106d8d6e7a`}
+                />
+                <Text fontSize={`20px`}>재고 부담율 제로</Text>
+              </Wrapper>
+              <Text fontSize={`15px`} textAlign={`center`}>
+                체계적이고 안정적인 물류 시스템으로
+              </Text>
+              <Text fontSize={`15px`} textAlign={`center`}>
+                일주일에 한번씩 본사 직접배송으로 불필요한 재고를 보유할
+                필요없음
+              </Text>
             </Wrapper>
-            <Text fontSize={`15px`}>체계적이고 안정적인 물류 시스템으로</Text>
-            <Text fontSize={`15px`}>
-              일주일에 한번씩 본사 직접배송으로 불필요한 재고를
-            </Text>
-            <Text fontSize={`15px`}>보유할 필요없음</Text>
-          </Wrapper>
+          </Fade>
         </Wrapper>
 
-        <Wrapper dr={`row`} width={`calc(100% / 4 - 20px)`} margin={`10px`}>
-          <Wrapper height={`270px`} bgColor={`${Theme.grey_C}`}></Wrapper>
-          <Wrapper height={`230px`} border={`1px solid ${Theme.grey_C}`}>
-            <Wrapper dr={`row`} margin={`0 0 30px`}>
-              <Image alt="아이콘" width={`30px`} />
-              <Text fontSize={`20px`}>5000여가지 반려동물 용품 </Text>
+        <Wrapper
+          width={
+            width < 1200
+              ? width < 900
+                ? width < 700
+                  ? `100%`
+                  : `calc(100% / 2 - 10px)`
+                : `calc(100% / 3 - 20px)`
+              : `calc(100% / 4 - 20px)`
+          }
+          isShadowHover2={true}
+          margin={width < 900 ? `5px` : `10px`}
+        >
+          <Fade bottom>
+            <Wrapper height={`270px`} bgColor={`${Theme.grey_C}`}></Wrapper>
+            <Wrapper
+              padding={`30px 20px`}
+              border={`1px solid ${Theme.lightGrey_C}`}
+            >
+              <Wrapper dr={`row`} margin={`0 0 30px`}>
+                <Image
+                  alt="아이콘"
+                  width={`20px`}
+                  margin={`0 10px 0 0`}
+                  src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2Ficon%2F2.jpg?alt=media&token=cb8b6abf-6608-4512-aa6f-5ad0c2d9e7d7`}
+                />
+                <Text fontSize={`20px`}>5000여가지 반려동물 용품 </Text>
+              </Wrapper>
+              <Text fontSize={`15px`} textAlign={`center`}>
+                강아지, 고양이, 소동물까지 펫을 위한 마트
+              </Text>
             </Wrapper>
-            <Text fontSize={`15px`}>
-              강아지, 고양이, 소동물까지 펫을 위한 마트
-            </Text>
-          </Wrapper>
+          </Fade>
         </Wrapper>
 
-        <Wrapper dr={`row`} width={`calc(100% / 4 - 20px)`} margin={`10px`}>
-          <Wrapper height={`270px`} bgColor={`${Theme.grey_C}`}></Wrapper>
-          <Wrapper height={`230px`} border={`1px solid ${Theme.grey_C}`}>
-            <Wrapper dr={`row`} margin={`0 0 30px`}>
-              <Image alt="아이콘" width={`30px`} />
-              <Text fontSize={`20px`}>실속창업</Text>
+        <Wrapper
+          width={
+            width < 1200
+              ? width < 900
+                ? width < 700
+                  ? `100%`
+                  : `calc(100% / 2 - 10px)`
+                : `calc(100% / 3 - 20px)`
+              : `calc(100% / 4 - 20px)`
+          }
+          isShadowHover2={true}
+          margin={width < 900 ? `5px` : `50px 10px`}
+        >
+          <Fade bottom>
+            <Wrapper height={`270px`} bgColor={`${Theme.grey_C}`}></Wrapper>
+            <Wrapper
+              padding={`30px 20px`}
+              border={`1px solid ${Theme.lightGrey_C}`}
+            >
+              <Wrapper dr={`row`} margin={`0 0 30px`}>
+                <Image
+                  alt="아이콘"
+                  width={`20px`}
+                  margin={`0 10px 0 0`}
+                  src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2Ficon%2F3.jpg?alt=media&token=bad79cb1-ef9d-4236-87d3-b4a6a2f66e90`}
+                />
+                <Text fontSize={`20px`}>실속창업</Text>
+              </Wrapper>
+              <Text fontSize={`15px`} textAlign={`center`}>
+                가장 많은 비용을 차지하는 인테리어에
+              </Text>
+              <Text fontSize={`15px`} textAlign={`center`}>
+                비용을 창업자 직접처리로 창업 비용절감
+              </Text>
             </Wrapper>
-            <Text fontSize={`15px`}>가장 많은 비용을 차지하는 인테리어에</Text>
-            <Text fontSize={`15px`}>
-              비용을 창업자 직접처리로 창업 비용절감
-            </Text>
-          </Wrapper>
+          </Fade>
         </Wrapper>
 
-        <Wrapper dr={`row`} width={`calc(100% / 4 - 20px)`} margin={`10px`}>
-          <Wrapper height={`270px`} bgColor={`${Theme.grey_C}`}></Wrapper>
-          <Wrapper height={`230px`} border={`1px solid ${Theme.grey_C}`}>
-            <Wrapper dr={`row`} margin={`0 0 30px`}>
-              <Image alt="아이콘" width={`30px`} />
-              <Text fontSize={`20px`}>자영업자 폐업률 70%시대</Text>
+        <Wrapper
+          width={
+            width < 1200
+              ? width < 900
+                ? width < 700
+                  ? `100%`
+                  : `calc(100% / 2 - 10px)`
+                : `calc(100% / 3 - 20px)`
+              : `calc(100% / 4 - 20px)`
+          }
+          isShadowHover2={true}
+          margin={width < 900 ? `5px` : `10px`}
+        >
+          <Fade bottom>
+            <Wrapper height={`270px`} bgColor={`${Theme.grey_C}`}></Wrapper>
+            <Wrapper
+              padding={`30px 20px`}
+              border={`1px solid ${Theme.lightGrey_C}`}
+            >
+              <Wrapper dr={`row`} margin={`0 0 30px`}>
+                <Image
+                  alt="아이콘"
+                  width={`20px`}
+                  margin={`0 10px 0 0`}
+                  src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2Ficon%2F4.jpg?alt=media&token=34bbfd62-9684-4f34-b0c9-6dbb3bca405e`}
+                />
+                <Text fontSize={`20px`}>자영업자 폐업률 70%시대</Text>
+              </Wrapper>
+              <Text fontSize={`15px`} textAlign={`center`}>
+                펫마트 실패업률 1.5%
+              </Text>
             </Wrapper>
-            <Text fontSize={`15px`}>펫마트 실패업률 1.5%</Text>
-          </Wrapper>
-        </Wrapper>
-      </Wrapper>
-
-      <Wrapper dr={`row`}>
-        <Wrapper dr={`row`} width={`calc(100% / 4 - 20px)`}>
-          <Wrapper height={`270px`} bgColor={`${Theme.grey_C}`}></Wrapper>
-          <Wrapper height={`230px`} border={`1px solid ${Theme.grey_C}`}>
-            <Wrapper dr={`row`} margin={`0 0 30px`}>
-              <Image alt="아이콘" width={`30px`} />
-              <Text fontSize={`20px`}>다양한 이벤트 기획구성</Text>
-            </Wrapper>
-            <Text fontSize={`15px`}>
-              월별, 분기별, 시즌에 맞는 이벤트 구성 기획
-            </Text>
-          </Wrapper>
-        </Wrapper>
-
-        <Wrapper dr={`row`} width={`calc(100% / 4 - 20px)`} margin={`10px`}>
-          <Wrapper height={`270px`} bgColor={`${Theme.grey_C}`}></Wrapper>
-          <Wrapper height={`230px`} border={`1px solid ${Theme.grey_C}`}>
-            <Wrapper dr={`row`} margin={`0 0 30px`}>
-              <Image alt="아이콘" width={`30px`} />
-              <Text fontSize={`20px`}>담당 S/V 지정 운영</Text>
-            </Wrapper>
-            <Text fontSize={`15px`}>
-              매장 담당자 지정관리로 빠른 피드백은 물론
-            </Text>
-            <Text fontSize={`15px`}>매장수익분석, 교육 등 컨설팅 가능</Text>
-          </Wrapper>
+          </Fade>
         </Wrapper>
 
-        <Wrapper dr={`row`} width={`calc(100% / 4 - 20px)`} margin={`10px`}>
-          <Wrapper height={`270px`} bgColor={`${Theme.grey_C}`}></Wrapper>
-          <Wrapper height={`230px`} border={`1px solid ${Theme.grey_C}`}>
-            <Wrapper dr={`row`} margin={`0 0 30px`}>
-              <Image alt="아이콘" width={`30px`} />
-              <Text fontSize={`20px`}>월 2회 신상품 입고</Text>
+        <Wrapper
+          width={
+            width < 1200
+              ? width < 900
+                ? width < 700
+                  ? `100%`
+                  : `calc(100% / 2 - 10px)`
+                : `calc(100% / 3 - 20px)`
+              : `calc(100% / 4 - 20px)`
+          }
+          isShadowHover2={true}
+          margin={
+            width < 1200 ? (width < 900 ? `5px` : `-50px 10px 0`) : `10px`
+          }
+        >
+          <Fade bottom>
+            <Wrapper height={`270px`} bgColor={`${Theme.grey_C}`}></Wrapper>
+            <Wrapper
+              padding={`30px 20px`}
+              border={`1px solid ${Theme.lightGrey_C}`}
+            >
+              <Wrapper dr={`row`} margin={`0 0 30px`}>
+                <Image
+                  alt="아이콘"
+                  width={`20px`}
+                  margin={`0 10px 0 0`}
+                  src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2Ficon%2F5.jpg?alt=media&token=c7c12dd9-14bc-411a-b97a-fe065b080cf5`}
+                />
+                <Text fontSize={`20px`}>다양한 이벤트 기획구성</Text>
+              </Wrapper>
+              <Text fontSize={`15px`} textAlign={`center`}>
+                월별, 분기별, 시즌에 맞는 이벤트 구성 기획
+              </Text>
             </Wrapper>
-            <Text fontSize={`15px`}>신상품평회를 개최하여</Text>
-            <Text fontSize={`15px`}>최신트랜드에 맞는 신상입고</Text>
-          </Wrapper>
+          </Fade>
         </Wrapper>
 
-        <Wrapper dr={`row`} width={`calc(100% / 4 - 20px)`} margin={`10px`}>
-          <Wrapper height={`270px`} bgColor={`${Theme.grey_C}`}></Wrapper>
-          <Wrapper height={`230px`} border={`1px solid ${Theme.grey_C}`}>
-            <Wrapper dr={`row`} margin={`0 0 30px`}>
-              <Image alt="아이콘" width={`30px`} />
-              <Text fontSize={`20px`}>다양한 광고 진행</Text>
+        <Wrapper
+          width={
+            width < 1200
+              ? width < 900
+                ? width < 700
+                  ? `100%`
+                  : `calc(100% / 2 - 10px)`
+                : `calc(100% / 3 - 20px)`
+              : `calc(100% / 4 - 20px)`
+          }
+          isShadowHover2={true}
+          margin={
+            width < 1200 ? (width < 900 ? `5px` : `10px`) : `-50px 10px 0`
+          }
+        >
+          <Fade bottom>
+            <Wrapper height={`270px`} bgColor={`${Theme.grey_C}`}></Wrapper>
+            <Wrapper
+              padding={`30px 20px`}
+              border={`1px solid ${Theme.lightGrey_C}`}
+            >
+              <Wrapper dr={`row`} margin={`0 0 30px`}>
+                <Image
+                  alt="아이콘"
+                  width={`20px`}
+                  margin={`0 10px 0 0`}
+                  src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2Ficon%2F6.jpg?alt=media&token=3bd99a2f-b95e-448c-a4f3-e8c4f0ce7300`}
+                />
+                <Text fontSize={`20px`}>담당 S/V 지정 운영</Text>
+              </Wrapper>
+              <Text fontSize={`15px`} textAlign={`center`}>
+                매장 담당자 지정관리로 빠른 피드백은 물론
+              </Text>
+              <Text fontSize={`15px`} textAlign={`center`}>
+                매장수익분석, 교육 등 컨설팅 가능
+              </Text>
             </Wrapper>
-            <Text fontSize={`15px`}>TV, 옥외광고 등 브랜딩, 바이럴,</Text>
-            <Text fontSize={`15px`}>신규고객 창출을 위한 마케팅 기획운영</Text>
-          </Wrapper>
+          </Fade>
+        </Wrapper>
+
+        <Wrapper
+          width={
+            width < 1200
+              ? width < 900
+                ? width < 700
+                  ? `100%`
+                  : `calc(100% / 2 - 10px)`
+                : `calc(100% / 3 - 20px)`
+              : `calc(100% / 4 - 20px)`
+          }
+          isShadowHover2={true}
+          margin={width < 900 ? `5px` : `10px`}
+        >
+          <Fade bottom>
+            <Wrapper height={`270px`} bgColor={`${Theme.grey_C}`}></Wrapper>
+            <Wrapper
+              padding={`30px 20px`}
+              border={`1px solid ${Theme.lightGrey_C}`}
+            >
+              <Wrapper dr={`row`} margin={`0 0 30px`}>
+                <Image
+                  alt="아이콘"
+                  width={`20px`}
+                  margin={`0 10px 0 0`}
+                  src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2Ficon%2F7.jpg?alt=media&token=969fd0ea-a950-4ed8-bff7-4de6fdca82b9`}
+                />
+                <Text fontSize={`20px`}>월 2회 신상품 입고</Text>
+              </Wrapper>
+              <Text fontSize={`15px`} textAlign={`center`}>
+                신상품평회를 개최하여
+              </Text>
+              <Text fontSize={`15px`} textAlign={`center`}>
+                최신트랜드에 맞는 신상입고
+              </Text>
+            </Wrapper>
+          </Fade>
+        </Wrapper>
+
+        <Wrapper
+          width={
+            width < 1200
+              ? width < 900
+                ? width < 700
+                  ? `100%`
+                  : `calc(100% / 2 - 10px)`
+                : `calc(100% / 3 - 20px)`
+              : `calc(100% / 4 - 20px)`
+          }
+          isShadowHover2={true}
+          margin={
+            width < 1200 ? (width < 900 ? `5px` : `10px`) : `-50px 10px 0`
+          }
+        >
+          <Fade bottom>
+            <Wrapper height={`270px`} bgColor={`${Theme.grey_C}`}></Wrapper>
+            <Wrapper
+              padding={`30px 20px`}
+              border={`1px solid ${Theme.lightGrey_C}`}
+            >
+              <Wrapper dr={`row`} margin={`0 0 30px`}>
+                <Image
+                  alt="아이콘"
+                  width={`20px`}
+                  margin={`0 10px 0 0`}
+                  src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2Ficon%2F8.jpg?alt=media&token=0b4c1e26-3bf8-41f5-a4b1-b8ea1a21b560`}
+                />
+                <Text fontSize={`20px`}>다양한 광고 진행</Text>
+              </Wrapper>
+              <Text fontSize={`15px`} textAlign={`center`}>
+                TV, 옥외광고 등 브랜딩, 바이럴,
+              </Text>
+              <Text fontSize={`15px`} textAlign={`center`}>
+                신규고객 창출을 위한 마케팅 기획운영
+              </Text>
+            </Wrapper>
+          </Fade>
         </Wrapper>
       </Wrapper>
 
@@ -378,7 +645,7 @@ const MM00Presenter = ({
 
         <Wrapper
           width={`100%`}
-          height={`400px`}
+          padding={width < 900 ? `40px` : `80px`}
           margin={`0 0 100px`}
           bgColor={`${Theme.greyArea_C}`}
           shadow={`3px 3px 3px ${Theme.grey_C}`}
@@ -388,16 +655,17 @@ const MM00Presenter = ({
           </Text>
           <Text fontSize={`25px`}>편안하고 빠른 안내를 받아보세요.</Text>
 
-          <Wrapper
-            width={`200px`}
-            height={`80px`}
-            margin={`100px 0 0`}
-            fontSize={`25px`}
-            color={`${Theme.white_C}`}
-            bgColor={`${Theme.subTheme_C}`}
-          >
-            문의하러가기
-          </Wrapper>
+          <Link to="/contect">
+            <CommonButton
+              width={`200px`}
+              height={`80px`}
+              margin={`100px 0 0`}
+              fontSize={`25px`}
+              kindOf={`subTheme`}
+            >
+              문의하러가기
+            </CommonButton>
+          </Link>
         </Wrapper>
       </RsWrapper>
       <Popup />

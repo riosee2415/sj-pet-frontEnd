@@ -22,8 +22,30 @@ const InnerSubTitle = styled.h3`
   line-height: 1.3;
 `;
 
+const MartWrapper = styled(Wrapper)`
+  width: calc(100% / 3 - (80px / 3));
+  margin: 20px 40px 20px 0;
+
+  &:nth-child(3n) {
+    margin-right: 0;
+  }
+
+  @media (max-width: 900px) {
+    width: calc(100% / 2 - (20px / 2));
+    margin: 20px 20px 20px 0;
+
+    &:nth-child(3n) {
+      margin-right: auto;
+    }
+
+    &:nth-child(2n) {
+      margin-right: 0;
+    }
+  }
+`;
+
 const MM03Presenter = ({ width }) => {
-  useTitle("셈플");
+  useTitle("매장안내 | 펫마트");
 
   return (
     <WholeWrapper>
@@ -189,18 +211,13 @@ const MM03Presenter = ({ width }) => {
 
       <RsWrapper margin={`50px 0px`}>
         <Wrapper dr={`row`} ju={`flex-start`} padding={`30px 0px`}>
-          {/* ************************************************************ */}
-          {/* ************************************************************ */}
-          {/* DATA Loop START! */}
-          <Wrapper
+          <MartWrapper
             isRelative={true}
-            width={`400px`}
-            height={`300px`}
-            bgColor={`#d3d3d3`}
             margin={`20px`}
             shadow={Theme.boxShadowV2}
             isShadowHover={true}
           >
+            <Image alt="썸네일" src={``} height={`300px`} />
             <Wrapper
               isAbsolute={true}
               width={`100%`}
@@ -217,10 +234,79 @@ const MM03Presenter = ({ width }) => {
                 String Length 48번 넘어가면 슬라이스 "..." 처리 요망
               </InnerSubTitle>
             </Wrapper>
-          </Wrapper>
-          {/* DATA Loop END! */}
-          {/* ************************************************************ */}
-          {/* ************************************************************ */}
+          </MartWrapper>
+          <MartWrapper
+            isRelative={true}
+            margin={`20px`}
+            shadow={Theme.boxShadowV2}
+            isShadowHover={true}
+          >
+            <Image alt="썸네일" src={``} height={`300px`} />
+            <Wrapper
+              isAbsolute={true}
+              width={`100%`}
+              height={`100px`}
+              bgColor={`#fff`}
+              left={`0`}
+              bottom={`0`}
+              al={`flex-start`}
+              padding={`10px 20px`}
+              ju={`space-around`}
+            >
+              <InnerTitle>TITLE</InnerTitle>
+              <InnerSubTitle>
+                String Length 48번 넘어가면 슬라이스 "..." 처리 요망
+              </InnerSubTitle>
+            </Wrapper>
+          </MartWrapper>
+          <MartWrapper
+            isRelative={true}
+            margin={`20px`}
+            shadow={Theme.boxShadowV2}
+            isShadowHover={true}
+          >
+            <Image alt="썸네일" src={``} height={`300px`} />
+            <Wrapper
+              isAbsolute={true}
+              width={`100%`}
+              height={`100px`}
+              bgColor={`#fff`}
+              left={`0`}
+              bottom={`0`}
+              al={`flex-start`}
+              padding={`10px 20px`}
+              ju={`space-around`}
+            >
+              <InnerTitle>TITLE</InnerTitle>
+              <InnerSubTitle>
+                String Length 48번 넘어가면 슬라이스 "..." 처리 요망
+              </InnerSubTitle>
+            </Wrapper>
+          </MartWrapper>
+          <MartWrapper
+            isRelative={true}
+            margin={`20px`}
+            shadow={Theme.boxShadowV2}
+            isShadowHover={true}
+          >
+            <Image alt="썸네일" src={``} height={`300px`} />
+            <Wrapper
+              isAbsolute={true}
+              width={`100%`}
+              height={`100px`}
+              bgColor={`#fff`}
+              left={`0`}
+              bottom={`0`}
+              al={`flex-start`}
+              padding={`10px 20px`}
+              ju={`space-around`}
+            >
+              <InnerTitle>TITLE</InnerTitle>
+              <InnerSubTitle>
+                String Length 48번 넘어가면 슬라이스 "..." 처리 요망
+              </InnerSubTitle>
+            </Wrapper>
+          </MartWrapper>
         </Wrapper>
       </RsWrapper>
     </WholeWrapper>
