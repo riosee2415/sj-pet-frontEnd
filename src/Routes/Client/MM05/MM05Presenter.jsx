@@ -64,6 +64,9 @@ const Title = styled(Wrapper)`
 const MM05Presenter = ({
   width,
   //
+  conRef,
+  faqRef,
+  //
   inputName,
   inputMobile,
   inputEmail,
@@ -109,16 +112,22 @@ const MM05Presenter = ({
           height={`100%`}
           cursor={`pointer`}
           borderBottom={`2px solid ${Theme.basicTheme_C}`}
+          onClick={() => scrollMoveHandler("가맹상담")}
         >
           가맹상담
         </Wrapper>
         <Wrapper height={`20px`} bgColor={Theme.grey_C} width={`1px`}></Wrapper>
-        <Wrapper cursor={`pointer`} width={`150px`} height={`100%`}>
+        <Wrapper
+          cursor={`pointer`}
+          width={`150px`}
+          height={`100%`}
+          onClick={() => scrollMoveHandler("가맹FAQ")}
+        >
           가맹FAQ
         </Wrapper>
       </Wrapper>
       <RsWrapper>
-        <CommonSubTitle>가맹상담</CommonSubTitle>
+        <CommonSubTitle ref={conRef}>가맹상담</CommonSubTitle>
         <Wrapper>
           <Fade left>
             <Wrapper dr={`row`} ju={`space-around`}>
@@ -345,7 +354,7 @@ const MM05Presenter = ({
             </CommonButton>
           </Fade>
         </Wrapper>
-        <Wrapper>
+        <Wrapper ref={faqRef}>
           <Board
             inputSearch={inputSearch}
             pages={pages}

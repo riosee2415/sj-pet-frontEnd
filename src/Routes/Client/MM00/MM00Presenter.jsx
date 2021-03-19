@@ -742,7 +742,7 @@ const MM00Presenter = ({
           </Text>
           <Text fontSize={`25px`}>편안하고 빠른 안내를 받아보세요.</Text>
 
-          <Link to="/contect">
+          <Link to="/contact">
             <CommonButton
               width={`200px`}
               height={`80px`}

@@ -445,7 +445,7 @@ const Header = ({ history, location, width }) => {
                   </MobileSubMenu>
                 </Bounce>
               </Link>
-              <Link to="/contect">
+              <Link to="/contact">
                 <Bounce delay={300}>
                   <MobileSubMenu fontSize={`18px`} margin={`25px 0px`}>
                     가맹상담

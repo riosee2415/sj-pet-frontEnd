@@ -62,7 +62,14 @@ const StepTitle = styled(Text)`
   }
 `;
 
-const MM04Presenter = ({ width }) => {
+const MM04Presenter = ({
+  width,
+  //
+  stepRef,
+  payRef,
+  //
+  scrollMoveHandler,
+}) => {
   useTitle("셈플");
 
   return (
@@ -78,15 +85,21 @@ const MM04Presenter = ({ width }) => {
           height={`100%`}
           cursor={`pointer`}
           borderBottom={`2px solid ${Theme.basicTheme_C}`}
+          onClick={() => scrollMoveHandler("가맹절차")}
         >
           가맹절차
         </Wrapper>
         <Wrapper height={`20px`} bgColor={Theme.grey_C} width={`1px`}></Wrapper>
-        <Wrapper cursor={`pointer`} width={`150px`} height={`100%`}>
+        <Wrapper
+          cursor={`pointer`}
+          width={`150px`}
+          height={`100%`}
+          onClick={() => scrollMoveHandler("개설비용")}
+        >
           개설비용
         </Wrapper>
       </Wrapper>
-      <CommonSubTitle>가맹절차</CommonSubTitle>
+      <CommonSubTitle ref={stepRef}>가맹절차</CommonSubTitle>
 
       <RsWrapper padding={`0 0 100px`}>
         <Fade bottom>
@@ -343,7 +356,7 @@ const MM04Presenter = ({ width }) => {
           </Wrapper>
         </Fade>
 
-        <CommonSubTitle>개설비용</CommonSubTitle>
+        <CommonSubTitle ref={payRef}>개설비용</CommonSubTitle>
         <Wrapper isRelative={true}>
           <Image
             alt="개설비용"

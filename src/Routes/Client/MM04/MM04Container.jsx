@@ -21,7 +21,7 @@ const MM04Container = ({ history }) => {
   ///////////// - EVENT HANDLER- ////////////
   const scrollMoveHandler = (type) => {
     if (type === "가맹절차" && stepRef.current) {
-      scroll.scrollTo(stepRef.current.offsetTop - 85);
+      scroll.scrollTo(stepRef.current.offsetTop - 100);
     } else if (type === "개설비용" && payRef.current) {
       scroll.scrollTo(payRef.current.offsetTop - 100);
     }
