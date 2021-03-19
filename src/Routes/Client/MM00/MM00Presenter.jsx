@@ -16,6 +16,7 @@ import { withResizeDetector } from "react-resize-detector";
 import Theme from "../../../Styles/Theme";
 import { Link } from "react-router-dom";
 import useTitle from "@4leaf.ysh/use-title";
+import { scale2 } from "../../../Components/AnimationCommon";
 
 const Popup = withSplitting(() =>
   import("../../../Components/popup/Popup.jsx")
@@ -52,6 +53,10 @@ const DotTitle = styled(Text)`
   }
 `;
 
+const MainImage = styled(Image)`
+  animation: ${scale2} 60s forwards;
+`;
+
 const MM00Presenter = ({
   width,
   //
@@ -61,20 +66,58 @@ const MM00Presenter = ({
   useTitle("PET MART 선진펫");
   return (
     <WholeWrapper>
-      <Wrapper height={`700px`} bgColor={`${Theme.grey_C}`}>
-        <Text
+      <Wrapper height={`700px`} isRelative={true} overflow={`hidden`}>
+        <MainImage
+          height={`100%`}
+          alt="mainbanner"
+          isAbsolute={true}
+          top={`0`}
+          left={`0`}
+          src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2F%E1%84%86%E1%85%A2%E1%84%8C%E1%85%A1%E1%86%BC%E1%84%8B%E1%85%B5%E1%86%B8%E1%84%80%E1%85%AE.jpg?alt=media&token=6b76c565-fff0-45e2-b4da-c7b82e003d09`}
+        />
+        <Wrapper
+          width={`100%`}
+          height={`100%`}
+          isAbsolute={true}
+          top={`0`}
+          left={`0`}
+          bgColor={`rgba(0, 0, 0, 0.7)`}
+        ></Wrapper>
+
+        <Bounce>
+          <Wrapper
+            dr={`row`}
+            color={Theme.white_C}
+            fontWeight={`700`}
+            fontSize={width < 900 ? `20px !important` : `45px`}
+          >
+            <Text
+              fontWeight={`700`}
+              fontSize={width < 900 ? `20px !important` : `45px`}
+            >
+              반려동물 업종&nbsp;
+            </Text>
+            <DotTitle fontWeight={`700`}>최</DotTitle>
+            <DotTitle fontWeight={`700`}>초</DotTitle>
+          </Wrapper>
+        </Bounce>
+        <Wrapper
+          dr={`row`}
+          color={Theme.white_C}
           fontWeight={`700`}
-          fontSize={width < 900 ? `20px !important` : `40px`}
+          fontSize={width < 900 ? `20px !important` : `45px`}
         >
-          반려동물 업종 최초
-        </Text>
-        <Text
-          fontWeight={`700`}
-          fontSize={width < 900 ? `20px !important` : `40px`}
-          margin={`20px 0`}
-        >
-          한국프랜차이즈 대상 수상
-        </Text>
+          <Text
+            fontWeight={`700`}
+            fontSize={width < 900 ? `20px !important` : `45px`}
+            color={Theme.white_C}
+            margin={`20px 0`}
+          >
+            한국프랜차이즈&nbsp;
+          </Text>
+          <DotTitle fontWeight={`700`}>대</DotTitle>
+          <DotTitle fontWeight={`700`}>상</DotTitle>&nbsp;수상
+        </Wrapper>
         <Image
           className={`title`}
           width={width < 900 ? `80%` : `50%`}
