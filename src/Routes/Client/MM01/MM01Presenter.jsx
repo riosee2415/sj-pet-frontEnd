@@ -99,11 +99,13 @@ const MM01Presenter = ({ width }) => {
           반려동물용품 유통분야 전국 매출 1위 (주)선진펫이 지나온 발자취입니다.
         </Text>
       </Wrapper>
-
-      <Wrapper fontSize={`45px`}>
+      <RsWrapper>
+        <Image height={`700px`} bgColor={`#eee`} />
+      </RsWrapper>
+      {/* <Wrapper fontSize={`45px`}>
         지금 펫마트를 시작해야 하는&nbsp;
         <DotTitle>이유</DotTitle> !
-      </Wrapper>
+      </Wrapper> */}
     </WholeWrapper>
   );
 };
