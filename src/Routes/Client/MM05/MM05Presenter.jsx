@@ -219,7 +219,7 @@ const MM05Presenter = ({ width }) => {
           padding={`10px 20px`}
           margin={`10px 0`}
           ju={`space-between`}
-          border={`1px solid ${Theme.lightGrey_C}`}
+          border={`1px solid ${Theme.grey_C}`}
         >
           <Wrapper width={`auto`} dr={`row`}>
             <Wrapper
