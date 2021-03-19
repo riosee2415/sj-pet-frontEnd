@@ -102,7 +102,7 @@ const Board = ({
                     cursor={`pointer`}
                     bgColor={
                       actionFaqView && actionFaqView[idx]
-                        ? `rgb(250, 216, 109)`
+                        ? `${Theme.subTheme_C}`
                         : `#e0e0e0`
                     }
                     color={`#999`}
@@ -114,24 +114,32 @@ const Board = ({
                       width={`calc(100% - 50px)`}
                       ju={`space-between`}
                       dr={`row`}
+                      color={Theme.white_C}
                     >
                       <Wrapper
                         height={`50px`}
                         width={`50px`}
                         minWidth={`50px`}
-                        radius={`5px`}
+                        radius={`50%`}
+                        bgColor={Theme.white_C}
                       >
                         <Text
                           fontSize={width < 700 ? `16px` : `24px`}
                           fontWeight={`700`}
+                          color={Theme.subTheme_C}
                         >
-                          Q.
+                          Q
                         </Text>
                       </Wrapper>
                       <Wrapper width={`calc(100% - 50px)`} al={`flex-start`}>
                         <Text
+                          color={
+                            actionFaqView && actionFaqView[idx]
+                              ? `${Theme.white_C}`
+                              : Theme.subTheme_C
+                          }
                           padding={`10px`}
-                          fontSize={width < 700 ? `16px` : `24px`}
+                          fontSize={width < 700 ? `16px` : `20px`}
                         >
                           {data.question}
                         </Text>
@@ -161,18 +169,21 @@ const Board = ({
                     ju={`flex-start`}
                     dr={`row`}
                     wrap={`initial`}
+                    shadow={`3px 3px 3px ${Theme.grey_C}`}
                   >
                     <Wrapper
                       height={`50px`}
                       width={`50px`}
                       minWidth={`50px`}
-                      radius={`5px`}
+                      radius={`50%`}
+                      bgColor={Theme.subTheme_C}
                     >
                       <Text
                         fontSize={width < 700 ? `16px` : `24px`}
                         fontWeight={`700`}
+                        color={Theme.white_C}
                       >
-                        A.
+                        A
                       </Text>
                     </Wrapper>
                     <Wrapper width={`calc(100% - 50px)`}>
@@ -181,7 +192,7 @@ const Board = ({
                         id={`faq-answer-${idx}`}
                         padding={`10px`}
                         width={`100%`}
-                        fontSize={width < 700 ? `16px` : `24px`}
+                        fontSize={width < 700 ? `16px` : `18px`}
                         al={`flex-start`}
                         lineHeight={`1.2`}
                       ></Wrapper>
@@ -197,7 +208,7 @@ const Board = ({
       </Wrapper>
 
       {pages && pages.length > 0 && (
-        <PagenationWrapper width={`auto`}>
+        <PagenationWrapper width={`auto`} margin={`50px 0 100px`}>
           <PagenationBtn
             onClick={() => prevAndNextPageChangeHandler(currentPage - 1)}
           >

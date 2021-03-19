@@ -194,7 +194,7 @@ const MM05Container = ({ history }) => {
 
   const scrollMoveHandler = (type) => {
     if (type === "가맹상담" && conRef.current) {
-      scroll.scrollTo(conRef.current.offsetTop - 85);
+      scroll.scrollTo(conRef.current.offsetTop - 100);
     } else if (type === "가맹FAQ" && faqRef.current) {
       scroll.scrollTo(faqRef.current.offsetTop - 100);
     }
