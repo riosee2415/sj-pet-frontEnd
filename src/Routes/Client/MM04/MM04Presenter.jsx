@@ -7,6 +7,7 @@ import {
   Wrapper,
   Image,
   Text,
+  ATag,
 } from "../../../Components/CommonComponents";
 import styled from "styled-components";
 import { withResizeDetector } from "react-resize-detector";
@@ -414,19 +415,19 @@ const MM04Presenter = ({
               </Fade>
               <Fade bottom>
                 <Wrapper>
-                  <a href="tel:15881684">
+                  <ATag href="tel:15881684">
                     <Text
                       fontSize={
                         width < 1100
                           ? width < 900
-                            ? `20px !important`
+                            ? `20px !importATagnt`
                             : `25px`
                           : `40px`
                       }
                     >
                       문의전화 1588-1684
                     </Text>
-                  </a>
+                  </ATag>
                 </Wrapper>
               </Fade>
             </Wrapper>
