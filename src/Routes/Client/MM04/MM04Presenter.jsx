@@ -71,7 +71,7 @@ const MM04Presenter = ({
   //
   scrollMoveHandler,
 }) => {
-  useTitle("셈플");
+  useTitle("가맹절차 | 펫마트");
 
   return (
     <WholeWrapper>
