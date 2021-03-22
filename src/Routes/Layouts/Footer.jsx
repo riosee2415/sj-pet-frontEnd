@@ -18,8 +18,8 @@ const TelWrapper = styled(Wrapper)`
   width: 42px;
   height: 42px;
   border-radius: 42px;
-  box-shadow: 0 3px 6px ${(props) => props.theme.grey_C};
-  background-color: #fff;
+  box-shadow: 3px 3px 6px rgb(185, 185, 185);
+  background-color: ${(props) => props.theme.white_C};
 
   & svg {
     font-size: 25px;
@@ -30,8 +30,8 @@ const MailWrapper = styled(Wrapper)`
   width: 30px;
   height: 30px;
   border-radius: 40px;
-  box-shadow: 0 3px 6px ${(props) => props.theme.grey_C};
-  background-color: #fff;
+  box-shadow: 3px 3px 6px rgb(185, 185, 185);
+  background-color: ${(props) => props.theme.white_C};
 
   & svg {
     font-size: 18px;
