@@ -45,6 +45,7 @@
 | 22   | AD31         | 가맹점 상세정보        | AD31     | "/admin/storeDetailManagement/:id"   |
 | 23   | AD32         | 스토리뷰 등록          | AD32     | "/admin/storyViewManagement/"        |
 | 24   | AD33         | 스토리뷰 리스트        | AD33     | "/admin/storyViewDetailManagement/"  |
+| 25   | AD34         | 가맹정 추가하기        | AD34     | "/admin/storeCreateManagement/"      |
 
 ## CLIENT DEVELOPMENT
 

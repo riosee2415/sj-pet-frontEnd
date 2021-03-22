@@ -41,6 +41,10 @@ export default ({ history }) => {
     history.push(`/admin/storeDetailManagement/${id}`);
   };
 
+  const moveCreatePageHandler = () => {
+    history.push("/admin/storeCreateManagement/");
+  };
+
   ////////////// - USE EFFECT- ///////////////
   useEffect(() => {
     sRefetch();
@@ -59,6 +63,7 @@ export default ({ history }) => {
       //
       fileChangeHandler={fileChangeHandler}
       moveDetailPageHandler={moveDetailPageHandler}
+      moveCreatePageHandler={moveCreatePageHandler}
     />
   );
 };

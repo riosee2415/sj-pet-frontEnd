@@ -47,6 +47,7 @@ export default ({
   //
   fileChangeHandler,
   moveDetailPageHandler,
+  moveCreatePageHandler,
 }) => {
   useTitle("ADMIN | 가맹점 관리");
 
@@ -62,7 +63,11 @@ export default ({
       </Fade>
       <Fade>
         <Wrapper margin={`0px 0px 10px 0px `} al={`flex-end`} ju={`flex-end`}>
-          <CommonButton height={`25px`} kindOf={`create`}>
+          <CommonButton
+            height={`25px`}
+            kindOf={`create`}
+            onClick={moveCreatePageHandler}
+          >
             가맹점 등록
           </CommonButton>
         </Wrapper>
