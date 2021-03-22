@@ -344,7 +344,7 @@ export const TextInput = styled.input`
   }
 
   &:read-only {
-    background-color: ${(props) => props.theme.lightBasicTheme_c};
+    background-color: ${(props) => props.theme.lightGrey_C};
     cursor: auto;
   }
 
