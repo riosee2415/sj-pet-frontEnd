@@ -9,12 +9,13 @@ import SwiperCore, {
 } from "rs-swiper";
 import styled from "styled-components";
 import "swiper/swiper-bundle.min.css";
-import { Image, SpanText, Text, Wrapper } from "../CommonComponents";
+import { EmptyList, Image, SpanText, Text, Wrapper } from "../CommonComponents";
 import { numberWithCommas } from "../../commonUtils";
 import { FaStar } from "react-icons/fa";
 import Theme from "../../Styles/Theme";
+import CircularIndeterminate from "../loading/CircularIndeterminate";
 
-export default ({ width, datum, isColumn, moveLinkHandler }) => {
+export default ({ width, sDatum, isColumn, moveLinkHandler }) => {
   const Container = styled.div`
     width: 100%;
     position: relative;
@@ -39,14 +40,26 @@ export default ({ width, datum, isColumn, moveLinkHandler }) => {
         autoplay
         loop
       >
-        <SwiperSlide>
-          <Wrapper
-            width={`200px`}
-            height={`200px`}
-            margin={`10px 0`}
-            border={`1px solid ${Theme.black_C}`}
-          ></Wrapper>
-        </SwiperSlide>
+        {sDatum ? (
+          sDatum.length === 0 ? (
+            <EmptyList>조회 된 데이터가 없습니다.</EmptyList>
+          ) : (
+            sDatum.map((data, idx) => (
+              <SwiperSlide key={data._id}>
+                <Image
+                  width={`200px`}
+                  height={`200px`}
+                  margin={`10px 0`}
+                  border={`1px solid ${Theme.black_C}`}
+                  src={data.thumbnailPath}
+                />
+                {/* <Text>{data.title}</Text> */}
+              </SwiperSlide>
+            ))
+          )
+        ) : (
+          <CircularIndeterminate />
+        )}
 
         <SwiperSlide>
           <Wrapper

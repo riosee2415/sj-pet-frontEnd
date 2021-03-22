@@ -7,6 +7,7 @@ import {
   ADD_ACCEPT_RECORD,
   GET_MAINBANNER,
   GET_MOBILEBANNER,
+  GET_STORE,
 } from "./MM00Queries";
 import { animateScroll as scroll } from "react-scroll";
 
@@ -25,6 +26,8 @@ const MM00Container = ({ history }) => {
     loading: mobileBannerLoading,
     refetch: mobileBannerRefetch,
   } = useQuery(GET_MOBILEBANNER);
+
+  const { data: sDatum, refetch: sRefetch } = useQuery(GET_STORE);
 
   ///////////// - USE MUTATION- /////////////
   const [addAcceptRecordMutation] = useMutation(ADD_ACCEPT_RECORD);
@@ -66,6 +69,7 @@ const MM00Container = ({ history }) => {
 
   return (
     <MM00Presenter
+      sDatum={sDatum && sDatum.getAllStore}
       mainBannerData={mainBannerData && mainBannerData.getMainBanner}
       mobileBannerData={
         mobileBannerData && mobileBannerData.getMobileMainBanner

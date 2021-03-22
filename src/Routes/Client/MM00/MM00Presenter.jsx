@@ -60,6 +60,7 @@ const MainImage = styled(Image)`
 const MM00Presenter = ({
   width,
   //
+  sDatum,
   mobileBannerData,
   mainBannerData,
 }) => {
@@ -133,7 +134,7 @@ const MM00Presenter = ({
       <CommonSubTitle>매장현황</CommonSubTitle>
 
       <Wrapper margin={`70px 0`}>
-        <ShopSilder />
+        <ShopSilder sDatum={sDatum} />
       </Wrapper>
       <RsWrapper>
         <CommonSubTitle>업계유일</CommonSubTitle>
