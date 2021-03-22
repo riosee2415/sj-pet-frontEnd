@@ -108,7 +108,7 @@ export const Wrapper = styled.div`
   & pre {
     white-space: pre-wrap;
     line-height: 1.4;
-    color: ${(props) => props.theme.grey_C};
+    color: ${(props) => props.theme.darkGrey_C};
     font-size: 14px;
   }
 

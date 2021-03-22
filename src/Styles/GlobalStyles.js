@@ -49,7 +49,7 @@ const scrollCss = css`
   }
 
   .scroll::-webkit-scrollbar-thumb {
-    background-color: #917f59;
+    background-color: ${(props) => props.theme.basicTheme_C};
     border: 1px solid rgba(255, 255, 255, 0.8);
     border-radius: 10px;
   }
