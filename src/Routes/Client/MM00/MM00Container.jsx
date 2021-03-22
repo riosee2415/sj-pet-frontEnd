@@ -72,7 +72,7 @@ const MM00Container = ({ history }) => {
 
   return (
     <MM00Presenter
-      sDatum={sDatum && sDatum.getAllStore}
+      sDatum={sDatum && sDatum.getTotalStore}
       vDatum={vDatum && vDatum.getAllStoryViewList}
       mainBannerData={mainBannerData && mainBannerData.getMainBanner}
       mobileBannerData={
