@@ -54,6 +54,9 @@ export default ({
   dataWorkTime,
   //
   fileChangeHandler,
+  updateRoadShowHandler,
+  moveListPageHandler,
+  deleteRoadShowHandler,
 }) => {
   useTitle("ADMIN | 가맹점 관리");
 
@@ -116,14 +119,14 @@ export default ({
           <Wrapper dr={`row`}>
             <DataGuideWrapper>위도 값</DataGuideWrapper>
             <DataWrapper>
-              <TextInput height={`25px`} {...dataLnt} />
+              <TextInput height={`25px`} {...dataAtt} />
             </DataWrapper>
           </Wrapper>
 
           <Wrapper dr={`row`}>
             <DataGuideWrapper>경도 값</DataGuideWrapper>
             <DataWrapper>
-              <TextInput height={`25px`} {...dataAtt} />
+              <TextInput height={`25px`} {...dataLnt} />
             </DataWrapper>
           </Wrapper>
 
@@ -154,7 +157,7 @@ export default ({
           <CommonButton
             kindOf={`delete`}
             margin={`0px 5px`}
-            onClick={() => deleteBoardHandler()}
+            onClick={() => deleteRoadShowHandler()}
           >
             삭제하기
           </CommonButton>

@@ -14,3 +14,33 @@ export const GET_STORE_ONE = gql`
     }
   }
 `;
+
+export const UPDATE_STORE_ONE = gql`
+  mutation updateStoreOne(
+    $id: String!
+    $title: String!
+    $address: String!
+    $lnt: String!
+    $att: String!
+    $thumbnailPath: String!
+    $tel: String!
+    $workTime: String!
+  ) {
+    updateStoreOne(
+      id: $id
+      title: $title
+      address: $address
+      lnt: $lnt
+      att: $att
+      thumbnailPath: $thumbnailPath
+      tel: $tel
+      workTime: $workTime
+    )
+  }
+`;
+
+export const DELETE_STORE_ONE = gql`
+  mutation deleteStoreOne($id: String!) {
+    deleteStoreOne(id: $id)
+  }
+`;

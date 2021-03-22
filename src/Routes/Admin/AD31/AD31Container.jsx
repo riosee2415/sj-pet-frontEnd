@@ -1,7 +1,11 @@
 import React, { useEffect, useState, useRef } from "react";
 import AD31Presenter from "./AD31Presenter";
 import { useMutation, useQuery } from "@apollo/client";
-import { GET_STORE_ONE } from "./AD31Queries.js";
+import {
+  GET_STORE_ONE,
+  UPDATE_STORE_ONE,
+  DELETE_STORE_ONE,
+} from "./AD31Queries.js";
 import { toast } from "react-toastify";
 import storageFn from "../../../fsStorage";
 import useInput from "../../../Components/Hooks/useInput";
@@ -51,6 +55,8 @@ export default ({ history, match }) => {
   }
 
   ////////////// - USE MUTATION- //////////////
+  const [updateStoreOneMutation] = useMutation(UPDATE_STORE_ONE);
+  const [deleteStoreOneMutation] = useMutation(DELETE_STORE_ONE);
 
   ////////////// - USE HANDLER- //////////////
   const fileChangeHandler = async (e) => {
@@ -68,8 +74,99 @@ export default ({ history, match }) => {
     setIsLoading(false);
   };
 
+  const updateRoadShowHandler = () => {
+    confirm(
+      `UPDATE`,
+      `변경된 내용을 저장하시겠습니까?`,
+      updateRoadShowHandlerAfter,
+      null
+    );
+  };
+
+  const updateRoadShowHandlerAfter = async () => {
+    if (!emptyCheck(dataTitle.value)) {
+      toast.error("가맹점명은 필수 입력사항 입니다.");
+      return;
+    }
+
+    if (!emptyCheck(dataAddress.value)) {
+      toast.error("가맹점주소는 필수 입력사항 입니다.");
+      return;
+    }
+
+    if (!emptyCheck(dataAtt.value)) {
+      toast.error("위도는 필수 입력사항 입니다.");
+      return;
+    }
+
+    if (!emptyCheck(dataLnt.value)) {
+      toast.error("경도는 필수 입력사항 입니다.");
+      return;
+    }
+
+    if (!emptyCheck(dataTel.value)) {
+      toast.error("연락처는 필수 입력사항 입니다.");
+      return;
+    }
+
+    if (!emptyCheck(dataWorkTime.value)) {
+      toast.error("영업시간은 필수 입력사항 입니다.");
+      return;
+    }
+
+    const { data } = await updateStoreOneMutation({
+      variables: {
+        id: dataId.value,
+        title: dataTitle.value,
+        address: dataAddress.value,
+        att: dataAtt.value,
+        lnt: dataLnt.value,
+        thumbnailPath: dataThumbnailPath.value,
+        tel: dataTel.value,
+        workTime: dataWorkTime.value,
+      },
+    });
+
+    if (data.updateStoreOne) {
+      toast.info("정보가 수정되었습니다.");
+      history.push("/admin/storeManagement");
+    } else {
+      toast.error("잠시 후 다시 시도 해주세요.");
+    }
+  };
+
+  const moveListPageHandler = () => {
+    history.push("/admin/storeManagement");
+  };
+
+  const deleteRoadShowHandler = () => {
+    confirm(
+      `DELETE`,
+      `해당 가맹점 정보를 삭제하시겠습니까?`,
+      deleteRoadShowHandlerAfter,
+      null
+    );
+  };
+
+  const deleteRoadShowHandlerAfter = async () => {
+    const { data } = await deleteStoreOneMutation({
+      variables: {
+        id: dataId.value,
+      },
+    });
+
+    if (data.deleteStoreOne) {
+      toast.info("가맹점이 삭제되었습니다.");
+      history.push("/admin/storeManagement");
+    } else {
+      toast.error("잠시 후 다시 시도해주세요.");
+    }
+  };
+
   ////////////// - USE EFFECT- ///////////////
-  useEffect(() => {}, []);
+  useEffect(() => {
+    sRefetch();
+  }, []);
 
   useEffect(() => {}, [currentTab]);
 
@@ -88,6 +185,9 @@ export default ({ history, match }) => {
       dataWorkTime={dataWorkTime}
       //
       fileChangeHandler={fileChangeHandler}
+      updateRoadShowHandler={updateRoadShowHandler}
+      moveListPageHandler={moveListPageHandler}
+      deleteRoadShowHandler={deleteRoadShowHandler}
     />
   );
 };

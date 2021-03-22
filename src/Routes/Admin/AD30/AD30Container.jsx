@@ -42,7 +42,9 @@ export default ({ history }) => {
   };
 
   ////////////// - USE EFFECT- ///////////////
-  useEffect(() => {}, []);
+  useEffect(() => {
+    sRefetch();
+  }, []);
 
   useEffect(() => {}, [currentTab]);
 
