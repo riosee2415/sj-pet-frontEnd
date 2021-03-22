@@ -9,7 +9,7 @@ import { toast } from "react-toastify";
 
 const MM03Container = ({ history, match }) => {
   ////////////// - USE STATE- ///////////////
-  const [limit, setLimit] = useState(15);
+  const [limit, setLimit] = useState(9);
   const [pages, setPages] = useState(null);
   const [currentPage, setCurrentPage] = useState(0);
   const [currentList, setCurrentList] = useState(0);
