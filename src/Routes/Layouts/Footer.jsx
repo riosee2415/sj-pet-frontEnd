@@ -71,7 +71,6 @@ const Footer = ({ width }) => {
             width={width < 1350 ? `100%` : `auto`}
             al={`flex-start`}
             ju={`flex-start`}
-            margin={width < 700 && `30px 0 0`}
           >
             <Wrapper al={`flex-start`} width={`auto`} fontSize={`14px`}>
               <Text margin={width < 900 && `10px 0 0`}>
