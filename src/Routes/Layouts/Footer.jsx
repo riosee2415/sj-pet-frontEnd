@@ -46,7 +46,7 @@ const Footer = ({ width }) => {
 
   return (
     <WholeWrapper
-      padding={width < 1500 ? `40px 10px` : `40px`}
+      padding={width < 1500 ? `30px 10px` : `40px`}
       bgColor={Theme.grey_C}
       color={Theme.black_C}
       margin={width < 900 ? `0 0 55px` : `0 0 80px`}
@@ -65,12 +65,12 @@ const Footer = ({ width }) => {
           width={width < 1350 ? `100%` : `calc(100% - 220px)`}
           dr={`row`}
           padding={width < 900 ? `0` : `0 0 0 30px`}
-          ju={`space-between`}
         >
           <Wrapper
             dr={width < 900 ? `column` : `row`}
             width={width < 1100 ? `100%` : `auto`}
             al={`flex-start`}
+            margin={width < 700 && `30px 0 0`}
           >
             <Wrapper al={`flex-start`} width={`auto`} fontSize={`14px`}>
               <Text margin={width < 900 && `10px 0 0`}>
@@ -95,9 +95,10 @@ const Footer = ({ width }) => {
 
           <Wrapper
             dr={`row`}
-            width={width < 700 ? `100%` : `auto`}
-            padding={width < 1350 && `30px 0 0`}
-            al={width < 700 && `flex-start`}
+            width={width < 900 ? `100%` : `auto`}
+            margin={width < 1350 && `30px 0 0`}
+            al={width < 900 && `flex-start`}
+            ju={width < 900 && `flex-start`}
           >
             <Wrapper width={`auto`} margin={width < 900 ? `0` : `0 0 0 30px`}>
               <Text fontSize={`16px !important`} fontWeight={`700`}>
