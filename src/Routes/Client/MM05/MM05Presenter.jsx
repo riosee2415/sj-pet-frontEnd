@@ -129,7 +129,7 @@ const MM05Presenter = ({
       <RsWrapper>
         <CommonSubTitle ref={conRef}>가맹상담</CommonSubTitle>
         <Wrapper>
-          <Fade left>
+          <Fade bottom>
             <Wrapper dr={`row`} ju={`space-around`}>
               <Wrapper
                 al={width < 700 ? `center` : `flex-start`}
@@ -155,7 +155,7 @@ const MM05Presenter = ({
           </Fade>
         </Wrapper>
         <Wrapper>
-          <Fade right>
+          <Fade bottom>
             <Wrapper dr={`row`} ju={`space-around`}>
               <Wrapper
                 al={width < 700 ? `center` : `flex-start`}
@@ -201,7 +201,7 @@ const MM05Presenter = ({
           </Fade>
         </Wrapper>
         <Wrapper>
-          <Fade left>
+          <Fade bottom>
             <Wrapper dr={`row`} ju={`space-around`}>
               <Wrapper
                 al={width < 700 ? `center` : `flex-start`}
@@ -264,7 +264,7 @@ const MM05Presenter = ({
           </Fade>
         </Wrapper>
         <Wrapper width={width < 700 ? `100%` : `90%`}>
-          <Fade right>
+          <Fade bottom>
             <Wrapper
               margin={width < 700 ? `0 0 10px` : `30px 0`}
               al={width < 700 ? `center` : `flex-start`}
@@ -277,7 +277,7 @@ const MM05Presenter = ({
           </Fade>
         </Wrapper>
         <Wrapper width={width < 700 ? `100%` : `90%`}>
-          <Fade left>
+          <Fade bottom>
             <Wrapper
               cursor={`pointer`}
               dr={`row`}
