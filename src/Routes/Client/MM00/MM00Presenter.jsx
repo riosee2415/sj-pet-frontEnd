@@ -375,9 +375,14 @@ const MM00Presenter = ({
         <Wrapper
           width={width < 1300 ? `100%` : `70%`}
           height={`720px`}
-          bgColor={`${Theme.grey_C}`}
+          isRelative={true}
+          cursor={`pointer`}
         >
-          1280*720
+          <iframe
+            width="100%"
+            height="720"
+            src="https://www.youtube.com/embed/FPzdQh8ahd0"
+          ></iframe>
         </Wrapper>
 
         <Wrapper margin={`100px 0 20px`}>
