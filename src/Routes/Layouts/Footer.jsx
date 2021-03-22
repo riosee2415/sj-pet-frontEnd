@@ -4,6 +4,7 @@ import {
   Wrapper,
   Text,
   Image,
+  ATag,
 } from "../../Components/CommonComponents";
 import { Link } from "react-router-dom";
 import { withResizeDetector } from "react-resize-detector";
@@ -45,18 +46,15 @@ const Footer = ({ width }) => {
 
   return (
     <WholeWrapper
-      padding={width < 900 ? `40px 10px` : `40px`}
+      padding={width < 1500 ? `40px 10px` : `40px`}
       bgColor={Theme.grey_C}
       color={Theme.black_C}
       margin={width < 900 ? `0 0 55px` : `0 0 80px`}
     >
-      <Wrapper
-        dr={width < 900 ? `column` : `row`}
-        ju={width < 900 ? `center` : `flex-start`}
-      >
-        <Wrapper width={`auto`} al={width < 900 ? `center` : `flex-start`}>
+      <Wrapper dr={`row`} ju={`flex-start`} al={`flex-start`}>
+        <Wrapper width={`auto`} al={`flex-start`}>
           <Image
-            width={width < 900 ? `200px` : `250px`}
+            width={width < 900 ? `200px` : `220px`}
             margin={width < `0 30px 0 0`}
             alt="logo"
             src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2Flogo%2Flogo.png?alt=media&token=293d0a5b-53e7-446d-bdb8-d74903051e16`}
@@ -64,18 +62,19 @@ const Footer = ({ width }) => {
         </Wrapper>
 
         <Wrapper
-          width={width < 900 ? `100%` : `calc(100% - 250px)`}
+          width={width < 1350 ? `100%` : `calc(100% - 220px)`}
           dr={`row`}
-          padding={`0 0 0 30px`}
-          ju={width < 900 ? `center` : `space-between`}
+          padding={width < 900 ? `0` : `0 0 0 30px`}
+          ju={`space-between`}
         >
           <Wrapper
             dr={width < 900 ? `column` : `row`}
             width={width < 1100 ? `100%` : `auto`}
+            al={`flex-start`}
           >
-            <Wrapper al={width < 900 ? `center` : `flex-start`} width={`auto`}>
+            <Wrapper al={`flex-start`} width={`auto`} fontSize={`14px`}>
               <Text margin={width < 900 && `10px 0 0`}>
-                주식회사 선진펫{data && data.getFooterInfo.businessName}
+                {data && data.getFooterInfo.businessName}
               </Text>
               <Text margin={`10px 0`}>
                 주소 {data && data.getFooterInfo.address}
@@ -83,9 +82,10 @@ const Footer = ({ width }) => {
               <Text>Copyright (c) 선진펫. All Rights Reserved</Text>
             </Wrapper>
             <Wrapper
-              al={width < 700 ? `center` : `flex-start`}
+              al={`flex-start`}
               width={`auto`}
               margin={width < 900 ? `10px 0 0` : `0px 0px 0px 35px`}
+              fontSize={`14px`}
             >
               <Text>평일 : 08:30 ~ 17:30</Text>
               <Text margin={`10px 0`}>점심시간 : 12:30 ~ 13:30</Text>
@@ -94,16 +94,13 @@ const Footer = ({ width }) => {
           </Wrapper>
 
           <Wrapper
-            dr={width < 900 ? `column` : `row`}
-            width={width < 1100 ? `100%` : `auto`}
+            dr={`row`}
+            width={width < 700 ? `100%` : `auto`}
             padding={width < 1350 && `30px 0 0`}
-            al={width < 1100 && `center`}
+            al={width < 700 && `flex-start`}
           >
-            <Wrapper width={`auto`} margin={width < 900 ? `0` : `0 0 0 50px`}>
-              <Text
-                fontSize={width < 900 ? `16px !important` : `18px`}
-                fontWeight={`700`}
-              >
+            <Wrapper width={`auto`} margin={width < 900 ? `0` : `0 0 0 30px`}>
+              <Text fontSize={`16px !important`} fontWeight={`700`}>
                 펫마트 가맹문의
               </Text>
 
@@ -113,15 +110,15 @@ const Footer = ({ width }) => {
                     <BiPhoneCall />
                   </TelWrapper>
                 </Wrapper>
-                <a href="tel:15881684">
+                <ATag width={`auto`} href="tel:15881684">
                   <Text
                     al={`flex-start`}
-                    fontSize={width < 900 ? `20px !important` : `25px`}
+                    fontSize={width < 900 ? `20px !important` : `22px`}
                     fontWeight={`700`}
                   >
                     1588-1684
                   </Text>
-                </a>
+                </ATag>
               </Wrapper>
               <Wrapper ju={`flex-start`} dr={`row`}>
                 <Wrapper width={`50px`} margin={`0 10px 0 0`}>
@@ -129,22 +126,19 @@ const Footer = ({ width }) => {
                     <BiMailSend />
                   </MailWrapper>
                 </Wrapper>
-                <a href={`mailto:ebajslee@sunjinpet.co.kr`}>
+                <ATag width={`auto`} href={`mailto:ebajslee@sunjinpet.co.kr`}>
                   <Text al={`flex-start`} color={`#868686`}>
                     ebajslee@sunjinpet.co.kr
                   </Text>
-                </a>
+                </ATag>
               </Wrapper>
             </Wrapper>
 
             <Wrapper
               width={`auto`}
-              margin={width < 900 ? `30px 0 0 0` : `0 0 0 50px`}
+              margin={width < 700 ? `30px 0 0 0` : `0 0 0 20px`}
             >
-              <Text
-                fontSize={width < 900 ? `16px !important` : `18px`}
-                fontWeight={`700`}
-              >
+              <Text fontSize={`16px !important`} fontWeight={`700`}>
                 수도권/경기창업문의
               </Text>
 
@@ -154,14 +148,14 @@ const Footer = ({ width }) => {
                     <BiPhoneCall />
                   </TelWrapper>
                 </Wrapper>
-                <a href="tel:15770731">
+                <ATag width={`auto`} href="tel:15770731">
                   <Text
-                    fontSize={width < 900 ? `20px !important` : `25px`}
+                    fontSize={width < 900 ? `20px !important` : `22px`}
                     fontWeight={`700`}
                   >
                     1577-0731
                   </Text>
-                </a>
+                </ATag>
               </Wrapper>
               <Wrapper dr={`row`} ju={`flex-start`}>
                 <Wrapper width={`50px`} margin={`0 10px 0 0`}>
@@ -169,9 +163,9 @@ const Footer = ({ width }) => {
                     <BiMailSend />
                   </MailWrapper>
                 </Wrapper>
-                <a href={`mailto:vvvkmvvv@sunjinpet.co.kr`}>
+                <ATag width={`auto`} href={`mailto:vvvkmvvv@sunjinpet.co.kr`}>
                   <Text color={`#868686`}>vvvkmvvv@sunjinpet.co.kr</Text>
-                </a>
+                </ATag>
               </Wrapper>
             </Wrapper>
           </Wrapper>
