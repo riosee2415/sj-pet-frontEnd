@@ -636,7 +636,9 @@ export const CommonSubTitle = styled.h2`
 
   @media (max-width: 800px) {
     font-size: 40px;
+    margin: 50px 0;
   }
+
   @media (max-width: 500px) {
     font-size: 20px;
 

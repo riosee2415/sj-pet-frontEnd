@@ -39,6 +39,7 @@ const Bounce = withSplitting(() => import("react-reveal/Bounce"));
 
 const DotTitle = styled(Text)`
   position: relative;
+  font-size: inherit;
 
   &:before {
     content: "";
@@ -50,6 +51,12 @@ const DotTitle = styled(Text)`
     height: 14px;
     background: ${(props) => props.theme.basicTheme_C};
     margin-left: -7px;
+
+    @media (max-width: 900px) {
+      width: 10px;
+      height: 10px;
+      margin-left: -5px;
+    }
   }
 `;
 
@@ -323,8 +330,8 @@ const MM00Presenter = ({
 
       <Wrapper
         dr={`row`}
-        margin={`0px 0 100px`}
-        padding={`100px 50px`}
+        margin={width < 900 ? `0 0 40px` : `0px 0 100px`}
+        padding={width < 900 ? `60px 10px` : `100px 50px`}
         bgColor={`${Theme.black_C}`}
       >
         <Wrapper
@@ -374,13 +381,21 @@ const MM00Presenter = ({
 
         <Wrapper
           width={width < 1300 ? `100%` : `70%`}
-          height={`720px`}
+          height={
+            width < 1300
+              ? width < 900
+                ? width < 700
+                  ? `300px`
+                  : `400px`
+                : `500px`
+              : `720px`
+          }
           isRelative={true}
           cursor={`pointer`}
         >
           <iframe
             width="100%"
-            height="720"
+            height="100%"
             src="https://www.youtube.com/embed/FPzdQh8ahd0"
           ></iframe>
         </Wrapper>
@@ -739,22 +754,24 @@ const MM00Presenter = ({
 
         <Wrapper
           width={`100%`}
-          padding={width < 900 ? `40px` : `80px`}
+          padding={width < 900 ? `40px 15px` : `80px`}
           margin={`0 0 100px`}
           bgColor={`${Theme.greyArea_C}`}
           shadow={`3px 3px 3px ${Theme.grey_C}`}
         >
-          <Text fontSize={`25px`}>
+          <Text fontSize={width < 900 ? `16px !important` : `25px`}>
             펫 마트의 전문 창업상담사 항시대기 1:1문의로
           </Text>
-          <Text fontSize={`25px`}>편안하고 빠른 안내를 받아보세요.</Text>
+          <Text fontSize={width < 900 ? `16px !important` : `25px`}>
+            편안하고 빠른 안내를 받아보세요.
+          </Text>
 
           <Link to="/contact">
             <CommonButton
-              width={`200px`}
-              height={`80px`}
+              width={width < 900 ? `150px` : `200px`}
+              height={width < 900 ? `50px` : `80px`}
               margin={`100px 0 0`}
-              fontSize={`25px`}
+              fontSize={width < 900 ? `18px` : `25px`}
               kindOf={`subTheme`}
             >
               문의하러가기
