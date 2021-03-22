@@ -70,6 +70,7 @@
 - [x] 회원 권한 변경 [4LEAF.YSH]
 - [x] 1:1 문의 관리 [4LEAF.SJH]
 - [x] 가맹점 관리 [4LEAF.YSH]
+- [x] 가맹점 상세정보 [4LEAF.YSH]
 
 # commonUtils
 
