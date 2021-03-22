@@ -25,6 +25,10 @@ const ShopImage = styled(Image)`
   width: 250px;
   height: 250px;
 
+  &:hover {
+    box-shadow: 0px 3px 15px ${(props) => props.theme.lightBasicTheme_C};
+  }
+
   @media (max-width: 1500px) {
     width: 200px;
     height: 200px;
