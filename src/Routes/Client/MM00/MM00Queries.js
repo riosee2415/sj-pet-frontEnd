@@ -27,3 +27,13 @@ export const ADD_ACCEPT_RECORD = gql`
     addAcceptRecord(date: $date)
   }
 `;
+
+export const GET_STORE = gql`
+  query getAllStore {
+    getAllStore {
+      _id
+      title
+      thumbnailPath
+    }
+  }
+`;
