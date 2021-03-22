@@ -21,6 +21,25 @@ const Title = styled(Text)`
   font-family: "Averia Serif Libre", cursive;
 `;
 
+const ShopImage = styled(Image)`
+  width: 250px;
+  height: 250px;
+
+  &:hover {
+    box-shadow: 0px 3px 15px ${(props) => props.theme.lightBasicTheme_C};
+  }
+
+  @media (max-width: 1500px) {
+    width: 200px;
+    height: 200px;
+  }
+
+  @media (max-width: 800px) {
+    width: 150px;
+    height: 150px;
+  }
+`;
+
 export default ({ width, sDatum, isColumn, moveLinkHandler }) => {
   const Container = styled.div`
     width: 100%;
@@ -53,12 +72,7 @@ export default ({ width, sDatum, isColumn, moveLinkHandler }) => {
             sDatum.map((data, idx) => (
               <SwiperSlide key={data._id}>
                 <Wrapper>
-                  <Image
-                    width={`250px`}
-                    height={`250px`}
-                    margin={`10px 0`}
-                    src={data.thumbnailPath}
-                  />
+                  <ShopImage margin={`10px 0`} src={data.thumbnailPath} />
                   <Title>{data.title}</Title>
                 </Wrapper>
               </SwiperSlide>
