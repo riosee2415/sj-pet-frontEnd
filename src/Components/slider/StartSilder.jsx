@@ -2,12 +2,13 @@ import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "rs-swiper/react";
 import styled from "styled-components";
 import "swiper/swiper-bundle.min.css";
-import { Image, SpanText, Text, Wrapper } from "../CommonComponents";
+import { EmptyList, Image, SpanText, Text, Wrapper } from "../CommonComponents";
 import { numberWithCommas } from "../../commonUtils";
 import { FaStar } from "react-icons/fa";
 import Theme from "../../Styles/Theme";
+import CircularIndeterminate from "../loading/CircularIndeterminate";
 
-export default ({ width, datum, isColumn, moveLinkHandler }) => {
+export default ({ width, vDatum, isColumn, moveLinkHandler }) => {
   const Container = styled.div`
     width: 100%;
     position: relative;
@@ -30,29 +31,41 @@ export default ({ width, datum, isColumn, moveLinkHandler }) => {
         autoplay={true}
         navigation={false}
       >
-        <SwiperSlide>
-          <Wrapper dr={`row`}>
-            <Wrapper
-              width={`150px`}
-              height={`100px`}
-              margin={`10px 20px`}
-              bgColor={`${Theme.grey_C}`}
-              border={`1px solid ${Theme.black_C}`}
-            ></Wrapper>
-            <Wrapper width={`auto`}>
-              <Text
-                margin={`0 0 10px`}
-                fontSize={`12px`}
-                color={`${Theme.white_C}`}
-              >
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              </Text>
-              <Text fontSize={`12px`} color={`${Theme.white_C}`}>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              </Text>
-            </Wrapper>
-          </Wrapper>
-        </SwiperSlide>
+        {vDatum ? (
+          vDatum.length === 0 ? (
+            <EmptyList>조회 된 데이터가 없습니다.</EmptyList>
+          ) : (
+            vDatum.map((data, idx) => (
+              <SwiperSlide key={data._id}>
+                <Wrapper dr={`row`}>
+                  <Image
+                    width={`150px`}
+                    height={`100px`}
+                    margin={`10px 20px`}
+                    bgColor={`${Theme.grey_C}`}
+                    border={`1px solid ${Theme.black_C}`}
+                    src={data.thumbnail}
+                  />
+                  <Wrapper width={`auto`}>
+                    <Text
+                      margin={`0 0 10px`}
+                      fontSize={`12px`}
+                      color={`${Theme.white_C}`}
+                    >
+                      {data.title}
+                    </Text>
+                    <Text fontSize={`12px`} color={`${Theme.white_C}`}>
+                      {data.content}
+                    </Text>
+                  </Wrapper>
+                </Wrapper>
+              </SwiperSlide>
+            ))
+          )
+        ) : (
+          <CircularIndeterminate />
+        )}
+
         <SwiperSlide>
           <Wrapper dr={`row`}>
             <Wrapper

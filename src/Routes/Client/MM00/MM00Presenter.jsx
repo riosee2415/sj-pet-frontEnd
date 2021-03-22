@@ -61,6 +61,7 @@ const MM00Presenter = ({
   width,
   //
   sDatum,
+  vDatum,
   mobileBannerData,
   mainBannerData,
 }) => {
@@ -380,7 +381,7 @@ const MM00Presenter = ({
         </Wrapper>
 
         <Wrapper margin={`100px 0 20px`}>
-          <StartSilder />
+          <StartSilder vDatum={vDatum} />
         </Wrapper>
       </Wrapper>
 
