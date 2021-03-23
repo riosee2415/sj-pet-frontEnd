@@ -14,6 +14,8 @@ const MM03Container = ({ history, match }) => {
   const [currentPage, setCurrentPage] = useState(0);
   const [currentList, setCurrentList] = useState(0);
 
+  const [scale, setScale] = useState(4);
+
   ////////////// - USE QUERY- ///////////////
   const { data: sDatum, refetch: sRefetch } = useQuery(GET_STORE, {
     variables: {
@@ -58,6 +60,10 @@ const MM03Container = ({ history, match }) => {
     setCurrentPage(page);
   };
 
+  const changeScaleHandler = (idx) => {
+    setScale(idx);
+  };
+
   ////////////// - USE EFFECT- //////////////
 
   useEffect(() => {
@@ -83,11 +89,13 @@ const MM03Container = ({ history, match }) => {
       pages={pages}
       currentPage={currentPage}
       currentList={currentList}
+      scale={scale}
       //
       sDatum={sDatum && sDatum.getAllStore}
       //
       changePageHandler={changePageHandler}
       prevAndNextPageChangeHandler={prevAndNextPageChangeHandler}
+      changeScaleHandler={changeScaleHandler}
     />
   );
 };

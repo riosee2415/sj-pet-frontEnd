@@ -10,6 +10,8 @@ import {
   PagenationWrapper,
   PagenationBtn,
   Pagenation,
+  SpanText,
+  CommonButton,
 } from "../../../Components/CommonComponents";
 import styled from "styled-components";
 import { withResizeDetector } from "react-resize-detector";
@@ -19,6 +21,7 @@ import SubBanner from "../../../Components/SubBanner";
 import { KakaoMap, CustomOverlay } from "react-full-kakao-maps";
 import CircularIndeterminate from "../../../Components/loading/CircularIndeterminate";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
 
 const InnerTitle = styled.h2`
   font-size: 24px;
@@ -68,6 +71,7 @@ const MM03Presenter = ({
   width,
   //
   limit,
+  scale,
   pages,
   currentPage,
   currentList,
@@ -76,6 +80,7 @@ const MM03Presenter = ({
   //
   changePageHandler,
   prevAndNextPageChangeHandler,
+  changeScaleHandler,
 }) => {
   useTitle("매장안내 | 펫마트");
 
@@ -239,11 +244,14 @@ const MM03Presenter = ({
       </RsWrapper>
 
       <CommonSubTitle>매장찾기</CommonSubTitle>
-      <Wrapper width={`100%`} height={`600px`}>
+      <Wrapper width={`100%`} height={`600px`} isRelative={true}>
         <KakaoMap
           apiUrl={`//dapi.kakao.com/v2/maps/sdk.js?appkey=a8e290d0abd70336680c1d1ea1a681da&autoload=false`}
           width={`100%`}
+          height={`600px`}
           level={4}
+          setLevel={scale}
+          isEvent={true}
           draggable={true}
           lat={35.87612923970815}
           lng={128.68324850753916}
@@ -263,6 +271,30 @@ const MM03Presenter = ({
             lng={128.68324850753916}
           ></CustomOverlay>
         </KakaoMap>
+        <Wrapper
+          width={`auto`}
+          isAbsolute={true}
+          zIndex={`9999`}
+          top={`10px`}
+          right={`10px`}
+        >
+          <CommonButton
+            margin={`10px 0`}
+            width={`40px`}
+            height={`40px`}
+            onClick={() => changeScaleHandler(scale - 1)}
+          >
+            <AiOutlinePlus />
+          </CommonButton>
+
+          <CommonButton
+            width={`40px`}
+            height={`40px`}
+            onClick={() => changeScaleHandler(scale + 1)}
+          >
+            <AiOutlineMinus />
+          </CommonButton>
+        </Wrapper>
       </Wrapper>
 
       <RsWrapper margin={`50px 0px`}>
