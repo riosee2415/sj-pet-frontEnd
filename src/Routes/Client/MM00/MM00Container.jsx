@@ -29,7 +29,6 @@ const MM00Container = ({ history }) => {
   } = useQuery(GET_MOBILEBANNER);
 
   const { data: sDatum, refetch: sRefetch } = useQuery(GET_STORE);
-
   const { data: vDatum, refetch: vRefetch } = useQuery(GET_STORYVIEW);
 
   ///////////// - USE MUTATION- /////////////
@@ -57,6 +56,12 @@ const MM00Container = ({ history }) => {
     await sessionStorage.setItem("ALKJSDLJOQIUALSX", "LAZKNJXOIUQASDSA");
   };
 
+  const moveLinkHandler = (data) => {
+    sessionStorage.setItem("info", JSON.stringify(data));
+
+    history.push(`/info`);
+  };
+
   ////////////// - USE EFFECT- //////////////
   useEffect(() => {
     const item = sessionStorage.getItem("ALKJSDLJOQIUALSX");
@@ -78,6 +83,8 @@ const MM00Container = ({ history }) => {
       mobileBannerData={
         mobileBannerData && mobileBannerData.getMobileMainBanner
       }
+      //
+      moveLinkHandler={moveLinkHandler}
     />
   );
 };

@@ -33,7 +33,10 @@ export const GET_STORE = gql`
     getAllStoreByImportant {
       _id
       title
+      address
       thumbnailPath
+      att
+      lnt
     }
   }
 `;

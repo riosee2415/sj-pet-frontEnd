@@ -358,12 +358,12 @@ const Header = ({ history, location, width }) => {
           </UlWrapper>
           <ATag width={`auto`} href="tel:15881684">
             <Wrapper
-              width={`200px`}
-              padding={`10px`}
+              width={`auto`}
+              padding={`10px 15px`}
               radius={`25px`}
               bgColor={Theme.lightBasicTheme_c}
               color={Theme.white_C}
-              fontSize={`18px`}
+              fontSize={`22px`}
             >
               가맹문의 1588-1684
             </Wrapper>

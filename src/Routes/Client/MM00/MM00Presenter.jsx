@@ -71,6 +71,8 @@ const MM00Presenter = ({
   vDatum,
   mobileBannerData,
   mainBannerData,
+  //
+  moveLinkHandler,
 }) => {
   useTitle("PET MART 선진펫");
   return (
@@ -142,7 +144,11 @@ const MM00Presenter = ({
       <CommonSubTitle>매장현황</CommonSubTitle>
 
       <Wrapper margin={`0px 0 70px`}>
-        <ShopSilder sDatum={sDatum} />
+        <ShopSilder
+          sDatum={sDatum}
+          moveLinkHandler={moveLinkHandler}
+          width={width}
+        />
       </Wrapper>
       <RsWrapper>
         <CommonSubTitle>업계유일</CommonSubTitle>
@@ -293,7 +299,7 @@ const MM00Presenter = ({
             있습니다.
           </Text>
         </LightSpeed>
-        <BrandSilder />
+        <BrandSilder width={width} />
       </RsWrapper>
 
       <Bounce>
@@ -401,7 +407,7 @@ const MM00Presenter = ({
         </Wrapper>
 
         <Wrapper margin={`100px 0 20px`}>
-          <StartSilder vDatum={vDatum} />
+          <StartSilder vDatum={vDatum} width={width} />
         </Wrapper>
       </Wrapper>
 
