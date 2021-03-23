@@ -71,11 +71,13 @@ const MM03Presenter = ({
   pages,
   currentPage,
   currentList,
+  store,
   //
   sDatum,
   //
   changePageHandler,
   prevAndNextPageChangeHandler,
+  dataLinkHandler,
 }) => {
   useTitle("매장안내 | 펫마트");
 
@@ -90,78 +92,84 @@ const MM03Presenter = ({
           borderTop={`2px solid ${Theme.subTheme_C}`}
           borderBottom={`2px solid ${Theme.subTheme_C}`}
         >
-          <Wrapper dr={`row`}>
-            <Wrapper
-              width={width < 900 ? `100%` : `50%`}
-              ju={`flex-start`}
-              height={`100%`}
-              padding={`25px 15px`}
-              dr={`row`}
-            >
-              <Wrapper
-                width={width < 900 ? `40px` : `70px`}
-                height={width < 900 ? `40px` : `70px`}
-                radius={`100%`}
-                shadow={`0 3px 6px ${Theme.lightGrey_C}`}
-              >
-                <Image
-                  alt="icon"
-                  width={`50%`}
-                  src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2Ficon%2F%E1%84%8B%E1%85%B5%E1%84%86%E1%85%B5%E1%84%8C%E1%85%B5%201.png?alt=media&token=61a9c3d7-2330-435f-bb8b-d6d660f57ac7`}
-                />
-              </Wrapper>
-              <Wrapper
-                al={`flex-start`}
-                width={`100px`}
-                fontWeight={`800`}
-                padding={`0 15px`}
-              >
-                매장주소
-              </Wrapper>
-              <Wrapper
-                al={`flex-start`}
-                width={`auto`}
-                color={Theme.darkGrey_C}
-              >
-                CONTENTS
-              </Wrapper>
-            </Wrapper>
-            <Wrapper
-              width={width < 900 ? `100%` : `50%`}
-              ju={`flex-start`}
-              height={`100%`}
-              padding={`25px 15px`}
-              dr={`row`}
-            >
-              <Wrapper
-                width={width < 900 ? `40px` : `70px`}
-                height={width < 900 ? `40px` : `70px`}
-                radius={`100%`}
-                shadow={`0 3px 6px ${Theme.lightGrey_C}`}
-              >
-                <Image
-                  alt="icon"
-                  width={`50%`}
-                  src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2Ficon%2F%E1%84%8B%E1%85%B5%E1%84%86%E1%85%B5%E1%84%8C%E1%85%B5%202.png?alt=media&token=c1cca145-67e6-4c9d-8aa3-93807ac77e6a`}
-                />
-              </Wrapper>
-              <Wrapper
-                al={`flex-start`}
-                width={`100px`}
-                fontWeight={`800`}
-                padding={`0 15px`}
-              >
-                영업시간
-              </Wrapper>
-              <Wrapper
-                al={`flex-start`}
-                width={`auto`}
-                color={Theme.darkGrey_C}
-              >
-                CONTENTS
-              </Wrapper>
-            </Wrapper>
-          </Wrapper>
+          {store &&
+            store.map((data, idx) => {
+              return (
+                <Wrapper dr={`row`}>
+                  <Wrapper
+                    width={width < 900 ? `100%` : `50%`}
+                    ju={`flex-start`}
+                    height={`100%`}
+                    padding={`25px 15px`}
+                    dr={`row`}
+                  >
+                    <Wrapper
+                      width={width < 900 ? `40px` : `70px`}
+                      height={width < 900 ? `40px` : `70px`}
+                      radius={`100%`}
+                      shadow={`0 3px 6px ${Theme.lightGrey_C}`}
+                    >
+                      <Image
+                        alt="icon"
+                        width={`50%`}
+                        src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2Ficon%2F%E1%84%8B%E1%85%B5%E1%84%86%E1%85%B5%E1%84%8C%E1%85%B5%201.png?alt=media&token=61a9c3d7-2330-435f-bb8b-d6d660f57ac7`}
+                      />
+                    </Wrapper>
+                    <Wrapper
+                      al={`flex-start`}
+                      width={`100px`}
+                      fontWeight={`800`}
+                      padding={`0 15px`}
+                    >
+                      매장주소
+                    </Wrapper>
+                    <Wrapper
+                      al={`flex-start`}
+                      width={`auto`}
+                      color={Theme.darkGrey_C}
+                    >
+                      {data.address}
+                    </Wrapper>
+                  </Wrapper>
+                  <Wrapper
+                    width={width < 900 ? `100%` : `50%`}
+                    ju={`flex-start`}
+                    height={`100%`}
+                    padding={`25px 15px`}
+                    dr={`row`}
+                  >
+                    <Wrapper
+                      width={width < 900 ? `40px` : `70px`}
+                      height={width < 900 ? `40px` : `70px`}
+                      radius={`100%`}
+                      shadow={`0 3px 6px ${Theme.lightGrey_C}`}
+                    >
+                      <Image
+                        alt="icon"
+                        width={`50%`}
+                        src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2Ficon%2F%E1%84%8B%E1%85%B5%E1%84%86%E1%85%B5%E1%84%8C%E1%85%B5%202.png?alt=media&token=c1cca145-67e6-4c9d-8aa3-93807ac77e6a`}
+                      />
+                    </Wrapper>
+                    <Wrapper
+                      al={`flex-start`}
+                      width={`100px`}
+                      fontWeight={`800`}
+                      padding={`0 15px`}
+                    >
+                      영업시간
+                    </Wrapper>
+                    <Wrapper
+                      al={`flex-start`}
+                      width={`auto`}
+                      color={Theme.darkGrey_C}
+                    >
+                      CONTENTS
+                    </Wrapper>
+                  </Wrapper>
+                </Wrapper>
+              );
+            })}
+
           <Wrapper height={`50%`} dr={`row`}>
             <Wrapper
               width={width < 900 ? `100%` : `50%`}
@@ -286,6 +294,7 @@ const MM03Presenter = ({
                   margin={`20px`}
                   shadow={Theme.boxShadowV2}
                   isShadowHover={true}
+                  onClick={dataLinkHandler}
                 >
                   <Image
                     alt="썸네일"

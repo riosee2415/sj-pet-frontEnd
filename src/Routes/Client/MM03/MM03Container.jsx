@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import withSplitting from "../../../Lib/withSplitting";
 const MM03Presenter = withSplitting(() => import("./MM03Presenter"));
 import { useQuery, useMutation } from "@apollo/client";
-import { GET_STORE, GET_STORE_TOTALPAGE } from "./MM03Queries";
+import { GET_STORE, GET_STORE_ONE, GET_STORE_TOTALPAGE } from "./MM03Queries";
 import { animateScroll as scroll } from "react-scroll";
 import useInput from "../../../Components/Hooks/useInput";
 import { toast } from "react-toastify";
@@ -13,6 +13,7 @@ const MM03Container = ({ history, match }) => {
   const [pages, setPages] = useState(null);
   const [currentPage, setCurrentPage] = useState(0);
   const [currentList, setCurrentList] = useState(0);
+  const [store, setStore] = useState("");
 
   ////////////// - USE QUERY- ///////////////
   const { data: sDatum, refetch: sRefetch } = useQuery(GET_STORE, {
@@ -58,6 +59,10 @@ const MM03Container = ({ history, match }) => {
     setCurrentPage(page);
   };
 
+  const dataLinkHandler = () => {
+    setStore;
+  };
+
   ////////////// - USE EFFECT- //////////////
 
   useEffect(() => {
@@ -83,11 +88,13 @@ const MM03Container = ({ history, match }) => {
       pages={pages}
       currentPage={currentPage}
       currentList={currentList}
+      setStore={setStore}
       //
       sDatum={sDatum && sDatum.getAllStore}
       //
       changePageHandler={changePageHandler}
       prevAndNextPageChangeHandler={prevAndNextPageChangeHandler}
+      dataLinkHandler={dataLinkHandler}
     />
   );
 };
