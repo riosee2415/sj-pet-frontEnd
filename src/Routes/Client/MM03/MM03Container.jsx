@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import withSplitting from "../../../Lib/withSplitting";
 const MM03Presenter = withSplitting(() => import("./MM03Presenter"));
 import { useQuery, useMutation } from "@apollo/client";
-import { GET_STORE, GET_STORE_ONE, GET_STORE_TOTALPAGE } from "./MM03Queries";
+import { GET_STORE, GET_STORE_ALL, GET_STORE_TOTALPAGE } from "./MM03Queries";
 import { animateScroll as scroll } from "react-scroll";
 import useInput from "../../../Components/Hooks/useInput";
 import { toast } from "react-toastify";
@@ -18,6 +18,8 @@ const MM03Container = ({ history, match }) => {
   const [scale, setScale] = useState(4);
 
   ////////////// - USE QUERY- ///////////////
+  const { data: aDatum, refetch: aRefetch } = useQuery(GET_STORE_ALL);
+
   const { data: sDatum, refetch: sRefetch } = useQuery(GET_STORE, {
     variables: {
       currentPage,
@@ -97,6 +99,7 @@ const MM03Container = ({ history, match }) => {
       setStore={setStore}
       //
       sDatum={sDatum && sDatum.getAllStore}
+      aDatum={aDatum && aDatum.getTotalStore}
       //
       changePageHandler={changePageHandler}
       prevAndNextPageChangeHandler={prevAndNextPageChangeHandler}

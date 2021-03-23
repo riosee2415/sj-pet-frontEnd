@@ -13,13 +13,15 @@ export const GET_STORE = gql`
   }
 `;
 
-export const GET_TOTALSTORE = gql`
+export const GET_STORE_ALL = gql`
   query getTotalStore {
     getTotalStore {
       _id
+      title
+      address
+      thumbnailPath
       att
       lnt
-      title
     }
   }
 `;

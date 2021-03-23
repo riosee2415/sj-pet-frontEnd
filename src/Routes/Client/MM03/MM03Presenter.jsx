@@ -78,6 +78,7 @@ const MM03Presenter = ({
   store,
   //
   sDatum,
+  aDatum,
   //
   changePageHandler,
   prevAndNextPageChangeHandler,
@@ -265,8 +266,8 @@ const MM03Presenter = ({
           lat={35.87612923970815}
           lng={128.68324850753916}
         >
-          {sDatum &&
-            sDatum.map((data, idx) => {
+          {aDatum &&
+            aDatum.map((data, idx) => {
               return (
                 <CustomOverlay
                   key={data._id}
