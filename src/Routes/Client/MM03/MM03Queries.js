@@ -7,6 +7,19 @@ export const GET_STORE = gql`
       title
       address
       thumbnailPath
+      att
+      lnt
+    }
+  }
+`;
+
+export const GET_TOTALSTORE = gql`
+  query getTotalStore {
+    getTotalStore {
+      _id
+      att
+      lnt
+      title
     }
   }
 `;

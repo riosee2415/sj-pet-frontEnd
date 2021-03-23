@@ -239,29 +239,37 @@ const MM03Presenter = ({
       </RsWrapper>
 
       <CommonSubTitle>매장찾기</CommonSubTitle>
+
       <Wrapper width={`100%`} height={`600px`}>
         <KakaoMap
           apiUrl={`//dapi.kakao.com/v2/maps/sdk.js?appkey=a8e290d0abd70336680c1d1ea1a681da&autoload=false`}
           width={`100%`}
-          level={4}
+          level={8}
           draggable={true}
           lat={35.87612923970815}
           lng={128.68324850753916}
         >
-          <CustomOverlay
-            content={
-              <Wrapper
-                width={`50px`}
-                height={`50px`}
-                radius={`50%`}
-                bgColor={`${Theme.basicTheme_C}`}
-              >
-                매장
-              </Wrapper>
-            }
-            lat={35.87612923970815}
-            lng={128.68324850753916}
-          ></CustomOverlay>
+          {sDatum &&
+            sDatum.map((data, idx) => {
+              return (
+                <CustomOverlay
+                  key={data._id}
+                  content={
+                    <Wrapper
+                      width={`40px`}
+                      height={`40px`}
+                      radius={`50%`}
+                      bgColor={`${Theme.basicTheme_C}`}
+                      fontSize={`12px`}
+                    >
+                      매장
+                    </Wrapper>
+                  }
+                  lat={parseFloat(data && data.att)}
+                  lng={parseFloat(data && data.lnt)}
+                ></CustomOverlay>
+              );
+            })}
         </KakaoMap>
       </Wrapper>
 
