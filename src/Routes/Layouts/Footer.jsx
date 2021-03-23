@@ -46,12 +46,16 @@ const Footer = ({ width }) => {
 
   return (
     <WholeWrapper
-      padding={width < 1500 ? `30px` : `40px`}
+      padding={width < 1500 ? (width < 900 ? `30px 10px` : `30px`) : `40px`}
       bgColor={Theme.grey_C}
       color={Theme.black_C}
       margin={width < 900 ? `0 0 55px` : `0 0 80px`}
     >
-      <Wrapper dr={`row`} ju={`flex-start`} al={`flex-start`}>
+      <Wrapper
+        dr={`row`}
+        ju={width < 900 ? `center` : `flex-start`}
+        al={`flex-start`}
+      >
         <Wrapper width={`auto`} al={`flex-start`}>
           <Image
             width={width < 900 ? `200px` : `220px`}
@@ -67,12 +71,16 @@ const Footer = ({ width }) => {
           padding={width < 1350 ? `30px 0 0` : `0 0 0 30px`}
         >
           <Wrapper
-            dr={width < 900 ? `column` : `row`}
+            dr={width < 900 ? `column-reverse` : `row`}
             width={width < 1350 ? `100%` : `auto`}
-            al={`flex-start`}
+            al={width < 900 ? `center` : `flex-start`}
             ju={`flex-start`}
           >
-            <Wrapper al={`flex-start`} width={`auto`} fontSize={`14px`}>
+            <Wrapper
+              al={width < 900 ? `center` : `flex-start`}
+              width={`auto`}
+              fontSize={`14px`}
+            >
               <Text margin={width < 900 && `10px 0 0`}>
                 {data && data.getFooterInfo.businessName}
               </Text>
@@ -82,7 +90,7 @@ const Footer = ({ width }) => {
               <Text>Copyright (c) 선진펫. All Rights Reserved</Text>
             </Wrapper>
             <Wrapper
-              al={`flex-start`}
+              al={width < 900 ? `center` : `flex-start`}
               width={`auto`}
               margin={width < 900 ? `10px 0 0` : `0px 0px 0px 35px`}
               fontSize={`14px`}
@@ -98,7 +106,7 @@ const Footer = ({ width }) => {
             width={width < 1350 ? `100%` : `auto`}
             margin={width < 1350 && `30px 0 0`}
             al={width < 1350 && `flex-start`}
-            ju={width < 1350 && `flex-start`}
+            ju={width < 1350 ? (width < 900 ? `center` : `flex-start`) : ``}
           >
             <Wrapper width={`auto`} margin={width < 1350 ? `0` : `0 0 0 30px`}>
               <Text fontSize={`16px !important`} fontWeight={`700`}>
