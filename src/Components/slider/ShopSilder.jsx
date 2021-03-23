@@ -58,8 +58,19 @@ export default ({ width, sDatum, isColumn, moveLinkHandler }) => {
 
   return (
     <Container isColumn={isColumn}>
+      {console.log(width)}
       <Swiper
-        slidesPerView={isColumn ? 4.5 : 6}
+        slidesPerView={
+          isColumn
+            ? 4.5
+            : width > 1250
+            ? 6
+            : width > 1000
+            ? 5
+            : width > 800
+            ? 3
+            : 2
+        }
         slidesPerColumn={isColumn ? 2 : 1}
         centeredSlides={isColumn}
         autoplay
@@ -70,7 +81,7 @@ export default ({ width, sDatum, isColumn, moveLinkHandler }) => {
             <EmptyList>조회 된 데이터가 없습니다.</EmptyList>
           ) : (
             sDatum.map((data, idx) => (
-              <SwiperSlide key={data._id}>
+              <SwiperSlide key={data._id} onClick={() => moveLinkHandler(data)}>
                 <Wrapper>
                   <ShopImage margin={`10px 0`} src={data.thumbnailPath} />
                   <Title>{data.title}</Title>

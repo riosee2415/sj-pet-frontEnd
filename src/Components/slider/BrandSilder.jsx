@@ -24,7 +24,7 @@ export default ({ width, datum, isColumn, moveLinkHandler }) => {
     <Container isColumn={isColumn}>
       <Swiper
         spaceBetween={1}
-        slidesPerView={isColumn ? 5 : 5}
+        slidesPerView={isColumn ? 1 : width > 1000 ? 5 : width > 800 ? 2 : 1}
         slidesPerColumn={isColumn ? 5 : 1}
         centeredSlides={isColumn}
         autoplay={true}
