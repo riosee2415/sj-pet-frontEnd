@@ -141,7 +141,7 @@ const MM00Presenter = ({
 
       <CommonSubTitle>매장현황</CommonSubTitle>
 
-      <Wrapper margin={`70px 0`}>
+      <Wrapper margin={`0px 0 70px`}>
         <ShopSilder sDatum={sDatum} />
       </Wrapper>
       <RsWrapper>
