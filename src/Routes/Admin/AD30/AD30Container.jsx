@@ -59,7 +59,7 @@ export default ({ history }) => {
       isLoading={isLoading}
       fileRef={fileRef}
       //
-      sDatum={sDatum && sDatum.getAllStore}
+      sDatum={sDatum && sDatum.getTotalStore}
       //
       fileChangeHandler={fileChangeHandler}
       moveDetailPageHandler={moveDetailPageHandler}

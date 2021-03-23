@@ -23,10 +23,18 @@ import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 const InnerTitle = styled.h2`
   font-size: 24px;
   font-weight: 700;
+
+  @media (max-width: 900px) {
+    font-size: 16px;
+  }
 `;
 
 const InnerSubTitle = styled.h3`
   line-height: 1.3;
+
+  @media (max-width: 900px) {
+    font-size: 15px;
+  }
 `;
 
 const MartWrapper = styled(Wrapper)`
@@ -48,6 +56,11 @@ const MartWrapper = styled(Wrapper)`
     &:nth-child(2n) {
       margin-right: 0;
     }
+  }
+
+  @media (max-width: 700px) {
+    width: 100%;
+    margin: 20px 0;
   }
 `;
 
@@ -269,7 +282,7 @@ const MM03Presenter = ({
                   <Image
                     alt="썸네일"
                     src={data.thumbnailPath}
-                    height={`300px`}
+                    height={`350px`}
                   />
                   <Wrapper
                     isAbsolute={true}

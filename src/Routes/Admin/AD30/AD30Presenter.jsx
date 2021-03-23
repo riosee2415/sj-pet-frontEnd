@@ -83,11 +83,10 @@ export default ({
 
         <TableWrapper>
           <TableHeadColumn width={`5%`}>번호</TableHeadColumn>
-          <TableHeadColumn isStart={true} width={`50%`}>
+          <TableHeadColumn isStart={true} width={`60%`}>
             가맹점명
           </TableHeadColumn>
           <TableHeadColumn width={`35%`}>연락처</TableHeadColumn>
-          <TableHeadColumn width={`10%`}>삭제</TableHeadColumn>
         </TableWrapper>
 
         <Wrapper
@@ -119,7 +118,7 @@ export default ({
                     <TableHeadColumn
                       isStart={true}
                       isData={true}
-                      width={`50%`}
+                      width={`60%`}
                       isToday={true}
                       onClick={() => moveDetailPageHandler(data._id)}
                     >
@@ -127,9 +126,6 @@ export default ({
                     </TableHeadColumn>
                     <TableHeadColumn isData={true} width={`35%`}>
                       {data.tel}
-                    </TableHeadColumn>
-                    <TableHeadColumn isData={true} width={`10%`} isSvg={true}>
-                      <FiDelete color={Theme.delete_B_C} size={20} />
                     </TableHeadColumn>
                   </TableWrapper>
                 );

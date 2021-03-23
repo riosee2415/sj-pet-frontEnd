@@ -1,8 +1,8 @@
 import { gql } from "@apollo/client";
 
 export const GET_STORE = gql`
-  query getAllStore {
-    getAllStore {
+  query getAllStore($limit: Int!, $currentPage: Int!) {
+    getAllStore(limit: $limit, currentPage: $currentPage) {
       _id
       title
       address

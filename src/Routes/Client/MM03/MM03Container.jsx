@@ -15,7 +15,12 @@ const MM03Container = ({ history, match }) => {
   const [currentList, setCurrentList] = useState(0);
 
   ////////////// - USE QUERY- ///////////////
-  const { data: sDatum, refetch: sRefetch } = useQuery(GET_STORE);
+  const { data: sDatum, refetch: sRefetch } = useQuery(GET_STORE, {
+    variables: {
+      currentPage,
+      limit,
+    },
+  });
 
   const { data: pData, refetch: pRefetch } = useQuery(GET_STORE_TOTALPAGE, {
     variables: {

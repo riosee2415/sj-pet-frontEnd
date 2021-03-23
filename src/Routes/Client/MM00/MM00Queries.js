@@ -29,8 +29,8 @@ export const ADD_ACCEPT_RECORD = gql`
 `;
 
 export const GET_STORE = gql`
-  query getAllStore {
-    getAllStore {
+  query getTotalStore {
+    getTotalStore {
       _id
       title
       thumbnailPath

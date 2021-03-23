@@ -1,8 +1,8 @@
 import { gql } from "@apollo/client";
 
 export const GET_ALL_STORE = gql`
-  query getAllStore {
-    getAllStore {
+  query getTotalStore {
+    getTotalStore {
       _id
       title
       address
