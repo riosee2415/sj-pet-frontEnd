@@ -16,7 +16,7 @@ export default () => {
   const [currentThumbnail, setCurrentThumbnail] = useState("");
 
   const currentTitle = useInput("");
-  const [currentContent, setCurrentContent] = useState("");
+  const currentContent = useInput("");
   ////////////// - VARIABLE- ////////////////
 
   ////////////// - USE QUERY- ///////////////
@@ -48,7 +48,7 @@ export default () => {
       toast.error("제목은 필수 입니다.");
       return;
     }
-    if (!currentContent || currentContent.trim() === "") {
+    if (!currentContent || currentContent.value.trim() === "") {
       toast.error("스토리 내용은 필수 입니다.");
       return;
     }
@@ -57,7 +57,7 @@ export default () => {
       variables: {
         thumbnail: currentThumbnail,
         title: currentTitle.value,
-        content: currentContent,
+        content: currentContent.value,
       },
     });
 
@@ -66,7 +66,7 @@ export default () => {
 
       setCurrentThumbnail("");
       currentTitle.setValue("");
-      setCurrentContent("");
+      currentContent.setValue("");
     } else {
       toast.error("잠시 후 다시 시도해주세요.");
     }
@@ -83,7 +83,6 @@ export default () => {
       currentThumbnail={currentThumbnail}
       currentTitle={currentTitle}
       currentContent={currentContent}
-      setCurrentContent={setCurrentContent}
       //
 
       fileChangeHandler={fileChangeHandler}

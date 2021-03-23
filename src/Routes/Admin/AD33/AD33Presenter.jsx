@@ -10,6 +10,7 @@ import {
   TextInput,
   CommonButton,
   Image,
+  Textarea,
 } from "../../../Components/AdminCommonComponents";
 import { Title, Tabs } from "../Components";
 import Fade from "react-reveal/Fade";
@@ -42,14 +43,13 @@ export default ({
   currentThumbnailPath,
   openDialog,
   currentContent,
-  setCurrentContent,
   //
   datum,
   //
   storyViewClickHandler,
   fileChangeHandler,
   dialogToggle,
-  storyViewSaveHandler,
+  contentSaveHandler,
   basicInfoSaveHandler,
   deleteHandler,
 }) => {
@@ -70,8 +70,8 @@ export default ({
           <Fade left>
             <TableWrapper>
               <TableHeadColumn width={`10%`}>번호</TableHeadColumn>
-              <TableHeadColumn width={`45%`}>스토리명</TableHeadColumn>
-              <TableHeadColumn width={`37%`}>스토리 셍성일</TableHeadColumn>
+              <TableHeadColumn width={`49%`}>스토리명</TableHeadColumn>
+              <TableHeadColumn width={`41%`}>스토리 셍성일</TableHeadColumn>
             </TableWrapper>
 
             {/* LEFT CONTENT */}
@@ -102,12 +102,12 @@ export default ({
                           <TableHeadColumn isData={true} width={`10%`}>
                             {idx + 1}
                           </TableHeadColumn>
-                          <TableHeadColumn isData={true} width={`45%`}>
+                          <TableHeadColumn isData={true} width={`49%`}>
                             {data.title.length > 20
                               ? data.title.substring(0, 18) + `...`
                               : data.title}
                           </TableHeadColumn>
-                          <TableHeadColumn isData={true} width={`37%`}>
+                          <TableHeadColumn isData={true} width={`41%`}>
                             {data.createdAt}
                           </TableHeadColumn>
                         </TableWrapper>
@@ -236,11 +236,7 @@ export default ({
         </DialogTitle>
         <DialogContent>
           <Content margin={`0px 0px 50px 0px`}>스토리 내용</Content>
-          <Editor
-            value={currentContent}
-            componentHeight="h-500"
-            editorChangeHandler={(html) => setCurrentContent(html)}
-          />
+          <Textarea height={`500px`} {...currentContent} />
         </DialogContent>
         <DialogActions>
           <Button onClick={() => contentSaveHandler()} color="primary">
