@@ -16,8 +16,7 @@ import { withResizeDetector } from "react-resize-detector";
 import useTitle from "@4leaf.ysh/use-title";
 import Theme from "../../../Styles/Theme";
 import SubBanner from "../../../Components/SubBanner";
-import KakaoMap from "react-full-kakao-maps/lib/MapLib/KakaoMap";
-import CustomOverlay from "react-full-kakao-maps/lib/MapLib/CustomOverlay";
+import { KakaoMap, CustomOverlay } from "react-full-kakao-maps";
 import CircularIndeterminate from "../../../Components/loading/CircularIndeterminate";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
@@ -229,10 +228,10 @@ const MM03Presenter = ({
       <CommonSubTitle>매장찾기</CommonSubTitle>
       <Wrapper width={`100%`} height={`600px`}>
         <KakaoMap
-          apiUrl={`//dapi.kakao.com/v2/maps/sdk.js?appkey=434be05b9efb9664b63c52aa8e2210a7&autoload=false`}
+          apiUrl={`//dapi.kakao.com/v2/maps/sdk.js?appkey=a8e290d0abd70336680c1d1ea1a681da&autoload=false`}
           width={`100%`}
           level={4}
-          scrollwheel={false}
+          draggable={true}
           lat={35.87612923970815}
           lng={128.68324850753916}
         >
