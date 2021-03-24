@@ -13,6 +13,7 @@ import {
   GuideBox,
   GuideContent,
   Image,
+  Textarea,
 } from "../../../Components/AdminCommonComponents";
 import { Title, Tabs } from "../Components";
 import Fade from "react-reveal/Fade";
@@ -38,7 +39,7 @@ export default ({
   currentThumbnail,
   currentTitle,
   currentContent,
-  setCurrentContent,
+
   //
   fileChangeHandler,
   createStoryViewHandler,
@@ -127,11 +128,7 @@ export default ({
             <Wrapper dr={`row`} margin={`5px 0px`}>
               <Wrapper dr={`row`} al={`flex-start`}>
                 <InputContent>스토리 내용</InputContent>
-                <Editor
-                  value={currentContent}
-                  componentHeight="h-400"
-                  editorChangeHandler={(html) => setCurrentContent(html)}
-                />
+                <Textarea height={`500px`} {...currentContent} />
               </Wrapper>
             </Wrapper>
           </Wrapper>
