@@ -26,7 +26,7 @@ import DialogTitle from "@material-ui/core/DialogTitle";
 import Slide from "@material-ui/core/Slide";
 import Editor from "../../../Components/editor/Editor.jsx";
 
-const tabs = ["스토리 리스트"];
+const tabs = ["브랜드 리스트"];
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -42,22 +42,19 @@ export default ({
   currentTitle,
   currentThumbnailPath,
   openDialog,
-  currentContent,
   //
   datum,
   //
-  storyViewClickHandler,
+  brandClickHandler,
   fileChangeHandler,
-  dialogToggle,
-  contentSaveHandler,
   basicInfoSaveHandler,
   deleteHandler,
 }) => {
-  useTitle("ADMIN | 스토리리스트");
+  useTitle("ADMIN | 브랜드리스트");
   return (
     <WholeWrapper al={`flex-start`} ju={`flex-start`}>
       <Fade right>
-        <Title text="스토리 리스트" />
+        <Title text="브랜드 리스트" />
         <Tabs
           tabs={tabs}
           currentTab={currentTab}
@@ -69,9 +66,8 @@ export default ({
         <Wrapper width={`1000px`} margin={`0px 10px 0px 0px`}>
           <Fade left>
             <TableWrapper>
-              <TableHeadColumn width={`10%`}>번호</TableHeadColumn>
-              <TableHeadColumn width={`49%`}>스토리명</TableHeadColumn>
-              <TableHeadColumn width={`41%`}>스토리 셍성일</TableHeadColumn>
+              <TableHeadColumn width={`30%`}>번호</TableHeadColumn>
+              <TableHeadColumn width={`70%`}>브랜드명</TableHeadColumn>
             </TableWrapper>
 
             {/* LEFT CONTENT */}
@@ -97,18 +93,15 @@ export default ({
                         <TableWrapper
                           isActive={currentId === data._id}
                           isData={true}
-                          onClick={() => storyViewClickHandler(data)}
+                          onClick={() => brandClickHandler(data)}
                         >
-                          <TableHeadColumn isData={true} width={`10%`}>
+                          <TableHeadColumn isData={true} width={`30%`}>
                             {idx + 1}
                           </TableHeadColumn>
-                          <TableHeadColumn isData={true} width={`49%`}>
+                          <TableHeadColumn isData={true} width={`70%`}>
                             {data.title.length > 20
                               ? data.title.substring(0, 18) + `...`
                               : data.title}
-                          </TableHeadColumn>
-                          <TableHeadColumn isData={true} width={`41%`}>
-                            {data.createdAt}
                           </TableHeadColumn>
                         </TableWrapper>
                       </Fade>
@@ -125,7 +118,7 @@ export default ({
         <Fade right>
           <Wrapper>
             <TableWrapper>
-              <TableHeadColumn width={`100%`}>스토리 정보</TableHeadColumn>
+              <TableHeadColumn width={`100%`}>브랜드 정보</TableHeadColumn>
             </TableWrapper>
 
             {/* RIGHT CONTENT */}
@@ -173,22 +166,13 @@ export default ({
                     </FileLabel>
                   )}
 
-                  <Wrapper dr={`row`} margin={`0px 0px 20px 0px`}>
-                    <Content>등록일</Content>
-                    <TextInput
-                      type="text"
-                      readOnly={true}
-                      value={currentData && currentData.createdAt}
-                    />
-                  </Wrapper>
-
                   <Wrapper dr={`row`} al={`flex-end`} ju={`flex-end`}>
                     <CommonButton
                       margin={`0px 10px 0px 0px`}
                       kindOf={`delete`}
                       onClick={deleteHandler}
                     >
-                      스토리 삭제
+                      브랜드 삭제
                     </CommonButton>
                     <a
                       href={`/#/brand-detail/${currentData && currentData._id}`}
@@ -198,13 +182,7 @@ export default ({
                         게시글 보러가기
                       </CommonButton>
                     </a>
-                    <CommonButton
-                      margin={`0px 10px 0px 0px`}
-                      kindOf={`update`}
-                      onClick={() => dialogToggle()}
-                    >
-                      내용보기
-                    </CommonButton>
+
                     <CommonButton
                       kindOf={`create`}
                       onClick={basicInfoSaveHandler}
@@ -214,39 +192,12 @@ export default ({
                   </Wrapper>
                 </Wrapper>
               ) : (
-                <Wrapper padding={`20px`}>좌측 스토리를 선택해주세요.</Wrapper>
+                <Wrapper padding={`20px`}>좌측 브랜드를 선택해주세요.</Wrapper>
               )}
             </Wrapper>
           </Wrapper>
         </Fade>
       </Wrapper>
-
-      <Dialog
-        open={openDialog}
-        TransitionComponent={Transition}
-        keepMounted
-        onClose={() => dialogToggle()}
-        aria-labelledby="alert-dialog-slide-title"
-        aria-describedby="alert-dialog-slide-description"
-        fullWidth={true}
-        maxWidth={`lg`}
-      >
-        <DialogTitle id="alert-dialog-slide-title">
-          {`스토리 내용 상세보기`}
-        </DialogTitle>
-        <DialogContent>
-          <Content margin={`0px 0px 50px 0px`}>스토리 내용</Content>
-          <Textarea height={`500px`} {...currentContent} />
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={() => contentSaveHandler()} color="primary">
-            저장 후 닫기
-          </Button>
-          <Button onClick={() => dialogToggle()} color="secondary">
-            닫기
-          </Button>
-        </DialogActions>
-      </Dialog>
     </WholeWrapper>
   );
 };
