@@ -37,6 +37,7 @@ export const GET_STORE = gql`
       thumbnailPath
       att
       lnt
+      tel
     }
   }
 `;

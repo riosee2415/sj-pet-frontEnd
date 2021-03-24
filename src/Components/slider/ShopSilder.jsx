@@ -58,7 +58,6 @@ export default ({ width, sDatum, isColumn, moveLinkHandler }) => {
 
   return (
     <Container isColumn={isColumn}>
-      {console.log(width)}
       <Swiper
         slidesPerView={
           isColumn

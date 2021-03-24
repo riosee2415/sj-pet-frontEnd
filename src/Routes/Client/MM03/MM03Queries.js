@@ -24,6 +24,8 @@ export const GET_STORE_ALL = gql`
       thumbnailPath
       att
       lnt
+      tel
+      workTime
     }
   }
 `;

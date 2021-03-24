@@ -104,7 +104,6 @@ const MM03Presenter = ({
           lat={parseFloat(store && store.att)}
           lng={parseFloat(store && store.lnt)}
         >
-          {console.log(store)}
           <CustomOverlay
             content={
               <Wrapper
@@ -291,6 +290,9 @@ const MM03Presenter = ({
                       radius={`50%`}
                       bgColor={`${Theme.basicTheme_C}`}
                       fontSize={`12px`}
+                      onClick={() => {
+                        console.log("aasdjklhjklasdhhjklasdhjklasd");
+                      }}
                     >
                       매장
                     </Wrapper>
@@ -301,6 +303,7 @@ const MM03Presenter = ({
               );
             })}
         </KakaoMap>
+
         <Wrapper
           width={`auto`}
           isAbsolute={true}

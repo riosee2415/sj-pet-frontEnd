@@ -75,6 +75,7 @@ const MM03Container = ({ history, match }) => {
   useEffect(() => {
     sRefetch();
     pRefetch();
+    aRefetch();
 
     scroll.scrollTo(0);
   }, []);
@@ -89,6 +90,17 @@ const MM03Container = ({ history, match }) => {
     }
   }, [pData]);
 
+  useEffect(() => {
+    const data = JSON.parse(sessionStorage.getItem("info"));
+
+    if (data) {
+      setStore(data);
+    }
+
+    sessionStorage.removeItem("info");
+  }, []);
+
+  console.log(store);
   return (
     <MM03Presenter
       limit={limit}
