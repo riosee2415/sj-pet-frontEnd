@@ -66,8 +66,8 @@ const MM03Container = ({ history, match }) => {
   const changeScaleHandler = (idx) => {
     setScale(idx);
   };
-  const dataLinkHandler = () => {
-    setStore;
+  const dataLinkHandler = (data) => {
+    setStore(data);
   };
 
   ////////////// - USE EFFECT- //////////////
@@ -96,7 +96,7 @@ const MM03Container = ({ history, match }) => {
       currentPage={currentPage}
       currentList={currentList}
       scale={scale}
-      setStore={setStore}
+      store={store}
       //
       sDatum={sDatum && sDatum.getAllStore}
       aDatum={aDatum && aDatum.getTotalStore}

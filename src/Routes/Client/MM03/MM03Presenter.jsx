@@ -91,92 +91,103 @@ const MM03Presenter = ({
     <WholeWrapper>
       <SubBanner title={`매장안내`} />
       <CommonSubTitle>하단의 선택한 매장명 넣어주세요</CommonSubTitle>
-      <Wrapper width={`100%`} height={`600px`} bgColor={`#d2d2d2`}></Wrapper>
+
+      <Wrapper width={`100%`} height={`600px`} isRelative={true}>
+        <KakaoMap
+          apiUrl={`//dapi.kakao.com/v2/maps/sdk.js?appkey=a8e290d0abd70336680c1d1ea1a681da&autoload=false`}
+          width={`100%`}
+          height={`600px`}
+          level={4}
+          setLevel={scale}
+          isEvent={true}
+          draggable={true}
+          lat={parseFloat(store && store.att)}
+          lng={parseFloat(store && store.lnt)}
+        >
+          {console.log(store)}
+          <CustomOverlay
+            content={
+              <Wrapper
+                width={`40px`}
+                height={`40px`}
+                radius={`50%`}
+                bgColor={`${Theme.basicTheme_C}`}
+                fontSize={`12px`}
+              >
+                매장
+              </Wrapper>
+            }
+            lat={parseFloat(store && store.att)}
+            lng={parseFloat(store && store.lnt)}
+          ></CustomOverlay>
+        </KakaoMap>
+        <Wrapper
+          width={`auto`}
+          isAbsolute={true}
+          zIndex={`9999`}
+          top={`10px`}
+          right={`10px`}
+        >
+          <CommonButton
+            margin={`10px 0`}
+            width={`40px`}
+            height={`40px`}
+            onClick={() => changeScaleHandler(scale - 1)}
+          >
+            <AiOutlinePlus />
+          </CommonButton>
+
+          <CommonButton
+            width={`40px`}
+            height={`40px`}
+            onClick={() => changeScaleHandler(scale + 1)}
+          >
+            <AiOutlineMinus />
+          </CommonButton>
+        </Wrapper>
+      </Wrapper>
 
       <RsWrapper margin={`50px 0px`}>
         <Wrapper
           borderTop={`2px solid ${Theme.subTheme_C}`}
           borderBottom={`2px solid ${Theme.subTheme_C}`}
         >
-          {store &&
-            store.map((data, idx) => {
-              return (
-                <Wrapper dr={`row`}>
-                  <Wrapper
-                    width={width < 900 ? `100%` : `50%`}
-                    ju={`flex-start`}
-                    height={`100%`}
-                    padding={`25px 15px`}
-                    dr={`row`}
-                  >
-                    <Wrapper
-                      width={width < 900 ? `40px` : `70px`}
-                      height={width < 900 ? `40px` : `70px`}
-                      radius={`100%`}
-                      shadow={`0 3px 6px ${Theme.lightGrey_C}`}
-                    >
-                      <Image
-                        alt="icon"
-                        width={`50%`}
-                        src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2Ficon%2F%E1%84%8B%E1%85%B5%E1%84%86%E1%85%B5%E1%84%8C%E1%85%B5%201.png?alt=media&token=61a9c3d7-2330-435f-bb8b-d6d660f57ac7`}
-                      />
-                    </Wrapper>
-                    <Wrapper
-                      al={`flex-start`}
-                      width={`100px`}
-                      fontWeight={`800`}
-                      padding={`0 15px`}
-                    >
-                      매장주소
-                    </Wrapper>
-                    <Wrapper
-                      al={`flex-start`}
-                      width={`auto`}
-                      color={Theme.darkGrey_C}
-                    >
-                      {data.address}
-                    </Wrapper>
-                  </Wrapper>
-                  <Wrapper
-                    width={width < 900 ? `100%` : `50%`}
-                    ju={`flex-start`}
-                    height={`100%`}
-                    padding={`25px 15px`}
-                    dr={`row`}
-                  >
-                    <Wrapper
-                      width={width < 900 ? `40px` : `70px`}
-                      height={width < 900 ? `40px` : `70px`}
-                      radius={`100%`}
-                      shadow={`0 3px 6px ${Theme.lightGrey_C}`}
-                    >
-                      <Image
-                        alt="icon"
-                        width={`50%`}
-                        src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2Ficon%2F%E1%84%8B%E1%85%B5%E1%84%86%E1%85%B5%E1%84%8C%E1%85%B5%202.png?alt=media&token=c1cca145-67e6-4c9d-8aa3-93807ac77e6a`}
-                      />
-                    </Wrapper>
-                    <Wrapper
-                      al={`flex-start`}
-                      width={`100px`}
-                      fontWeight={`800`}
-                      padding={`0 15px`}
-                    >
-                      영업시간
-                    </Wrapper>
-                    <Wrapper
-                      al={`flex-start`}
-                      width={`auto`}
-                      color={Theme.darkGrey_C}
-                    >
-                      CONTENTS
-                    </Wrapper>
-                  </Wrapper>
-                </Wrapper>
-              );
-            })}
-
-          <Wrapper height={`50%`} dr={`row`}>
+          <Wrapper dr={`row`}>
+            <Wrapper
+              width={width < 900 ? `100%` : `50%`}
+              ju={`flex-start`}
+              height={`100%`}
+              padding={`25px 15px`}
+              dr={`row`}
+            >
+              <Wrapper
+                width={width < 900 ? `40px` : `70px`}
+                height={width < 900 ? `40px` : `70px`}
+                radius={`100%`}
+                shadow={`0 3px 6px ${Theme.lightGrey_C}`}
+              >
+                <Image
+                  alt="icon"
+                  width={`50%`}
+                  src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2Ficon%2F%E1%84%8B%E1%85%B5%E1%84%86%E1%85%B5%E1%84%8C%E1%85%B5%201.png?alt=media&token=61a9c3d7-2330-435f-bb8b-d6d660f57ac7`}
+                />
+              </Wrapper>
+              <Wrapper
+                al={`flex-start`}
+                width={`100px`}
+                fontWeight={`800`}
+                padding={`0 15px`}
+              >
+                매장주소
+              </Wrapper>
+              <Wrapper
+                al={`flex-start`}
+                width={`auto`}
+                color={Theme.darkGrey_C}
+              >
+                {store.address}
+              </Wrapper>
+            </Wrapper>
             <Wrapper
               width={width < 900 ? `100%` : `50%`}
               ju={`flex-start`}
@@ -209,10 +220,12 @@ const MM03Presenter = ({
                 width={`auto`}
                 color={Theme.darkGrey_C}
               >
-                CONTENTS
+                {store.tel}
               </Wrapper>
             </Wrapper>
+          </Wrapper>
 
+          <Wrapper height={`50%`} dr={`row`} ju={`flex-start`}>
             <Wrapper
               width={width < 900 ? `100%` : `50%`}
               ju={`flex-start`}
@@ -229,7 +242,7 @@ const MM03Presenter = ({
                 <Image
                   alt="icon"
                   width={`50%`}
-                  src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2Ficon%2F%E1%84%8B%E1%85%B5%E1%84%86%E1%85%B5%E1%84%8C%E1%85%B5%203.png?alt=media&token=38a45295-2421-4751-83fa-77758c2127a9`}
+                  src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2Ficon%2F%E1%84%8B%E1%85%B5%E1%84%86%E1%85%B5%E1%84%8C%E1%85%B5%202.png?alt=media&token=c1cca145-67e6-4c9d-8aa3-93807ac77e6a`}
                 />
               </Wrapper>
               <Wrapper
@@ -238,14 +251,14 @@ const MM03Presenter = ({
                 fontWeight={`800`}
                 padding={`0 15px`}
               >
-                휴무
+                영업시간
               </Wrapper>
               <Wrapper
                 al={`flex-start`}
                 width={`auto`}
                 color={Theme.darkGrey_C}
               >
-                CONTENTS
+                가맹점에 문의해주세요.
               </Wrapper>
             </Wrapper>
           </Wrapper>
@@ -327,7 +340,7 @@ const MM03Presenter = ({
                   margin={`20px`}
                   shadow={Theme.boxShadowV2}
                   isShadowHover={true}
-                  onClick={dataLinkHandler}
+                  onClick={() => dataLinkHandler(data)}
                 >
                   <Image
                     alt="썸네일"
