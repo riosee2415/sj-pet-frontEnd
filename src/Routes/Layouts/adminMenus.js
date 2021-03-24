@@ -126,4 +126,17 @@ export const allMenus = [
       },
     ],
   },
+  {
+    menuName: "브랜드 관리",
+    subMenu: [
+      {
+        subMenuName: "브랜드 등록",
+        subMenuLink: "/admin/createBrandManagement",
+      },
+      {
+        subMenuName: "브랜드 리스트",
+        subMenuLink: "/admin/brandManagement",
+      },
+    ],
+  },
 ];
