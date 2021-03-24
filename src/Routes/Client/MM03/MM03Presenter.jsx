@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import withSplitting from "../../../Lib/withSplitting";
 import {
   WholeWrapper,
@@ -22,6 +22,7 @@ import { KakaoMap, CustomOverlay } from "react-full-kakao-maps";
 import CircularIndeterminate from "../../../Components/loading/CircularIndeterminate";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
+import { FaTruckMonster } from "react-icons/fa";
 
 const InnerTitle = styled.h2`
   font-size: 24px;
@@ -72,6 +73,7 @@ const MM03Presenter = ({
   //
   limit,
   scale,
+  setScale,
   pages,
   currentPage,
   currentList,
@@ -87,182 +89,207 @@ const MM03Presenter = ({
 }) => {
   useTitle("매장안내 | 펫마트");
 
+  const data = Array.from(document.getElementsByClassName(`marker`));
+
+  if (data.length !== 0) {
+    data.map((mark) => {
+      const classes = mark.classList;
+      mark.addEventListener(`click`, () => {
+        dataLinkHandler(aDatum[parseInt(classes[3])]);
+      });
+    });
+  }
+
+  useEffect(() => {
+    setTimeout(() => {
+      setScale(4);
+    }, 1000);
+  }, []);
   return (
     <WholeWrapper>
       <SubBanner title={`매장안내`} />
-      <CommonSubTitle>하단의 선택한 매장명 넣어주세요</CommonSubTitle>
+      {store && (
+        <>
+          <CommonSubTitle>{store.title}</CommonSubTitle>
 
-      <Wrapper width={`100%`} height={`600px`} isRelative={true}>
-        <KakaoMap
-          apiUrl={`//dapi.kakao.com/v2/maps/sdk.js?appkey=a8e290d0abd70336680c1d1ea1a681da&autoload=false`}
-          width={`100%`}
-          height={`600px`}
-          level={4}
-          setLevel={scale}
-          isEvent={true}
-          draggable={true}
-          lat={parseFloat(store && store.att)}
-          lng={parseFloat(store && store.lnt)}
-        >
-          <CustomOverlay
-            content={
-              <Wrapper
+          <Wrapper width={`100%`} height={`600px`} isRelative={true}>
+            <KakaoMap
+              apiUrl={`//dapi.kakao.com/v2/maps/sdk.js?appkey=a8e290d0abd70336680c1d1ea1a681da&autoload=false`}
+              width={`100%`}
+              height={`600px`}
+              level={4}
+              move={[
+                parseFloat(store && store.att),
+                parseFloat(store && store.lnt),
+              ]}
+              lat={parseFloat(store && store.att)}
+              lng={parseFloat(store && store.lnt)}
+            >
+              <CustomOverlay
+                content={
+                  <Wrapper
+                    width={`40px`}
+                    height={`40px`}
+                    radius={`50%`}
+                    bgColor={`${Theme.basicTheme_C}`}
+                    fontSize={`12px`}
+                  >
+                    매장
+                  </Wrapper>
+                }
+                move={[
+                  parseFloat(store && store.att),
+                  parseFloat(store && store.lnt),
+                ]}
+                lat={parseFloat(store && store.att)}
+                lng={parseFloat(store && store.lnt)}
+              ></CustomOverlay>
+            </KakaoMap>
+            <Wrapper
+              width={`auto`}
+              isAbsolute={true}
+              zIndex={`9999`}
+              top={`10px`}
+              right={`10px`}
+            >
+              <CommonButton
+                margin={`10px 0`}
                 width={`40px`}
                 height={`40px`}
-                radius={`50%`}
-                bgColor={`${Theme.basicTheme_C}`}
-                fontSize={`12px`}
+                onClick={() => changeScaleHandler(scale - 1)}
               >
-                매장
-              </Wrapper>
-            }
-            lat={parseFloat(store && store.att)}
-            lng={parseFloat(store && store.lnt)}
-          ></CustomOverlay>
-        </KakaoMap>
-        <Wrapper
-          width={`auto`}
-          isAbsolute={true}
-          zIndex={`9999`}
-          top={`10px`}
-          right={`10px`}
-        >
-          <CommonButton
-            margin={`10px 0`}
-            width={`40px`}
-            height={`40px`}
-            onClick={() => changeScaleHandler(scale - 1)}
-          >
-            <AiOutlinePlus />
-          </CommonButton>
+                <AiOutlinePlus />
+              </CommonButton>
 
-          <CommonButton
-            width={`40px`}
-            height={`40px`}
-            onClick={() => changeScaleHandler(scale + 1)}
-          >
-            <AiOutlineMinus />
-          </CommonButton>
-        </Wrapper>
-      </Wrapper>
-
-      <RsWrapper margin={`50px 0px`}>
-        <Wrapper
-          borderTop={`2px solid ${Theme.subTheme_C}`}
-          borderBottom={`2px solid ${Theme.subTheme_C}`}
-        >
-          <Wrapper dr={`row`}>
-            <Wrapper
-              width={width < 900 ? `100%` : `50%`}
-              ju={`flex-start`}
-              height={`100%`}
-              padding={`25px 15px`}
-              dr={`row`}
-            >
-              <Wrapper
-                width={width < 900 ? `40px` : `70px`}
-                height={width < 900 ? `40px` : `70px`}
-                radius={`100%`}
-                shadow={`0 3px 6px ${Theme.lightGrey_C}`}
+              <CommonButton
+                width={`40px`}
+                height={`40px`}
+                onClick={() => changeScaleHandler(scale + 1)}
               >
-                <Image
-                  alt="icon"
-                  width={`50%`}
-                  src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2Ficon%2F%E1%84%8B%E1%85%B5%E1%84%86%E1%85%B5%E1%84%8C%E1%85%B5%201.png?alt=media&token=61a9c3d7-2330-435f-bb8b-d6d660f57ac7`}
-                />
-              </Wrapper>
-              <Wrapper
-                al={`flex-start`}
-                width={`100px`}
-                fontWeight={`800`}
-                padding={`0 15px`}
-              >
-                매장주소
-              </Wrapper>
-              <Wrapper
-                al={`flex-start`}
-                width={`auto`}
-                color={Theme.darkGrey_C}
-              >
-                {store.address}
-              </Wrapper>
-            </Wrapper>
-            <Wrapper
-              width={width < 900 ? `100%` : `50%`}
-              ju={`flex-start`}
-              height={`100%`}
-              padding={`25px 15px`}
-              dr={`row`}
-            >
-              <Wrapper
-                width={width < 900 ? `40px` : `70px`}
-                height={width < 900 ? `40px` : `70px`}
-                radius={`100%`}
-                shadow={`0 3px 6px ${Theme.lightGrey_C}`}
-              >
-                <Image
-                  alt="icon"
-                  width={`50%`}
-                  src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2Ficon%2F%E1%84%8B%E1%85%B5%E1%84%86%E1%85%B5%E1%84%8C%E1%85%B5%204.png?alt=media&token=ce66b3cb-082e-47d4-b413-6af3ee51f8e4`}
-                />
-              </Wrapper>
-              <Wrapper
-                al={`flex-start`}
-                width={`100px`}
-                fontWeight={`800`}
-                padding={`0 15px`}
-              >
-                전화번호
-              </Wrapper>
-              <Wrapper
-                al={`flex-start`}
-                width={`auto`}
-                color={Theme.darkGrey_C}
-              >
-                {store.tel}
-              </Wrapper>
+                <AiOutlineMinus />
+              </CommonButton>
             </Wrapper>
           </Wrapper>
 
-          <Wrapper height={`50%`} dr={`row`} ju={`flex-start`}>
+          <RsWrapper margin={`50px 0px`}>
             <Wrapper
-              width={width < 900 ? `100%` : `50%`}
-              ju={`flex-start`}
-              height={`100%`}
-              padding={`25px 15px`}
-              dr={`row`}
+              borderTop={`2px solid ${Theme.subTheme_C}`}
+              borderBottom={`2px solid ${Theme.subTheme_C}`}
             >
-              <Wrapper
-                width={width < 900 ? `40px` : `70px`}
-                height={width < 900 ? `40px` : `70px`}
-                radius={`100%`}
-                shadow={`0 3px 6px ${Theme.lightGrey_C}`}
-              >
-                <Image
-                  alt="icon"
-                  width={`50%`}
-                  src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2Ficon%2F%E1%84%8B%E1%85%B5%E1%84%86%E1%85%B5%E1%84%8C%E1%85%B5%202.png?alt=media&token=c1cca145-67e6-4c9d-8aa3-93807ac77e6a`}
-                />
+              <Wrapper dr={`row`}>
+                <Wrapper
+                  width={width < 900 ? `100%` : `50%`}
+                  ju={`flex-start`}
+                  height={`100%`}
+                  padding={`25px 15px`}
+                  dr={`row`}
+                >
+                  <Wrapper
+                    width={width < 900 ? `40px` : `70px`}
+                    height={width < 900 ? `40px` : `70px`}
+                    radius={`100%`}
+                    shadow={`0 3px 6px ${Theme.lightGrey_C}`}
+                  >
+                    <Image
+                      alt="icon"
+                      width={`50%`}
+                      src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2Ficon%2F%E1%84%8B%E1%85%B5%E1%84%86%E1%85%B5%E1%84%8C%E1%85%B5%201.png?alt=media&token=61a9c3d7-2330-435f-bb8b-d6d660f57ac7`}
+                    />
+                  </Wrapper>
+                  <Wrapper
+                    al={`flex-start`}
+                    width={`100px`}
+                    fontWeight={`800`}
+                    padding={`0 15px`}
+                  >
+                    매장주소
+                  </Wrapper>
+                  <Wrapper
+                    al={`flex-start`}
+                    width={`auto`}
+                    color={Theme.darkGrey_C}
+                  >
+                    {store.address}
+                  </Wrapper>
+                </Wrapper>
+                <Wrapper
+                  width={width < 900 ? `100%` : `50%`}
+                  ju={`flex-start`}
+                  height={`100%`}
+                  padding={`25px 15px`}
+                  dr={`row`}
+                >
+                  <Wrapper
+                    width={width < 900 ? `40px` : `70px`}
+                    height={width < 900 ? `40px` : `70px`}
+                    radius={`100%`}
+                    shadow={`0 3px 6px ${Theme.lightGrey_C}`}
+                  >
+                    <Image
+                      alt="icon"
+                      width={`50%`}
+                      src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2Ficon%2F%E1%84%8B%E1%85%B5%E1%84%86%E1%85%B5%E1%84%8C%E1%85%B5%204.png?alt=media&token=ce66b3cb-082e-47d4-b413-6af3ee51f8e4`}
+                    />
+                  </Wrapper>
+                  <Wrapper
+                    al={`flex-start`}
+                    width={`100px`}
+                    fontWeight={`800`}
+                    padding={`0 15px`}
+                  >
+                    전화번호
+                  </Wrapper>
+                  <Wrapper
+                    al={`flex-start`}
+                    width={`auto`}
+                    color={Theme.darkGrey_C}
+                  >
+                    {store.tel}
+                  </Wrapper>
+                </Wrapper>
               </Wrapper>
-              <Wrapper
-                al={`flex-start`}
-                width={`100px`}
-                fontWeight={`800`}
-                padding={`0 15px`}
-              >
-                영업시간
-              </Wrapper>
-              <Wrapper
-                al={`flex-start`}
-                width={`auto`}
-                color={Theme.darkGrey_C}
-              >
-                가맹점에 문의해주세요.
+
+              <Wrapper height={`50%`} dr={`row`} ju={`flex-start`}>
+                <Wrapper
+                  width={width < 900 ? `100%` : `50%`}
+                  ju={`flex-start`}
+                  height={`100%`}
+                  padding={`25px 15px`}
+                  dr={`row`}
+                >
+                  <Wrapper
+                    width={width < 900 ? `40px` : `70px`}
+                    height={width < 900 ? `40px` : `70px`}
+                    radius={`100%`}
+                    shadow={`0 3px 6px ${Theme.lightGrey_C}`}
+                  >
+                    <Image
+                      alt="icon"
+                      width={`50%`}
+                      src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2Ficon%2F%E1%84%8B%E1%85%B5%E1%84%86%E1%85%B5%E1%84%8C%E1%85%B5%202.png?alt=media&token=c1cca145-67e6-4c9d-8aa3-93807ac77e6a`}
+                    />
+                  </Wrapper>
+                  <Wrapper
+                    al={`flex-start`}
+                    width={`100px`}
+                    fontWeight={`800`}
+                    padding={`0 15px`}
+                  >
+                    영업시간
+                  </Wrapper>
+                  <Wrapper
+                    al={`flex-start`}
+                    width={`auto`}
+                    color={Theme.darkGrey_C}
+                  >
+                    가맹점에 문의해주세요.
+                  </Wrapper>
+                </Wrapper>
               </Wrapper>
             </Wrapper>
-          </Wrapper>
-        </Wrapper>
-      </RsWrapper>
+          </RsWrapper>
+        </>
+      )}
 
       <CommonSubTitle>매장찾기</CommonSubTitle>
 
@@ -285,20 +312,20 @@ const MM03Presenter = ({
                   key={data._id}
                   content={
                     <Wrapper
+                      className={`marker ${idx}`}
                       width={`40px`}
                       height={`40px`}
                       radius={`50%`}
                       bgColor={`${Theme.basicTheme_C}`}
                       fontSize={`12px`}
-                      onClick={() => {
-                        console.log("aasdjklhjklasdhhjklasdhjklasd");
-                      }}
                     >
                       매장
                     </Wrapper>
                   }
                   lat={parseFloat(data && data.att)}
                   lng={parseFloat(data && data.lnt)}
+                  zIndex={4}
+                  clickable={true}
                 ></CustomOverlay>
               );
             })}
