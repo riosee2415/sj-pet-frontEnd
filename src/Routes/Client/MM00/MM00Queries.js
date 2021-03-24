@@ -52,3 +52,12 @@ export const GET_STORYVIEW = gql`
     }
   }
 `;
+
+export const GET_BRAND = gql`
+  query getAllBrandList {
+    getAllBrandList {
+      _id
+      thumbnail
+    }
+  }
+`;

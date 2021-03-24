@@ -7,7 +7,7 @@ import { numberWithCommas } from "../../commonUtils";
 import { FaStar } from "react-icons/fa";
 import Theme from "../../Styles/Theme";
 
-export default ({ width, datum, isColumn, moveLinkHandler }) => {
+export default ({ width, bDatum, isColumn, moveLinkHandler }) => {
   const Container = styled.div`
     width: 100%;
     position: relative;

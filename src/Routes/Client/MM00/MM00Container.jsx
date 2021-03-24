@@ -5,6 +5,7 @@ import { useQuery, useMutation } from "@apollo/client";
 import { toast } from "react-toastify";
 import {
   ADD_ACCEPT_RECORD,
+  GET_BRAND,
   GET_MAINBANNER,
   GET_MOBILEBANNER,
   GET_STORE,
@@ -30,6 +31,7 @@ const MM00Container = ({ history }) => {
 
   const { data: sDatum, refetch: sRefetch } = useQuery(GET_STORE);
   const { data: vDatum, refetch: vRefetch } = useQuery(GET_STORYVIEW);
+  const { data: bDatum, refetch: bRefetch } = useQuery(GET_BRAND);
 
   ///////////// - USE MUTATION- /////////////
   const [addAcceptRecordMutation] = useMutation(ADD_ACCEPT_RECORD);
@@ -79,6 +81,7 @@ const MM00Container = ({ history }) => {
     <MM00Presenter
       sDatum={sDatum && sDatum.getAllStoreByImportant}
       vDatum={vDatum && vDatum.getAllStoryViewList}
+      bDatum={bDatum && bDatum.getAllBrandList}
       mainBannerData={mainBannerData && mainBannerData.getMainBanner}
       mobileBannerData={
         mobileBannerData && mobileBannerData.getMobileMainBanner

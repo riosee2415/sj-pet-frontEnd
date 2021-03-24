@@ -69,6 +69,7 @@ const MM00Presenter = ({
   //
   sDatum,
   vDatum,
+  bDatum,
   mobileBannerData,
   mainBannerData,
   //
@@ -299,7 +300,7 @@ const MM00Presenter = ({
             있습니다.
           </Text>
         </LightSpeed>
-        <BrandSilder width={width} />
+        <BrandSilder width={width} bDatum={bDatum} />
       </RsWrapper>
 
       <Bounce>
