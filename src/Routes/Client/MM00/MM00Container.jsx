@@ -77,8 +77,33 @@ const MM00Container = ({ history }) => {
     scroll.scrollTo(0);
   }, []);
 
+  const [currentBrand, setCurrentBrand] = useState(null);
+
+  useEffect(() => {
+    if (bDatum) {
+      const brand = bDatum.getAllBrandList;
+      const temp = parseInt(
+        brand.length % 3 === 0 ? brand.length / 3 : brand.length / 3 + 1
+      );
+      const brandArr = [];
+
+      for (let i = 0; i < temp; i++) {
+        const tempArr = [];
+
+        for (let j = i * 3; j < (i + 1) * 3; j++) {
+          if (brand[j]) tempArr.push(brand[j]);
+        }
+        brandArr.push(tempArr);
+      }
+
+      setCurrentBrand(brandArr);
+    }
+  }, [bDatum]);
+
   return (
     <MM00Presenter
+      currentBrand={currentBrand}
+      //
       sDatum={sDatum && sDatum.getAllStoreByImportant}
       vDatum={vDatum && vDatum.getAllStoryViewList}
       bDatum={bDatum && bDatum.getAllBrandList}

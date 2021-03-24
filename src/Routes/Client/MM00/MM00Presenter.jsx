@@ -66,6 +66,7 @@ const MainImage = styled(Image)`
 
 const MM00Presenter = ({
   width,
+  currentBrand,
   //
   sDatum,
   vDatum,
@@ -300,7 +301,7 @@ const MM00Presenter = ({
             있습니다.
           </Text>
         </LightSpeed>
-        <BrandSilder width={width} bDatum={bDatum} />
+        <BrandSilder width={width} bDatum={currentBrand} />
       </RsWrapper>
 
       <Bounce>

@@ -2,10 +2,11 @@ import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "rs-swiper/react";
 import styled from "styled-components";
 import "swiper/swiper-bundle.min.css";
-import { Image, SpanText, Text, Wrapper } from "../CommonComponents";
+import { EmptyList, Image, SpanText, Text, Wrapper } from "../CommonComponents";
 import { numberWithCommas } from "../../commonUtils";
 import { FaStar } from "react-icons/fa";
 import Theme from "../../Styles/Theme";
+import CircularIndeterminate from "../loading/CircularIndeterminate";
 
 export default ({ width, bDatum, isColumn, moveLinkHandler }) => {
   const Container = styled.div`
@@ -30,127 +31,31 @@ export default ({ width, bDatum, isColumn, moveLinkHandler }) => {
         autoplay={true}
         navigation={false}
       >
-        <SwiperSlide>
-          <Image
-            alt="brand"
-            src={``}
-            isFilter={true}
-            width={`200px`}
-            margin={`10px 0`}
-          />
-          <Wrapper
-            width={`200px`}
-            height={`150px`}
-            margin={`10px 0`}
-            border={`1px solid ${Theme.black_C}`}
-          ></Wrapper>
-          <Wrapper
-            width={`200px`}
-            height={`150px`}
-            margin={`10px 0`}
-            border={`1px solid ${Theme.black_C}`}
-          ></Wrapper>
-        </SwiperSlide>
-        <SwiperSlide>
-          <Wrapper
-            width={`200px`}
-            height={`150px`}
-            margin={`10px 0`}
-            border={`1px solid ${Theme.black_C}`}
-          ></Wrapper>
-          <Wrapper
-            width={`200px`}
-            height={`150px`}
-            margin={`10px 0`}
-            border={`1px solid ${Theme.black_C}`}
-          ></Wrapper>
-          <Wrapper
-            width={`200px`}
-            height={`150px`}
-            margin={`10px 0`}
-            border={`1px solid ${Theme.black_C}`}
-          ></Wrapper>
-        </SwiperSlide>
-        <SwiperSlide>
-          <Wrapper
-            width={`200px`}
-            height={`150px`}
-            margin={`10px 0`}
-            border={`1px solid ${Theme.black_C}`}
-          ></Wrapper>
-          <Wrapper
-            width={`200px`}
-            height={`150px`}
-            margin={`10px 0`}
-            border={`1px solid ${Theme.black_C}`}
-          ></Wrapper>
-          <Wrapper
-            width={`200px`}
-            height={`150px`}
-            margin={`10px 0`}
-            border={`1px solid ${Theme.black_C}`}
-          ></Wrapper>
-        </SwiperSlide>
-        <SwiperSlide>
-          <Wrapper
-            width={`200px`}
-            height={`150px`}
-            margin={`10px 0`}
-            border={`1px solid ${Theme.black_C}`}
-          ></Wrapper>
-          <Wrapper
-            width={`200px`}
-            height={`150px`}
-            margin={`10px 0`}
-            border={`1px solid ${Theme.black_C}`}
-          ></Wrapper>
-          <Wrapper
-            width={`200px`}
-            height={`150px`}
-            margin={`10px 0`}
-            border={`1px solid ${Theme.black_C}`}
-          ></Wrapper>
-        </SwiperSlide>
-        <SwiperSlide>
-          <Wrapper
-            width={`200px`}
-            height={`150px`}
-            margin={`10px 0`}
-            border={`1px solid ${Theme.black_C}`}
-          ></Wrapper>
-          <Wrapper
-            width={`200px`}
-            height={`150px`}
-            margin={`10px 0`}
-            border={`1px solid ${Theme.black_C}`}
-          ></Wrapper>
-          <Wrapper
-            width={`200px`}
-            height={`150px`}
-            margin={`10px 0`}
-            border={`1px solid ${Theme.black_C}`}
-          ></Wrapper>
-        </SwiperSlide>
-        <SwiperSlide>
-          <Wrapper
-            width={`200px`}
-            height={`150px`}
-            margin={`10px 0`}
-            border={`1px solid ${Theme.black_C}`}
-          ></Wrapper>
-          <Wrapper
-            width={`200px`}
-            height={`150px`}
-            margin={`10px 0`}
-            border={`1px solid ${Theme.black_C}`}
-          ></Wrapper>
-          <Wrapper
-            width={`200px`}
-            height={`150px`}
-            margin={`10px 0`}
-            border={`1px solid ${Theme.black_C}`}
-          ></Wrapper>
-        </SwiperSlide>
+        {bDatum ? (
+          bDatum.length === 0 ? (
+            <EmptyList>브랜드가 없습니다.</EmptyList>
+          ) : (
+            bDatum.map((data) => {
+              return (
+                <SwiperSlide>
+                  {data.map((brand) => {
+                    return (
+                      <Image
+                        alt="brand"
+                        src={brand.thumbnail}
+                        isFilter={true}
+                        width={`200px`}
+                        margin={`10px 0`}
+                      />
+                    );
+                  })}
+                </SwiperSlide>
+              );
+            })
+          )
+        ) : (
+          <CircularIndeterminate />
+        )}
       </Swiper>
     </Container>
   );
