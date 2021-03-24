@@ -15,7 +15,7 @@ const MM03Container = ({ history, match }) => {
   const [currentList, setCurrentList] = useState(0);
   const [store, setStore] = useState("");
 
-  const [scale, setScale] = useState(4);
+  const [scale, setScale] = useState(5);
 
   ////////////// - USE QUERY- ///////////////
   const { data: aDatum, refetch: aRefetch } = useQuery(GET_STORE_ALL);
@@ -108,6 +108,7 @@ const MM03Container = ({ history, match }) => {
       currentPage={currentPage}
       currentList={currentList}
       scale={scale}
+      setScale={setScale}
       store={store}
       //
       sDatum={sDatum && sDatum.getAllStore}
