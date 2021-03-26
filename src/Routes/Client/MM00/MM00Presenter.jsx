@@ -156,22 +156,15 @@ const MM00Presenter = ({
         <CommonSubTitle>업계유일</CommonSubTitle>
 
         <Text
-          width={`80%`}
+          width={width < 900 ? `100%` : `80%`}
           margin={`60px 0 40px`}
           fontSize={`20px`}
           fontWeight={`600`}
           textAlign={`center`}
         >
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae,
-          ex deleniti accusamus suscipit nam, impedit quos quidem iste, quis
-          velit odit dignissimos quo explicabo quia delectus culpa vel
-          accusantium fugiat!
-        </Text>
-        <Text width={`60%`} textAlign={`center`}>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae,
-          ex deleniti accusamus suscipit nam, impedit quos quidem iste, quis
-          velit odit dignissimos quo explicabo quia delectus culpa vel
-          accusantium fugiat!
+          반려동물 업계 최초 최소 마진율 35% 다양한 OEM상품과 높은 마진율로
+          마진율을 최대화 하는 노력을 아끼지 않고 있습니다! 지속적인 상품개발과
+          독자적인 제품교육은 초보 사장님도 손쉽게 운영하실 수 있습니다!
         </Text>
 
         <Wrapper dr={`row`} margin={`60px 0 100px`}>
@@ -181,7 +174,7 @@ const MM00Presenter = ({
           >
             <Fade left>
               <Image
-                width={`80%`}
+                width={width < 900 ? `100%` : `80%`}
                 src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2Fgraph.png?alt=media&token=56cf3323-f0cc-4d08-abab-caaac17c53bf`}
               />
             </Fade>
@@ -286,6 +279,10 @@ const MM00Presenter = ({
                   17.5%
                 </LiWrapper>
               </UlWrapper>
+              <Text color={Theme.darkGrey_C} margin={`5px 0 0`}>
+                * 상기자료는 지역별, 상권병, 매장, 위치, 구조, 시장상황등에 따라
+                변동될수 있습니다*
+              </Text>
             </Fade>
           </Wrapper>
         </Wrapper>
@@ -344,7 +341,7 @@ const MM00Presenter = ({
       >
         <Wrapper
           width={width < 1300 ? `100%` : `30%`}
-          padding={`0 60px 0 0`}
+          padding={width < 900 ? `0` : `0 60px 0 0`}
           al={`flex-start`}
         >
           <Fade left>
@@ -374,13 +371,17 @@ const MM00Presenter = ({
               성공스토리
             </Text>
           </Fade>
-          <Text margin={`40px 0 30px`} color={`${Theme.white_C}`}>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nobis
-            porro voluptatibus pariatur. Quisquam nulla atque voluptas officia
-            optio explicabo at aut.
+          <Text
+            margin={`40px 0 30px`}
+            fontSize={`19px`}
+            color={`${Theme.white_C}`}
+          >
+            반려동물 시장 6조원! 반려동물인구 1000만시대! 카페 · 외식창업
+            레드오션! 안정적인 창업을 원한다면?
           </Text>
           <Text color={`${Theme.white_C}`}>
-            ullam nihil quam? Expedita dolorem officia aut excepturi voluptatem!
+            많은 예비 창업자들의 선택! 펫마트를 운영하시는 실 운영점주님들의
+            인터뷰를 통해 원하는 해답을 얻을 수 있습니다!
           </Text>
           <Text margin={`40px 0`} color={`${Theme.white_C}`}>
             68호 군산점

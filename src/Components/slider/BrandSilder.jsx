@@ -8,6 +8,12 @@ import { FaStar } from "react-icons/fa";
 import Theme from "../../Styles/Theme";
 import CircularIndeterminate from "../loading/CircularIndeterminate";
 
+const BrandLogo = styled(Image)`
+  @media (max-width: 800px) {
+    width: 350px;
+  }
+`;
+
 export default ({ width, bDatum, isColumn, moveLinkHandler }) => {
   const Container = styled.div`
     width: 100%;
@@ -40,10 +46,11 @@ export default ({ width, bDatum, isColumn, moveLinkHandler }) => {
                 <SwiperSlide>
                   {data.map((brand) => {
                     return (
-                      <Image
+                      <BrandLogo
                         alt="brand"
                         src={brand.thumbnail}
                         isFilter={true}
+                        isHover={true}
                         width={`200px`}
                         margin={`10px 0`}
                       />
