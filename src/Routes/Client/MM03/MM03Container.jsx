@@ -100,7 +100,10 @@ const MM03Container = ({ history, match }) => {
     sessionStorage.removeItem("info");
   }, []);
 
-  console.log(store);
+  useEffect(() => {
+    scroll.scrollTo(0);
+  }, [store]);
+
   return (
     <MM03Presenter
       limit={limit}

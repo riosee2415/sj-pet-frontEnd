@@ -128,13 +128,19 @@ const MM03Presenter = ({
               <CustomOverlay
                 content={
                   <Wrapper
-                    width={`40px`}
+                    width={`auto`}
                     height={`40px`}
                     radius={`50%`}
-                    bgColor={`${Theme.basicTheme_C}`}
                     fontSize={`12px`}
+                    isAbsolute={true}
+                    top={`-10px`}
+                    left={`0px`}
                   >
-                    매장
+                    <Image
+                      width={`auto`}
+                      height={`100%`}
+                      src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2Flogo%2Flogo.png?alt=media&token=293d0a5b-53e7-446d-bdb8-d74903051e16`}
+                    />
                   </Wrapper>
                 }
                 move={[
@@ -145,30 +151,6 @@ const MM03Presenter = ({
                 lng={parseFloat(store && store.lnt)}
               ></CustomOverlay>
             </KakaoMap>
-            <Wrapper
-              width={`auto`}
-              isAbsolute={true}
-              zIndex={`9999`}
-              top={`10px`}
-              right={`10px`}
-            >
-              <CommonButton
-                margin={`10px 0`}
-                width={`40px`}
-                height={`40px`}
-                onClick={() => changeScaleHandler(scale - 1)}
-              >
-                <AiOutlinePlus />
-              </CommonButton>
-
-              <CommonButton
-                width={`40px`}
-                height={`40px`}
-                onClick={() => changeScaleHandler(scale + 1)}
-              >
-                <AiOutlineMinus />
-              </CommonButton>
-            </Wrapper>
           </Wrapper>
 
           <RsWrapper margin={`50px 0px`}>
@@ -313,13 +295,19 @@ const MM03Presenter = ({
                   content={
                     <Wrapper
                       className={`marker ${idx}`}
-                      width={`40px`}
+                      width={`auto`}
                       height={`40px`}
                       radius={`50%`}
-                      bgColor={`${Theme.basicTheme_C}`}
                       fontSize={`12px`}
+                      isAbsolute={true}
+                      top={`-10px`}
+                      left={`0px`}
                     >
-                      매장
+                      <Image
+                        width={`auto`}
+                        height={`100%`}
+                        src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2Flogo%2Flogo.png?alt=media&token=293d0a5b-53e7-446d-bdb8-d74903051e16`}
+                      />
                     </Wrapper>
                   }
                   lat={parseFloat(data && data.att)}
