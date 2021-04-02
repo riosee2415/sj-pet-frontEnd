@@ -124,9 +124,16 @@ const MM01Presenter = ({
           <Text>든든한 파트너로서 힘이 되어드리겠습니다.</Text>
 
           <Text margin={`0 0 30px`}>감사합니다.</Text>
-          <Text fontSize={`20px`}>
-            회장 <SpanText fontSize={`25px`}>이상득</SpanText>
-          </Text>
+          <Wrapper dr={`row`} width={`auto`}>
+            <Text fontSize={`20px`}>
+              회장 <SpanText fontSize={`25px`}>이상득</SpanText>
+            </Text>
+            <Image
+              width={`150px`}
+              alt="사인"
+              src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM01%2FKakaoTalk_Photo_2021-04-02-10-57-46-1.png?alt=media&token=8a77bb37-e6c7-47cb-9baf-bc5659687efd`}
+            />
+          </Wrapper>
         </Wrapper>
         <Wrapper width={width < 900 ? `100%` : `40%`}>
           <Fade right>
