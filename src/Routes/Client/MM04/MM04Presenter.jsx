@@ -367,15 +367,15 @@ const MM04Presenter = ({
         </Fade>
 
         <CommonSubTitle ref={payRef}>개설비용</CommonSubTitle>
-        <Wrapper isRelative={true}>
+        <Wrapper isRelative={true} width={width < 900 ? `100%` : `80%`}>
           <Image
             alt="개설비용"
             src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM04%2Fprice.png?alt=media&token=45132959-f351-4ea0-8de9-1e8f4258783d`}
           />
           <Wrapper isAbsolute={true} top={`0`} left={`0`} height={`100%`}>
             <Wrapper
-              width={width < 900 ? `80%` : `60%`}
-              height={width < 900 ? `80%` : `60%`}
+              width={width < 900 ? `80%` : `55%`}
+              height={width < 900 ? `80%` : `55%`}
               border={`5px solid ${Theme.subTheme_C}`}
               bgColor={Theme.white_C}
               padding={`20px`}
@@ -395,7 +395,7 @@ const MM04Presenter = ({
                         ? width < 900
                           ? `13px !important`
                           : `16px`
-                        : `20px`
+                        : `18px`
                     }
                   >
                     펫마트는 상권별 개설비용이 상이하므로
@@ -406,7 +406,7 @@ const MM04Presenter = ({
                         ? width < 900
                           ? `13px !important`
                           : `16px`
-                        : `20px`
+                        : `18px`
                     }
                   >
                     본사로 문의주시면 보다 저렴한 개설비용을 안내해드리겠습니다.

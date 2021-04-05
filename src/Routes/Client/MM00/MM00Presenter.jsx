@@ -157,7 +157,7 @@ const MM00Presenter = ({
 
         <Text
           width={width < 900 ? `100%` : `80%`}
-          margin={`60px 0 40px`}
+          margin={`0px 0 40px`}
           fontSize={`20px`}
           fontWeight={`600`}
           textAlign={`center`}
@@ -293,7 +293,7 @@ const MM00Presenter = ({
           <DotTitle fontWeight={`900`}>드</DotTitle>
         </CommonSubTitle>
         <LightSpeed>
-          <Text margin={`50px 0`} fontSize={`30px`} fontWeight={`700`}>
+          <Text margin={`0px 0 50px`} fontSize={`30px`} fontWeight={`700`}>
             펫마트는 약 700여개의 유명, 신규 브랜드와 5000여개의 품목을 취급하고
             있습니다.
           </Text>
