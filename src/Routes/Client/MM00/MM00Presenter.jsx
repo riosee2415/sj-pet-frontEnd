@@ -279,10 +279,10 @@ const MM00Presenter = ({
                   17.5%
                 </LiWrapper>
               </UlWrapper>
-              <Text color={Theme.darkGrey_C} margin={`5px 0 0`}>
+              <Wrapper color={Theme.darkGrey_C} margin={`5px 0 0`}>
                 * 상기자료는 지역별, 상권병, 매장, 위치, 구조, 시장상황등에 따라
-                변동될수 있습니다*
-              </Text>
+                변동될수 있습니다 *
+              </Wrapper>
             </Fade>
           </Wrapper>
         </Wrapper>
