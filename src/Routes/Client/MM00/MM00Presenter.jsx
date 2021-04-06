@@ -372,13 +372,21 @@ const MM00Presenter = ({
             </Text>
           </Fade>
           <Text
-            margin={`40px 0 30px`}
+            margin={`40px 0 0px`}
             fontSize={`19px`}
             color={`${Theme.white_C}`}
           >
-            반려동물 시장 6조원! 반려동물인구 1000만시대! 카페 · 외식창업
-            레드오션! 안정적인 창업을 원한다면?
+            반려동물 시장 6조원! 반려동물인구 1000만시대!
           </Text>
+
+          <Text
+            margin={`0px 0 30px`}
+            fontSize={`19px`}
+            color={`${Theme.white_C}`}
+          >
+            카페 · 외식창업 레드오션! 안정적인 창업을 원한다면?
+          </Text>
+
           <Text color={`${Theme.white_C}`}>
             많은 예비 창업자들의 선택! 펫마트를 운영하시는 실 운영점주님들의
             인터뷰를 통해 원하는 해답을 얻을 수 있습니다!
