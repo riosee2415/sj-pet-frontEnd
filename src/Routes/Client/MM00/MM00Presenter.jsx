@@ -4,6 +4,7 @@ import {
   WholeWrapper,
   Wrapper,
   CommonSubTitle,
+  SubjectTitle,
   RsWrapper,
   Text,
   Image,
@@ -94,7 +95,7 @@ const MM00Presenter = ({
         mainBannerData={width < 700 ? mobileBannerData : mainBannerData}
       /> */}
       <RsWrapper>
-        <CommonSubTitle>매장현황</CommonSubTitle>
+        <SubjectTitle>매장현황</SubjectTitle>
       </RsWrapper>
       <Wrapper margin={`0px 0 70px`}>
         <ShopSilder
@@ -103,142 +104,149 @@ const MM00Presenter = ({
           width={width}
         />
       </Wrapper>
-      <RsWrapper>
-        <CommonSubTitle>업계유일</CommonSubTitle>
 
-        <Text
-          width={width < 900 ? `100%` : `80%`}
-          margin={`0px 0 40px`}
-          fontSize={`20px`}
-          fontWeight={`600`}
-          textAlign={`center`}
-        >
-          반려동물 업계 최초 최소 마진율 35% 다양한 OEM상품과 높은 마진율로
-          마진율을 최대화 하는 노력을 아끼지 않고 있습니다! 지속적인 상품개발과
-          독자적인 제품교육은 초보 사장님도 손쉽게 운영하실 수 있습니다!
-        </Text>
-
-        <Wrapper dr={`row`} margin={`60px 0 100px`}>
-          <Wrapper
-            width={width < 1000 ? `100%` : `50%`}
-            margin={width < 1000 && `0 0 15px`}
+      <Wrapper bgColor={`#032950`} padding={`100px 0`}>
+        <RsWrapper>
+          <Wrapper dr={`row`}>
+            <Image
+              width={`70px`}
+              alt="image"
+              src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2Fmain-img.png?alt=media&token=740395d0-f209-45e8-824d-1d10605df08e`}
+            />
+            <Wrapper width={`auto`} color={Theme.white_C}>
+              <Text>업계유일 최소 마진율 41%!</Text>
+              <Text>매장 규모별 순수익 공개!</Text>
+            </Wrapper>
+          </Wrapper>
+          {/* <Text
+            width={width < 900 ? `100%` : `80%`}
+            margin={`0px 0 40px`}
+            fontSize={`20px`}
+            fontWeight={`600`}
+            textAlign={`center`}
           >
-            <Fade left>
-              <Image
-                width={width < 900 ? `100%` : `80%`}
-                src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2Fgraph.png?alt=media&token=56cf3323-f0cc-4d08-abab-caaac17c53bf`}
-              />
-            </Fade>
+            반려동물 업계 최초 최소 마진율 35% 다양한 OEM상품과 높은 마진율로
+            마진율을 최대화 하는 노력을 아끼지 않고 있습니다! 지속적인
+            상품개발과 독자적인 제품교육은 초보 사장님도 손쉽게 운영하실 수
+            있습니다!
+          </Text> */}
+
+          <Wrapper dr={`row`} width={`80%`} margin={`60px 0 0`}>
+            <Wrapper
+              width={width < 1000 ? `100%` : `60%`}
+              padding={`0 20px 0 0`}
+            >
+              <Fade left>
+                <Image
+                  width={width < 900 ? `100%` : `100%`}
+                  alt="graph"
+                  src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2Fmain-graph.png?alt=media&token=77a02b4c-e985-412a-a3fe-ea885894b2aa`}
+                />
+              </Fade>
+            </Wrapper>
+            <Wrapper
+              width={width < 1000 ? `100%` : `40%`}
+              color={Theme.white_C}
+            >
+              <Fade right>
+                <UlWrapper
+                  dr={`row`}
+                  height={`60px`}
+                  margin={`0 0 2px`}
+                  fontSize={`20px`}
+                  borderTop={`1px solid ${Theme.white_C}`}
+                >
+                  <LiWrapper width={`20%`}>항목</LiWrapper>
+                  <LiWrapper width={`60%`}>금액</LiWrapper>
+                  <LiWrapper width={`20%`}>구성비</LiWrapper>
+                </UlWrapper>
+
+                <UlWrapper
+                  dr={`row`}
+                  height={`60px`}
+                  borderTop={`3px solid ${Theme.white_C}`}
+                  borderBottom={`1px solid ${Theme.white_C}`}
+                >
+                  <LiWrapper width={`20%`}>월매출</LiWrapper>
+                  <LiWrapper width={`60%`}>80,000,000</LiWrapper>
+                  <LiWrapper width={`20%`}>100%</LiWrapper>
+                </UlWrapper>
+
+                <UlWrapper dr={`row`} height={`45px`}>
+                  <LiWrapper width={`20%`}>물류</LiWrapper>
+                  <LiWrapper width={`60%`}>47,200,000</LiWrapper>
+                  <LiWrapper width={`20%`}>59%</LiWrapper>
+                </UlWrapper>
+
+                <UlWrapper
+                  dr={`row`}
+                  height={`45px`}
+                  borderTop={`1px solid ${Theme.white_C}`}
+                  borderBottom={`1px solid ${Theme.white_C}`}
+                >
+                  <LiWrapper width={`20%`}>임차료</LiWrapper>
+                  <LiWrapper width={`60%`}>5,000,000</LiWrapper>
+                  <LiWrapper width={`20%`}>6.3%</LiWrapper>
+                </UlWrapper>
+
+                <UlWrapper dr={`row`} height={`45px`}>
+                  <LiWrapper width={`20%`}>인건비</LiWrapper>
+                  <LiWrapper width={`60%`}>4,500,000</LiWrapper>
+                  <LiWrapper width={`20%`}>6%</LiWrapper>
+                </UlWrapper>
+
+                <UlWrapper
+                  dr={`row`}
+                  height={`45px`}
+                  borderTop={`1px solid ${Theme.white_C}`}
+                  borderBottom={`1px solid ${Theme.white_C}`}
+                >
+                  <LiWrapper width={`20%`}>제세공과금</LiWrapper>
+                  <LiWrapper width={`60%`}>1,000,000</LiWrapper>
+                  <LiWrapper width={`20%`}>1%</LiWrapper>
+                </UlWrapper>
+
+                <UlWrapper dr={`row`} height={`45px`}>
+                  <LiWrapper width={`20%`}>기타재</LiWrapper>
+                  <LiWrapper width={`60%`}>3,000,000</LiWrapper>
+                  <LiWrapper width={`20%`}>4%</LiWrapper>
+                </UlWrapper>
+
+                <UlWrapper
+                  dr={`row`}
+                  height={`45px`}
+                  borderTop={`1px solid ${Theme.white_C}`}
+                  borderBottom={`1px solid ${Theme.white_C}`}
+                >
+                  <LiWrapper width={`20%`}>영업이익</LiWrapper>
+                  <LiWrapper width={`60%`}>32,800,000</LiWrapper>
+                  <LiWrapper width={`20%`}>최소41%</LiWrapper>
+                </UlWrapper>
+
+                <UlWrapper
+                  dr={`row`}
+                  height={`60px`}
+                  borderBottom={`1px solid ${Theme.white_C}`}
+                >
+                  <LiWrapper width={`20%`} fontWeight={`700`}>
+                    월 순이익
+                  </LiWrapper>
+                  <LiWrapper width={`60%`} fontWeight={`700`}>
+                    19,300,000
+                  </LiWrapper>
+                  <LiWrapper width={`20%`} fontWeight={`700`}>
+                    24%
+                  </LiWrapper>
+                </UlWrapper>
+              </Fade>
+            </Wrapper>
           </Wrapper>
-          <Wrapper width={width < 1000 ? `100%` : `50%`}>
-            <Fade right>
-              <UlWrapper
-                dr={`row`}
-                height={`60px`}
-                margin={`0 0 2px`}
-                fontSize={`20px`}
-                borderTop={`3px solid ${Theme.subTheme_C}`}
-                borderBottom={`1px solid ${Theme.subTheme_C}`}
-              >
-                <LiWrapper width={`20%`}>항목</LiWrapper>
-                <LiWrapper width={`60%`}>금액</LiWrapper>
-                <LiWrapper width={`20%`}>구성비</LiWrapper>
-              </UlWrapper>
+        </RsWrapper>
+      </Wrapper>
 
-              <UlWrapper
-                dr={`row`}
-                height={`60px`}
-                fontSize={`20px`}
-                borderTop={`1px solid ${Theme.subTheme_C}`}
-                borderBottom={`1px solid ${Theme.subTheme_C}`}
-              >
-                <LiWrapper width={`20%`} fontWeight={`700`}>
-                  월 매출
-                </LiWrapper>
-                <LiWrapper width={`60%`} fontWeight={`700`}>
-                  80,000,000
-                </LiWrapper>
-                <LiWrapper width={`20%`} fontWeight={`700`}>
-                  100%
-                </LiWrapper>
-              </UlWrapper>
-
-              <UlWrapper dr={`row`} height={`45px`}>
-                <LiWrapper width={`20%`}>영업이익</LiWrapper>
-                <LiWrapper width={`60%`}>28,000,000</LiWrapper>
-                <LiWrapper width={`20%`}>35%</LiWrapper>
-              </UlWrapper>
-
-              <UlWrapper
-                dr={`row`}
-                height={`45px`}
-                borderTop={`1px solid ${Theme.subTheme_C}`}
-                borderBottom={`1px solid ${Theme.subTheme_C}`}
-              >
-                <LiWrapper width={`20%`}>임차료</LiWrapper>
-                <LiWrapper width={`60%`}>5,000,000</LiWrapper>
-                <LiWrapper width={`20%`}>6.3%</LiWrapper>
-              </UlWrapper>
-
-              <UlWrapper dr={`row`} height={`45px`}>
-                <LiWrapper width={`20%`}>인건비</LiWrapper>
-                <LiWrapper width={`60%`}>4,500,000</LiWrapper>
-                <LiWrapper width={`20%`}>5.6%</LiWrapper>
-              </UlWrapper>
-
-              <UlWrapper
-                dr={`row`}
-                height={`45px`}
-                borderTop={`1px solid ${Theme.subTheme_C}`}
-                borderBottom={`1px solid ${Theme.subTheme_C}`}
-              >
-                <LiWrapper width={`20%`}>제세공과금</LiWrapper>
-                <LiWrapper width={`60%`}>1,000,000</LiWrapper>
-                <LiWrapper width={`20%`}>1.3%</LiWrapper>
-              </UlWrapper>
-
-              <UlWrapper dr={`row`} height={`45px`}>
-                <LiWrapper width={`20%`}>기타 재미용</LiWrapper>
-                <LiWrapper width={`60%`}>3,500,000</LiWrapper>
-                <LiWrapper width={`20%`}>4.3%</LiWrapper>
-              </UlWrapper>
-
-              <UlWrapper
-                dr={`row`}
-                height={`45px`}
-                borderTop={`1px solid ${Theme.subTheme_C}`}
-                borderBottom={`1px solid ${Theme.subTheme_C}`}
-              >
-                <LiWrapper width={`20%`}>물류비</LiWrapper>
-                <LiWrapper width={`60%`}>24,000,000</LiWrapper>
-                <LiWrapper width={`20%`}>30%</LiWrapper>
-              </UlWrapper>
-
-              <UlWrapper
-                dr={`row`}
-                height={`60px`}
-                fontSize={`20px`}
-                borderBottom={`3px solid ${Theme.subTheme_C}`}
-              >
-                <LiWrapper width={`20%`} fontWeight={`700`}>
-                  순 이익 (월)
-                </LiWrapper>
-                <LiWrapper width={`60%`} fontWeight={`700`}>
-                  14,000,000
-                </LiWrapper>
-                <LiWrapper width={`20%`} fontWeight={`700`}>
-                  17.5%
-                </LiWrapper>
-              </UlWrapper>
-              <Wrapper color={Theme.darkGrey_C} margin={`5px 0 0`}>
-                * 상기자료는 지역별, 상권병, 매장, 위치, 구조, 시장상황등에 따라
-                변동될수 있습니다 *
-              </Wrapper>
-            </Fade>
-          </Wrapper>
-        </Wrapper>
-
-        <CommonSubTitle>
+      <RsWrapper>
+        <CommonSubTitle>펫마트 입점 브랜드</CommonSubTitle>
+        {/* <CommonSubTitle>
           펫마트 입점&nbsp;<DotTitle fontWeight={`900`}>브</DotTitle>
           <DotTitle fontWeight={`900`}>랜</DotTitle>
           <DotTitle fontWeight={`900`}>드</DotTitle>
@@ -248,7 +256,7 @@ const MM00Presenter = ({
             펫마트는 약 700여개의 유명, 신규 브랜드와 5000여개의 품목을 취급하고
             있습니다.
           </Text>
-        </LightSpeed>
+        </LightSpeed> */}
         <BrandSilder width={width} bDatum={currentBrand} />
       </RsWrapper>
 

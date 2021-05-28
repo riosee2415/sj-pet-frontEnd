@@ -609,6 +609,37 @@ export const FlipButton = styled.div`
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
 
 export const CommonSubTitle = styled.h2`
+  width: ${(props) => props.width};
+  font-size: ${(props) => props.fontSize || `48px`};
+  font-weight: ${(props) => props.fontWeight || `400`};
+  color: ${(props) => props.color};
+  position: relative;
+  margin-top: ${(props) => props.marginTop};
+  margin: ${(props) => props.margin || `100px 0`};
+  display: flex;
+  align-items: center;
+
+  /* &:before {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    margin-left: -25px;
+    width: 50px;
+    height: 100%;
+    border-bottom: 4px solid ${(props) => props.theme.basicTheme_C};
+  } */
+
+  @media (max-width: 800px) {
+    font-size: 25px;
+  }
+
+  @media (max-width: 500px) {
+    font-size: 18px;
+  }
+`;
+
+export const SubjectTitle = styled.h3`
   width: ${(props) => props.width || `100%`};
   display: ${(props) => props.display || `flex`};
   align-items: ${(props) => props.al || `flex-start`};
@@ -642,37 +673,6 @@ export const CommonSubTitle = styled.h2`
     & p {
       font-size: 20px;
     }
-  }
-`;
-
-export const SubjectTitle = styled.h3`
-  width: ${(props) => props.width};
-  font-size: ${(props) => props.fontSize || `30px`};
-  font-weight: ${(props) => props.fontWeight};
-  color: ${(props) => props.color};
-  position: relative;
-  margin-top: ${(props) => props.marginTop};
-  margin: ${(props) => props.margin || `100px 0`};
-  display: flex;
-  align-items: center;
-
-  &:before {
-    content: "";
-    position: absolute;
-    bottom: -10px;
-    left: 50%;
-    margin-left: -25px;
-    width: 50px;
-    height: 100%;
-    border-bottom: 4px solid ${(props) => props.theme.basicTheme_C};
-  }
-
-  @media (max-width: 800px) {
-    font-size: 25px;
-  }
-
-  @media (max-width: 500px) {
-    font-size: 18px;
   }
 `;
 
