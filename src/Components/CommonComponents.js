@@ -609,14 +609,14 @@ export const FlipButton = styled.div`
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
 
 export const CommonSubTitle = styled.h2`
-  width: ${(props) => props.width || `auto`};
+  width: ${(props) => props.width || `100%`};
   display: ${(props) => props.display || `flex`};
-  align-items: ${(props) => props.al || `center`};
-  justify-content: ${(props) => props.ju || `center`};
+  align-items: ${(props) => props.al || `flex-start`};
+  justify-content: ${(props) => props.ju || `flex-start`};
   position: relative;
   margin: ${(props) => props.margin || `100px 0`};
-  font-size: ${(props) => props.fontSize || `67px`};
-  font-weight: ${(props) => props.fontWeight || `900`};
+  font-size: ${(props) => props.fontSize || `36px`};
+  font-weight: ${(props) => props.fontWeight || `400`};
   padding: 10px 0;
   color: ${(props) => props.color};
   text-align: left;
@@ -624,13 +624,11 @@ export const CommonSubTitle = styled.h2`
   &:before {
     content: "";
     position: absolute;
-    bottom: 5px;
-    left: -2%;
-    width: 104%;
-    height: 40%;
+    bottom: 50%;
+    left: 12%;
+    width: 500px;
+    height: 5px;
     background-color: ${(props) => props.theme.basicTheme_C};
-    z-index: -100;
-    border-radius: 5px 5px 0 0;
   }
 
   @media (max-width: 800px) {

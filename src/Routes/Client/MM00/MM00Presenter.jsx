@@ -93,9 +93,9 @@ const MM00Presenter = ({
       {/* <MainSlider
         mainBannerData={width < 700 ? mobileBannerData : mainBannerData}
       /> */}
-
-      <CommonSubTitle>매장현황</CommonSubTitle>
-
+      <RsWrapper>
+        <CommonSubTitle>매장현황</CommonSubTitle>
+      </RsWrapper>
       <Wrapper margin={`0px 0 70px`}>
         <ShopSilder
           sDatum={sDatum}
