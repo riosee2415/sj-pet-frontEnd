@@ -614,65 +614,56 @@ export const CommonSubTitle = styled.h2`
   font-weight: ${(props) => props.fontWeight || `400`};
   color: ${(props) => props.color};
   position: relative;
-  margin-top: ${(props) => props.marginTop};
-  margin: ${(props) => props.margin || `100px 0`};
+  margin: ${(props) => props.margin || `0 0 40px`};
+  padding-bottom: 25px;
   display: flex;
   align-items: center;
-
-  /* &:before {
-    content: "";
-    position: absolute;
-    bottom: -10px;
-    left: 50%;
-    margin-left: -25px;
-    width: 50px;
-    height: 100%;
-    border-bottom: 4px solid ${(props) => props.theme.basicTheme_C};
-  } */
-
-  @media (max-width: 800px) {
-    font-size: 25px;
-  }
-
-  @media (max-width: 500px) {
-    font-size: 18px;
-  }
-`;
-
-export const SubjectTitle = styled.h3`
-  width: ${(props) => props.width || `100%`};
-  display: ${(props) => props.display || `flex`};
-  align-items: ${(props) => props.al || `flex-start`};
-  justify-content: ${(props) => props.ju || `flex-start`};
-  position: relative;
-  margin: ${(props) => props.margin || `100px 0`};
-  font-size: ${(props) => props.fontSize || `36px`};
-  font-weight: ${(props) => props.fontWeight || `400`};
-  padding: 10px 0;
-  color: ${(props) => props.color};
-  text-align: left;
 
   &:before {
     content: "";
     position: absolute;
-    bottom: 50%;
-    left: 12%;
-    width: 500px;
-    height: 5px;
-    background-color: ${(props) => props.theme.basicTheme_C};
+    bottom: -20px;
+    left: 50%;
+    margin-left: -50px;
+    width: 30px;
+    height: 100%;
+    border-bottom: 2px solid ${(props) => props.theme.basicTheme_C};
+    transform: rotate(-45deg);
   }
 
   @media (max-width: 800px) {
-    font-size: 40px;
-    margin: 50px 0;
+    font-size: 24px;
   }
 
   @media (max-width: 500px) {
-    font-size: 20px;
+    font-size: 24px;
 
-    & p {
-      font-size: 20px;
+    &:before {
+      width: 16px;
+      margin-left: -30px;
+      bottom: -10px;
     }
+  }
+`;
+
+export const SubjectTitle = styled.h3`
+  width: ${(props) => props.width};
+  display: ${(props) => props.display};
+  align-items: ${(props) => props.al};
+  justify-content: ${(props) => props.ju};
+  position: relative;
+  margin: ${(props) => props.margin};
+  font-size: ${(props) => props.fontSize || `16px`};
+  font-weight: ${(props) => props.fontWeight || `400`};
+  padding: 10px 0;
+  color: ${(props) => props.color || `#666666`};
+
+  @media (max-width: 800px) {
+    font-size: 15px;
+  }
+
+  @media (max-width: 500px) {
+    font-size: 14px;
   }
 `;
 
