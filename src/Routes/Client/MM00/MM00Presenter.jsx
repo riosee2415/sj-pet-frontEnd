@@ -39,6 +39,7 @@ const Bounce = withSplitting(() => import("react-reveal/Bounce"));
 
 const DotTitle = styled(Text)`
   position: relative;
+  font-size: inherit;
 
   &:before {
     content: "";
@@ -50,79 +51,42 @@ const DotTitle = styled(Text)`
     height: 14px;
     background: ${(props) => props.theme.basicTheme_C};
     margin-left: -7px;
+
+    @media (max-width: 900px) {
+      width: 10px;
+      height: 10px;
+      margin-left: -5px;
+    }
   }
 `;
 
 const MainImage = styled(Image)`
-  animation: ${scale2} 60s forwards;
+  /* animation: ${scale2} 60s forwards; */
 `;
 
 const MM00Presenter = ({
   width,
+  currentBrand,
   //
+  sDatum,
+  vDatum,
+  bDatum,
   mobileBannerData,
   mainBannerData,
+  //
+  moveLinkHandler,
 }) => {
   useTitle("PET MART 선진펫");
   return (
     <WholeWrapper>
-      <Wrapper height={`700px`} isRelative={true} overflow={`hidden`}>
+      <Wrapper height={`100vh`} isRelative={true} overflow={`hidden`}>
         <MainImage
           height={`100%`}
           alt="mainbanner"
           isAbsolute={true}
           top={`0`}
           left={`0`}
-          src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2F%E1%84%86%E1%85%A2%E1%84%8C%E1%85%A1%E1%86%BC%E1%84%8B%E1%85%B5%E1%86%B8%E1%84%80%E1%85%AE.jpg?alt=media&token=6b76c565-fff0-45e2-b4da-c7b82e003d09`}
-        />
-        <Wrapper
-          width={`100%`}
-          height={`100%`}
-          isAbsolute={true}
-          top={`0`}
-          left={`0`}
-          bgColor={`rgba(0, 0, 0, 0.7)`}
-        ></Wrapper>
-
-        <Bounce>
-          <Wrapper
-            dr={`row`}
-            color={Theme.white_C}
-            fontWeight={`700`}
-            fontSize={width < 900 ? `20px !important` : `45px`}
-          >
-            <Text
-              fontWeight={`700`}
-              fontSize={width < 900 ? `20px !important` : `45px`}
-            >
-              반려동물 업종&nbsp;
-            </Text>
-            <DotTitle fontWeight={`700`}>최</DotTitle>
-            <DotTitle fontWeight={`700`}>초</DotTitle>
-          </Wrapper>
-        </Bounce>
-        <Wrapper
-          dr={`row`}
-          color={Theme.white_C}
-          fontWeight={`700`}
-          fontSize={width < 900 ? `20px !important` : `45px`}
-        >
-          <Text
-            fontWeight={`700`}
-            fontSize={width < 900 ? `20px !important` : `45px`}
-            color={Theme.white_C}
-            margin={`20px 0`}
-          >
-            한국프랜차이즈&nbsp;
-          </Text>
-          <DotTitle fontWeight={`700`}>대</DotTitle>
-          <DotTitle fontWeight={`700`}>상</DotTitle>&nbsp;수상
-        </Wrapper>
-        <Image
-          className={`title`}
-          width={width < 900 ? `80%` : `50%`}
-          src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2F%E1%84%8F%E1%85%A9%E1%84%85%E1%85%A9%E1%84%82%E1%85%A1.png?alt=media&token=7934f011-a1ac-41d1-b8c3-9e915cb29407`}
-          alt="text"
+          src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2Fmain.png?alt=media&token=513742c3-4314-4e37-8c2d-8262c1e12fd9`}
         />
       </Wrapper>
 
@@ -132,29 +96,26 @@ const MM00Presenter = ({
 
       <CommonSubTitle>매장현황</CommonSubTitle>
 
-      <Wrapper margin={`70px 0`}>
-        <ShopSilder />
+      <Wrapper margin={`0px 0 70px`}>
+        <ShopSilder
+          sDatum={sDatum}
+          moveLinkHandler={moveLinkHandler}
+          width={width}
+        />
       </Wrapper>
       <RsWrapper>
         <CommonSubTitle>업계유일</CommonSubTitle>
 
         <Text
-          width={`80%`}
-          margin={`60px 0 40px`}
+          width={width < 900 ? `100%` : `80%`}
+          margin={`0px 0 40px`}
           fontSize={`20px`}
           fontWeight={`600`}
           textAlign={`center`}
         >
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae,
-          ex deleniti accusamus suscipit nam, impedit quos quidem iste, quis
-          velit odit dignissimos quo explicabo quia delectus culpa vel
-          accusantium fugiat!
-        </Text>
-        <Text width={`60%`} textAlign={`center`}>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae,
-          ex deleniti accusamus suscipit nam, impedit quos quidem iste, quis
-          velit odit dignissimos quo explicabo quia delectus culpa vel
-          accusantium fugiat!
+          반려동물 업계 최초 최소 마진율 35% 다양한 OEM상품과 높은 마진율로
+          마진율을 최대화 하는 노력을 아끼지 않고 있습니다! 지속적인 상품개발과
+          독자적인 제품교육은 초보 사장님도 손쉽게 운영하실 수 있습니다!
         </Text>
 
         <Wrapper dr={`row`} margin={`60px 0 100px`}>
@@ -164,7 +125,7 @@ const MM00Presenter = ({
           >
             <Fade left>
               <Image
-                width={`80%`}
+                width={width < 900 ? `100%` : `80%`}
                 src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2Fgraph.png?alt=media&token=56cf3323-f0cc-4d08-abab-caaac17c53bf`}
               />
             </Fade>
@@ -269,6 +230,10 @@ const MM00Presenter = ({
                   17.5%
                 </LiWrapper>
               </UlWrapper>
+              <Wrapper color={Theme.darkGrey_C} margin={`5px 0 0`}>
+                * 상기자료는 지역별, 상권병, 매장, 위치, 구조, 시장상황등에 따라
+                변동될수 있습니다 *
+              </Wrapper>
             </Fade>
           </Wrapper>
         </Wrapper>
@@ -279,12 +244,12 @@ const MM00Presenter = ({
           <DotTitle fontWeight={`900`}>드</DotTitle>
         </CommonSubTitle>
         <LightSpeed>
-          <Text margin={`50px 0`} fontSize={`30px`} fontWeight={`700`}>
+          <Text margin={`0px 0 50px`} fontSize={`30px`} fontWeight={`700`}>
             펫마트는 약 700여개의 유명, 신규 브랜드와 5000여개의 품목을 취급하고
             있습니다.
           </Text>
         </LightSpeed>
-        <BrandSilder />
+        <BrandSilder width={width} bDatum={currentBrand} />
       </RsWrapper>
 
       <Bounce>
@@ -321,13 +286,13 @@ const MM00Presenter = ({
 
       <Wrapper
         dr={`row`}
-        margin={`0px 0 100px`}
-        padding={`100px 50px`}
+        margin={width < 900 ? `0 0 40px` : `0px 0 100px`}
+        padding={width < 900 ? `60px 10px` : `100px 50px`}
         bgColor={`${Theme.black_C}`}
       >
         <Wrapper
           width={width < 1300 ? `100%` : `30%`}
-          padding={`0 60px 0 0`}
+          padding={width < 900 ? `0` : `0 60px 0 0`}
           al={`flex-start`}
         >
           <Fade left>
@@ -357,13 +322,25 @@ const MM00Presenter = ({
               성공스토리
             </Text>
           </Fade>
-          <Text margin={`40px 0 30px`} color={`${Theme.white_C}`}>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nobis
-            porro voluptatibus pariatur. Quisquam nulla atque voluptas officia
-            optio explicabo at aut.
+          <Text
+            margin={`40px 0 0px`}
+            fontSize={`19px`}
+            color={`${Theme.white_C}`}
+          >
+            반려동물 시장 6조원! 반려동물인구 1000만시대!
           </Text>
+
+          <Text
+            margin={`0px 0 30px`}
+            fontSize={`19px`}
+            color={`${Theme.white_C}`}
+          >
+            카페 · 외식창업 레드오션! 안정적인 창업을 원한다면?
+          </Text>
+
           <Text color={`${Theme.white_C}`}>
-            ullam nihil quam? Expedita dolorem officia aut excepturi voluptatem!
+            많은 예비 창업자들의 선택! 펫마트를 운영하시는 실 운영점주님들의
+            인터뷰를 통해 원하는 해답을 얻을 수 있습니다!
           </Text>
           <Text margin={`40px 0`} color={`${Theme.white_C}`}>
             68호 군산점
@@ -372,14 +349,27 @@ const MM00Presenter = ({
 
         <Wrapper
           width={width < 1300 ? `100%` : `70%`}
-          height={`720px`}
-          bgColor={`${Theme.grey_C}`}
+          height={
+            width < 1300
+              ? width < 900
+                ? width < 700
+                  ? `300px`
+                  : `400px`
+                : `500px`
+              : `720px`
+          }
+          isRelative={true}
+          cursor={`pointer`}
         >
-          1280*720
+          <iframe
+            width="100%"
+            height="100%"
+            src="https://www.youtube.com/embed/FPzdQh8ahd0"
+          ></iframe>
         </Wrapper>
 
         <Wrapper margin={`100px 0 20px`}>
-          <StartSilder />
+          <StartSilder vDatum={vDatum} width={width} />
         </Wrapper>
       </Wrapper>
 
@@ -732,22 +722,24 @@ const MM00Presenter = ({
 
         <Wrapper
           width={`100%`}
-          padding={width < 900 ? `40px` : `80px`}
+          padding={width < 900 ? `40px 15px` : `80px`}
           margin={`0 0 100px`}
           bgColor={`${Theme.greyArea_C}`}
           shadow={`3px 3px 3px ${Theme.grey_C}`}
         >
-          <Text fontSize={`25px`}>
+          <Text fontSize={width < 900 ? `16px !important` : `25px`}>
             펫 마트의 전문 창업상담사 항시대기 1:1문의로
           </Text>
-          <Text fontSize={`25px`}>편안하고 빠른 안내를 받아보세요.</Text>
+          <Text fontSize={width < 900 ? `16px !important` : `25px`}>
+            편안하고 빠른 안내를 받아보세요.
+          </Text>
 
           <Link to="/contact">
             <CommonButton
-              width={`200px`}
-              height={`80px`}
+              width={width < 900 ? `150px` : `200px`}
+              height={width < 900 ? `50px` : `80px`}
               margin={`100px 0 0`}
-              fontSize={`25px`}
+              fontSize={width < 900 ? `18px` : `25px`}
               kindOf={`subTheme`}
             >
               문의하러가기

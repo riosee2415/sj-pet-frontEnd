@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
-import AD32Presenter from "./AD32Presenter";
+import AD35Presenter from "./AD35Presenter";
 import { useMutation, useQuery } from "@apollo/client";
-import { GET_STORYVIEW, CREATE_STORYVIEW } from "./AD32Queries.js";
+import { GET_BRAND, CREATE_BRAND } from "./AD35Queries.js";
 import { toast } from "react-toastify";
 import storageFn from "../../../fsStorage";
 import useInput from "../../../Components/Hooks/useInput";
@@ -16,18 +16,17 @@ export default () => {
   const [currentThumbnail, setCurrentThumbnail] = useState("");
 
   const currentTitle = useInput("");
-  const currentContent = useInput("");
   ////////////// - VARIABLE- ////////////////
 
   ////////////// - USE QUERY- ///////////////
   ///////////// - USE MUTATION- /////////////
-  const [createStoryViewMutation] = useMutation(CREATE_STORYVIEW);
+  const [createBrandMutation] = useMutation(CREATE_BRAND);
 
   ///////////// - EVENT HANDLER- ////////////
   const fileChangeHandler = async (e) => {
     setIsLoading(true);
     const path = await storageFn.uploadFile(
-      "SJPET/uploads/storyView",
+      "SJPET/uploads/brand",
       e.target.files[0].name,
       e.target.files[0]
     );
@@ -39,7 +38,7 @@ export default () => {
     fileRef.current.value = null;
   };
 
-  const createStoryViewHandler = async () => {
+  const createBrandHandler = async () => {
     if (!currentThumbnail || currentThumbnail.trim() === "") {
       toast.error("썸네일 이미지는 필수 입니다.");
       return;
@@ -48,25 +47,19 @@ export default () => {
       toast.error("제목은 필수 입니다.");
       return;
     }
-    if (!currentContent || currentContent.value.trim() === "") {
-      toast.error("스토리 내용은 필수 입니다.");
-      return;
-    }
 
-    const { data } = await createStoryViewMutation({
+    const { data } = await createBrandMutation({
       variables: {
         thumbnail: currentThumbnail,
         title: currentTitle.value,
-        content: currentContent.value,
       },
     });
 
-    if (data.createStoryView) {
-      toast.info("CREATE STORYVIEW!");
+    if (data.createBrand) {
+      toast.info("CREATE BRAND!");
 
       setCurrentThumbnail("");
       currentTitle.setValue("");
-      currentContent.setValue("");
     } else {
       toast.error("잠시 후 다시 시도해주세요.");
     }
@@ -74,7 +67,7 @@ export default () => {
   ////////////// - USE EFFECT- //////////////
 
   return (
-    <AD32Presenter
+    <AD35Presenter
       currentTab={currentTab}
       setCurrentTab={setCurrentTab}
       isLoading={isLoading}
@@ -82,11 +75,10 @@ export default () => {
       //
       currentThumbnail={currentThumbnail}
       currentTitle={currentTitle}
-      currentContent={currentContent}
       //
 
       fileChangeHandler={fileChangeHandler}
-      createStoryViewHandler={createStoryViewHandler}
+      createBrandHandler={createBrandHandler}
     />
   );
 };

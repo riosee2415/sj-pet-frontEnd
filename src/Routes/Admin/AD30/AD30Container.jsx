@@ -41,8 +41,14 @@ export default ({ history }) => {
     history.push(`/admin/storeDetailManagement/${id}`);
   };
 
+  const moveCreatePageHandler = () => {
+    history.push("/admin/storeCreateManagement/");
+  };
+
   ////////////// - USE EFFECT- ///////////////
-  useEffect(() => {}, []);
+  useEffect(() => {
+    sRefetch();
+  }, []);
 
   useEffect(() => {}, [currentTab]);
 
@@ -53,10 +59,11 @@ export default ({ history }) => {
       isLoading={isLoading}
       fileRef={fileRef}
       //
-      sDatum={sDatum && sDatum.getAllStore}
+      sDatum={sDatum && sDatum.getTotalStore}
       //
       fileChangeHandler={fileChangeHandler}
       moveDetailPageHandler={moveDetailPageHandler}
+      moveCreatePageHandler={moveCreatePageHandler}
     />
   );
 };

@@ -43,6 +43,9 @@
 | 20   | AD19         | 1:1문의 관리           | AD19     | "/admin/directRequestManagement"     |
 | 21   | AD30         | 가맹점 관리            | AD30     | "/admin/storeManagement"             |
 | 22   | AD31         | 가맹점 상세정보        | AD31     | "/admin/storeDetailManagement/:id"   |
+| 23   | AD32         | 스토리뷰 등록          | AD32     | "/admin/storyViewManagement/"        |
+| 24   | AD33         | 스토리뷰 리스트        | AD33     | "/admin/storyViewDetailManagement/"  |
+| 25   | AD34         | 가맹정 추가하기        | AD34     | "/admin/storeCreateManagement/"      |
 
 ## CLIENT DEVELOPMENT
 
@@ -70,6 +73,7 @@
 - [x] 회원 권한 변경 [4LEAF.YSH]
 - [x] 1:1 문의 관리 [4LEAF.SJH]
 - [x] 가맹점 관리 [4LEAF.YSH]
+- [x] 가맹점 상세정보 [4LEAF.YSH]
 
 # commonUtils
 

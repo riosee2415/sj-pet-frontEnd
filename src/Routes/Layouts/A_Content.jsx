@@ -36,6 +36,9 @@ const AD30 = withSplitting(() => import("../Admin/AD30"));
 const AD31 = withSplitting(() => import("../Admin/AD31"));
 const AD32 = withSplitting(() => import("../Admin/AD32"));
 const AD33 = withSplitting(() => import("../Admin/AD33"));
+const AD34 = withSplitting(() => import("../Admin/AD34"));
+const AD35 = withSplitting(() => import("../Admin/AD35"));
+const AD36 = withSplitting(() => import("../Admin/AD36"));
 
 import { GET_USER_LOGIN_RESULT_FOR_ADMIN } from "./A_LayoutQueries";
 import useInput from "../../Components/Hooks/useInput";
@@ -162,6 +165,17 @@ const A_Content = () => {
               path="/admin/storyViewDetailManagement/"
               component={AD33}
             />
+            <Route
+              exact
+              path="/admin/storeCreateManagement/"
+              component={AD34}
+            />
+            <Route
+              exact
+              path="/admin/createBrandManagement/"
+              component={AD35}
+            />
+            <Route exact path="/admin/brandManagement/" component={AD36} />
           </Wrapper>
         </>
       ) : (

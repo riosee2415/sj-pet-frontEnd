@@ -344,7 +344,7 @@ export const TextInput = styled.input`
   }
 
   &:read-only {
-    background-color: ${(props) => props.theme.lightBasicTheme_c};
+    background-color: ${(props) => props.theme.lightGrey_C};
     cursor: auto;
   }
 
@@ -435,14 +435,13 @@ export const CommonButton = styled.button`
   align-items: ${(props) => props.al || `center`};
   justify-content: ${(props) => props.ju || `center`};
   color: ${(props) => props.theme.white_C};
-  /* border-radius: 10px; */
+  border-radius: ${(props) => props.radius};
 
   ${(props) => !props.kindOf && `background : ${props.theme.basicTheme_C};`}
-  ${(props) =>
-    props.kindOf === `white` && `background : ${props.theme.white_C};`}
-  ${(props) => props.kindOf === `white` && `color : ${props.theme.black_C};`}
+  ${(props) => props.kindOf === `white` && `background : transparent;`}
+  ${(props) => props.kindOf === `white` && `color : ${props.theme.white_C};`}
       ${(props) =>
-    props.kindOf === `white` && `border : 1px solid ${props.theme.subTheme_C};`}
+    props.kindOf === `white` && `border : 1px solid ${props.theme.white_C};`}
      ${(props) =>
     props.kindOf === `black` && `background : ${props.theme.darkGrey_C};`}
   ${(props) => props.kindOf === `black` && `color : ${props.theme.white_C};`}
@@ -636,7 +635,9 @@ export const CommonSubTitle = styled.h2`
 
   @media (max-width: 800px) {
     font-size: 40px;
+    margin: 50px 0;
   }
+
   @media (max-width: 500px) {
     font-size: 20px;
 

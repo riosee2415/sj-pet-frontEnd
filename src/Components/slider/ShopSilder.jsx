@@ -9,12 +9,38 @@ import SwiperCore, {
 } from "rs-swiper";
 import styled from "styled-components";
 import "swiper/swiper-bundle.min.css";
-import { Image, SpanText, Text, Wrapper } from "../CommonComponents";
+import { EmptyList, Image, SpanText, Text, Wrapper } from "../CommonComponents";
 import { numberWithCommas } from "../../commonUtils";
 import { FaStar } from "react-icons/fa";
 import Theme from "../../Styles/Theme";
+import CircularIndeterminate from "../loading/CircularIndeterminate";
 
-export default ({ width, datum, isColumn, moveLinkHandler }) => {
+const Title = styled(Text)`
+  font-weight: 800;
+  font-size: 18px;
+  font-family: "Averia Serif Libre", cursive;
+`;
+
+const ShopImage = styled(Image)`
+  width: 250px;
+  height: 250px;
+
+  &:hover {
+    box-shadow: 0px 3px 15px ${(props) => props.theme.lightBasicTheme_C};
+  }
+
+  @media (max-width: 1500px) {
+    width: 200px;
+    height: 200px;
+  }
+
+  @media (max-width: 800px) {
+    width: 150px;
+    height: 150px;
+  }
+`;
+
+export default ({ width, sDatum, isColumn, moveLinkHandler }) => {
   const Container = styled.div`
     width: 100%;
     position: relative;
@@ -33,151 +59,38 @@ export default ({ width, datum, isColumn, moveLinkHandler }) => {
   return (
     <Container isColumn={isColumn}>
       <Swiper
-        slidesPerView={isColumn ? 4.5 : 6}
+        slidesPerView={
+          isColumn
+            ? 4.5
+            : width > 1250
+            ? 6
+            : width > 1000
+            ? 5
+            : width > 800
+            ? 3
+            : 2
+        }
         slidesPerColumn={isColumn ? 2 : 1}
         centeredSlides={isColumn}
         autoplay
         loop
       >
-        <SwiperSlide>
-          <Wrapper
-            width={`200px`}
-            height={`200px`}
-            margin={`10px 0`}
-            border={`1px solid ${Theme.black_C}`}
-          ></Wrapper>
-        </SwiperSlide>
-
-        <SwiperSlide>
-          <Wrapper
-            width={`200px`}
-            height={`200px`}
-            margin={`10px 0`}
-            border={`1px solid ${Theme.black_C}`}
-          ></Wrapper>
-        </SwiperSlide>
-
-        <SwiperSlide>
-          <Wrapper
-            width={`200px`}
-            height={`200px`}
-            margin={`10px 0`}
-            border={`1px solid ${Theme.black_C}`}
-          ></Wrapper>
-        </SwiperSlide>
-
-        <SwiperSlide>
-          <Wrapper
-            width={`200px`}
-            height={`200px`}
-            margin={`10px 0`}
-            border={`1px solid ${Theme.black_C}`}
-          ></Wrapper>
-        </SwiperSlide>
-        <SwiperSlide>
-          <Wrapper
-            width={`200px`}
-            height={`200px`}
-            margin={`10px 0`}
-            border={`1px solid ${Theme.black_C}`}
-          ></Wrapper>
-        </SwiperSlide>
-
-        <SwiperSlide>
-          <Wrapper
-            width={`200px`}
-            height={`200px`}
-            margin={`10px 0`}
-            border={`1px solid ${Theme.black_C}`}
-          ></Wrapper>
-        </SwiperSlide>
-
-        <SwiperSlide>
-          <Wrapper
-            width={`200px`}
-            height={`200px`}
-            margin={`10px 0`}
-            border={`1px solid ${Theme.black_C}`}
-          ></Wrapper>
-        </SwiperSlide>
-        <SwiperSlide>
-          <Wrapper
-            width={`200px`}
-            height={`200px`}
-            margin={`10px 0`}
-            border={`1px solid ${Theme.black_C}`}
-          ></Wrapper>
-        </SwiperSlide>
-
-        <SwiperSlide>
-          <Wrapper
-            width={`200px`}
-            height={`200px`}
-            margin={`10px 0`}
-            border={`1px solid ${Theme.black_C}`}
-          ></Wrapper>
-        </SwiperSlide>
-
-        <SwiperSlide>
-          <Wrapper
-            width={`200px`}
-            height={`200px`}
-            margin={`10px 0`}
-            border={`1px solid ${Theme.black_C}`}
-          ></Wrapper>
-        </SwiperSlide>
-        <SwiperSlide>
-          <Wrapper
-            width={`200px`}
-            height={`200px`}
-            margin={`10px 0`}
-            border={`1px solid ${Theme.black_C}`}
-          ></Wrapper>
-        </SwiperSlide>
-
-        <SwiperSlide>
-          <Wrapper
-            width={`200px`}
-            height={`200px`}
-            margin={`10px 0`}
-            border={`1px solid ${Theme.black_C}`}
-          ></Wrapper>
-        </SwiperSlide>
-
-        <SwiperSlide>
-          <Wrapper
-            width={`200px`}
-            height={`200px`}
-            margin={`10px 0`}
-            border={`1px solid ${Theme.black_C}`}
-          ></Wrapper>
-        </SwiperSlide>
-        <SwiperSlide>
-          <Wrapper
-            width={`200px`}
-            height={`200px`}
-            margin={`10px 0`}
-            border={`1px solid ${Theme.black_C}`}
-          ></Wrapper>
-        </SwiperSlide>
-
-        <SwiperSlide>
-          <Wrapper
-            width={`200px`}
-            height={`200px`}
-            margin={`10px 0`}
-            border={`1px solid ${Theme.black_C}`}
-          ></Wrapper>
-        </SwiperSlide>
-
-        <SwiperSlide>
-          <Wrapper
-            width={`200px`}
-            height={`200px`}
-            margin={`10px 0`}
-            border={`1px solid ${Theme.black_C}`}
-          ></Wrapper>
-        </SwiperSlide>
+        {sDatum ? (
+          sDatum.length === 0 ? (
+            <EmptyList>조회 된 데이터가 없습니다.</EmptyList>
+          ) : (
+            sDatum.map((data, idx) => (
+              <SwiperSlide key={data._id} onClick={() => moveLinkHandler(data)}>
+                <Wrapper>
+                  <ShopImage margin={`10px 0`} src={data.thumbnailPath} />
+                  <Title>{data.title}</Title>
+                </Wrapper>
+              </SwiperSlide>
+            ))
+          )
+        ) : (
+          <CircularIndeterminate />
+        )}
       </Swiper>
     </Container>
   );

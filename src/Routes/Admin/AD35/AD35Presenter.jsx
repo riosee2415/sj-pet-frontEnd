@@ -22,7 +22,7 @@ import CircularIndeterminate from "../../../Components/loading/CircularIndetermi
 import useTitle from "@4leaf.ysh/use-title";
 import Editor from "../../../Components/editor/Editor.jsx";
 
-const tabs = ["스토리 관리"];
+const tabs = ["브랜드 관리"];
 
 const ImgBox = styled(Wrapper)`
   background-image: url(${(props) => props.src});
@@ -38,18 +38,17 @@ export default ({
   //
   currentThumbnail,
   currentTitle,
-  currentContent,
 
   //
   fileChangeHandler,
-  createStoryViewHandler,
+  createBrandHandler,
 }) => {
-  useTitle("ADMIN | 스토리 등록");
+  useTitle("ADMIN | 브랜드 등록");
 
   return (
     <WholeWrapper al={`flex-start`} ju={`flex-start`}>
       <Fade right>
-        <Title text="스토리 등록" />
+        <Title text="브랜드 등록" />
         <Tabs
           tabs={tabs}
           currentTab={currentTab}
@@ -58,9 +57,9 @@ export default ({
       </Fade>
 
       <Wrapper dr={`row`} al={`flex-start`} ju={`flex-start`}>
-        <Wrapper width={`400px`} minWidth={`400px`} margin={`0px 10px 0px 0px`}>
+        <Wrapper width={`100%`} minWidth={`400px`} margin={`0px 10px 0px 0px`}>
           <TableWrapper>
-            <TableHeadColumn width={`100%`}>스토리 이미지 정보</TableHeadColumn>
+            <TableHeadColumn width={`100%`}>브랜드 이미지 정보</TableHeadColumn>
           </TableWrapper>
 
           <Wrapper
@@ -105,39 +104,18 @@ export default ({
                 THUMBNAIL UPLOAD
               </FileLabel>
             )}
-          </Wrapper>
-        </Wrapper>
-        <Wrapper>
-          <TableWrapper>
-            <TableHeadColumn width={`100%`}>스토리 정보</TableHeadColumn>
-          </TableWrapper>
 
-          <Wrapper
-            height={`630px`}
-            isBorder={true}
-            padding={`10px`}
-            al={`flex-start`}
-            ju={`flex-start`}
-            isScroll={true}
-          >
-            <Wrapper dr={`row`} margin={`30px 0px 0px 0px`}>
+            <Wrapper width={`500px`} margin={`0px 75px 0px 0px`} dr={`row`}>
               <InputContent>제목</InputContent>
               <TextInput {...currentTitle} type="text" />
-            </Wrapper>
-
-            <Wrapper dr={`row`} margin={`5px 0px`}>
-              <Wrapper dr={`row`} al={`flex-start`}>
-                <InputContent>스토리 내용</InputContent>
-                <Textarea height={`500px`} {...currentContent} />
-              </Wrapper>
             </Wrapper>
           </Wrapper>
         </Wrapper>
       </Wrapper>
 
       <Wrapper al={`flex-end`} ju={`flex-end`} margin={`20px 0px`}>
-        <CommonButton kindOf={`create`} onClick={createStoryViewHandler}>
-          스토리 등록
+        <CommonButton kindOf={`create`} onClick={createBrandHandler}>
+          브랜드 등록
         </CommonButton>
       </Wrapper>
     </WholeWrapper>

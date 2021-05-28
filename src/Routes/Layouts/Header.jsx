@@ -4,6 +4,7 @@ import {
   LiWrapper,
   Wrapper,
   ATag,
+  CommonButton,
 } from "../../Components/CommonComponents";
 import { Link, withRouter, NavLink } from "react-router-dom";
 import styled from "styled-components";
@@ -58,6 +59,25 @@ const HeaderWrapper = styled.div`
   padding: ${(props) => props.padding};
   transition: 0.4s;
 
+  &.main {
+    background: ${(props) => props.theme.white_C};
+
+    & svg {
+      color: ${(props) => props.theme.black_C};
+    }
+
+    & li {
+      color: ${(props) =>
+        props.isActive
+          ? `${props.theme.basicTheme_C}`
+          : `${props.theme.black_C}`};
+    }
+
+    & .call {
+      color: ${(props) => props.theme.basicTheme_C};
+    }
+  }
+
   &.background {
     background: ${(props) => props.theme.white_C};
 
@@ -79,7 +99,7 @@ const HeaderWrapper = styled.div`
 `;
 
 const H_Wrapper = styled.div`
-  width: 100%;
+  width: 1350px;
   height: ${(props) => props.height || `100%`};
   color: ${(props) => props.theme.white_C};
   display: flex;
@@ -252,7 +272,9 @@ const Header = ({ history, location, width }) => {
       isFixed={true}
       top={`0px`}
       left={`0px`}
-      className={headerScroll && `background`}
+      className={
+        location.pathname === "/" ? headerScroll && `background` : `main`
+      }
     >
       <H_Wrapper dr={`row`} padding={width < 1100 ? `0 20px` : `0 40px`}>
         <Wrapper
@@ -272,7 +294,7 @@ const Header = ({ history, location, width }) => {
           </Logo>
 
           <UlWrapper width={`auto`} dr={`row`}>
-            <Link to="/">
+            {/* <Link to="/">
               <Menu
                 isActive={location.pathname === "/"}
                 margin={
@@ -285,7 +307,7 @@ const Header = ({ history, location, width }) => {
               >
                 펫마트
               </Menu>
-            </Link>
+            </Link> */}
             <Link to="/about">
               <Menu
                 isActive={location.pathname === "/about"}
@@ -297,10 +319,10 @@ const Header = ({ history, location, width }) => {
                     : `0px 60px`
                 }
               >
-                회사
+                회사소개
               </Menu>
             </Link>
-            <Link to="/interior">
+            {/* <Link to="/interior">
               <Menu
                 isActive={location.pathname === "/interior"}
                 margin={
@@ -313,7 +335,7 @@ const Header = ({ history, location, width }) => {
               >
                 인테리어
               </Menu>
-            </Link>
+            </Link> */}
             <Link to="/info">
               <Menu
                 isActive={location.pathname === "/info"}
@@ -353,21 +375,22 @@ const Header = ({ history, location, width }) => {
                     : `0px 60px`
                 }
               >
-                가맹상담
+                가맹상담/FAQ
               </Menu>
             </Link>
           </UlWrapper>
           <ATag width={`auto`} href="tel:15881684">
-            <Wrapper
-              width={`200px`}
-              padding={`10px`}
+            <CommonButton
+              width={`220px`}
+              height={`48px`}
               radius={`25px`}
-              bgColor={Theme.lightBasicTheme_c}
-              color={Theme.white_C}
               fontSize={`18px`}
+              kindOf={
+                location.pathname === "/" ? (headerScroll ? `` : `white`) : ``
+              }
             >
               가맹문의 1588-1684
-            </Wrapper>
+            </CommonButton>
           </ATag>
         </Wrapper>
       </H_Wrapper>

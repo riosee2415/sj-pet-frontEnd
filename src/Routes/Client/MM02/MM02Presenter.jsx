@@ -53,7 +53,7 @@ const Point = styled(SpanText)`
 `;
 
 const MM02Presenter = ({ width }) => {
-  useTitle("셈플");
+  useTitle("인테리어 | 펫마트");
 
   return (
     <WholeWrapper>

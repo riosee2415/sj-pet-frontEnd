@@ -27,3 +27,37 @@ export const ADD_ACCEPT_RECORD = gql`
     addAcceptRecord(date: $date)
   }
 `;
+
+export const GET_STORE = gql`
+  query getAllStoreByImportant {
+    getAllStoreByImportant {
+      _id
+      title
+      address
+      thumbnailPath
+      att
+      lnt
+      tel
+    }
+  }
+`;
+
+export const GET_STORYVIEW = gql`
+  query getAllStoryViewList {
+    getAllStoryViewList {
+      _id
+      title
+      content
+      thumbnail
+    }
+  }
+`;
+
+export const GET_BRAND = gql`
+  query getAllBrandList {
+    getAllBrandList {
+      _id
+      thumbnail
+    }
+  }
+`;

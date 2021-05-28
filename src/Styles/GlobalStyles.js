@@ -201,14 +201,11 @@ export default createGlobalStyle`
     * {
         box-sizing : border-box;
         font-family: 'SCDream', sans-serif;
-        
-        
     }
     body {
         background-color: ${(props) => props.theme.bgColor};
         color : ${(props) => props.theme.blackColor};
         font-family: 'SCDream', sans-serif;
-        
     }
     a {
         color : inherit;

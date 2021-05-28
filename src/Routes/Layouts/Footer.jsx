@@ -46,33 +46,93 @@ const Footer = ({ width }) => {
 
   return (
     <WholeWrapper
-      padding={width < 1500 ? `30px` : `40px`}
+      padding={width < 1500 ? (width < 900 ? `30px 10px` : `30px`) : `40px`}
       bgColor={Theme.grey_C}
       color={Theme.black_C}
       margin={width < 900 ? `0 0 55px` : `0 0 80px`}
     >
-      <Wrapper dr={`row`} ju={`flex-start`} al={`flex-start`}>
+      <Wrapper dr={`row`} ju={`space-between`}>
         <Wrapper width={`auto`} al={`flex-start`}>
           <Image
-            width={width < 900 ? `200px` : `220px`}
-            margin={width < `0 30px 0 0`}
+            width={`200px`}
+            margin={`0 0 10px`}
+            alt="logo"
+            src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2Flogo%2Flogo.png?alt=media&token=293d0a5b-53e7-446d-bdb8-d74903051e16`}
+          />
+          <Text>주식회사 선진펫</Text>
+          <Text margin={`5px 0`}>
+            주소 {data && data.getFooterInfo.address}
+          </Text>
+          <Text>
+            Copyright (c) 선진펫. All Rights Reserved. By 4leafsoftware
+          </Text>
+        </Wrapper>
+        <Wrapper width={`auto`} dr={`row`} margin={width < 900 && `10px 0 0`}>
+          <Wrapper width={`auto`} margin={width < 700 ? `0 10px` : `0 30px`}>
+            <Text fontSize={`16px !important`}>펫마트 가맹문의</Text>
+            <ATag width={`auto`} href="tel:15881684">
+              <Text
+                al={`flex-start`}
+                fontSize={width < 900 ? `20px !important` : `32px`}
+                fontWeight={`700`}
+              >
+                1588-1684
+              </Text>
+            </ATag>
+            <ATag width={`auto`} href={`mailto:ebajslee@sunjinpet.co.kr`}>
+              <Text al={`flex-start`} fontSize={`12px !important`}>
+                ebajslee@sunjinpet.co.kr
+              </Text>
+            </ATag>
+          </Wrapper>
+          <Wrapper width={`auto`} margin={width < 700 ? `0 10px` : `0 30px`}>
+            <Text fontSize={`16px !important`}>경기/수도권 창업문의</Text>
+            <ATag width={`auto`} href="tel:15770731">
+              <Text
+                al={`flex-start`}
+                fontSize={width < 900 ? `20px !important` : `32px`}
+                fontWeight={`700`}
+              >
+                1577-0731
+              </Text>
+            </ATag>
+            <ATag width={`auto`} href={`mailto:vvvkmvvv@sunjinpet.co.kr`}>
+              <Text al={`flex-start`} fontSize={`12px !important`}>
+                vvvkmvvv@sunjinpet.co.kr
+              </Text>
+            </ATag>
+          </Wrapper>
+        </Wrapper>
+      </Wrapper>
+      {/* <Wrapper
+        dr={`row`}
+        ju={width < 900 ? `center` : `flex-start`}
+        al={`flex-start`}
+      >
+        <Wrapper width={`auto`} al={`flex-start`}>
+          <Image
+            width={width < 900 ? `200px` : `200px`}
             alt="logo"
             src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2Flogo%2Flogo.png?alt=media&token=293d0a5b-53e7-446d-bdb8-d74903051e16`}
           />
         </Wrapper>
 
         <Wrapper
-          width={width < 1350 ? `100%` : `calc(100% - 220px)`}
+          width={width < 1350 ? `100%` : `calc(100% - 200px)`}
           dr={`row`}
           padding={width < 1350 ? `30px 0 0` : `0 0 0 30px`}
         >
           <Wrapper
-            dr={width < 900 ? `column` : `row`}
+            dr={width < 900 ? `column-reverse` : `row`}
             width={width < 1350 ? `100%` : `auto`}
-            al={`flex-start`}
+            al={width < 900 ? `center` : `flex-start`}
             ju={`flex-start`}
           >
-            <Wrapper al={`flex-start`} width={`auto`} fontSize={`14px`}>
+            <Wrapper
+              al={width < 900 ? `center` : `flex-start`}
+              width={`auto`}
+              fontSize={`14px`}
+            >
               <Text margin={width < 900 && `10px 0 0`}>
                 {data && data.getFooterInfo.businessName}
               </Text>
@@ -82,7 +142,7 @@ const Footer = ({ width }) => {
               <Text>Copyright (c) 선진펫. All Rights Reserved</Text>
             </Wrapper>
             <Wrapper
-              al={`flex-start`}
+              al={width < 900 ? `center` : `flex-start`}
               width={`auto`}
               margin={width < 900 ? `10px 0 0` : `0px 0px 0px 35px`}
               fontSize={`14px`}
@@ -98,7 +158,7 @@ const Footer = ({ width }) => {
             width={width < 1350 ? `100%` : `auto`}
             margin={width < 1350 && `30px 0 0`}
             al={width < 1350 && `flex-start`}
-            ju={width < 1350 && `flex-start`}
+            ju={width < 1350 ? (width < 900 ? `center` : `flex-start`) : ``}
           >
             <Wrapper width={`auto`} margin={width < 1350 ? `0` : `0 0 0 30px`}>
               <Text fontSize={`16px !important`} fontWeight={`700`}>
@@ -171,7 +231,7 @@ const Footer = ({ width }) => {
             </Wrapper>
           </Wrapper>
         </Wrapper>
-      </Wrapper>
+      </Wrapper> */}
     </WholeWrapper>
   );
 };

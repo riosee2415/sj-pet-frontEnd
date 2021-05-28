@@ -54,9 +54,8 @@ export default ({
   dataWorkTime,
   //
   fileChangeHandler,
-  updateRoadShowHandler,
   moveListPageHandler,
-  deleteRoadShowHandler,
+  createRoadShowHandler,
 }) => {
   useTitle("ADMIN | 가맹점 관리");
 
@@ -155,19 +154,11 @@ export default ({
           </CommonButton>
 
           <CommonButton
-            kindOf={`delete`}
-            margin={`0px 5px`}
-            onClick={() => deleteRoadShowHandler()}
-          >
-            삭제하기
-          </CommonButton>
-
-          <CommonButton
             kindOf={`create`}
             margin={`0px 5px`}
-            onClick={() => updateRoadShowHandler()}
+            onClick={() => (isLoading ? null : createRoadShowHandler())}
           >
-            저장하기
+            등록하기
           </CommonButton>
         </Wrapper>
       </Fade>
