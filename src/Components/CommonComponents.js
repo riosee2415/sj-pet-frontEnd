@@ -435,14 +435,13 @@ export const CommonButton = styled.button`
   align-items: ${(props) => props.al || `center`};
   justify-content: ${(props) => props.ju || `center`};
   color: ${(props) => props.theme.white_C};
-  /* border-radius: 10px; */
+  border-radius: ${(props) => props.radius};
 
   ${(props) => !props.kindOf && `background : ${props.theme.basicTheme_C};`}
-  ${(props) =>
-    props.kindOf === `white` && `background : ${props.theme.white_C};`}
-  ${(props) => props.kindOf === `white` && `color : ${props.theme.black_C};`}
+  ${(props) => props.kindOf === `white` && `background : transparent;`}
+  ${(props) => props.kindOf === `white` && `color : ${props.theme.white_C};`}
       ${(props) =>
-    props.kindOf === `white` && `border : 1px solid ${props.theme.subTheme_C};`}
+    props.kindOf === `white` && `border : 1px solid ${props.theme.white_C};`}
      ${(props) =>
     props.kindOf === `black` && `background : ${props.theme.darkGrey_C};`}
   ${(props) => props.kindOf === `black` && `color : ${props.theme.white_C};`}
