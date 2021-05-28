@@ -40,6 +40,7 @@ const MM05Container = ({ history }) => {
   const [pages, setPages] = useState(null);
   const inputSearch = useInput("");
   const [searchValue, setSearchValue] = useState("");
+  const [currentTab, setCurrentTab] = useState(0);
 
   ////////////// - USE QUERY- ///////////////
 
@@ -258,6 +259,8 @@ const MM05Container = ({ history }) => {
       currentPage={currentPage}
       actionFaqView={actionFaqView}
       currentType={currentType}
+      currentTab={currentTab}
+      setCurrentTab={setCurrentTab}
       //
       faqDatum={faqDatum && faqDatum.getFaqDetail}
       //

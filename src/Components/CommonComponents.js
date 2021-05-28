@@ -334,7 +334,6 @@ export const TextInput = styled.input`
   height: ${(props) => props.height || `40px`};
   border: ${(props) => props.border || `1px solid ${props.theme.grey_C}`};
   padding: ${(props) => props.padding || props.theme.inputPadding};
-  /* border-radius: ${(props) => props.theme.radius}; */
   transition: ${(props) => props.transition || props.theme.transition};
   margin: ${(props) => props.margin};
   background-color: ${(props) => props.bgColor};
