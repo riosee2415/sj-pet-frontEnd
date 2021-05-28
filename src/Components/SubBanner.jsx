@@ -30,10 +30,10 @@ const SubBannerBox = styled.div`
 const SubBannerTitle = styled.h2`
   font-size: 60px;
   color: ${(props) => props.theme.white_C};
-  text-shadow: 1px 2px 3px ${(props) => props.theme.white_C};
+  /* text-shadow: 1px 2px 3px ${(props) => props.theme.white_C};
   padding: 15px 40px;
   background-color: rgba(0, 0, 0, 0.2);
-  border-radius: ${(props) => props.theme.radius};
+  border-radius: ${(props) => props.theme.radius}; */
   /* backdrop-filter: blur(10px); */
 
   @media (max-width: 900px) {

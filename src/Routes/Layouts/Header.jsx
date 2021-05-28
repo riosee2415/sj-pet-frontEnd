@@ -14,6 +14,7 @@ import Drawer from "@material-ui/core/Drawer";
 import Bounce from "react-reveal/Bounce";
 import Theme from "../../Styles/Theme";
 import { toast } from "react-toastify";
+import Fade from "react-reveal/Fade";
 
 const OnlyHeadAbsoluteWrapper = styled.div`
   display: none;
@@ -370,6 +371,7 @@ const Header = ({ history, location, width }) => {
           </ATag>
         </Wrapper>
       </H_Wrapper>
+
       <MobileHeader>
         <Wrapper dr={`row`} ju={`space-between`} padding={`10px 0`}>
           <ATag width={`auto`} href="tel:15881684">
