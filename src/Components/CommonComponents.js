@@ -613,10 +613,8 @@ export const CommonSubTitle = styled.h2`
   font-weight: ${(props) => props.fontWeight || `400`};
   color: ${(props) => props.color};
   position: relative;
-
   margin: ${(props) => props.margin || `0 0 40px`};
   padding-bottom: 25px;
-
   display: flex;
   align-items: center;
 

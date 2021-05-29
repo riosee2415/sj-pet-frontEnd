@@ -33,12 +33,41 @@ const ShopSilder = withSplitting(() =>
 const BrandSilder = withSplitting(() =>
   import("../../../Components/slider/BrandSilder.jsx")
 );
+const InteriorSilder = withSplitting(() =>
+  import("../../../Components/slider/InteriorSlider")
+);
 const StartSilder = withSplitting(() =>
   import("../../../Components/slider/StartSilder.jsx")
 );
 const Fade = withSplitting(() => import("react-reveal/Fade"));
 const LightSpeed = withSplitting(() => import("react-reveal/LightSpeed"));
 const Bounce = withSplitting(() => import("react-reveal/Bounce"));
+
+const MainTilte = styled(Wrapper)`
+  font-size: 36px;
+  align-items: flex-start;
+  position: relative;
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 40%;
+    left: 12%;
+    width: 520px;
+    height: 5px;
+    background-color: ${(props) => props.theme.basicTheme_C};
+
+    @media (max-width: 700px) {
+      left: 25%;
+      width: 190px;
+      height: 2px;
+    }
+  }
+
+  @media (max-width: 700px) {
+    font-size: 18px;
+  }
+`;
 
 const DotTitle = styled(Text)`
   position: relative;
@@ -61,6 +90,24 @@ const DotTitle = styled(Text)`
       height: 10px;
       margin-left: -5px;
     }
+  }
+`;
+
+const PetmartTitle = styled(SpanText)`
+  width: auto;
+  color: ${(props) => props.theme.white_C};
+  position: relative;
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -10px;
+    width: 100%;
+    height: 100%;
+    background-color: ${(props) => props.theme.basicTheme_C};
+    padding: 0 10px 10px;
+    z-index: -1000;
   }
 `;
 
@@ -97,8 +144,8 @@ const MM00Presenter = ({
       {/* <MainSlider
         mainBannerData={width < 700 ? mobileBannerData : mainBannerData}
       /> */}
-      <RsWrapper>
-        <SubjectTitle>매장현황</SubjectTitle>
+      <RsWrapper padding={width < 700 ? `60px 0` : `100px 0`}>
+        <MainTilte>매장현황</MainTilte>
       </RsWrapper>
       <Wrapper margin={`0px 0 70px`}>
         <ShopSilder
@@ -108,36 +155,53 @@ const MM00Presenter = ({
         />
       </Wrapper>
 
-      <Wrapper bgColor={`#032950`} padding={`100px 0`}>
+      <Wrapper bgColor={`#032950`} padding={width < 700 ? `60px 0` : `100px 0`}>
         <RsWrapper>
-          <Wrapper dr={`row`}>
+          <Wrapper dr={`row`} isRelative={true}>
             <Image
-              width={`70px`}
+              display={width > 700 ? `flex` : `none`}
+              width={`130px`}
               alt="image"
+              margin={`0 20px 0 0`}
               src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2Fmain-img.png?alt=media&token=740395d0-f209-45e8-824d-1d10605df08e`}
             />
-            <Wrapper width={`auto`} color={Theme.white_C}>
-              <Text>업계유일 최소 마진율 41%!</Text>
-              <Text>매장 규모별 순수익 공개!</Text>
+            <Wrapper
+              width={`auto`}
+              color={Theme.white_C}
+              al={width < 700 ? `center` : `flex-start`}
+            >
+              <Text
+                fontSize={width < 700 ? `18px !important` : `48px`}
+                fontWeight={`400`}
+              >
+                업계유일 최소 마진율 41%!
+              </Text>
+              <Text
+                fontSize={width < 700 ? `18px !important` : `48px`}
+                fontWeight={`400`}
+              >
+                매장 규모별 순수익 공개!
+              </Text>
             </Wrapper>
+            <Wrapper
+              isAbsolute={true}
+              top={width < 700 ? `2px` : `10px`}
+              right={width < 700 ? `19%` : `21%`}
+              width={width < 700 ? `145px` : `390px`}
+              height={width < 700 ? `22px` : `55px`}
+              bgColor={Theme.basicTheme_C}
+              zIndex={`-100`}
+            ></Wrapper>
           </Wrapper>
-          {/* <Text
-            width={width < 900 ? `100%` : `80%`}
-            margin={`0px 0 40px`}
-            fontSize={`20px`}
-            fontWeight={`600`}
-            textAlign={`center`}
-          >
-            반려동물 업계 최초 최소 마진율 35% 다양한 OEM상품과 높은 마진율로
-            마진율을 최대화 하는 노력을 아끼지 않고 있습니다! 지속적인
-            상품개발과 독자적인 제품교육은 초보 사장님도 손쉽게 운영하실 수
-            있습니다!
-          </Text> */}
 
-          <Wrapper dr={`row`} width={`80%`} margin={`60px 0 0`}>
+          <Wrapper
+            dr={`row`}
+            width={width < 700 ? `100%` : `80%`}
+            margin={width < 700 ? `30px 0 0` : `60px 0 0`}
+          >
             <Wrapper
               width={width < 1000 ? `100%` : `60%`}
-              padding={`0 20px 0 0`}
+              padding={width < 700 ? `0 0 60px` : `0 20px 0 0`}
             >
               <Fade left>
                 <Image
@@ -247,39 +311,66 @@ const MM00Presenter = ({
         </RsWrapper>
       </Wrapper>
 
-      <RsWrapper>
-        <CommonSubTitle>펫마트 입점 브랜드</CommonSubTitle>
+      <Wrapper
+        bgColor={width < 700 ? `none` : `rgb(238, 238, 238)`}
+        padding={width < 700 ? `40px 10px` : `100px 0`}
+      >
+        <Wrapper
+          fontSize={width < 700 ? `18px !important` : `48px`}
+          al={width < 700 && `flex-start`}
+        >
+          펫마트 입점 브랜드
+        </Wrapper>
         <Text
+          display={width < 700 ? `none` : `flex`}
           fontSize={`24px`}
           fontWeight={`400`}
           color={`#616161`}
           margin={`20px 0 0`}
+          textAlign={`center`}
         >
           펫마트는 약 700여개의 유명,신규브랜드와 5000여개의 품목을 취급하고
           있습니다.
         </Text>
-        {/* <CommonSubTitle>
-          펫마트 입점&nbsp;<DotTitle fontWeight={`900`}>브</DotTitle>
-          <DotTitle fontWeight={`900`}>랜</DotTitle>
-          <DotTitle fontWeight={`900`}>드</DotTitle>
-        </CommonSubTitle>
-        <LightSpeed>
-          <Text margin={`0px 0 50px`} fontSize={`30px`} fontWeight={`700`}>
-            펫마트는 약 700여개의 유명, 신규 브랜드와 5000여개의 품목을 취급하고
-            있습니다.
+        <Wrapper
+          display={width < 700 ? `flex` : `none`}
+          al={`flex-start`}
+          margin={`10px 0 0`}
+        >
+          <Text
+            fontSize={width < 700 ? `12px !important` : `24px`}
+            fontWeight={`400`}
+            color={`#616161`}
+          >
+            펫마트는 약 700여개의 유명, 신규브랜드와
           </Text>
-        </LightSpeed> */}
+          <Text
+            fontSize={width < 700 ? `12px !important` : `24px`}
+            fontWeight={`400`}
+            color={`#616161`}
+          >
+            5000여개의 품목을 취급하고 있습니다.
+          </Text>
+        </Wrapper>
         <BrandSilder width={width} bDatum={currentBrand} />
-      </RsWrapper>
+      </Wrapper>
+      <Wrapper
+        display={width < 700 ? `flex` : `none`}
+        borderBottom={`10px solid rgb(238, 238, 238)`}
+      ></Wrapper>
 
       <RsWrapper
         dr={`row`}
         ju={`space-between`}
         al={`flex-start`}
-        padding={`200px 0`}
+        padding={width < 700 ? `60px 0` : `200px 0`}
       >
         {/* <Bounce> */}
-        <Wrapper width={`40%`} al={`flex-start`}>
+        <Wrapper
+          display={width > 700 ? `flex` : `none`}
+          width={`40%`}
+          al={`flex-start`}
+        >
           <Text lineHeight={`1.3`} fontSize={`72px`} fontWeight={`400`}>
             지금!
           </Text>
@@ -304,15 +395,33 @@ const MM00Presenter = ({
           </Text>
         </Wrapper>
 
-        {/* <CommonSubTitle>
-          지금 펫마트를 시작해야 하는&nbsp;
-          <DotTitle fontWeight={`900`}>이</DotTitle>
-          <DotTitle fontWeight={`900`}>유</DotTitle> !
-        </CommonSubTitle> */}
+        <Wrapper
+          display={width < 700 ? `flex` : `none`}
+          width={`100%`}
+          al={`flex-start`}
+          padding={`0 0 30px`}
+        >
+          <Text
+            lineHeight={`1.3`}
+            fontSize={`24px !important`}
+            fontWeight={`400`}
+          >
+            지금!<SpanText color={Theme.basicTheme_C}>펫마트</SpanText>를
+          </Text>
+
+          <Text
+            lineHeight={`1.3`}
+            fontSize={`24px !important`}
+            fontWeight={`400`}
+            color={Theme.basicTheme_C}
+          >
+            시작<SpanText color={Theme.black_C}>해야 되는 이유</SpanText>
+          </Text>
+        </Wrapper>
         {/* </Bounce> */}
 
         <Image
-          width={`60%`}
+          width={width < 700 ? `100%` : `60%`}
           alt="image"
           src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2F%E1%84%91%E1%85%A6%E1%86%BA%E1%84%86%E1%85%A1%E1%84%90%E1%85%B3%E1%84%85%E1%85%B3%E1%86%AF%20%E1%84%89%E1%85%B5%E1%84%8C%E1%85%A1%E1%86%A8%E1%84%92%E1%85%A2%E1%84%8B%E1%85%A3%20%E1%84%83%E1%85%AC%E1%84%82%E1%85%B3%E1%86%AB%20%E1%84%8B%E1%85%B5%E1%84%8B%E1%85%B2.png?alt=media&token=87679fe5-7df9-4b8a-9d83-749d171f0784`}
         />
@@ -343,10 +452,11 @@ const MM00Presenter = ({
 
       <Wrapper
         padding={width < 900 ? `60px 10px` : `100px 0`}
-        bgColor={`${Theme.black_C}`}
+        bgImg={`url("https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2F%E1%84%91%E1%85%A6%E1%86%BA%E1%84%86%E1%85%A1%E1%84%90%E1%85%B3%E1%84%8B%E1%85%AA%20%E1%84%92%E1%85%A1%E1%86%B7%E1%84%81%E1%85%A6-bgimg.png?alt=media&token=5b1c70e9-f378-4f2a-b469-235f5644357b")`}
+        attachment={`initial`}
       >
         <RsWrapper dr={`row`} ju={`space-between`} al={`flex-start`}>
-          <Wrapper width={width < 1300 ? `100%` : `30%`} al={`flex-start`}>
+          <Wrapper width={width < 1300 ? `100%` : `40%`} al={`flex-start`}>
             <Fade left>
               <Text
                 fontSize={`72px`}
@@ -412,7 +522,7 @@ const MM00Presenter = ({
             </Text>
           </Wrapper>
           <Wrapper
-            width={width < 1300 ? `100%` : `70%`}
+            width={width < 1300 ? `100%` : `60%`}
             height={
               width < 1300
                 ? width < 900
@@ -420,7 +530,7 @@ const MM00Presenter = ({
                     ? `300px`
                     : `400px`
                   : `500px`
-                : `720px`
+                : `420px`
             }
             isRelative={true}
             cursor={`pointer`}
@@ -492,9 +602,11 @@ const MM00Presenter = ({
         </RsWrapper>
       </Wrapper>
 
-      <RsWrapper>
-        <CommonSubTitle>왜 펫마트일까 ?</CommonSubTitle>
-        <Text fontSize={`24px`} fontWeight={`400`} padding={`10px 0 0`}>
+      <RsWrapper padding={`100px 0`}>
+        <Text fontSize={`72px`}>
+          왜 <PetmartTitle>펫마트</PetmartTitle>일까 ?
+        </Text>
+        <Text fontSize={`24px`} fontWeight={`400`} margin={`20px 0 0`}>
           예비 창업자들이 펫마트를 선택하는 이유!
         </Text>
         <Wrapper dr={`row`} al={`flex-start`} padding={`80px 0 0`}>
@@ -994,16 +1106,25 @@ const MM00Presenter = ({
           </Fade>
         </Wrapper>
       </Wrapper> */}
-      <Wrapper bgColor={`#222222`}>
-        <CommonSubTitle color={Theme.white_C}>매장 인테리어</CommonSubTitle>
-        <Text fontSize={`24px`} color={Theme.white_C} margin={`10px 0 0`}>
+      <Wrapper bgColor={`rgb(34, 34, 34)`} padding={`100px 0`}>
+        <Wrapper fontSize={`48px`} color={Theme.white_C}>
+          매장 인테리어
+        </Wrapper>
+        <Text
+          fontSize={`24px`}
+          fontWeight={`400`}
+          color={Theme.white_C}
+          margin={`30px 0 0`}
+        >
           불필요한 것은 빼고
           <SpanText color={Theme.basicTheme_C}>&nbsp;꼭 필요한 것</SpanText>만
           담았습니다.
         </Text>
+
+        <InteriorSilder />
       </Wrapper>
-      <RsWrapper>
-        <CommonSubTitle>개설비용</CommonSubTitle>
+      <RsWrapper padding={`100px 0`}>
+        <Wrapper fontSize={`48px`}>개설비용</Wrapper>
         <Wrapper
           margin={`50px 0`}
           height={`700px`}
@@ -1080,6 +1201,7 @@ const MM00Presenter = ({
             </Wrapper>
             <Wrapper
               bgColor={`rgb(34, 34, 34)`}
+              radius={`0 0 20px 20px`}
               color={Theme.white_C}
               padding={`30px 0`}
               fontSize={`24px`}
@@ -1094,7 +1216,7 @@ const MM00Presenter = ({
         </Text>
         {/* <Wrapper
           width={`100%`}
-          padding={width < 900 ? `40px 15px` : `80px`}
+          padding={width < 900 ?  `40px 15px` : `80px`}
           margin={`0 0 100px`}
           bgColor={`${Theme.greyArea_C}`}
           shadow={`3px 3px 3px ${Theme.grey_C}`}
