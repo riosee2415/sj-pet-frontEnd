@@ -13,6 +13,7 @@ const MM01Container = ({ history }) => {
   const hisRef = useRef();
 
   ////////////// - USE STATE- ///////////////
+  const [currentTab, setCurrentTab] = useState(0);
 
   ////////////// - USE QUERY- ///////////////
 
@@ -37,6 +38,8 @@ const MM01Container = ({ history }) => {
     <MM01Presenter
       greRef={greRef}
       hisRef={hisRef}
+      currentTab={currentTab}
+      setCurrentTab={setCurrentTab}
       //
       scrollMoveHandler={scrollMoveHandler}
     />

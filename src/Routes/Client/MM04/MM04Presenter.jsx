@@ -8,6 +8,7 @@ import {
   Image,
   Text,
   ATag,
+  SubjectTitle,
 } from "../../../Components/CommonComponents";
 import styled from "styled-components";
 import { withResizeDetector } from "react-resize-detector";
@@ -15,6 +16,7 @@ import useTitle from "@4leaf.ysh/use-title";
 import Theme from "../../../Styles/Theme";
 import SubBanner from "../../../Components/SubBanner";
 const Fade = withSplitting(() => import("react-reveal/Fade"));
+const LightSpeed = withSplitting(() => import("react-reveal/LightSpeed"));
 
 const BoxWrapper = styled(Wrapper)`
   width: calc(100% / 5);
@@ -75,7 +77,10 @@ const MM04Presenter = ({
 
   return (
     <WholeWrapper>
-      <SubBanner title={`가맹절차`} />
+      <SubBanner
+        src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM04%2Fmm04.png?alt=media&token=7d6eeee9-3ccf-489c-bd6f-a2ffe98522af`}
+        title={`가맹절차`}
+      />
       <Wrapper
         dr={`row`}
         height={`70px`}
@@ -86,24 +91,25 @@ const MM04Presenter = ({
           height={`100%`}
           cursor={`pointer`}
           borderBottom={`2px solid ${Theme.basicTheme_C}`}
-          onClick={() => scrollMoveHandler("가맹절차")}
         >
-          가맹절차
-        </Wrapper>
-        <Wrapper height={`20px`} bgColor={Theme.grey_C} width={`1px`}></Wrapper>
-        <Wrapper
-          cursor={`pointer`}
-          width={`150px`}
-          height={`100%`}
-          onClick={() => scrollMoveHandler("개설비용")}
-        >
-          개설비용
+          창업절차
         </Wrapper>
       </Wrapper>
-      <CommonSubTitle ref={stepRef}>가맹절차</CommonSubTitle>
+      <Wrapper padding={`80px 0`}>
+        <CommonSubTitle>창업절차</CommonSubTitle>
+        <LightSpeed>
+          <Wrapper>
+            <SubjectTitle>펫마트 가맹절차 순서입니다.</SubjectTitle>
+          </Wrapper>
+        </LightSpeed>
+      </Wrapper>
 
       <RsWrapper padding={`0 0 100px`}>
-        <Fade bottom>
+        <Image
+          alt="절차"
+          src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM04%2Fmm04-step.png?alt=media&token=e5aabce1-048f-4253-82e8-7fed09a5451f`}
+        />
+        {/* <Fade bottom>
           <Wrapper dr={`row`}>
             <BoxWrapper>
               <Wrapper dr={`row`}>
@@ -432,7 +438,7 @@ const MM04Presenter = ({
               </Fade>
             </Wrapper>
           </Wrapper>
-        </Wrapper>
+        </Wrapper> */}
       </RsWrapper>
     </WholeWrapper>
   );

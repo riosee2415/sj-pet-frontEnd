@@ -10,6 +10,7 @@ import { Link, withRouter, NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { appearAnimation, fullWidth } from "../../Components/AnimationCommon";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
+import { RiArrowDownSLine, RiArrowUpSLine } from "react-icons/ri";
 import { withResizeDetector } from "react-resize-detector";
 import Drawer from "@material-ui/core/Drawer";
 import Bounce from "react-reveal/Bounce";
@@ -198,13 +199,13 @@ const MobileHeader = styled.div`
 const MobileMenu = styled.div`
   width: 100%;
   height: 100vh;
-  background: linear-gradient(#80c2e8, #0d3a56);
+  background: ${(props) => props.theme.white_C};
+  color: ${(props) => props.theme.black_C};
   z-index: 10000;
 
   & svg {
     cursor: pointer;
     font-size: 25px;
-    color: ${(props) => props.theme.white_C};
   }
 
   & .react-reveal {
@@ -212,19 +213,31 @@ const MobileMenu = styled.div`
   }
 `;
 
-const MobileSubMenu = styled.li`
+const MobileSubMenu = styled.div`
   width: 100%;
+  height: 60px;
   display: flex;
   flex-direction: column;
   font-size: ${(props) => props.fontSize};
+  font-weight: 600;
   margin: ${(props) => props.margin};
+  color: ${(props) => props.theme.black_C};
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgb(238, 238, 238);
+  padding: 0 15px;
+
+  & svg {
+    color: ${(props) => props.theme.basicTheme_C};
+  }
 `;
 
 const Header = ({ history, location, width }) => {
   //state
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [mobileSubMenu, setMobileSubMenu] = useState(null);
-  const [reload, setReload] = useState(false);
+  const [mobileSubMenu, setMobileSubMenu] = useState("");
   const [headerScroll, setHeaderScroll] = useState(false);
   const [pageY, setPageY] = useState(0);
   const documentRef = useRef(document);
@@ -235,6 +248,11 @@ const Header = ({ history, location, width }) => {
   //handler
   const mobileMenuToggle = () => {
     setMobileMenuOpen(!mobileMenuOpen);
+    setMobileSubMenu("");
+  };
+
+  const mobileSubMenuToggle = (toggle) => {
+    setMobileSubMenu(toggle);
   };
 
   const handleScroll = () => {
@@ -257,9 +275,6 @@ const Header = ({ history, location, width }) => {
   };
 
   //useEffect
-  useEffect(() => {
-    setReload(!reload);
-  }, [mobileSubMenu]);
 
   useEffect(() => {
     documentRef.current.addEventListener("scroll", handleScroll);
@@ -396,88 +411,169 @@ const Header = ({ history, location, width }) => {
       </H_Wrapper>
 
       <MobileHeader>
-        <Wrapper dr={`row`} ju={`space-between`} padding={`10px 0`}>
-          <ATag width={`auto`} href="tel:15881684">
-            <Wrapper
-              width={`auto`}
-              fontSize={`16px !important`}
-              fontWeight={`800`}
-              className={`call`}
-            >
-              1588-1684
-            </Wrapper>
-          </ATag>
-          <Logo>
-            <Link to="/">
-              <LogoImg
-                alt="logo"
-                src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2Flogo%2Flogo.png?alt=media&token=293d0a5b-53e7-446d-bdb8-d74903051e16`}
-              />
-            </Link>
-          </Logo>
-          <Wrapper width={`60px`} al={`flex-end`}>
+        <Wrapper dr={`row`} ju={`space-between`} padding={`15px 0`}>
+          <Wrapper width={`60px`} al={`flex-start`}>
             {mobileMenuOpen ? (
               <AiOutlineClose onClick={mobileMenuToggle} />
             ) : (
               <AiOutlineMenu onClick={mobileMenuToggle} />
             )}
           </Wrapper>
+          <Logo>
+            <Link to="/">
+              <LogoImg
+                alt="logo"
+                src={
+                  location.pathname === "/"
+                    ? `https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2Flogo%2Flogo-m.png?alt=media&token=4fc96ffb-da80-4396-9d02-ddc9fcce595e`
+                    : `https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2Flogo%2Flogo-w.png?alt=media&token=88c2c137-40ef-4941-82e0-b3f6465efa1c`
+                }
+              />
+            </Link>
+          </Logo>
+          <Wrapper width={`60px`} al={`flex-end`}></Wrapper>
         </Wrapper>
 
-        <Drawer open={mobileMenuOpen} anchor={`right`}>
+        <Drawer open={mobileMenuOpen} anchor={`left`}>
           <MobileMenu>
-            <Wrapper dr={`row`} ju={`flex-end`} padding={`20px 15px`}>
+            <Wrapper dr={`row`} ju={`space-between`} padding={`20px 15px`}>
               <AiOutlineClose onClick={mobileMenuToggle} />
+              <Link to="/">
+                <LogoImg
+                  alt="logo"
+                  src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2Flogo%2Flogo-w.png?alt=media&token=88c2c137-40ef-4941-82e0-b3f6465efa1c`}
+                />
+              </Link>
+              <Wrapper width={`25px`}></Wrapper>
             </Wrapper>
 
-            <UlWrapper
-              width={`auto`}
-              margin={`120px 0px 0px`}
-              color={Theme.white_C}
-            >
-              <Link to="/">
-                <Bounce delay={0}>
-                  <MobileSubMenu fontSize={`18px`} margin={`25px 0px`}>
-                    펫마트
-                  </MobileSubMenu>
-                </Bounce>
-              </Link>
-              <Link to="/about">
-                <Bounce delay={100}>
-                  <MobileSubMenu fontSize={`18px`} margin={`25px 0px`}>
-                    회사
-                  </MobileSubMenu>
-                </Bounce>
-              </Link>
-              <Link to="/interior">
-                <Bounce delay={200}>
-                  <MobileSubMenu fontSize={`18px`} margin={`25px 0px`}>
-                    인테리어
-                  </MobileSubMenu>
-                </Bounce>
-              </Link>
-              <Link to="/info">
-                <Bounce delay={300}>
-                  <MobileSubMenu fontSize={`18px`} margin={`25px 0px`}>
-                    매장안내
-                  </MobileSubMenu>
-                </Bounce>
-              </Link>
-              <Link to="/franchisee">
-                <Bounce delay={300}>
-                  <MobileSubMenu fontSize={`18px`} margin={`25px 0px`}>
-                    가맹절차
-                  </MobileSubMenu>
-                </Bounce>
-              </Link>
-              <Link to="/contact">
-                <Bounce delay={300}>
-                  <MobileSubMenu fontSize={`18px`} margin={`25px 0px`}>
-                    가맹상담
-                  </MobileSubMenu>
-                </Bounce>
-              </Link>
-            </UlWrapper>
+            <Wrapper color={Theme.white_C} margin={`20px 0 0`}>
+              <Bounce delay={0}>
+                <MobileSubMenu
+                  fontSize={`18px`}
+                  onClick={() => mobileSubMenuToggle("회사소개")}
+                >
+                  회사소개
+                  {mobileSubMenu === "회사소개" ? (
+                    <RiArrowUpSLine />
+                  ) : (
+                    <RiArrowDownSLine />
+                  )}
+                </MobileSubMenu>
+              </Bounce>
+              {mobileSubMenu === "회사소개" && (
+                <Wrapper>
+                  <Wrapper
+                    borderBottom={`1px solid rgb(238, 238, 238)`}
+                    height={`60px`}
+                    al={`flex-start`}
+                    padding={`0 15px`}
+                    color={`rgb(97, 97, 97)`}
+                  >
+                    CEO 인사말
+                  </Wrapper>
+                  <Wrapper
+                    borderBottom={`1px solid rgb(238, 238, 238)`}
+                    height={`60px`}
+                    al={`flex-start`}
+                    padding={`0 15px`}
+                    color={`rgb(97, 97, 97)`}
+                  >
+                    연혁
+                  </Wrapper>
+                </Wrapper>
+              )}
+
+              <Bounce delay={100}>
+                <MobileSubMenu
+                  fontSize={`18px`}
+                  onClick={() => mobileSubMenuToggle("매장안내")}
+                >
+                  매장안내
+                  {mobileSubMenu === "매장안내" ? (
+                    <RiArrowUpSLine />
+                  ) : (
+                    <RiArrowDownSLine />
+                  )}
+                </MobileSubMenu>
+              </Bounce>
+
+              {mobileSubMenu === "매장안내" && (
+                <Wrapper>
+                  <Wrapper
+                    borderBottom={`1px solid rgb(238, 238, 238)`}
+                    height={`60px`}
+                    al={`flex-start`}
+                    padding={`0 15px`}
+                    color={`rgb(97, 97, 97)`}
+                  >
+                    전국매장
+                  </Wrapper>
+                </Wrapper>
+              )}
+              <Bounce delay={200}>
+                <MobileSubMenu
+                  fontSize={`18px`}
+                  onClick={() => mobileSubMenuToggle("가맹절차")}
+                >
+                  가맹절차
+                  {mobileSubMenu === "가맹절차" ? (
+                    <RiArrowUpSLine />
+                  ) : (
+                    <RiArrowDownSLine />
+                  )}
+                </MobileSubMenu>
+              </Bounce>
+
+              {mobileSubMenu === "가맹절차" && (
+                <Wrapper>
+                  <Wrapper
+                    borderBottom={`1px solid rgb(238, 238, 238)`}
+                    height={`60px`}
+                    al={`flex-start`}
+                    padding={`0 15px`}
+                    color={`rgb(97, 97, 97)`}
+                  >
+                    창업절차
+                  </Wrapper>
+                </Wrapper>
+              )}
+              <Bounce delay={300}>
+                <MobileSubMenu
+                  fontSize={`18px`}
+                  onClick={() => mobileSubMenuToggle("가맹상담")}
+                >
+                  가맹상담
+                  {mobileSubMenu === "가맹상담" ? (
+                    <RiArrowUpSLine />
+                  ) : (
+                    <RiArrowDownSLine />
+                  )}
+                </MobileSubMenu>
+              </Bounce>
+              {mobileSubMenu === "가맹상담" && (
+                <Wrapper>
+                  <Wrapper
+                    borderBottom={`1px solid rgb(238, 238, 238)`}
+                    height={`60px`}
+                    al={`flex-start`}
+                    padding={`0 15px`}
+                    color={`rgb(97, 97, 97)`}
+                  >
+                    상담문의
+                  </Wrapper>
+                  <Wrapper
+                    borderBottom={`1px solid rgb(238, 238, 238)`}
+                    height={`60px`}
+                    al={`flex-start`}
+                    padding={`0 15px`}
+                    color={`rgb(97, 97, 97)`}
+                  >
+                    FAQ / Q&#38;A
+                  </Wrapper>
+                </Wrapper>
+              )}
+            </Wrapper>
           </MobileMenu>
         </Drawer>
       </MobileHeader>

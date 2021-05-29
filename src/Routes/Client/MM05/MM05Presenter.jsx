@@ -13,6 +13,8 @@ import {
   ComboOption,
   CommonButton,
   TextArea,
+  SubjectTitle,
+  SpanText,
 } from "../../../Components/CommonComponents";
 import styled from "styled-components";
 import { withResizeDetector } from "react-resize-detector";
@@ -30,31 +32,12 @@ import Button from "@material-ui/core/Button";
 const Board = withSplitting(() => import("../../../Components/faq/Board"));
 
 const Fade = withSplitting(() => import("react-reveal/Fade"));
+const LightSpeed = withSplitting(() => import("react-reveal/LightSpeed"));
 
 const Title = styled(Wrapper)`
   width: auto;
   height: auto;
   font-size: 18px;
-  position: relative;
-  margin: 0 0 20px;
-  padding-left: 40px;
-
-  &:before {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 0;
-    width: 20px;
-    height: 2px;
-    background: ${(props) => props.theme.subTheme_C};
-    /* bottom: -25%;
-    left: 0;
-    width: 150%;
-    height: 15px;
-    border-radius: 10px;
-    background-color: ${Theme.basicTheme_C};
-    z-index: -1; */
-  }
 
   @media (max-width: 700px) {
     font-size: 16px;
@@ -80,6 +63,8 @@ const MM05Presenter = ({
   setIsAgree,
   isToggle,
   setIsToggle,
+  currentTab,
+  setCurrentTab,
   //
   createRequestHandler,
   //
@@ -97,11 +82,14 @@ const MM05Presenter = ({
   searchHandler,
   scrollMoveHandler,
 }) => {
-  useTitle("가맹상담 | 펫마트");
+  useTitle("가맹상담 / FAQ | 펫마트");
 
   return (
     <WholeWrapper>
-      <SubBanner title={`가맹상담`} />
+      <SubBanner
+        src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM05%2Fmm05.png?alt=media&token=d3d3cdf9-7f91-49b1-ae41-18bae14d6323`}
+        title={`가맹상담 / FAQ`}
+      />
       <Wrapper
         dr={`row`}
         height={`70px`}
@@ -111,268 +99,398 @@ const MM05Presenter = ({
           width={`150px`}
           height={`100%`}
           cursor={`pointer`}
-          borderBottom={`2px solid ${Theme.basicTheme_C}`}
-          onClick={() => scrollMoveHandler("가맹상담")}
+          borderBottom={currentTab === 0 && `2px solid ${Theme.basicTheme_C}`}
+          onClick={() => setCurrentTab(0)}
         >
-          가맹상담
+          가맹문의
         </Wrapper>
         <Wrapper height={`20px`} bgColor={Theme.grey_C} width={`1px`}></Wrapper>
         <Wrapper
           cursor={`pointer`}
           width={`150px`}
           height={`100%`}
-          onClick={() => scrollMoveHandler("가맹FAQ")}
+          borderBottom={currentTab === 1 && `2px solid ${Theme.basicTheme_C}`}
+          onClick={() => setCurrentTab(1)}
         >
-          가맹FAQ
+          FAQ / Q&#38;A
         </Wrapper>
       </Wrapper>
-      <RsWrapper>
-        <CommonSubTitle ref={conRef}>가맹상담</CommonSubTitle>
-        <Wrapper>
-          <Fade bottom>
-            <Wrapper dr={`row`} ju={`space-around`}>
-              <Wrapper
-                al={width < 700 ? `center` : `flex-start`}
-                width={width < 700 ? `100%` : `40%`}
-              >
-                <Wrapper al={`flex-start`} width={`100%`}>
-                  <Title margin={`10px 0`}>이름</Title>
-                </Wrapper>
-                <TextInput width={`100%`} {...inputName} />
-              </Wrapper>
-
-              <Wrapper
-                al={width < 700 ? `center` : `flex-start`}
-                margin={`30px 0`}
-                width={width < 700 ? `100%` : `40%`}
-              >
-                <Wrapper al={`flex-start`} width={`100%`}>
-                  <Title margin={`10px 0`}>창업희망지역</Title>
-                </Wrapper>
-                <TextInput width={`100%`} {...inputLoc} />
-              </Wrapper>
+      {currentTab === 0 && (
+        <RsWrapper padding={`80px 0`}>
+          <CommonSubTitle>가맹문의</CommonSubTitle>
+          <LightSpeed>
+            <Wrapper>
+              <SubjectTitle>펫마트 가맹문의를 올려주세요.</SubjectTitle>
             </Wrapper>
-          </Fade>
-        </Wrapper>
-        <Wrapper>
-          <Fade bottom>
-            <Wrapper dr={`row`} ju={`space-around`}>
-              <Wrapper
-                al={width < 700 ? `center` : `flex-start`}
-                width={width < 700 ? `100%` : `40%`}
-              >
-                <Wrapper al={`flex-start`} width={`100%`}>
-                  <Title margin={`10px 0`}>연락처</Title>
-                </Wrapper>
-                <TextInput width={`100%`} {...inputMobile} />
-              </Wrapper>
-              <Wrapper
-                al={width < 700 ? `center` : `flex-start`}
-                width={width < 700 ? `100%` : `40%`}
-                margin={width < 700 ? `30px 0` : `0`}
-              >
-                <Wrapper width={`100%`} dr={`row`} ju={`flex-start`}>
-                  <Wrapper al={`flex-start`} width={`auto`}>
-                    <Title margin={`10px 0`}>예상창업비용</Title>
-                  </Wrapper>
-                  <Text
-                    margin={`0 0 20px 10px`}
-                    fontSize={`13px`}
-                    color={Theme.darkGrey_C}
-                  >
-                    (숫자만 입력)
-                  </Text>
-                </Wrapper>
-                <Wrapper isRelative={true} width={`100%`}>
-                  <TextInput width={`100%`} {...inputMayPay} />
+          </LightSpeed>
+          <Wrapper>
+            <Wrapper
+              al={`flex-start`}
+              fontSize={`24px`}
+              fontWeight={`600`}
+              margin={`0 0 15px`}
+            >
+              상담자 정보
+            </Wrapper>
+            <Wrapper
+              al={`flex-start`}
+              fontSize={`14px`}
+              color={Theme.red_C}
+              borderBottom={`3px solid ${Theme.black_C}`}
+              padding={`0 0 20px`}
+              margin={`0 0 10px`}
+            >
+              ★ 필수 입력 항목입니다.
+            </Wrapper>
+            <Fade bottom>
+              <Wrapper dr={`row`}>
+                <Wrapper
+                  dr={`row`}
+                  ju={`flex-start`}
+                  padding={`10px 0`}
+                  borderBottom={`1px solid rgb(204, 204, 204)`}
+                >
                   <Wrapper
-                    width={`auto`}
-                    isAbsolute={true}
-                    top={`50%`}
-                    right={`0`}
-                    color={Theme.darkGrey_C}
-                    margin={`-7px 10px 0`}
+                    ju={`flex-start`}
+                    width={`165px`}
+                    dr={`row`}
+                    al={`flex-start`}
                   >
-                    만원
+                    <SpanText
+                      color={Theme.red_C}
+                      fontSize={`7px`}
+                      margin={`0 10px 0 0`}
+                    >
+                      ★
+                    </SpanText>
+                    <Title>이름</Title>
+                  </Wrapper>
+                  <TextInput width={`50%`} {...inputName} />
+                </Wrapper>
+
+                <Wrapper
+                  dr={`row`}
+                  ju={`flex-start`}
+                  padding={`10px 0`}
+                  borderBottom={`1px solid rgb(204, 204, 204)`}
+                >
+                  <Wrapper
+                    ju={`flex-start`}
+                    width={`165px`}
+                    dr={`row`}
+                    al={`flex-start`}
+                  >
+                    <SpanText
+                      color={Theme.red_C}
+                      fontSize={`7px`}
+                      margin={`0 10px 0 0`}
+                    >
+                      ★
+                    </SpanText>
+                    <Title>연락처</Title>
+                  </Wrapper>
+                  <TextInput width={`50%`} {...inputMobile} />
+                </Wrapper>
+
+                <Wrapper
+                  ju={`flex-start`}
+                  dr={`row`}
+                  ju={`flex-start`}
+                  padding={`10px 0`}
+                  borderBottom={`1px solid rgb(204, 204, 204)`}
+                >
+                  <Wrapper
+                    ju={`flex-start`}
+                    width={`165px`}
+                    dr={`row`}
+                    al={`flex-start`}
+                  >
+                    <SpanText
+                      color={Theme.white_C}
+                      fontSize={`7px`}
+                      margin={`0 10px 0 0`}
+                    >
+                      ★
+                    </SpanText>
+                    <Title>이메일</Title>
+                  </Wrapper>
+                  <TextInput width={`50%`} />
+                  {/* <Wrapper dr={`row`} ju={`space-between`} width={`165px`}>
+                    <TextInput
+                      width={width < 1100 ? `30%` : `33%`}
+                      {...inputEmail}
+                    />
+                    &nbsp;@&nbsp;
+                    <TextInput
+                      width={width < 1100 ? `30%` : `33%`}
+                      readOnly={selectEmailDomain.value !== "직접 입력"}
+                      {...inputEmailDomain}
+                    />
+                    <Combo width={`25%`} {...selectEmailDomain}>
+                      <ComboOption value={`선택`}>선택</ComboOption>
+                      <ComboOption value={`naver.com`}>naver.com</ComboOption>
+                      <ComboOption value={`gmail.com`}>gmail.com</ComboOption>
+                      <ComboOption value={`hanmail.net`}>
+                        hanmail.net
+                      </ComboOption>
+                      <ComboOption value={`직접 입력`}>직접 입력</ComboOption>
+                    </Combo>
+                  </Wrapper> */}
+                </Wrapper>
+
+                <Wrapper
+                  dr={`row`}
+                  ju={`flex-start`}
+                  padding={`10px 0`}
+                  borderBottom={`1px solid rgb(204, 204, 204)`}
+                >
+                  <Wrapper
+                    ju={`flex-start`}
+                    width={`165px`}
+                    dr={`row`}
+                    al={`flex-start`}
+                  >
+                    <SpanText
+                      color={Theme.red_C}
+                      fontSize={`7px`}
+                      margin={`0 10px 0 0`}
+                    >
+                      ★
+                    </SpanText>
+                    <Title>창업희망지역</Title>
+                  </Wrapper>
+                  <TextInput width={`50%`} {...inputLoc} />
+                </Wrapper>
+              </Wrapper>
+            </Fade>
+          </Wrapper>
+          <Wrapper>
+            <Fade bottom>
+              <Wrapper dr={`row`}>
+                <Wrapper
+                  dr={`row`}
+                  ju={`flex-start`}
+                  padding={`10px 0`}
+                  borderBottom={`1px solid rgb(204, 204, 204)`}
+                >
+                  <Wrapper
+                    dr={`row`}
+                    ju={`flex-start`}
+                    al={`flex-start`}
+                    width={`165px`}
+                  >
+                    <SpanText
+                      color={Theme.red_C}
+                      fontSize={`7px`}
+                      margin={`0 10px 0 0`}
+                    >
+                      ★
+                    </SpanText>
+                    <Title>예상창업비용</Title>
+                  </Wrapper>
+                  <Wrapper
+                    dr={`row`}
+                    width={`calc(100% - 165px)`}
+                    ju={`flex-start`}
+                  >
+                    <TextInput
+                      width={`calc(50% + 82px)`}
+                      placeholder={`숫자만 입력`}
+                      {...inputMayPay}
+                    />
+                    <Wrapper
+                      width={`auto`}
+                      color={Theme.darkGrey_C}
+                      margin={`-7px 10px 0`}
+                    >
+                      만원
+                    </Wrapper>
                   </Wrapper>
                 </Wrapper>
               </Wrapper>
-            </Wrapper>
-          </Fade>
-        </Wrapper>
-        <Wrapper>
-          <Fade bottom>
-            <Wrapper dr={`row`} ju={`space-around`}>
-              <Wrapper
-                al={width < 700 ? `center` : `flex-start`}
-                width={width < 700 ? `100%` : `40%`}
-                margin={width < 700 ? `0` : `30px 0`}
-              >
-                <Wrapper al={`flex-start`} width={`100%`}>
-                  <Title margin={`10px 0`}>이메일</Title>
-                </Wrapper>
-                <Wrapper dr={`row`} ju={`space-between`} width={`100%`}>
-                  <TextInput
-                    width={width < 1100 ? `30%` : `33%`}
-                    {...inputEmail}
-                  />
-                  &nbsp;@&nbsp;
-                  <TextInput
-                    width={width < 1100 ? `30%` : `33%`}
-                    readOnly={selectEmailDomain.value !== "직접 입력"}
-                    {...inputEmailDomain}
-                  />
-                  <Combo width={`25%`} {...selectEmailDomain}>
-                    <ComboOption value={`선택`}>선택</ComboOption>
-                    <ComboOption value={`naver.com`}>naver.com</ComboOption>
-                    <ComboOption value={`gmail.com`}>gmail.com</ComboOption>
-                    <ComboOption value={`hanmail.net`}>hanmail.net</ComboOption>
-                    <ComboOption value={`직접 입력`}>직접 입력</ComboOption>
-                  </Combo>
-                </Wrapper>
-              </Wrapper>
-
-              <Wrapper
-                al={width < 700 ? `center` : `flex-start`}
-                width={width < 700 ? `100%` : `40%`}
-                margin={width < 700 ? `30px 0` : `0`}
-              >
-                <Wrapper al={`flex-start`} width={`100%`}>
-                  <Title margin={`10px 0`}>점포보유유무</Title>
-                </Wrapper>
-                <Wrapper dr={`row`} ju={`flex-start`} width={`100%`}>
-                  <CommonButton
-                    width={width < 800 ? `100px` : `120px`}
-                    height={width < 800 ? `35px` : `40px`}
-                    kindOf={!inputIsStore.value ? `subTheme` : `subTheme2`}
-                    onClick={() => inputIsStore.setValue(false)}
+            </Fade>
+          </Wrapper>
+          <Wrapper>
+            <Fade bottom>
+              <Wrapper dr={`row`}>
+                <Wrapper
+                  dr={`row`}
+                  ju={`flex-start`}
+                  padding={`10px 0`}
+                  borderBottom={`1px solid rgb(204, 204, 204)`}
+                >
+                  <Wrapper
+                    ju={`flex-start`}
+                    width={`165px`}
+                    dr={`row`}
+                    al={`flex-start`}
                   >
-                    없음
-                  </CommonButton>
-                  <CommonButton
-                    width={width < 800 ? `100px` : `120px`}
-                    height={width < 800 ? `35px` : `40px`}
-                    margin={`0 10px`}
-                    kindOf={inputIsStore.value ? `subTheme` : `subTheme2`}
-                    onClick={() => inputIsStore.setValue(true)}
-                  >
-                    있음
-                  </CommonButton>
+                    <SpanText
+                      color={Theme.red_C}
+                      fontSize={`7px`}
+                      margin={`0 10px 0 0`}
+                    >
+                      ★
+                    </SpanText>
+                    <Title>점포보유유무</Title>
+                  </Wrapper>
+                  <Wrapper dr={`row`} ju={`flex-start`} width={`50%`}>
+                    <CommonButton
+                      width={`50%`}
+                      height={width < 800 ? `35px` : `40px`}
+                      kindOf={!inputIsStore.value ? `subTheme` : `subTheme2`}
+                      onClick={() => inputIsStore.setValue(false)}
+                    >
+                      없음
+                    </CommonButton>
+                    <CommonButton
+                      width={`50%`}
+                      height={width < 800 ? `35px` : `40px`}
+                      kindOf={inputIsStore.value ? `subTheme` : `subTheme2`}
+                      onClick={() => inputIsStore.setValue(true)}
+                    >
+                      있음
+                    </CommonButton>
+                  </Wrapper>
                 </Wrapper>
               </Wrapper>
-            </Wrapper>
-          </Fade>
-        </Wrapper>
-        <Wrapper width={width < 700 ? `100%` : `90%`}>
-          <Fade bottom>
-            <Wrapper
-              margin={width < 700 ? `0 0 10px` : `30px 0`}
-              al={width < 700 ? `center` : `flex-start`}
-            >
-              <Wrapper al={`flex-start`} width={width < 700 ? `100%` : `70%`}>
-                <Title margin={`10px 0`}>문의 내용</Title>
+            </Fade>
+          </Wrapper>
+          <Wrapper>
+            <Fade bottom>
+              <Wrapper al={`flex-start`} padding={`10px 0`} dr={`row`}>
+                <Wrapper
+                  ju={`flex-start`}
+                  width={`165px`}
+                  dr={`row`}
+                  al={`flex-start`}
+                  padding={`20px 0`}
+                >
+                  <SpanText
+                    color={Theme.red_C}
+                    fontSize={`7px`}
+                    margin={`0 10px 0 0`}
+                  >
+                    ★
+                  </SpanText>
+                  <Title>문의 내용</Title>
+                </Wrapper>
+                <TextArea
+                  {...inputDesc}
+                  width={`calc(100% - 165px)`}
+                  height={`250px`}
+                />
               </Wrapper>
-              <TextArea {...inputDesc} width={`100%`} height={`250px`} />
-            </Wrapper>
-          </Fade>
-        </Wrapper>
-        <Wrapper width={width < 700 ? `100%` : `90%`}>
-          <Fade bottom>
-            <Wrapper
-              cursor={`pointer`}
-              dr={`row`}
-              padding={`10px 20px`}
-              margin={`10px 0`}
-              ju={`space-between`}
-              border={`1px solid ${Theme.grey_C}`}
-            >
+            </Fade>
+          </Wrapper>
+          <Wrapper>
+            <Fade bottom>
               <Wrapper
-                width={`auto`}
+                cursor={`pointer`}
                 dr={`row`}
-                onClick={() => setIsAgree(!isAgree)}
+                margin={`30px 0 0`}
+                // ju={`space-between`}
               >
-                {isAgree ? (
-                  <Wrapper
-                    width={width < 700 ? `20px` : `25px`}
-                    height={width < 700 ? `20px` : `25px`}
-                    radius={`50%`}
-                    bgColor={Theme.subTheme_C}
-                    margin={`0 10px 0 0`}
-                  >
-                    <FiCheck color={Theme.white_C} />
-                  </Wrapper>
-                ) : (
-                  <Wrapper
-                    width={width < 700 ? `20px` : `25px`}
-                    height={width < 700 ? `20px` : `25px`}
-                    radius={`50%`}
-                    bgColor={Theme.white_C}
-                    margin={`0 10px 0 0`}
-                    border={`1px solid ${Theme.subTheme_C}`}
-                  >
-                    <FiCheck color={Theme.subTheme_C} />
-                  </Wrapper>
-                )}
-
-                <Text display={width < 700 ? `none` : `flex`}>
-                  개인정보취급방침을 읽었으며 이에 동의합니다.
-                </Text>
                 <Wrapper
                   width={`auto`}
-                  display={width < 700 ? `flex` : `none`}
-                  al={`flex-start`}
+                  dr={`row`}
+                  onClick={() => setIsAgree(!isAgree)}
                 >
-                  <Text>개인정보취급방침을 읽었으며</Text>
-                  <Text>이에 동의합니다.</Text>
+                  {isAgree ? (
+                    <Wrapper
+                      width={width < 700 ? `20px` : `25px`}
+                      height={width < 700 ? `20px` : `25px`}
+                      bgColor={Theme.basicTheme_C}
+                      margin={`0 10px 0 0`}
+                    >
+                      <FiCheck color={Theme.white_C} />
+                    </Wrapper>
+                  ) : (
+                    <Wrapper
+                      width={width < 700 ? `20px` : `25px`}
+                      height={width < 700 ? `20px` : `25px`}
+                      bgColor={Theme.white_C}
+                      margin={`0 10px 0 0`}
+                      border={`1px solid ${Theme.basicTheme_C}`}
+                    >
+                      <FiCheck color={Theme.basicTheme_C} />
+                    </Wrapper>
+                  )}
+
+                  <Text
+                    fontWeight={`300`}
+                    display={width < 700 ? `none` : `flex`}
+                  >
+                    개인정보취급방침을 읽었으며 이에 동의합니다.
+                  </Text>
+                  <Wrapper
+                    width={`auto`}
+                    display={width < 700 ? `flex` : `none`}
+                    al={`flex-start`}
+                  >
+                    <Text fontWeight={`300`}>개인정보취급방침을 읽었으며</Text>
+                    <Text fontWeight={`300`}>이에 동의합니다.</Text>
+                  </Wrapper>
                 </Wrapper>
+                {/* <CommonButton
+                  width={width < 700 ? `80px` : `100px`}
+                  kindOf={`subTheme2`}
+                  fontSize={width < 700 ? `11px` : `24ㅔㅌ`}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setIsToggle(true);
+                  }}
+                >
+                  자세히 보기
+                </CommonButton> */}
               </Wrapper>
-              <CommonButton
-                width={width < 700 ? `80px` : `100px`}
-                kindOf={`subTheme2`}
-                fontSize={width < 700 ? `11px` : `24ㅔㅌ`}
-                onClick={(e) => {
-                  e.stopPropagation();
-                  setIsToggle(true);
-                }}
-              >
-                자세히 보기
-              </CommonButton>
+            </Fade>
+          </Wrapper>
+          <CommonButton width={`350px`} height={`50px`} margin={`60px 0 0`}>
+            신청하기
+          </CommonButton>
+        </RsWrapper>
+      )}
+      {currentTab === 1 && (
+        <RsWrapper padding={`80px 0`}>
+          <CommonSubTitle> FAQ</CommonSubTitle>
+          <LightSpeed>
+            <Wrapper>
+              <SubjectTitle>자주 묻는 질문입니다.</SubjectTitle>
             </Wrapper>
-          </Fade>
-        </Wrapper>
-
-        <Wrapper width={`150px`}>
-          <Fade bottom>
-            <CommonButton
-              width={`100%`}
-              height={`40px`}
-              kindOf={`subTheme`}
-              margin={`50px 0 100px`}
-              onClick={createRequestHandler}
-            >
-              신청하기
-            </CommonButton>
-          </Fade>
-        </Wrapper>
-        <Wrapper ref={faqRef}>
-          <Board
-            inputSearch={inputSearch}
-            pages={pages}
-            currentPage={currentPage}
-            currentType={currentType}
-            actionFaqView={actionFaqView}
-            //
-            faqDatum={faqDatum}
-            //
-            toggleFaqAnswer={toggleFaqAnswer}
-            changeFaqTypeHandler={changeFaqTypeHandler}
-            prevAndNextPageChangeHandler={prevAndNextPageChangeHandler}
-            changePageHandler={changePageHandler}
-            searchHandler={searchHandler}
-          />
-        </Wrapper>
-      </RsWrapper>
-
+          </LightSpeed>
+          <Wrapper width={`150px`}>
+            <Fade bottom>
+              <CommonButton
+                width={`100%`}
+                height={`40px`}
+                kindOf={`subTheme`}
+                margin={`50px 0 100px`}
+                onClick={createRequestHandler}
+              >
+                신청하기
+              </CommonButton>
+            </Fade>
+          </Wrapper>
+          <Wrapper ref={faqRef}>
+            <Board
+              inputSearch={inputSearch}
+              pages={pages}
+              currentPage={currentPage}
+              currentType={currentType}
+              actionFaqView={actionFaqView}
+              //
+              faqDatum={faqDatum}
+              //
+              toggleFaqAnswer={toggleFaqAnswer}
+              changeFaqTypeHandler={changeFaqTypeHandler}
+              prevAndNextPageChangeHandler={prevAndNextPageChangeHandler}
+              changePageHandler={changePageHandler}
+              searchHandler={searchHandler}
+            />
+          </Wrapper>
+        </RsWrapper>
+      )}
       <Dialog
         open={isToggle}
         keepMounted

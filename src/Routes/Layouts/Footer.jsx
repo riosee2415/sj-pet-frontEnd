@@ -5,6 +5,7 @@ import {
   Text,
   Image,
   ATag,
+  RsWrapper,
 } from "../../Components/CommonComponents";
 import { Link } from "react-router-dom";
 import { withResizeDetector } from "react-resize-detector";
@@ -46,192 +47,135 @@ const Footer = ({ width }) => {
 
   return (
     <WholeWrapper
-      padding={width < 1500 ? (width < 900 ? `30px 10px` : `30px`) : `40px`}
-      bgColor={Theme.grey_C}
-      color={Theme.black_C}
-      margin={width < 900 ? `0 0 55px` : `0 0 80px`}
+      padding={`50px 0`}
+      bgColor={`rgb(34, 34, 34)`}
+      color={Theme.white_C}
     >
-      <Wrapper dr={`row`} ju={`space-between`}>
-        <Wrapper width={`auto`} al={`flex-start`}>
-          <Image
-            width={`200px`}
-            margin={`0 0 10px`}
-            alt="logo"
-            src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2Flogo%2Flogo.png?alt=media&token=293d0a5b-53e7-446d-bdb8-d74903051e16`}
-          />
-          <Text>주식회사 선진펫</Text>
-          <Text margin={`5px 0`}>
-            주소 {data && data.getFooterInfo.address}
-          </Text>
-          <Text>
-            Copyright (c) 선진펫. All Rights Reserved. By 4leafsoftware
-          </Text>
-        </Wrapper>
-        <Wrapper width={`auto`} dr={`row`} margin={width < 900 && `10px 0 0`}>
-          <Wrapper width={`auto`} margin={width < 700 ? `0 10px` : `0 30px`}>
-            <Text fontSize={`16px !important`}>펫마트 가맹문의</Text>
-            <ATag width={`auto`} href="tel:15881684">
-              <Text
-                al={`flex-start`}
-                fontSize={width < 900 ? `20px !important` : `32px`}
-                fontWeight={`700`}
-              >
-                1588-1684
-              </Text>
-            </ATag>
-            <ATag width={`auto`} href={`mailto:ebajslee@sunjinpet.co.kr`}>
-              <Text al={`flex-start`} fontSize={`12px !important`}>
-                ebajslee@sunjinpet.co.kr
-              </Text>
-            </ATag>
-          </Wrapper>
-          <Wrapper width={`auto`} margin={width < 700 ? `0 10px` : `0 30px`}>
-            <Text fontSize={`16px !important`}>경기/수도권 창업문의</Text>
-            <ATag width={`auto`} href="tel:15770731">
-              <Text
-                al={`flex-start`}
-                fontSize={width < 900 ? `20px !important` : `32px`}
-                fontWeight={`700`}
-              >
-                1577-0731
-              </Text>
-            </ATag>
-            <ATag width={`auto`} href={`mailto:vvvkmvvv@sunjinpet.co.kr`}>
-              <Text al={`flex-start`} fontSize={`12px !important`}>
-                vvvkmvvv@sunjinpet.co.kr
-              </Text>
-            </ATag>
-          </Wrapper>
-        </Wrapper>
-      </Wrapper>
-      {/* <Wrapper
-        dr={`row`}
-        ju={width < 900 ? `center` : `flex-start`}
-        al={`flex-start`}
-      >
-        <Wrapper width={`auto`} al={`flex-start`}>
-          <Image
-            width={width < 900 ? `200px` : `200px`}
-            alt="logo"
-            src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2Flogo%2Flogo.png?alt=media&token=293d0a5b-53e7-446d-bdb8-d74903051e16`}
-          />
-        </Wrapper>
-
+      <RsWrapper>
         <Wrapper
-          width={width < 1350 ? `100%` : `calc(100% - 200px)`}
-          dr={`row`}
-          padding={width < 1350 ? `30px 0 0` : `0 0 0 30px`}
+          al={width < 900 ? `center` : `flex-start`}
+          fontWeight={`300`}
+          fontSize={`14px`}
         >
-          <Wrapper
-            dr={width < 900 ? `column-reverse` : `row`}
-            width={width < 1350 ? `100%` : `auto`}
-            al={width < 900 ? `center` : `flex-start`}
-            ju={`flex-start`}
-          >
-            <Wrapper
-              al={width < 900 ? `center` : `flex-start`}
-              width={`auto`}
-              fontSize={`14px`}
-            >
-              <Text margin={width < 900 && `10px 0 0`}>
-                {data && data.getFooterInfo.businessName}
+          주식회사 선진펫
+        </Wrapper>
+        <Wrapper
+          dr={`row`}
+          ju={`space-between`}
+          al={`flex-start`}
+          fontSize={`14px`}
+          display={width < 900 ? `none` : `flex`}
+        >
+          <Wrapper width={`50%`} margin={`10px 0 0`} al={`flex-start`}>
+            <Wrapper al={`flex-start`} dr={`row`} width={`auto`}>
+              <Text fontWeight={`300`}>
+                주소 :경상북도 청도군 청도읍 송읍길 79 주식회사 선진펫
               </Text>
-              <Text margin={`10px 0`}>
-                주소 {data && data.getFooterInfo.address}
+              <Text fontWeight={`300`} margin={`0 30px`}>
+                대표이사 :이권형
               </Text>
-              <Text>Copyright (c) 선진펫. All Rights Reserved</Text>
+              <Text fontWeight={`300`}>대표번호 :053-982-1550</Text>
             </Wrapper>
             <Wrapper
-              al={width < 900 ? `center` : `flex-start`}
+              al={`flex-start`}
+              dr={`row`}
               width={`auto`}
-              margin={width < 900 ? `10px 0 0` : `0px 0px 0px 35px`}
-              fontSize={`14px`}
+              margin={`10px 0 0`}
             >
-              <Text>평일 : 08:30 ~ 17:30</Text>
-              <Text margin={`10px 0`}>점심시간 : 12:30 ~ 13:30</Text>
-              <Text>토,일/공휴일은 휴무</Text>
+              <Text fontWeight={`300`}>팩스 :053-986-1545</Text>
+              <Text fontWeight={`300`} margin={`0 30px`}>
+                통신판매업신고번호 :제2012-대구동구-0113호
+              </Text>
+            </Wrapper>
+            <Wrapper
+              al={`flex-start`}
+              dr={`row`}
+              width={`auto`}
+              margin={`10px 0 0`}
+            >
+              <Text fontWeight={`300`}>사업자등록번호 :502-86-16211</Text>
+              <Text margin={`0 5px`}>[사업자정보확인]</Text>
+            </Wrapper>
+            <Wrapper
+              al={`flex-start`}
+              dr={`row`}
+              width={`auto`}
+              margin={`10px 0 0`}
+            >
+              <Text fontWeight={`300`}>
+                Copyright ⓒ 주식회사 선진펫 All rights reserved.
+              </Text>
+            </Wrapper>
+            <Wrapper
+              al={`flex-start`}
+              dr={`row`}
+              width={`auto`}
+              margin={`30px 0 0`}
+            >
+              <Image
+                width={`auto`}
+                src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2Flogo%2Fescrow_banner_kcp.png?alt=media&token=3068c5e6-ffef-4460-a2c2-3859eb6fd3b0`}
+              />
+              <Image
+                margin={`0 0 0 40px`}
+                width={`auto`}
+                src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2Flogo%2Flogo_kftc.png?alt=media&token=3f74a9a4-ae33-4b70-a21f-5fab67d89368`}
+              />
             </Wrapper>
           </Wrapper>
-
-          <Wrapper
-            dr={`row`}
-            width={width < 1350 ? `100%` : `auto`}
-            margin={width < 1350 && `30px 0 0`}
-            al={width < 1350 && `flex-start`}
-            ju={width < 1350 ? (width < 900 ? `center` : `flex-start`) : ``}
-          >
-            <Wrapper width={`auto`} margin={width < 1350 ? `0` : `0 0 0 30px`}>
-              <Text fontSize={`16px !important`} fontWeight={`700`}>
-                펫마트 가맹문의
-              </Text>
-
-              <Wrapper ju={`flex-start`} dr={`row`} padding={`10px 0`}>
-                <Wrapper width={`50px`} margin={`0 10px 0 0`}>
-                  <TelWrapper>
-                    <BiPhoneCall />
-                  </TelWrapper>
-                </Wrapper>
-                <ATag width={`auto`} href="tel:15881684">
-                  <Text
-                    al={`flex-start`}
-                    fontSize={width < 900 ? `20px !important` : `22px`}
-                    fontWeight={`700`}
-                  >
-                    1588-1684
-                  </Text>
-                </ATag>
-              </Wrapper>
-              <Wrapper ju={`flex-start`} dr={`row`}>
-                <Wrapper width={`50px`} margin={`0 10px 0 0`}>
-                  <MailWrapper>
-                    <BiMailSend />
-                  </MailWrapper>
-                </Wrapper>
-                <ATag width={`auto`} href={`mailto:ebajslee@sunjinpet.co.kr`}>
-                  <Text al={`flex-start`} color={`#868686`}>
-                    ebajslee@sunjinpet.co.kr
-                  </Text>
-                </ATag>
-              </Wrapper>
+          <Wrapper width={`50%`} dr={`row`} ju={`space-between`}>
+            <Wrapper width={`auto`}>
+              <Text fontWeight={`300`}>창업문의</Text>
+              <ATag href="tel:15881684">
+                <Text fontSize={`30px`}>1588-1684</Text>
+              </ATag>
+              <ATag href="mailto:ebajslee@sunjinpet.co.kr">
+                <Text fontWeight={`300`}>ebajslee@sunjinpet.co.kr</Text>{" "}
+              </ATag>
             </Wrapper>
-
-            <Wrapper
-              width={`auto`}
-              margin={width < 700 ? `30px 0 0 0` : `0 0 0 20px`}
-            >
-              <Text fontSize={`16px !important`} fontWeight={`700`}>
-                수도권/경기창업문의
+            <Wrapper width={`auto`}>
+              <Text fontWeight={`300`}>서울/수도권 가맹문의</Text>
+              <ATag href="tel:15770731">
+                <Text fontSize={`30px`}>1577-0731</Text>
+              </ATag>
+              <ATag href="mailto:vvvkmvvv@sunjinpet.co.kr">
+                <Text fontWeight={`300`}>vvvkmvvv@sunjinpet.co.kr</Text>
+              </ATag>
+            </Wrapper>
+            <Wrapper width={`auto`} al={`flex-start`}>
+              <Text fontWeight={`300`} margin={`0 0 5px`}>
+                평일 : 8:30 - 17:30
               </Text>
-
-              <Wrapper dr={`row`} ju={`flex-start`} padding={`10px 0`}>
-                <Wrapper width={`50px`} margin={`0 10px 0 0`}>
-                  <TelWrapper>
-                    <BiPhoneCall />
-                  </TelWrapper>
-                </Wrapper>
-                <ATag width={`auto`} href="tel:15770731">
-                  <Text
-                    fontSize={width < 900 ? `20px !important` : `22px`}
-                    fontWeight={`700`}
-                  >
-                    1577-0731
-                  </Text>
-                </ATag>
-              </Wrapper>
-              <Wrapper dr={`row`} ju={`flex-start`}>
-                <Wrapper width={`50px`} margin={`0 10px 0 0`}>
-                  <MailWrapper>
-                    <BiMailSend />
-                  </MailWrapper>
-                </Wrapper>
-                <ATag width={`auto`} href={`mailto:vvvkmvvv@sunjinpet.co.kr`}>
-                  <Text color={`#868686`}>vvvkmvvv@sunjinpet.co.kr</Text>
-                </ATag>
-              </Wrapper>
+              <Text fontWeight={`300`} margin={`0 0 5px`}>
+                점심시간: 12:30 - 13:30
+              </Text>
+              <Text fontWeight={`300`} margin={`0 0 5px`}>
+                토,일/공휴일은 휴무
+              </Text>
+              <Text fontWeight={`300`}>E-Mail : sunjinpf@naver.com</Text>
             </Wrapper>
           </Wrapper>
         </Wrapper>
-      </Wrapper> */}
+
+        <Wrapper display={width < 900 ? `flex` : `none`}>
+          <Text fontWeight={`300`} margin={`10px 0 0`}>
+            주소 :경상북도 청도군 청도읍 송읍길 79 주식회사 선진펫
+          </Text>
+          <Text fontWeight={`300`} margin={`10px 0 0`}>
+            대표이사 :이권형 | 대표번호 :053-982-1550
+          </Text>
+          <Text fontWeight={`300`} margin={`10px 0 0`}>
+            팩스 :053-986-1545 | 통신판매업신고번호 : 502-86-16211
+          </Text>
+          <Wrapper dr={`row`} width={`auto`} margin={`10px 0 0`}>
+            <Text fontWeight={`300`}>사업자등록번호 :502-86-16211</Text>
+            <Text margin={`0 5px`}>[사업자정보확인]</Text>
+          </Wrapper>
+          <Text fontWeight={`300`} margin={`15px 0 0`}>
+            Copyright ⓒ 주식회사 선진펫 All rights reserved.
+          </Text>
+        </Wrapper>
+      </RsWrapper>
     </WholeWrapper>
   );
 };
