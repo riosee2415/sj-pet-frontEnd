@@ -22,8 +22,8 @@ const Title = styled(Text)`
 `;
 
 const ShopImage = styled(Image)`
-  width: 250px;
-  height: 250px;
+  width: 320px;
+  height: 320px;
 
   &:hover {
     box-shadow: 0px 3px 15px ${(props) => props.theme.lightBasicTheme_C};
