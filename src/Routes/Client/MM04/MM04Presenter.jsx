@@ -78,7 +78,11 @@ const MM04Presenter = ({
   return (
     <WholeWrapper>
       <SubBanner
-        src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM04%2Fmm04.png?alt=media&token=7d6eeee9-3ccf-489c-bd6f-a2ffe98522af`}
+        src={
+          width < 800
+            ? `https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM04%2Fsub_title-mm04-m.png?alt=media&token=2ea743da-2f4f-4416-90b9-9bcb2870d162`
+            : `https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM04%2Fmm04.png?alt=media&token=7d6eeee9-3ccf-489c-bd6f-a2ffe98522af`
+        }
         title={`가맹절차`}
       />
       <Wrapper
@@ -107,7 +111,11 @@ const MM04Presenter = ({
       <RsWrapper padding={`0 0 100px`}>
         <Image
           alt="절차"
-          src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM04%2Fmm04-step.png?alt=media&token=e5aabce1-048f-4253-82e8-7fed09a5451f`}
+          src={
+            width < 900
+              ? `https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM04%2Fmm04-m-step.png?alt=media&token=a28301dc-c68d-4e30-9c4c-96f6e3e22b96`
+              : `https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM04%2Fmm04-step.png?alt=media&token=e5aabce1-048f-4253-82e8-7fed09a5451f`
+          }
         />
         {/* <Fade bottom>
           <Wrapper dr={`row`}>

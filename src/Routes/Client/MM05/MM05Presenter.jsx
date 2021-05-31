@@ -40,7 +40,7 @@ const Title = styled(Wrapper)`
   font-size: 18px;
 
   @media (max-width: 700px) {
-    font-size: 16px;
+    font-size: 14px;
   }
 `;
 
@@ -87,7 +87,11 @@ const MM05Presenter = ({
   return (
     <WholeWrapper>
       <SubBanner
-        src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM05%2Fmm05.png?alt=media&token=d3d3cdf9-7f91-49b1-ae41-18bae14d6323`}
+        src={
+          width < 800
+            ? `https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM05%2Fsub_title-mm05-m.png?alt=media&token=e978d18d-85e4-4a8c-9019-c4110f179bef`
+            : `https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM05%2Fmm05.png?alt=media&token=d3d3cdf9-7f91-49b1-ae41-18bae14d6323`
+        }
         title={`가맹상담 / FAQ`}
       />
       <Wrapper
@@ -128,7 +132,7 @@ const MM05Presenter = ({
               al={`flex-start`}
               fontSize={`24px`}
               fontWeight={`600`}
-              margin={`0 0 15px`}
+              margin={`60px 0 15px`}
             >
               상담자 정보
             </Wrapper>
@@ -152,7 +156,7 @@ const MM05Presenter = ({
                 >
                   <Wrapper
                     ju={`flex-start`}
-                    width={`165px`}
+                    width={width < 900 ? `130px` : `165px`}
                     dr={`row`}
                     al={`flex-start`}
                   >
@@ -165,7 +169,10 @@ const MM05Presenter = ({
                     </SpanText>
                     <Title>이름</Title>
                   </Wrapper>
-                  <TextInput width={`50%`} {...inputName} />
+                  <TextInput
+                    width={width < 900 ? `calc(100% - 130px)` : `50%`}
+                    {...inputName}
+                  />
                 </Wrapper>
 
                 <Wrapper
@@ -176,7 +183,7 @@ const MM05Presenter = ({
                 >
                   <Wrapper
                     ju={`flex-start`}
-                    width={`165px`}
+                    width={width < 900 ? `130px` : `165px`}
                     dr={`row`}
                     al={`flex-start`}
                   >
@@ -189,7 +196,10 @@ const MM05Presenter = ({
                     </SpanText>
                     <Title>연락처</Title>
                   </Wrapper>
-                  <TextInput width={`50%`} {...inputMobile} />
+                  <TextInput
+                    width={width < 900 ? `calc(100% - 130px)` : `50%`}
+                    {...inputMobile}
+                  />
                 </Wrapper>
 
                 <Wrapper
@@ -201,7 +211,7 @@ const MM05Presenter = ({
                 >
                   <Wrapper
                     ju={`flex-start`}
-                    width={`165px`}
+                    width={width < 900 ? `130px` : `165px`}
                     dr={`row`}
                     al={`flex-start`}
                   >
@@ -214,8 +224,10 @@ const MM05Presenter = ({
                     </SpanText>
                     <Title>이메일</Title>
                   </Wrapper>
-                  <TextInput width={`50%`} />
-                  {/* <Wrapper dr={`row`} ju={`space-between`} width={`165px`}>
+                  <TextInput
+                    width={width < 900 ? `calc(100% - 130px)` : `50%`}
+                  />
+                  {/* <Wrapper dr={`row`} ju={`space-between`} width={width < 900 ? `130px`:`165px`}>
                     <TextInput
                       width={width < 1100 ? `30%` : `33%`}
                       {...inputEmail}
@@ -246,7 +258,7 @@ const MM05Presenter = ({
                 >
                   <Wrapper
                     ju={`flex-start`}
-                    width={`165px`}
+                    width={width < 900 ? `130px` : `165px`}
                     dr={`row`}
                     al={`flex-start`}
                   >
@@ -259,7 +271,10 @@ const MM05Presenter = ({
                     </SpanText>
                     <Title>창업희망지역</Title>
                   </Wrapper>
-                  <TextInput width={`50%`} {...inputLoc} />
+                  <TextInput
+                    width={width < 900 ? `calc(100% - 130px)` : `50%`}
+                    {...inputLoc}
+                  />
                 </Wrapper>
               </Wrapper>
             </Fade>
@@ -277,7 +292,7 @@ const MM05Presenter = ({
                     dr={`row`}
                     ju={`flex-start`}
                     al={`flex-start`}
-                    width={`165px`}
+                    width={width < 900 ? `130px` : `165px`}
                   >
                     <SpanText
                       color={Theme.red_C}
@@ -290,18 +305,25 @@ const MM05Presenter = ({
                   </Wrapper>
                   <Wrapper
                     dr={`row`}
-                    width={`calc(100% - 165px)`}
+                    width={
+                      width < 900 ? `calc(100% - 130px)` : `calc(100% - 165px)`
+                    }
                     ju={`flex-start`}
+                    isRelative={true}
                   >
                     <TextInput
-                      width={`calc(50% + 82px)`}
+                      width={width < 900 ? `100%` : `calc(50% + 82px)`}
                       placeholder={`숫자만 입력`}
                       {...inputMayPay}
+                      padding={width < 900 && `0 26px 0 5px`}
                     />
                     <Wrapper
+                      isAbsolute={width < 900 && true}
+                      top={width < 900 && `15px`}
+                      right={width < 900 && `0`}
                       width={`auto`}
                       color={Theme.darkGrey_C}
-                      margin={`-7px 10px 0`}
+                      margin={width < 900 ? `0 10px` : `-7px 10px 0`}
                     >
                       만원
                     </Wrapper>
@@ -321,7 +343,7 @@ const MM05Presenter = ({
                 >
                   <Wrapper
                     ju={`flex-start`}
-                    width={`165px`}
+                    width={width < 900 ? `130px` : `165px`}
                     dr={`row`}
                     al={`flex-start`}
                   >
@@ -334,7 +356,11 @@ const MM05Presenter = ({
                     </SpanText>
                     <Title>점포보유유무</Title>
                   </Wrapper>
-                  <Wrapper dr={`row`} ju={`flex-start`} width={`50%`}>
+                  <Wrapper
+                    dr={`row`}
+                    ju={`flex-start`}
+                    width={width < 900 ? `calc(100% - 130px)` : `50%`}
+                  >
                     <CommonButton
                       width={`50%`}
                       height={width < 800 ? `35px` : `40px`}
@@ -361,7 +387,7 @@ const MM05Presenter = ({
               <Wrapper al={`flex-start`} padding={`10px 0`} dr={`row`}>
                 <Wrapper
                   ju={`flex-start`}
-                  width={`165px`}
+                  width={width < 900 ? `130px` : `165px`}
                   dr={`row`}
                   al={`flex-start`}
                   padding={`20px 0`}
@@ -377,7 +403,9 @@ const MM05Presenter = ({
                 </Wrapper>
                 <TextArea
                   {...inputDesc}
-                  width={`calc(100% - 165px)`}
+                  width={
+                    width < 900 ? `calc(100% - 130px)` : `calc(100% - 165px)`
+                  }
                   height={`250px`}
                 />
               </Wrapper>
@@ -389,7 +417,7 @@ const MM05Presenter = ({
                 cursor={`pointer`}
                 dr={`row`}
                 margin={`30px 0 0`}
-                // ju={`space-between`}
+                ju={`space-between`}
               >
                 <Wrapper
                   width={`auto`}
@@ -432,17 +460,16 @@ const MM05Presenter = ({
                     <Text fontWeight={`300`}>이에 동의합니다.</Text>
                   </Wrapper>
                 </Wrapper>
-                {/* <CommonButton
+                <CommonButton
                   width={width < 700 ? `80px` : `100px`}
                   kindOf={`subTheme2`}
-                  fontSize={width < 700 ? `11px` : `24ㅔㅌ`}
                   onClick={(e) => {
                     e.stopPropagation();
                     setIsToggle(true);
                   }}
                 >
                   자세히 보기
-                </CommonButton> */}
+                </CommonButton>
               </Wrapper>
             </Fade>
           </Wrapper>
