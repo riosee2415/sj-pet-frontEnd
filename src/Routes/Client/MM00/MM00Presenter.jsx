@@ -624,8 +624,11 @@ const MM00Presenter = ({
               <Text padding={`10px 0 15px`}>펫마트 전주효자점 성공스토리</Text>
             </Wrapper>
           </Wrapper>
-
-          <CommonButton>더보기</CommonButton>
+          <Wrapper>
+            <CommonButton width={`40%`} fontSize={`18px`}>
+              더보기
+            </CommonButton>
+          </Wrapper>
         </RsWrapper>
       </Wrapper>
 
@@ -734,17 +737,17 @@ const MM00Presenter = ({
         </Wrapper>
         <Wrapper dr={`row`} ju={`space-between`}>
           <Image
-            width={`auto`}
+            width={`33%`}
             al="업계유일"
             src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2F%E1%84%8B%E1%85%A5%E1%86%B8%E1%84%80%E1%85%A8%E1%84%8B%E1%85%B2%E1%84%8B%E1%85%B5%E1%86%AF.png?alt=media&token=8d06f89a-e701-4e27-9fa1-ffb4f2854265`}
           />
           <Image
-            width={`auto`}
+            width={`33%`}
             al="업계최초"
             src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2F%E1%84%8B%E1%85%A5%E1%86%B8%E1%84%80%E1%85%A8%E1%84%8E%E1%85%AC%E1%84%83%E1%85%A1.png?alt=media&token=8b603778-c340-463d-aba3-9f148de88677`}
           />
           <Image
-            width={`auto`}
+            width={`33%`}
             al="업계최다"
             src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2F%E1%84%8B%E1%85%A5%E1%86%B8%E1%84%80%E1%85%A8%E1%84%8E%E1%85%AC%E1%84%8E%E1%85%A9.png?alt=media&token=f445f760-cb41-420c-8da4-73e996187bd4`}
           />
