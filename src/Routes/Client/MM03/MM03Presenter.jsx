@@ -306,7 +306,7 @@ const MM03Presenter = ({
           apiUrl={`//dapi.kakao.com/v2/maps/sdk.js?appkey=a8e290d0abd70336680c1d1ea1a681da&autoload=false`}
           width={`100%`}
           height={`600px`}
-          level={4}
+          level={6}
           setLevel={scale}
           isEvent={true}
           draggable={true}

@@ -152,14 +152,14 @@ const MM00Presenter = ({
       <RsWrapper padding={width < 700 ? `60px 0` : `100px 0`}>
         <MainTilte>매장현황</MainTilte>
       </RsWrapper>
-      <Wrapper margin={`0px 0 70px`}>
+
+      <Wrapper margin={`0px 0 70px 285px`}>
         <ShopSilder
           sDatum={sDatum}
           moveLinkHandler={moveLinkHandler}
           width={width}
         />
       </Wrapper>
-
       <Wrapper bgColor={`#032950`} padding={width < 700 ? `60px 0` : `100px 0`}>
         <RsWrapper>
           <Wrapper dr={`row`} isRelative={true}>
