@@ -207,7 +207,7 @@ const Board = ({
         )}
       </Wrapper>
 
-      {pages && pages.length > 0 && (
+      {/* {pages && pages.length > 0 && (
         <PagenationWrapper width={`auto`} margin={`50px 0 100px`}>
           <PagenationBtn
             onClick={() => prevAndNextPageChangeHandler(currentPage - 1)}
@@ -231,7 +231,7 @@ const Board = ({
             <IoIosArrowForward />
           </PagenationBtn>
         </PagenationWrapper>
-      )}
+      )} */}
     </WholeWrapper>
   );
 };
