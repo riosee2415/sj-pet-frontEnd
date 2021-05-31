@@ -4,7 +4,7 @@ import { WholeWrapper, Wrapper } from "../../Components/AdminCommonComponents";
 import Theme from "../../Styles/Theme";
 
 const A_logo = styled.img`
-  width: ${(props) => props.width || `180px`};
+  width: ${(props) => props.width || `100px`};
   margin: 0px 10px;
 `;
 
@@ -28,7 +28,7 @@ const A_Header = () => {
       >
         <A_logo
           alt="logo"
-          src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/E-BOOK3%2Fassets%2Fimages%2Flogo%2Flogo.png?alt=media&token=3956abaf-6158-4c4a-9726-cc181313c757`}
+          src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2Flogo%2Flogo-m.png?alt=media&token=4fc96ffb-da80-4396-9d02-ddc9fcce595e`}
         />
         관리자 페이지에 오신걸 환영합니다.
       </Wrapper>

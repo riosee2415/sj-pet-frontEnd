@@ -32,7 +32,7 @@ const Button5 = styled(Wrapper)`
   margin: 20px 0;
 
   &:after {
-    content: "게시판관리";
+    content: "브랜드관리";
     position: absolute;
     background-color: ${Theme.basicTheme_C};
     color: ${Theme.white_C};
@@ -84,7 +84,7 @@ const Button4 = styled(Wrapper)`
   margin: 20px 0;
 
   &:after {
-    content: "회원관리";
+    content: "가맹점관리";
     position: absolute;
     background-color: ${Theme.basicTheme_C};
     color: ${Theme.white_C};
@@ -188,7 +188,7 @@ const Button2 = styled(Wrapper)`
   margin: 20px 0;
 
   &:after {
-    content: "메인베너관리";
+    content: "스토리뷰관리";
     position: absolute;
     background-color: ${Theme.basicTheme_C};
     color: ${Theme.white_C};
@@ -294,9 +294,9 @@ export default () => {
   return (
     <WholeWrapper minWidth={`1000px`} radius={`30px`}>
       <Image
-        width={`300px`}
+        width={`150px`}
         alt="로고"
-        src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/E-BOOK3%2Fassets%2Fimages%2Flogo%2Flogo.png?alt=media&token=3956abaf-6158-4c4a-9726-cc181313c757`}
+        src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2Flogo%2Flogo-w.png?alt=media&token=88c2c137-40ef-4941-82e0-b3f6465efa1c`}
       />
       <Wrapper dr={`row`} height={`100vh`}>
         {/* ////////접속자통계///////// */}
@@ -380,7 +380,7 @@ export default () => {
         <Wrapper width={`70%`}>
           <Wrapper dr={`row`} ju={`space-around`}>
             <Wrapper width={`auto`}>
-              <Link to="/admin/mainBannerManagement">
+              <Link to="/admin/storyViewManagement">
                 <Button2></Button2>
               </Link>
               <Wrapper
@@ -390,7 +390,7 @@ export default () => {
                 padding={`50px 20px`}
               >
                 <Text fontWeight={`700`}>메인 페이지에 들어가는</Text>
-                <Text fontWeight={`700`}>슬라이드 이미지 관리</Text>
+                <Text fontWeight={`700`}>스토리뷰 관리</Text>
               </Wrapper>
             </Wrapper>
             {/* ///////////팝업관리/////////// */}
@@ -415,7 +415,7 @@ export default () => {
           {/* /////////회원관리///////////// */}
           <Wrapper dr={`row`} ju={`space-around`}>
             <Wrapper width={`auto`}>
-              <Link to="/admin/userManagement">
+              <Link to="/admin/storeManagement">
                 <Button4></Button4>
               </Link>
 
@@ -425,13 +425,13 @@ export default () => {
                 shadow={Theme.boxShadow}
                 padding={`50px 20px`}
               >
-                <Text fontWeight={`700`}>웹사이트를 이용중인</Text>
-                <Text fontWeight={`700`}>회원들의 정보관리</Text>
+                <Text fontWeight={`700`}>선진펫의</Text>
+                <Text fontWeight={`700`}>가맹점 정보관리</Text>
               </Wrapper>
             </Wrapper>
             {/* /////////게시판관리///////// */}
             <Wrapper width={`auto`}>
-              <Link to="/admin/noticeManagement">
+              <Link to="/admin/createBrandManagement">
                 <Button5></Button5>
               </Link>
 
@@ -441,10 +441,8 @@ export default () => {
                 shadow={Theme.boxShadow}
                 padding={`50px 20px`}
               >
-                <Text fontWeight={`700`}>
-                  공지사항, 이벤트게시판, 자주 묻는 질문의
-                </Text>
-                <Text fontWeight={`700`}>게시글 삭제 또는 카테고리 관리</Text>
+                <Text fontWeight={`700`}>홈페이지 메인에 있는</Text>
+                <Text fontWeight={`700`}>브랜드관리</Text>
               </Wrapper>
             </Wrapper>
           </Wrapper>
