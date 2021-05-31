@@ -110,15 +110,17 @@ const Board = ({
                     onClick={() => toggleFaqAnswer(idx, data.answer)}
                   >
                     <Wrapper
-                      width={`calc(100% - 60px)`}
+                      width={
+                        width < 800 ? `calc(100% - 40px)` : `calc(100% - 60px)`
+                      }
                       ju={`space-between`}
                       dr={`row`}
                       color={Theme.white_C}
                     >
                       <Wrapper
-                        height={`60px`}
-                        width={`60px`}
-                        minWidth={`60px`}
+                        height={width < 800 ? `40px` : `60px`}
+                        width={width < 800 ? `40px` : `60px`}
+                        minWidth={width < 800 ? `40px` : `60px`}
                         radius={`50%`}
                         bgColor={Theme.black_C}
                       >
@@ -131,9 +133,13 @@ const Board = ({
                         </Text>
                       </Wrapper>
                       <Wrapper
-                        width={`calc(100% - 60px)`}
+                        width={
+                          width < 800
+                            ? `calc(100% - 40px)`
+                            : `calc(100% - 60px)`
+                        }
                         al={`flex-start`}
-                        padding={`0 0 0 50px`}
+                        padding={width < 900 ? `0 0 0 10px` : `0 0 0 50px`}
                       >
                         <Text
                           color={Theme.black_C}
@@ -145,7 +151,7 @@ const Board = ({
                       </Wrapper>
                     </Wrapper>
 
-                    <Wrapper width={`60px`}>
+                    <Wrapper width={width < 800 ? `40px` : `60px`}>
                       {actionFaqView && actionFaqView[idx] ? (
                         <RiArrowUpSLine size={25} />
                       ) : (
@@ -164,9 +170,9 @@ const Board = ({
                     wrap={`initial`}
                   >
                     <Wrapper
-                      height={`60px`}
-                      width={`60px`}
-                      minWidth={`60px`}
+                      height={width < 800 ? `40px` : `60px`}
+                      width={width < 800 ? `40px` : `60px`}
+                      minWidth={width < 800 ? `40px` : `60px`}
                       radius={`50%`}
                       bgColor={Theme.basicTheme_C}
                     >
@@ -179,8 +185,10 @@ const Board = ({
                       </Text>
                     </Wrapper>
                     <Wrapper
-                      width={`calc(100% - 60px)`}
-                      padding={`0 0 0 50px`}
+                      width={
+                        width < 800 ? `calc(100% - 40px)` : `calc(100% - 60px)`
+                      }
+                      padding={width < 900 ? `0 0 0 10px` : `0 0 0 50px`}
                       color={`rgb(97, 97, 97)`}
                     >
                       <Wrapper
