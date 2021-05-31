@@ -152,14 +152,14 @@ const MM00Presenter = ({
       <RsWrapper padding={width < 700 ? `60px 0` : `100px 0`}>
         <MainTilte>매장현황</MainTilte>
       </RsWrapper>
-      <Wrapper margin={`0px 0 70px`}>
+
+      <Wrapper margin={`0px 0 70px 285px`}>
         <ShopSilder
           sDatum={sDatum}
           moveLinkHandler={moveLinkHandler}
           width={width}
         />
       </Wrapper>
-
       <Wrapper bgColor={`#032950`} padding={width < 700 ? `60px 0` : `100px 0`}>
         <RsWrapper>
           <Wrapper dr={`row`} isRelative={true}>
@@ -624,8 +624,11 @@ const MM00Presenter = ({
               <Text padding={`10px 0 15px`}>펫마트 전주효자점 성공스토리</Text>
             </Wrapper>
           </Wrapper>
-
-          <CommonButton>더보기</CommonButton>
+          <Wrapper>
+            <CommonButton width={`40%`} fontSize={`18px`}>
+              더보기
+            </CommonButton>
+          </Wrapper>
         </RsWrapper>
       </Wrapper>
 
@@ -734,17 +737,17 @@ const MM00Presenter = ({
         </Wrapper>
         <Wrapper dr={`row`} ju={`space-between`}>
           <Image
-            width={`auto`}
+            width={`33%`}
             al="업계유일"
             src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2F%E1%84%8B%E1%85%A5%E1%86%B8%E1%84%80%E1%85%A8%E1%84%8B%E1%85%B2%E1%84%8B%E1%85%B5%E1%86%AF.png?alt=media&token=8d06f89a-e701-4e27-9fa1-ffb4f2854265`}
           />
           <Image
-            width={`auto`}
+            width={`33%`}
             al="업계최초"
             src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2F%E1%84%8B%E1%85%A5%E1%86%B8%E1%84%80%E1%85%A8%E1%84%8E%E1%85%AC%E1%84%83%E1%85%A1.png?alt=media&token=8b603778-c340-463d-aba3-9f148de88677`}
           />
           <Image
-            width={`auto`}
+            width={`33%`}
             al="업계최다"
             src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2F%E1%84%8B%E1%85%A5%E1%86%B8%E1%84%80%E1%85%A8%E1%84%8E%E1%85%AC%E1%84%8E%E1%85%A9.png?alt=media&token=f445f760-cb41-420c-8da4-73e996187bd4`}
           />
@@ -1332,10 +1335,46 @@ const MM00Presenter = ({
         display={width < 700 ? `flex` : `none`}
         bgColor={`#FFCB08`}
         color={Theme.white_C}
+        padding={`60px 10px`}
       >
-        <Text fontSize={width < 900 ? `30px !important` : `48px`}>
+        <Text fontSize={`24px !important`} margin={`0 0 20px`}>
           창업문의
         </Text>
+        <Text fontSize={`14px !important`} fontWeight={`400`}>
+          펫마트의 전문 창업상담사 항시대기 1:1문의로
+        </Text>
+        <Text
+          fontSize={`14px !important`}
+          fontWeight={`400`}
+          margin={`0 0 20px`}
+        >
+          편안하고 빠른 안내를 받아보세요.
+        </Text>
+        <Wrapper
+          border={`1px solid ${Theme.white_C}`}
+          padding={`30px 50px`}
+          margin={`0 0 20px`}
+        >
+          <Wrapper dr={`row`} ju={`flex-start`}>
+            <Text width={`30%`} fontSize={`14px !important`} fontWeight={`400`}>
+              연락처
+            </Text>
+            <Text width={`70%`} fontSize={`14px !important`} fontWeight={`400`}>
+              1588-1684
+            </Text>
+          </Wrapper>
+          <Wrapper dr={`row`} ju={`flex-start`}>
+            <Text width={`30%`} fontSize={`14px !important`} fontWeight={`400`}>
+              E-mail
+            </Text>
+            <Text width={`70%`} fontSize={`14px !important`} fontWeight={`400`}>
+              ebajslee@sunjinpet.co.kr
+            </Text>
+          </Wrapper>
+        </Wrapper>
+        <Wrapper padding={`15px 0`} bgColor={Theme.black_C}>
+          신청하기
+        </Wrapper>
       </Wrapper>
       <Popup />
     </WholeWrapper>

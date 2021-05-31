@@ -22,8 +22,8 @@ const Title = styled(Text)`
 `;
 
 const ShopImage = styled(Image)`
-  width: 250px;
-  height: 250px;
+  width: 320px;
+  height: 320px;
 
   &:hover {
     box-shadow: 0px 3px 15px ${(props) => props.theme.lightBasicTheme_C};
@@ -59,17 +59,7 @@ export default ({ width, sDatum, isColumn, moveLinkHandler }) => {
   return (
     <Container isColumn={isColumn}>
       <Swiper
-        slidesPerView={
-          isColumn
-            ? 4.5
-            : width > 1250
-            ? 6
-            : width > 1000
-            ? 5
-            : width > 800
-            ? 3
-            : 2
-        }
+        slidesPerView={isColumn ? 4.9 : width > 1000 ? 5 : width > 800 ? 3 : 2}
         slidesPerColumn={isColumn ? 2 : 1}
         centeredSlides={isColumn}
         autoplay
