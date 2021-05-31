@@ -32,7 +32,7 @@ export default ({ width, bDatum, isColumn, moveLinkHandler }) => {
   return (
     <Container isColumn={isColumn}>
       <Swiper
-        // spaceBetween={1}
+        spaceBetween={1}
         slidesPerView={isColumn ? 4.9 : width > 1000 ? 5 : width > 800 ? 3 : 2}
         slidesPerColumn={isColumn ? 2 : 1}
         centeredSlides={isColumn}

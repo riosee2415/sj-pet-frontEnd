@@ -31,6 +31,16 @@ const Title = styled(Text)`
     width: 65px;
     height: 4px;
     background-color: ${(props) => props.theme.basicTheme_C};
+
+    @media (max-width: 700px) {
+      width: 30px;
+      height: 2px;
+    }
+  }
+
+  @media (max-width: 700px) {
+    font-size: 11px !important;
+    margin: -70px 0 0 -70px;
   }
 `;
 

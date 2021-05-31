@@ -39,14 +39,14 @@ export default ({ width, vDatum, isColumn, moveLinkHandler }) => {
               <SwiperSlide key={data._id}>
                 <Wrapper dr={`row`}>
                   <Image
-                    width={`150px`}
-                    height={`100px`}
-                    margin={`10px 20px`}
+                    // width={`150px`}
+                    // height={`100px`}
+                    margin={`10px 0`}
                     bgColor={`${Theme.grey_C}`}
                     border={`1px solid ${Theme.black_C}`}
                     src={data.thumbnail}
                   />
-                  <Wrapper width={`auto`}>
+                  {/* <Wrapper width={`auto`}>
                     <Text
                       margin={`0 0 10px`}
                       fontSize={`12px`}
@@ -57,7 +57,7 @@ export default ({ width, vDatum, isColumn, moveLinkHandler }) => {
                     <Text fontSize={`12px`} color={`${Theme.white_C}`}>
                       {data.content}
                     </Text>
-                  </Wrapper>
+                  </Wrapper> */}
                 </Wrapper>
               </SwiperSlide>
             ))
