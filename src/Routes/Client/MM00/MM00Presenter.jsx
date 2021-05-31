@@ -39,6 +39,9 @@ const InteriorSilder = withSplitting(() =>
 const StartSilder = withSplitting(() =>
   import("../../../Components/slider/StartSilder.jsx")
 );
+const MobileSilder = withSplitting(() =>
+  import("../../../Components/slider/MobileSilder")
+);
 const Fade = withSplitting(() => import("react-reveal/Fade"));
 const LightSpeed = withSplitting(() => import("react-reveal/LightSpeed"));
 const Bounce = withSplitting(() => import("react-reveal/Bounce"));
@@ -639,7 +642,10 @@ const MM00Presenter = ({
         </RsWrapper>
       </Wrapper>
 
-      <RsWrapper padding={width < 700 ? `60px 0` : `100px 0`}>
+      <RsWrapper
+        display={width > 700 ? `flex` : `none`}
+        padding={width < 700 ? `60px 0` : `100px 0`}
+      >
         <Text fontSize={width < 700 ? `24px !important` : `72px`}>
           왜 <PetmartTitle>펫마트</PetmartTitle>일까 ?
         </Text>
@@ -658,9 +664,12 @@ const MM00Presenter = ({
             margin={`15px`}
           >
             <Image
+              width={`300px`}
+              height={`300px`}
               al="image"
               margin={`0 0 30px`}
-              src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2F%E1%84%8B%E1%85%AB%20%E1%84%91%E1%85%A6%E1%86%BA%E1%84%86%E1%85%A1%E1%84%90%E1%85%B3%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%81%E1%85%A1-image.png?alt=media&token=567644db-1799-48ea-8797-d29c687fbf89`}
+              radius={`300px`}
+              src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2Fimg-00.png?alt=media&token=a0e54868-4bab-457d-8790-f9210397334d`}
             />
             <Image
               width={`170px`}
@@ -683,9 +692,12 @@ const MM00Presenter = ({
             margin={`15px`}
           >
             <Image
+              width={`300px`}
+              height={`300px`}
               al="image"
               margin={`0 0 30px`}
-              src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2F%E1%84%8B%E1%85%AB%20%E1%84%91%E1%85%A6%E1%86%BA%E1%84%86%E1%85%A1%E1%84%90%E1%85%B3%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%81%E1%85%A1-image.png?alt=media&token=567644db-1799-48ea-8797-d29c687fbf89`}
+              radius={`300px`}
+              src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2Fimg-00.png?alt=media&token=a0e54868-4bab-457d-8790-f9210397334d`}
             />
             <Image
               width={`270px`}
@@ -704,9 +716,12 @@ const MM00Presenter = ({
             margin={`15px`}
           >
             <Image
+              width={`300px`}
+              height={`300px`}
               al="image"
               margin={`0 0 30px`}
-              src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2F%E1%84%8B%E1%85%AB%20%E1%84%91%E1%85%A6%E1%86%BA%E1%84%86%E1%85%A1%E1%84%90%E1%85%B3%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%81%E1%85%A1-image.png?alt=media&token=567644db-1799-48ea-8797-d29c687fbf89`}
+              radius={`300px`}
+              src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2Fimg-00.png?alt=media&token=a0e54868-4bab-457d-8790-f9210397334d`}
             />
             <Image
               width={`115px`}
@@ -726,9 +741,12 @@ const MM00Presenter = ({
             margin={`15px`}
           >
             <Image
+              width={`300px`}
+              height={`300px`}
               al="image"
               margin={`0 0 30px`}
-              src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2F%E1%84%8B%E1%85%AB%20%E1%84%91%E1%85%A6%E1%86%BA%E1%84%86%E1%85%A1%E1%84%90%E1%85%B3%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%81%E1%85%A1-image.png?alt=media&token=567644db-1799-48ea-8797-d29c687fbf89`}
+              radius={`300px`}
+              src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2Fimg-00.png?alt=media&token=a0e54868-4bab-457d-8790-f9210397334d`}
             />
             <Image
               width={`230px`}
@@ -742,7 +760,11 @@ const MM00Presenter = ({
             <Text fontSize={`15px`}>비해 낮은 폐업률을 자랑하는 펫마트!</Text>
           </Wrapper>
         </Wrapper>
-        <Wrapper dr={`row`} ju={`space-between`}>
+        <Wrapper
+          display={width > 700 ? `flex` : `none`}
+          dr={`row`}
+          ju={`space-between`}
+        >
           <Image
             width={`33%`}
             al="업계유일"
@@ -767,9 +789,12 @@ const MM00Presenter = ({
             margin={`15px`}
           >
             <Image
+              width={`300px`}
+              height={`300px`}
               al="image"
               margin={`0 0 30px`}
-              src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2F%E1%84%8B%E1%85%AB%20%E1%84%91%E1%85%A6%E1%86%BA%E1%84%86%E1%85%A1%E1%84%90%E1%85%B3%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%81%E1%85%A1-image.png?alt=media&token=567644db-1799-48ea-8797-d29c687fbf89`}
+              radius={`300px`}
+              src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2Fimg-00.png?alt=media&token=a0e54868-4bab-457d-8790-f9210397334d`}
             />
             <Image
               width={`240px`}
@@ -788,9 +813,12 @@ const MM00Presenter = ({
             margin={`15px`}
           >
             <Image
+              width={`300px`}
+              height={`300px`}
               al="image"
               margin={`0 0 30px`}
-              src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2F%E1%84%8B%E1%85%AB%20%E1%84%91%E1%85%A6%E1%86%BA%E1%84%86%E1%85%A1%E1%84%90%E1%85%B3%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%81%E1%85%A1-image.png?alt=media&token=567644db-1799-48ea-8797-d29c687fbf89`}
+              radius={`300px`}
+              src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2Fimg-00.png?alt=media&token=a0e54868-4bab-457d-8790-f9210397334d`}
             />
             <Image
               width={`200px`}
@@ -810,9 +838,12 @@ const MM00Presenter = ({
             margin={`15px`}
           >
             <Image
+              width={`300px`}
+              height={`300px`}
               al="image"
               margin={`0 0 30px`}
-              src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2F%E1%84%8B%E1%85%AB%20%E1%84%91%E1%85%A6%E1%86%BA%E1%84%86%E1%85%A1%E1%84%90%E1%85%B3%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%81%E1%85%A1-image.png?alt=media&token=567644db-1799-48ea-8797-d29c687fbf89`}
+              radius={`300px`}
+              src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2Fimg-00.png?alt=media&token=a0e54868-4bab-457d-8790-f9210397334d`}
             />
             <Image
               width={`195px`}
@@ -830,9 +861,12 @@ const MM00Presenter = ({
             margin={`15px`}
           >
             <Image
+              width={`300px`}
+              height={`300px`}
               al="image"
               margin={`0 0 30px`}
-              src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2F%E1%84%8B%E1%85%AB%20%E1%84%91%E1%85%A6%E1%86%BA%E1%84%86%E1%85%A1%E1%84%90%E1%85%B3%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%81%E1%85%A1-image.png?alt=media&token=567644db-1799-48ea-8797-d29c687fbf89`}
+              radius={`300px`}
+              src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2Fimg-00.png?alt=media&token=a0e54868-4bab-457d-8790-f9210397334d`}
             />
             <Image
               width={`170px`}
@@ -845,6 +879,21 @@ const MM00Presenter = ({
           </Wrapper>
         </Wrapper>
       </RsWrapper>
+      <Wrapper display={width < 700 ? `flex` : `none`} padding={`60px 0`}>
+        <Text fontSize={width < 700 ? `24px !important` : `72px`}>
+          왜 <PetmartTitle>펫마트</PetmartTitle>일까 ?
+        </Text>
+        <Text
+          fontSize={width < 700 ? `14px !important` : `24px`}
+          fontWeight={`400`}
+          margin={`20px 0 0`}
+        >
+          예비 창업자들이 펫마트를 선택하는 이유!
+        </Text>
+        <Wrapper padding={`30px 0 0`}>
+          <MobileSilder />
+        </Wrapper>
+      </Wrapper>
 
       {/* <Wrapper
         margin={`50px 0`}
