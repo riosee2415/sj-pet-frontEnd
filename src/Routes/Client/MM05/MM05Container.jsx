@@ -6,6 +6,9 @@ import {
   CREATE_DIRECTREQUEST,
   GET_FAQ,
   GET_FAQ_TOTALPAGE,
+  GET_NOTICEBOARD,
+  GET_NOTICEBOARD_TOTALPAGE,
+  GET_NOTICEBOARD_TOTALPAGE_ONLY_CNT,
 } from "./MM05Queries";
 import { animateScroll as scroll } from "react-scroll";
 import useInput from "../../../Components/Hooks/useInput";
@@ -34,12 +37,15 @@ const MM05Container = ({ history }) => {
   const [actionFaqView, setActionFaqView] = useState(null);
   const [currentType, setCurrentType] = useState(0);
   const [currentPage, setCurrentPage] = useState(0);
-  const [limit, setLimit] = useState(15);
+  const [limit, setLimit] = useState(5);
   const [pages, setPages] = useState(null);
   const inputSearch = useInput("");
   const [searchValue, setSearchValue] = useState("");
   const [currentTab, setCurrentTab] = useState(1);
 
+  //
+  const [currentList, setCurrentList] = useState(0);
+  const sortValue = useInput("createdAt");
   ////////////// - USE QUERY- ///////////////
 
   const { data: faqDatum, refetch: faqRefetch } = useQuery(GET_FAQ, {
@@ -56,6 +62,34 @@ const MM05Container = ({ history }) => {
       limit,
     },
   });
+
+  const { data: nDatum, refetch: nRefetch } = useQuery(GET_NOTICEBOARD, {
+    variables: {
+      searchValue,
+      limit,
+      currentPage: currentPage,
+      sort: sortValue.value,
+    },
+  });
+
+  const { data: tData, refetch: tRefetch } = useQuery(
+    GET_NOTICEBOARD_TOTALPAGE_ONLY_CNT,
+    {
+      variables: {
+        searchValue,
+      },
+    }
+  );
+
+  const { data: pgData, refetch: pgRefetch } = useQuery(
+    GET_NOTICEBOARD_TOTALPAGE,
+    {
+      variables: {
+        searchValue,
+        limit,
+      },
+    }
+  );
 
   ///////////// - USE MUTATION- /////////////
   const [createDirectRequestMutation] = useMutation(CREATE_DIRECTREQUEST);
@@ -178,11 +212,18 @@ const MM05Container = ({ history }) => {
     }
   };
 
+  const moveLinkHandler = (link) => {
+    history.push(`/contact/${link}`);
+  };
+
   ////////////// - USE EFFECT- //////////////
 
   useEffect(() => {
     faqRefetch();
     pRefetch();
+    nRefetch();
+    tRefetch();
+    pgRefetch();
     scroll.scrollTo(0);
   }, []);
 
@@ -209,6 +250,17 @@ const MM05Container = ({ history }) => {
       setPages(temp);
     }
   }, [pData]);
+
+  useEffect(() => {
+    if (pgData) {
+      const temp = [];
+
+      for (let i = 0; i < pgData.getNoticeBoardTotalPageClient; i++)
+        temp.push(i);
+
+      setPages(temp);
+    }
+  }, [pgData]);
 
   return (
     <MM05Presenter
@@ -245,6 +297,15 @@ const MM05Container = ({ history }) => {
       changePageHandler={changePageHandler}
       searchHandler={searchHandler}
       scrollMoveHandler={scrollMoveHandler}
+      /////////////// NOTICE
+      currentList={currentList}
+      limit={limit}
+      sortValue={sortValue}
+      //
+      noticeDatum={nDatum && nDatum.getNoticeBoardClient}
+      pageCnt={tData && tData.getNoticeBoardTotalPageOnlyCntClient}
+      //
+      moveLinkHandler={moveLinkHandler}
     />
   );
 };

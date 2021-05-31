@@ -153,7 +153,7 @@ const MM00Presenter = ({
         <MainTilte>매장현황</MainTilte>
       </RsWrapper>
 
-      <Wrapper margin={`0px 0 70px 285px`}>
+      <Wrapper margin={width < 700 ? `0 0 70px` : `0px 0 70px 285px`}>
         <ShopSilder
           sDatum={sDatum}
           moveLinkHandler={moveLinkHandler}
@@ -357,7 +357,9 @@ const MM00Presenter = ({
             5000여개의 품목을 취급하고 있습니다.
           </Text>
         </Wrapper>
-        <BrandSilder width={width} bDatum={currentBrand} />
+        <Wrapper margin={`0px 0 70px 285px`}>
+          <BrandSilder width={width} bDatum={currentBrand} />
+        </Wrapper>
       </Wrapper>
       <Wrapper
         display={width < 700 ? `flex` : `none`}
@@ -426,10 +428,15 @@ const MM00Presenter = ({
         {/* </Bounce> */}
 
         <Image
+          display={width > 700 ? `flex` : `none`}
           width={width < 700 ? `100%` : `60%`}
           alt="image"
           src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2F%E1%84%91%E1%85%A6%E1%86%BA%E1%84%86%E1%85%A1%E1%84%90%E1%85%B3%E1%84%85%E1%85%B3%E1%86%AF%20%E1%84%89%E1%85%B5%E1%84%8C%E1%85%A1%E1%86%A8%E1%84%92%E1%85%A2%E1%84%8B%E1%85%A3%20%E1%84%83%E1%85%AC%E1%84%82%E1%85%B3%E1%86%AB%20%E1%84%8B%E1%85%B5%E1%84%8B%E1%85%B2.png?alt=media&token=87679fe5-7df9-4b8a-9d83-749d171f0784`}
         />
+
+        <Wrapper display={width < 700 ? `flex` : `none`}>
+          <StartSilder vDatum={vDatum} width={width} />
+        </Wrapper>
       </RsWrapper>
 
       {/* <Fade bottom>

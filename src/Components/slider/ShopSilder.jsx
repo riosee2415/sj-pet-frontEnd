@@ -16,14 +16,38 @@ import Theme from "../../Styles/Theme";
 import CircularIndeterminate from "../loading/CircularIndeterminate";
 
 const Title = styled(Text)`
-  font-weight: 800;
-  font-size: 18px;
+  font-weight: 400;
+  font-size: 24px;
   font-family: "Averia Serif Libre", cursive;
+  color: ${(props) => props.theme.white_C};
+  position: relative;
+  margin: -70px 0 0 -100px;
+
+  &:before {
+    content: "";
+    position: absolute;
+    bottom: 45%;
+    right: -55%;
+    width: 65px;
+    height: 4px;
+    background-color: ${(props) => props.theme.basicTheme_C};
+
+    @media (max-width: 700px) {
+      width: 30px;
+      height: 2px;
+    }
+  }
+
+  @media (max-width: 700px) {
+    font-size: 11px !important;
+    margin: -70px 0 0 -70px;
+  }
 `;
 
 const ShopImage = styled(Image)`
-  width: 320px;
-  height: 320px;
+  width: 330px;
+  height: 330px;
+  position: relative;
 
   &:hover {
     box-shadow: 0px 3px 15px ${(props) => props.theme.lightBasicTheme_C};

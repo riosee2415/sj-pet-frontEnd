@@ -15,6 +15,8 @@ const MM05 = withSplitting(() => import("../Routes/Client/MM05"));
 const Header = withSplitting(() => import("../Routes/Layouts/Header"));
 const Footer = withSplitting(() => import("../Routes/Layouts/Footer"));
 
+const Notice_D = withSplitting(() => import("../Components/notice/Board_D"));
+
 const FixedNav = withSplitting(() => import("../Components/FixedNav"));
 const ScrollTopBtn = withSplitting(() => import("../Components/ScrollTopBtn"));
 
@@ -32,6 +34,7 @@ const AppRouter = ({ width }) => {
       <Route exact path="/info" component={Header} />
       <Route exact path="/franchisee" component={Header} />
       <Route exact path="/contact" component={Header} />
+      <Route exact path="/contact/:key" component={Header} />
 
       {/* FixedNav  */}
       {/* <Route exact path="/" component={FixedNav} />
@@ -48,6 +51,7 @@ const AppRouter = ({ width }) => {
       <Route exact path="/info" component={ScrollTopBtn} />
       <Route exact path="/franchisee" component={ScrollTopBtn} />
       <Route exact path="/contact" component={ScrollTopBtn} />
+      <Route exact path="/contact/:key" component={ScrollTopBtn} />
 
       <Route path="/admin" component={A_Header} />
 
@@ -58,6 +62,7 @@ const AppRouter = ({ width }) => {
       <Route exact path="/info" component={MM03} />
       <Route exact path="/franchisee" component={MM04} />
       <Route exact path="/contact" component={MM05} />
+      <Route exact path="/contact/:key" component={Notice_D} />
 
       <Route path="/admin" component={A_Content} />
 
@@ -68,6 +73,7 @@ const AppRouter = ({ width }) => {
       <Route exact path="/info" component={Footer} />
       <Route exact path="/franchisee" component={Footer} />
       <Route exact path="/contact" component={Footer} />
+      <Route exact path="/contact/:key" component={Footer} />
       {/* </ScrollToTop> */}
     </Router>
   );

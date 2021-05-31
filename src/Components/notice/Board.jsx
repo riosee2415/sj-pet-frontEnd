@@ -47,7 +47,7 @@ const Board = ({
   return (
     <WholeWrapper>
       <Wrapper margin={`20px 0px 80px`}>
-        <Wrapper
+        {/* <Wrapper
           padding={`40px 0`}
           width={`auto`}
           fontSize={`40px`}
@@ -78,7 +78,7 @@ const Board = ({
             <ComboOption value={"createdAt"}>등록순</ComboOption>
             <ComboOption value={"hit"}>조회수</ComboOption>
           </Combo>
-        </Wrapper>
+        </Wrapper> */}
         <TableWrapper>
           <TableHead>
             <TableHeadLIST width={`100px`}>번호</TableHeadLIST>

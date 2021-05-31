@@ -31,6 +31,10 @@ import Button from "@material-ui/core/Button";
 
 const Board = withSplitting(() => import("../../../Components/faq/Board"));
 
+const NoticeBoard = withSplitting(() =>
+  import("../../../Components/notice/Board")
+);
+
 const Fade = withSplitting(() => import("react-reveal/Fade"));
 const LightSpeed = withSplitting(() => import("react-reveal/LightSpeed"));
 
@@ -79,6 +83,15 @@ const MM05Presenter = ({
   changePageHandler,
   searchHandler,
   scrollMoveHandler,
+  //
+  currentList,
+  limit,
+  sortValue,
+  //
+  noticeDatum,
+  pageCnt,
+  //
+  moveLinkHandler,
 }) => {
   useTitle("가맹상담 / FAQ | 펫마트");
 
@@ -508,6 +521,25 @@ const MM05Presenter = ({
               searchHandler={searchHandler}
             />
           </Wrapper>
+
+          <CommonSubTitle> Q&amp;A</CommonSubTitle>
+          <LightSpeed></LightSpeed>
+          <NoticeBoard
+            inputSearch={inputSearch}
+            pages={pages}
+            currentPage={currentPage}
+            currentList={currentList}
+            limit={limit}
+            sortValue={sortValue}
+            //
+            noticeDatum={noticeDatum}
+            pageCnt={pageCnt}
+            //
+            moveLinkHandler={moveLinkHandler}
+            prevAndNextPageChangeHandler={prevAndNextPageChangeHandler}
+            changePageHandler={changePageHandler}
+            searchHandler={searchHandler}
+          />
         </RsWrapper>
       )}
       <Dialog

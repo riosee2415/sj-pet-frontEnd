@@ -98,7 +98,7 @@ export default withResizeDetector(({ match, history, width }) => {
 
       return null;
     }
-    history.push(`/notice/${beforeData.getNoticeBoardBeforeId._id}`);
+    history.push(`/contact/${beforeData.getNoticeBoardBeforeId._id}`);
   };
 
   const _moveNextBoard = () => {
@@ -108,11 +108,11 @@ export default withResizeDetector(({ match, history, width }) => {
       return null;
     }
 
-    history.push(`/notice/${nextData.getNoticeBoardNextId._id}`);
+    history.push(`/contact/${nextData.getNoticeBoardNextId._id}`);
   };
 
   const _moveListBoard = () => {
-    history.push(`/notice`);
+    history.push(`/contact`);
   };
 
   ///////////// - USE EFFECT- ///////////////
