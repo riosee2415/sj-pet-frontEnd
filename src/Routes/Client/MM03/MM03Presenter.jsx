@@ -13,6 +13,7 @@ import {
   SpanText,
   CommonButton,
   Text,
+  SubjectTitle,
 } from "../../../Components/CommonComponents";
 import styled from "styled-components";
 import { withResizeDetector } from "react-resize-detector";
@@ -296,9 +297,9 @@ const MM03Presenter = ({
 
       <CommonSubTitle>전국 매장</CommonSubTitle>
 
-      <Wrapper margin={`0 0 50px`}>
+      <SubjectTitle margin={`0 0 50px`}>
         반려동물용품 유통분야 전국 매출 1위 전국에 펫마트 매장을 소개해드립니다.
-      </Wrapper>
+      </SubjectTitle>
 
       <Wrapper width={`100%`} height={`600px`} isRelative={true}>
         <KakaoMap

@@ -53,8 +53,6 @@ const MM05Presenter = ({
   inputName,
   inputMobile,
   inputEmail,
-  inputEmailDomain,
-  selectEmailDomain,
   inputLoc,
   inputMayPay,
   inputIsStore,
@@ -226,6 +224,7 @@ const MM05Presenter = ({
                   </Wrapper>
                   <TextInput
                     width={width < 900 ? `calc(100% - 130px)` : `50%`}
+                    {...inputEmail}
                   />
                   {/* <Wrapper dr={`row`} ju={`space-between`} width={width < 900 ? `130px`:`165px`}>
                     <TextInput
@@ -473,7 +472,12 @@ const MM05Presenter = ({
               </Wrapper>
             </Fade>
           </Wrapper>
-          <CommonButton width={`350px`} height={`50px`} margin={`60px 0 0`}>
+          <CommonButton
+            width={`350px`}
+            height={`50px`}
+            margin={`60px 0 0`}
+            onClick={createRequestHandler}
+          >
             신청하기
           </CommonButton>
         </RsWrapper>
@@ -486,19 +490,7 @@ const MM05Presenter = ({
               <SubjectTitle>자주 묻는 질문입니다.</SubjectTitle>
             </Wrapper>
           </LightSpeed>
-          <Wrapper width={`150px`}>
-            <Fade bottom>
-              <CommonButton
-                width={`100%`}
-                height={`40px`}
-                kindOf={`subTheme`}
-                margin={`50px 0 100px`}
-                onClick={createRequestHandler}
-              >
-                신청하기
-              </CommonButton>
-            </Fade>
-          </Wrapper>
+
           <Wrapper ref={faqRef}>
             <Board
               inputSearch={inputSearch}

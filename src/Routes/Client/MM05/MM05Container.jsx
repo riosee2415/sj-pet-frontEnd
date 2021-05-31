@@ -22,8 +22,6 @@ const MM05Container = ({ history }) => {
   const inputName = useInput("");
   const inputMobile = useInput("");
   const inputEmail = useInput("");
-  const inputEmailDomain = useInput("");
-  const selectEmailDomain = useInput("");
   const inputLoc = useInput("");
   const inputMayPay = useInput("");
   const inputIsStore = useInput("");
@@ -72,21 +70,6 @@ const MM05Container = ({ history }) => {
       toast.error("연락처를 입력해주세요.");
       return;
     }
-    if (!inputEmail.value || inputEmail.value.trim() === "") {
-      toast.error("이메일을 입력해주세요.");
-      return;
-    }
-    if (!selectEmailDomain.value || selectEmailDomain.value.trim() === "") {
-      toast.error("이메일을 선택해주세요.");
-      return;
-    }
-    if (
-      selectEmailDomain.value === "직접 입력" &&
-      (!inputEmailDomain.value || inputEmailDomain.value.trim() === "")
-    ) {
-      toast.error("이메일을 입력해주세요.");
-      return;
-    }
     if (!inputLoc.value || inputLoc.value.trim() === "") {
       toast.error("창업희망지역을 입력해주세요.");
       return;
@@ -95,7 +78,6 @@ const MM05Container = ({ history }) => {
       toast.error("예상 창업 비용을 입력해주세요.");
       return;
     }
-
     if (!inputDesc.value || inputDesc.value.trim() === "") {
       toast.error("문의 내용을 입력해주세요.");
       return;
@@ -130,10 +112,7 @@ const MM05Container = ({ history }) => {
         loc: inputLoc.value,
         mobile: inputMobile.value,
         mayPay: inputMayPay.value,
-        email:
-          inputEmail.value + `@` + selectEmailDomain.value === "직접 입력"
-            ? inputEmailDomain.value
-            : selectEmailDomain.value,
+        email: inputEmail.value,
         isExistStore: inputIsStore.value,
         description: inputDesc.value,
         isAgreement: true,
@@ -145,8 +124,6 @@ const MM05Container = ({ history }) => {
       inputName.setValue("");
       inputMobile.setValue("");
       inputEmail.setValue("");
-      inputEmailDomain.setValue("");
-      selectEmailDomain.setValue("");
       inputLoc.setValue("");
       inputMayPay.setValue("");
       inputIsStore.setValue("");
@@ -241,8 +218,6 @@ const MM05Container = ({ history }) => {
       inputName={inputName}
       inputMobile={inputMobile}
       inputEmail={inputEmail}
-      inputEmailDomain={inputEmailDomain}
-      selectEmailDomain={selectEmailDomain}
       inputLoc={inputLoc}
       inputMayPay={inputMayPay}
       inputIsStore={inputIsStore}
