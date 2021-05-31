@@ -12,6 +12,7 @@ import {
   Pagenation,
   SpanText,
   CommonButton,
+  Text,
 } from "../../../Components/CommonComponents";
 import styled from "styled-components";
 import { withResizeDetector } from "react-resize-detector";
@@ -22,11 +23,13 @@ import { KakaoMap, CustomOverlay } from "react-full-kakao-maps";
 import CircularIndeterminate from "../../../Components/loading/CircularIndeterminate";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
-import { FaTruckMonster } from "react-icons/fa";
+import { FaTruckMonster, FaPhoneAlt } from "react-icons/fa";
+import { MdLocationOn } from "react-icons/md";
 
 const InnerTitle = styled.h2`
   font-size: 24px;
   font-weight: 700;
+  margin: 20px 0 20px 0;
 
   @media (max-width: 900px) {
     font-size: 16px;
@@ -114,6 +117,7 @@ const MM03Presenter = ({
       <Wrapper
         dr={`row`}
         height={`70px`}
+        margin={`0 0 100px`}
         borderBottom={`1px solid ${Theme.grey_C}`}
       >
         <Wrapper
@@ -290,7 +294,11 @@ const MM03Presenter = ({
         </>
       )}
 
-      <CommonSubTitle>매장찾기</CommonSubTitle>
+      <CommonSubTitle>전국 매장</CommonSubTitle>
+
+      <Wrapper margin={`0 0 50px`}>
+        반려동물용품 유통분야 전국 매출 1위 전국에 펫마트 매장을 소개해드립니다.
+      </Wrapper>
 
       <Wrapper width={`100%`} height={`600px`} isRelative={true}>
         <KakaoMap
@@ -371,30 +379,57 @@ const MM03Presenter = ({
               sDatum.map((data, idx) => (
                 <MartWrapper
                   key={data._id}
-                  isRelative={true}
                   margin={`20px`}
-                  shadow={Theme.boxShadowV2}
-                  isShadowHover={true}
                   onClick={() => dataLinkHandler(data)}
                 >
                   <Image
                     alt="썸네일"
                     src={data.thumbnailPath}
-                    height={`350px`}
+                    height={`300px`}
                   />
                   <Wrapper
-                    isAbsolute={true}
-                    width={`100%`}
-                    height={`100px`}
                     bgColor={`#fff`}
                     left={`0`}
                     bottom={`0`}
                     al={`flex-start`}
-                    padding={`10px 20px`}
-                    ju={`space-around`}
                   >
                     <InnerTitle>{data.title}</InnerTitle>
-                    <InnerSubTitle>{data.address}</InnerSubTitle>
+
+                    <Wrapper dr={`row`} ju={`flex-start`}>
+                      <Wrapper
+                        dr={`row`}
+                        bgColor={Theme.basicTheme_C}
+                        width={`70px`}
+                        height={`30px`}
+                        margin={`0 10px 0 0`}
+                        color={Theme.white_C}
+                        radius={`15px`}
+                      >
+                        <Wrapper width={`auto`} margin={`0 5px 0 0`}>
+                          <MdLocationOn size={`20px`} color={Theme.white_C} />
+                        </Wrapper>
+                        주소
+                      </Wrapper>
+                      <InnerSubTitle>{data.address}</InnerSubTitle>
+                    </Wrapper>
+
+                    <Wrapper dr={`row`} ju={`flex-start`} margin={`10px 0 `}>
+                      <Wrapper
+                        dr={`row`}
+                        bgColor={Theme.basicTheme_C}
+                        width={`70px`}
+                        height={`30px`}
+                        margin={`0 10px 0 0`}
+                        color={Theme.white_C}
+                        radius={`15px`}
+                      >
+                        <Wrapper width={`auto`} margin={`0 5px 0 0`}>
+                          <FaPhoneAlt size={`12px`} color={Theme.white_C} />
+                        </Wrapper>
+                        전화
+                      </Wrapper>
+                      <InnerSubTitle>{data.tel}</InnerSubTitle>
+                    </Wrapper>
                   </Wrapper>
                 </MartWrapper>
               ))
@@ -412,8 +447,8 @@ const MM03Presenter = ({
             </PagenationBtn>
             {pages.map((data, idx) => {
               return (
-                (currentList + 1) * 5 > idx &&
-                currentList * 5 <= idx && (
+                (currentList + 1) * 10 > idx &&
+                currentList * 10 <= idx && (
                   <Pagenation
                     className={data === currentPage ? `active` : ``}
                     key={data}
