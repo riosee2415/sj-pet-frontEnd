@@ -1332,10 +1332,46 @@ const MM00Presenter = ({
         display={width < 700 ? `flex` : `none`}
         bgColor={`#FFCB08`}
         color={Theme.white_C}
+        padding={`60px 10px`}
       >
-        <Text fontSize={width < 900 ? `30px !important` : `48px`}>
+        <Text fontSize={`24px !important`} margin={`0 0 20px`}>
           창업문의
         </Text>
+        <Text fontSize={`14px !important`} fontWeight={`400`}>
+          펫마트의 전문 창업상담사 항시대기 1:1문의로
+        </Text>
+        <Text
+          fontSize={`14px !important`}
+          fontWeight={`400`}
+          margin={`0 0 20px`}
+        >
+          편안하고 빠른 안내를 받아보세요.
+        </Text>
+        <Wrapper
+          border={`1px solid ${Theme.white_C}`}
+          padding={`30px 50px`}
+          margin={`0 0 20px`}
+        >
+          <Wrapper dr={`row`} ju={`flex-start`}>
+            <Text width={`30%`} fontSize={`14px !important`} fontWeight={`400`}>
+              연락처
+            </Text>
+            <Text width={`70%`} fontSize={`14px !important`} fontWeight={`400`}>
+              1588-1684
+            </Text>
+          </Wrapper>
+          <Wrapper dr={`row`} ju={`flex-start`}>
+            <Text width={`30%`} fontSize={`14px !important`} fontWeight={`400`}>
+              E-mail
+            </Text>
+            <Text width={`70%`} fontSize={`14px !important`} fontWeight={`400`}>
+              ebajslee@sunjinpet.co.kr
+            </Text>
+          </Wrapper>
+        </Wrapper>
+        <Wrapper padding={`15px 0`} bgColor={Theme.black_C}>
+          신청하기
+        </Wrapper>
       </Wrapper>
       <Popup />
     </WholeWrapper>
