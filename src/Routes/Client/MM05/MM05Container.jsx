@@ -38,7 +38,7 @@ const MM05Container = ({ history }) => {
   const [pages, setPages] = useState(null);
   const inputSearch = useInput("");
   const [searchValue, setSearchValue] = useState("");
-  const [currentTab, setCurrentTab] = useState(0);
+  const [currentTab, setCurrentTab] = useState(1);
 
   ////////////// - USE QUERY- ///////////////
 

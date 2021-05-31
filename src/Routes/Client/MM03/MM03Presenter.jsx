@@ -23,14 +23,20 @@ import SubBanner from "../../../Components/SubBanner";
 import { KakaoMap, CustomOverlay } from "react-full-kakao-maps";
 import CircularIndeterminate from "../../../Components/loading/CircularIndeterminate";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
-import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
+import {
+  AiOutlineMinus,
+  AiOutlinePlus,
+  AiOutlineDoubleLeft,
+  AiOutlineDoubleRight,
+} from "react-icons/ai";
 import { FaTruckMonster, FaPhoneAlt } from "react-icons/fa";
 import { MdLocationOn } from "react-icons/md";
+const LightSpeed = withSplitting(() => import("react-reveal/LightSpeed"));
 
 const InnerTitle = styled.h2`
   font-size: 24px;
-  font-weight: 700;
-  margin: 20px 0 20px 0;
+  font-weight: 500;
+  margin: 25px 0;
 
   @media (max-width: 900px) {
     font-size: 16px;
@@ -39,6 +45,8 @@ const InnerTitle = styled.h2`
 
 const InnerSubTitle = styled.h3`
   line-height: 1.3;
+  color: rgb(102, 102, 102);
+  width: calc(100% - 80px);
 
   @media (max-width: 900px) {
     font-size: 15px;
@@ -46,8 +54,8 @@ const InnerSubTitle = styled.h3`
 `;
 
 const MartWrapper = styled(Wrapper)`
-  width: calc(100% / 3 - (80px / 3));
-  margin: 20px 40px 20px 0;
+  width: calc(100% / 3 - (40px / 3));
+  margin: 20px 20px 20px 0;
 
   &:nth-child(3n) {
     margin-right: 0;
@@ -112,13 +120,17 @@ const MM03Presenter = ({
   return (
     <WholeWrapper>
       <SubBanner
-        src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM02%2Fmm02.png?alt=media&token=fe20fb7f-3dcf-4ddc-ae31-e9a4c495ac16`}
+        src={
+          width < 800
+            ? `https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM05%2Fsub_title-mm03.png?alt=media&token=ae6d861a-9612-400e-bc09-83263f7ae81c`
+            : `https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM02%2Fmm02.png?alt=media&token=fe20fb7f-3dcf-4ddc-ae31-e9a4c495ac16`
+        }
         title={`매장안내`}
       />
       <Wrapper
         dr={`row`}
         height={`70px`}
-        margin={`0 0 100px`}
+        margin={`0 0 80px`}
         borderBottom={`1px solid ${Theme.grey_C}`}
       >
         <Wrapper
@@ -134,11 +146,15 @@ const MM03Presenter = ({
         <>
           <CommonSubTitle>{store.title}</CommonSubTitle>
 
-          <Wrapper width={`100%`} height={`600px`} isRelative={true}>
+          <Wrapper
+            width={`100%`}
+            height={width < 800 ? `360px` : `600px`}
+            isRelative={true}
+          >
             <KakaoMap
               apiUrl={`//dapi.kakao.com/v2/maps/sdk.js?appkey=a8e290d0abd70336680c1d1ea1a681da&autoload=false`}
               width={`100%`}
-              height={`600px`}
+              height={width < 800 ? `360px` : `600px`}
               level={4}
               move={[
                 parseFloat(store && store.att),
@@ -158,11 +174,23 @@ const MM03Presenter = ({
                     top={`-10px`}
                     left={`0px`}
                   >
-                    <Image
-                      width={`auto`}
-                      height={`100%`}
-                      src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2Flogo%2Flogo.png?alt=media&token=293d0a5b-53e7-446d-bdb8-d74903051e16`}
-                    />
+                    <Wrapper width={`auto`} height={`60px`} isRelative={true}>
+                      <Image
+                        width={`auto`}
+                        height={`100%`}
+                        src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2Ficon%2F01_icon_Location-pin.png?alt=media&token=ca53caa2-d8e2-4844-a3b0-0b829438154d`}
+                      />
+                      <Wrapper
+                        isAbsolute={true}
+                        top={`50%`}
+                        left={`52px`}
+                        margin={`-7.5px 0 0`}
+                        width={`auto`}
+                        fontSize={`15px`}
+                      >
+                        {store.title}
+                      </Wrapper>
+                    </Wrapper>
                   </Wrapper>
                 }
                 move={[
@@ -296,16 +324,31 @@ const MM03Presenter = ({
       )}
 
       <CommonSubTitle>전국 매장</CommonSubTitle>
+      <LightSpeed>
+        <Wrapper display={width < 900 ? `none` : `flex`} margin={`0 0 50px`}>
+          <SubjectTitle>
+            반려동물용품 유통분야 전국 매출 1위 전국에 펫마트 매장을
+            소개해드립니다.
+          </SubjectTitle>
+        </Wrapper>
+      </LightSpeed>
 
-      <SubjectTitle margin={`0 0 50px`}>
-        반려동물용품 유통분야 전국 매출 1위 전국에 펫마트 매장을 소개해드립니다.
-      </SubjectTitle>
+      <LightSpeed>
+        <Wrapper display={width < 900 ? `flex` : `none`} margin={`0 0 50px`}>
+          <SubjectTitle>반려동물용품 유통분야 전국 매출 1위</SubjectTitle>
+          <SubjectTitle>전국에 펫마트 매장을 소개해드립니다.</SubjectTitle>
+        </Wrapper>
+      </LightSpeed>
 
-      <Wrapper width={`100%`} height={`600px`} isRelative={true}>
+      <Wrapper
+        width={`100%`}
+        height={width < 800 ? `360px` : `600px`}
+        isRelative={true}
+      >
         <KakaoMap
           apiUrl={`//dapi.kakao.com/v2/maps/sdk.js?appkey=a8e290d0abd70336680c1d1ea1a681da&autoload=false`}
           width={`100%`}
-          height={`600px`}
+          height={width < 800 ? `360px` : `600px`}
           level={6}
           setLevel={scale}
           isEvent={true}
@@ -329,11 +372,13 @@ const MM03Presenter = ({
                       top={`-10px`}
                       left={`0px`}
                     >
-                      <Image
-                        width={`auto`}
-                        height={`100%`}
-                        src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2Flogo%2Flogo.png?alt=media&token=293d0a5b-53e7-446d-bdb8-d74903051e16`}
-                      />
+                      <Wrapper width={`auto`} height={`60px`} isRelative={true}>
+                        <Image
+                          width={`auto`}
+                          height={`100%`}
+                          src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2Ficon%2F01_icon_Location-pin.png?alt=media&token=ca53caa2-d8e2-4844-a3b0-0b829438154d`}
+                        />
+                      </Wrapper>
                     </Wrapper>
                   }
                   lat={parseFloat(data && data.att)}
@@ -396,29 +441,34 @@ const MM03Presenter = ({
                   >
                     <InnerTitle>{data.title}</InnerTitle>
 
-                    <Wrapper dr={`row`} ju={`flex-start`}>
+                    <Wrapper dr={`row`} ju={`flex-start`} wrap={`nowrap`}>
                       <Wrapper
                         dr={`row`}
                         bgColor={Theme.basicTheme_C}
-                        width={`70px`}
+                        width={`80px`}
                         height={`30px`}
                         margin={`0 10px 0 0`}
                         color={Theme.white_C}
                         radius={`15px`}
                       >
                         <Wrapper width={`auto`} margin={`0 5px 0 0`}>
-                          <MdLocationOn size={`20px`} color={Theme.white_C} />
+                          <MdLocationOn size={`18px`} color={Theme.white_C} />
                         </Wrapper>
                         주소
                       </Wrapper>
                       <InnerSubTitle>{data.address}</InnerSubTitle>
                     </Wrapper>
 
-                    <Wrapper dr={`row`} ju={`flex-start`} margin={`10px 0 `}>
+                    <Wrapper
+                      dr={`row`}
+                      ju={`flex-start`}
+                      wrap={`nowrap`}
+                      margin={`10px 0 `}
+                    >
                       <Wrapper
                         dr={`row`}
                         bgColor={Theme.basicTheme_C}
-                        width={`70px`}
+                        width={`80px`}
                         height={`30px`}
                         margin={`0 10px 0 0`}
                         color={Theme.white_C}
@@ -441,6 +491,9 @@ const MM03Presenter = ({
         </Wrapper>
         {pages && pages.length > 0 && (
           <PagenationWrapper width={`auto`}>
+            <PagenationBtn>
+              <AiOutlineDoubleLeft />
+            </PagenationBtn>
             <PagenationBtn
               onClick={() => prevAndNextPageChangeHandler(currentPage - 1)}
             >
@@ -448,8 +501,8 @@ const MM03Presenter = ({
             </PagenationBtn>
             {pages.map((data, idx) => {
               return (
-                (currentList + 1) * 10 > idx &&
-                currentList * 10 <= idx && (
+                (currentList + 1) * (width < 900 ? 5 : 10) > idx &&
+                currentList * (width < 900 ? 5 : 10) <= idx && (
                   <Pagenation
                     className={data === currentPage ? `active` : ``}
                     key={data}
@@ -464,6 +517,9 @@ const MM03Presenter = ({
               onClick={() => prevAndNextPageChangeHandler(currentPage + 1)}
             >
               <IoIosArrowForward />
+            </PagenationBtn>
+            <PagenationBtn>
+              <AiOutlineDoubleRight />
             </PagenationBtn>
           </PagenationWrapper>
         )}

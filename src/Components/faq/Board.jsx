@@ -23,6 +23,7 @@ import {
   AiOutlineDoubleRight,
 } from "react-icons/ai";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+import { RiArrowDownSLine, RiArrowUpSLine } from "react-icons/ri";
 import Theme from "../../Styles/Theme";
 
 const Board = ({
@@ -61,7 +62,7 @@ const Board = ({
         dr={`row`}
         isWrap={true}
         ju={width < 700 ? `center` : `flex-start`}
-        margin={`20px 0px 50px`}
+        margin={`20px 0px 60px`}
       >
         {faqTypeDatum &&
           faqTypeDatum.map((data, idx) => {
@@ -85,14 +86,18 @@ const Board = ({
           })}
       </TabWrapper> */}
 
-      <Wrapper>
+      <Wrapper borderTop={`3px solid ${Theme.black_C}`} margin={`60px 0 0`}>
         {faqDatum ? (
           faqDatum.length === 0 ? (
             <EmptyList>등록된 FAQ가 없습니다.</EmptyList>
           ) : (
             faqDatum.map((data, idx) => {
               return (
-                <Wrapper className="faqBoard" key={data._id}>
+                <Wrapper
+                  className="faqBoard"
+                  key={data._id}
+                  borderBottom={`1px solid rgb(238, 238, 238)`}
+                >
                   <Wrapper
                     display={`flex`}
                     padding={`15px`}
@@ -100,44 +105,38 @@ const Board = ({
                     ju={`flex-start`}
                     dr={`row`}
                     cursor={`pointer`}
-                    bgColor={
-                      actionFaqView && actionFaqView[idx]
-                        ? `${Theme.subTheme_C}`
-                        : `#e0e0e0`
-                    }
-                    color={`#999`}
                     isBgHover={true}
-                    margin={`15px 0`}
+                    margin={`15px 0 0`}
                     onClick={() => toggleFaqAnswer(idx, data.answer)}
                   >
                     <Wrapper
-                      width={`calc(100% - 50px)`}
+                      width={`calc(100% - 60px)`}
                       ju={`space-between`}
                       dr={`row`}
                       color={Theme.white_C}
                     >
                       <Wrapper
-                        height={`50px`}
-                        width={`50px`}
-                        minWidth={`50px`}
+                        height={`60px`}
+                        width={`60px`}
+                        minWidth={`60px`}
                         radius={`50%`}
-                        bgColor={Theme.white_C}
+                        bgColor={Theme.black_C}
                       >
                         <Text
                           fontSize={width < 700 ? `16px` : `24px`}
-                          fontWeight={`700`}
-                          color={Theme.subTheme_C}
+                          fontWeight={`300`}
+                          color={Theme.white_C}
                         >
                           Q
                         </Text>
                       </Wrapper>
-                      <Wrapper width={`calc(100% - 50px)`} al={`flex-start`}>
+                      <Wrapper
+                        width={`calc(100% - 60px)`}
+                        al={`flex-start`}
+                        padding={`0 0 0 50px`}
+                      >
                         <Text
-                          color={
-                            actionFaqView && actionFaqView[idx]
-                              ? `${Theme.white_C}`
-                              : Theme.subTheme_C
-                          }
+                          color={Theme.black_C}
                           padding={`10px`}
                           fontSize={width < 700 ? `16px` : `20px`}
                         >
@@ -145,15 +144,12 @@ const Board = ({
                         </Text>
                       </Wrapper>
                     </Wrapper>
-                    <Wrapper
-                      width={`50px`}
-                      color={`#fff`}
-                      fontSize={width < 700 ? `30px` : `50px`}
-                    >
+
+                    <Wrapper width={`60px`}>
                       {actionFaqView && actionFaqView[idx] ? (
-                        <IoMdRemove />
+                        <RiArrowUpSLine size={25} />
                       ) : (
-                        <IoMdAdd />
+                        <RiArrowDownSLine size={25} />
                       )}
                     </Wrapper>
                   </Wrapper>
@@ -163,30 +159,30 @@ const Board = ({
                       actionFaqView && actionFaqView[idx] ? `flex` : `none`
                     }
                     padding={`20px`}
-                    al={`center`}
-                    bgColor={`#fff`}
-                    color={`#999`}
                     ju={`flex-start`}
                     dr={`row`}
                     wrap={`initial`}
-                    shadow={`3px 3px 3px ${Theme.grey_C}`}
                   >
                     <Wrapper
-                      height={`50px`}
-                      width={`50px`}
-                      minWidth={`50px`}
+                      height={`60px`}
+                      width={`60px`}
+                      minWidth={`60px`}
                       radius={`50%`}
-                      bgColor={Theme.subTheme_C}
+                      bgColor={Theme.basicTheme_C}
                     >
                       <Text
                         fontSize={width < 700 ? `16px` : `24px`}
-                        fontWeight={`700`}
+                        fontWeight={`300`}
                         color={Theme.white_C}
                       >
                         A
                       </Text>
                     </Wrapper>
-                    <Wrapper width={`calc(100% - 50px)`}>
+                    <Wrapper
+                      width={`calc(100% - 60px)`}
+                      padding={`0 0 0 50px`}
+                      color={`rgb(97, 97, 97)`}
+                    >
                       <Wrapper
                         className={`ql-editor`}
                         id={`faq-answer-${idx}`}
@@ -194,7 +190,8 @@ const Board = ({
                         width={`100%`}
                         fontSize={width < 700 ? `16px` : `18px`}
                         al={`flex-start`}
-                        lineHeight={`1.2`}
+                        fontWeight={`300`}
+                        lineHeight={`1.4`}
                       ></Wrapper>
                     </Wrapper>
                   </Wrapper>
@@ -208,7 +205,10 @@ const Board = ({
       </Wrapper>
 
       {pages && pages.length > 0 && (
-        <PagenationWrapper width={`auto`} margin={`50px 0 100px`}>
+        <PagenationWrapper width={`auto`} margin={`60px 0 100px`}>
+          <PagenationBtn>
+            <AiOutlineDoubleLeft />
+          </PagenationBtn>
           <PagenationBtn
             onClick={() => prevAndNextPageChangeHandler(currentPage - 1)}
           >
@@ -229,6 +229,9 @@ const Board = ({
             onClick={() => prevAndNextPageChangeHandler(currentPage + 1)}
           >
             <IoIosArrowForward />
+          </PagenationBtn>
+          <PagenationBtn>
+            <AiOutlineDoubleRight />
           </PagenationBtn>
         </PagenationWrapper>
       )}

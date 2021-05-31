@@ -893,7 +893,7 @@ export const PagenationWrapper = styled.div`
   border-bottom: ${(props) => props.borderBottom};
   border-radius: ${(props) => props.radius};
   box-shadow: ${(props) => props.shadow};
-  font-size: ${(props) => props.fontSize};
+  font-size: ${(props) => props.fontSize || `14px`};
   font-weight: ${(props) => props.fontWeight};
   margin: ${(props) => props.margin || `20px 0px 0px`};
   padding: ${(props) => props.padding};
@@ -908,12 +908,12 @@ export const Pagenation = styled.div`
   justify-content: ${(props) => props.ju || `center`};
   cursor: pointer;
   padding-top: 3px;
+  margin: 0px 5px;
 
   &.active {
-    background-color: ${(props) => props.theme.subTheme_C};
-    color: ${(props) => props.theme.white_C};
+    border: 1px solid ${(props) => props.theme.basicTheme_C};
+    color: ${(props) => props.theme.basicTheme_C};
     border-radius: 25px;
-    box-shadow: 0px 10px 15px rgba(220, 220, 220, 1);
   }
 `;
 
@@ -922,22 +922,21 @@ export const PagenationBtn = styled.div`
   font-size: 18px;
   width: 25px;
   height: 25px;
-  color: ${(props) => props.color || `${props.theme.lightGrey_C}`};
+  color: ${(props) => props.color};
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   border-radius: 25px;
-  margin: 0px 3px;
+  margin: 0px 5px;
 
   &:first-child,
   &:last-child {
-    background-color: ${(props) => props.theme.grey_C};
-    color: ${(props) => props.theme.black_C};
+    color: #222222;
   }
 
   &:hover {
-    box-shadow: 0px 10px 15px rgba(220, 220, 220, 1);
+    color: ${(props) => props.theme.basicTheme_C};
   }
 `;
 

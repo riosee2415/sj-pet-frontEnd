@@ -425,7 +425,9 @@ const Header = ({ history, location, width }) => {
                 alt="logo"
                 src={
                   location.pathname === "/"
-                    ? `https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2Flogo%2Flogo-m.png?alt=media&token=4fc96ffb-da80-4396-9d02-ddc9fcce595e`
+                    ? headerScroll
+                      ? `https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2Flogo%2Flogo-w.png?alt=media&token=88c2c137-40ef-4941-82e0-b3f6465efa1c`
+                      : `https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2Flogo%2Flogo-m.png?alt=media&token=4fc96ffb-da80-4396-9d02-ddc9fcce595e`
                     : `https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2Flogo%2Flogo-w.png?alt=media&token=88c2c137-40ef-4941-82e0-b3f6465efa1c`
                 }
               />
