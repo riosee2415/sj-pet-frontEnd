@@ -671,8 +671,8 @@ export const SubjectText = styled.h4`
   position: relative;
   margin: 0px 0 30px;
   padding-bottom: 40px;
-  font-size: ${(props) => props.fontSize || `42px`};
-  color: ${(props) => props.color};
+  font-size: ${(props) => props.fontSize || `24px`};
+  color: ${(props) => props.color || `#666666`};
 
   @media (max-width: 800px) {
     font-size: 35px;

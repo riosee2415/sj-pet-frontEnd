@@ -5,12 +5,14 @@ import {
   Wrapper,
   CommonSubTitle,
   SubjectTitle,
+  SubjectText,
   RsWrapper,
   Text,
   Image,
   UlWrapper,
   LiWrapper,
   CommonButton,
+  SpanText,
 } from "../../../Components/CommonComponents";
 import styled from "styled-components";
 import { withResizeDetector } from "react-resize-detector";
@@ -31,6 +33,9 @@ const ShopSilder = withSplitting(() =>
 const BrandSilder = withSplitting(() =>
   import("../../../Components/slider/BrandSilder.jsx")
 );
+const InteriorSilder = withSplitting(() =>
+  import("../../../Components/slider/InteriorSlider")
+);
 const StartSilder = withSplitting(() =>
   import("../../../Components/slider/StartSilder.jsx")
 );
@@ -38,19 +43,46 @@ const Fade = withSplitting(() => import("react-reveal/Fade"));
 const LightSpeed = withSplitting(() => import("react-reveal/LightSpeed"));
 const Bounce = withSplitting(() => import("react-reveal/Bounce"));
 
-const DotTitle = styled(Text)`
+const MainTilte = styled(Wrapper)`
+  font-size: 36px;
+  align-items: flex-start;
   position: relative;
-  font-size: inherit;
 
   &:before {
     content: "";
     position: absolute;
-    top: -10px;
+    top: 40%;
+    left: 12%;
+    width: 520px;
+    height: 5px;
+    background-color: ${(props) => props.theme.basicTheme_C};
+
+    @media (max-width: 700px) {
+      left: 25%;
+      width: 190px;
+      height: 2px;
+    }
+  }
+
+  @media (max-width: 700px) {
+    font-size: 18px;
+  }
+`;
+
+const DotTitle = styled(Text)`
+  position: relative;
+  font-size: inherit;
+  font-weight: 400;
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: -15px;
     left: 50%;
     border-radius: 100%;
-    width: 14px;
-    height: 14px;
-    background: ${(props) => props.theme.basicTheme_C};
+    width: 8px;
+    height: 8px;
+    background: ${(props) => props.theme.white_C};
     margin-left: -7px;
 
     @media (max-width: 900px) {
@@ -58,6 +90,24 @@ const DotTitle = styled(Text)`
       height: 10px;
       margin-left: -5px;
     }
+  }
+`;
+
+const PetmartTitle = styled(SpanText)`
+  width: auto;
+  color: ${(props) => props.theme.white_C};
+  position: relative;
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -10px;
+    width: 100%;
+    height: 100%;
+    background-color: ${(props) => props.theme.basicTheme_C};
+    padding: 0 10px 10px;
+    z-index: -1000;
   }
 `;
 
@@ -94,8 +144,8 @@ const MM00Presenter = ({
       {/* <MainSlider
         mainBannerData={width < 700 ? mobileBannerData : mainBannerData}
       /> */}
-      <RsWrapper>
-        <SubjectTitle>매장현황</SubjectTitle>
+      <RsWrapper padding={width < 700 ? `60px 0` : `100px 0`}>
+        <MainTilte>매장현황</MainTilte>
       </RsWrapper>
       <Wrapper margin={`0px 0 70px`}>
         <ShopSilder
@@ -105,36 +155,53 @@ const MM00Presenter = ({
         />
       </Wrapper>
 
-      <Wrapper bgColor={`#032950`} padding={`100px 0`}>
+      <Wrapper bgColor={`#032950`} padding={width < 700 ? `60px 0` : `100px 0`}>
         <RsWrapper>
-          <Wrapper dr={`row`}>
+          <Wrapper dr={`row`} isRelative={true}>
             <Image
-              width={`70px`}
+              display={width > 700 ? `flex` : `none`}
+              width={`130px`}
               alt="image"
+              margin={`0 20px 0 0`}
               src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2Fmain-img.png?alt=media&token=740395d0-f209-45e8-824d-1d10605df08e`}
             />
-            <Wrapper width={`auto`} color={Theme.white_C}>
-              <Text>업계유일 최소 마진율 41%!</Text>
-              <Text>매장 규모별 순수익 공개!</Text>
+            <Wrapper
+              width={`auto`}
+              color={Theme.white_C}
+              al={width < 700 ? `center` : `flex-start`}
+            >
+              <Text
+                fontSize={width < 700 ? `18px !important` : `48px`}
+                fontWeight={`400`}
+              >
+                업계유일 최소 마진율 41%!
+              </Text>
+              <Text
+                fontSize={width < 700 ? `18px !important` : `48px`}
+                fontWeight={`400`}
+              >
+                매장 규모별 순수익 공개!
+              </Text>
             </Wrapper>
+            <Wrapper
+              isAbsolute={true}
+              top={width < 700 ? `2px` : `10px`}
+              right={width < 700 ? `19%` : `21%`}
+              width={width < 700 ? `145px` : `390px`}
+              height={width < 700 ? `22px` : `55px`}
+              bgColor={Theme.basicTheme_C}
+              zIndex={`-100`}
+            ></Wrapper>
           </Wrapper>
-          {/* <Text
-            width={width < 900 ? `100%` : `80%`}
-            margin={`0px 0 40px`}
-            fontSize={`20px`}
-            fontWeight={`600`}
-            textAlign={`center`}
-          >
-            반려동물 업계 최초 최소 마진율 35% 다양한 OEM상품과 높은 마진율로
-            마진율을 최대화 하는 노력을 아끼지 않고 있습니다! 지속적인
-            상품개발과 독자적인 제품교육은 초보 사장님도 손쉽게 운영하실 수
-            있습니다!
-          </Text> */}
 
-          <Wrapper dr={`row`} width={`80%`} margin={`60px 0 0`}>
+          <Wrapper
+            dr={`row`}
+            width={width < 700 ? `100%` : `80%`}
+            margin={width < 700 ? `30px 0 0` : `60px 0 0`}
+          >
             <Wrapper
               width={width < 1000 ? `100%` : `60%`}
-              padding={`0 20px 0 0`}
+              padding={width < 700 ? `0 0 60px` : `0 20px 0 0`}
             >
               <Fade left>
                 <Image
@@ -244,30 +311,123 @@ const MM00Presenter = ({
         </RsWrapper>
       </Wrapper>
 
-      <RsWrapper>
-        <CommonSubTitle>펫마트 입점 브랜드</CommonSubTitle>
-        {/* <CommonSubTitle>
-          펫마트 입점&nbsp;<DotTitle fontWeight={`900`}>브</DotTitle>
-          <DotTitle fontWeight={`900`}>랜</DotTitle>
-          <DotTitle fontWeight={`900`}>드</DotTitle>
-        </CommonSubTitle>
-        <LightSpeed>
-          <Text margin={`0px 0 50px`} fontSize={`30px`} fontWeight={`700`}>
-            펫마트는 약 700여개의 유명, 신규 브랜드와 5000여개의 품목을 취급하고
-            있습니다.
+      <Wrapper
+        bgColor={width < 700 ? `none` : `rgb(238, 238, 238)`}
+        padding={width < 700 ? `40px 10px` : `100px 0`}
+      >
+        <Wrapper
+          fontSize={width < 700 ? `18px !important` : `48px`}
+          al={width < 700 && `flex-start`}
+        >
+          펫마트 입점 브랜드
+        </Wrapper>
+        <Text
+          display={width < 700 ? `none` : `flex`}
+          fontSize={`24px`}
+          fontWeight={`400`}
+          color={`#616161`}
+          margin={`20px 0 0`}
+          textAlign={`center`}
+        >
+          펫마트는 약 700여개의 유명,신규브랜드와 5000여개의 품목을 취급하고
+          있습니다.
+        </Text>
+        <Wrapper
+          display={width < 700 ? `flex` : `none`}
+          al={`flex-start`}
+          margin={`10px 0 0`}
+        >
+          <Text
+            fontSize={width < 700 ? `12px !important` : `24px`}
+            fontWeight={`400`}
+            color={`#616161`}
+          >
+            펫마트는 약 700여개의 유명, 신규브랜드와
           </Text>
-        </LightSpeed> */}
+          <Text
+            fontSize={width < 700 ? `12px !important` : `24px`}
+            fontWeight={`400`}
+            color={`#616161`}
+          >
+            5000여개의 품목을 취급하고 있습니다.
+          </Text>
+        </Wrapper>
         <BrandSilder width={width} bDatum={currentBrand} />
+      </Wrapper>
+      <Wrapper
+        display={width < 700 ? `flex` : `none`}
+        borderBottom={`10px solid rgb(238, 238, 238)`}
+      ></Wrapper>
+
+      <RsWrapper
+        dr={`row`}
+        ju={`space-between`}
+        al={`flex-start`}
+        padding={width < 700 ? `60px 0` : `200px 0`}
+      >
+        {/* <Bounce> */}
+        <Wrapper
+          display={width > 700 ? `flex` : `none`}
+          width={`40%`}
+          al={`flex-start`}
+        >
+          <Text lineHeight={`1.3`} fontSize={`72px`} fontWeight={`400`}>
+            지금!
+          </Text>
+          <Text
+            lineHeight={`1.3`}
+            fontSize={`72px`}
+            fontWeight={`400`}
+            color={Theme.basicTheme_C}
+          >
+            펫마트<SpanText color={Theme.black_C}>를</SpanText>
+          </Text>
+          <Text
+            lineHeight={`1.3`}
+            fontSize={`72px`}
+            fontWeight={`400`}
+            color={Theme.basicTheme_C}
+          >
+            시작<SpanText color={Theme.black_C}>해야</SpanText>
+          </Text>
+          <Text lineHeight={`1.3`} fontSize={`72px`} fontWeight={`400`}>
+            되는 이유
+          </Text>
+        </Wrapper>
+
+        <Wrapper
+          display={width < 700 ? `flex` : `none`}
+          width={`100%`}
+          al={`flex-start`}
+          padding={`0 0 30px`}
+        >
+          <Text
+            lineHeight={`1.3`}
+            fontSize={`24px !important`}
+            fontWeight={`400`}
+          >
+            지금!<SpanText color={Theme.basicTheme_C}>펫마트</SpanText>를
+          </Text>
+
+          <Text
+            lineHeight={`1.3`}
+            fontSize={`24px !important`}
+            fontWeight={`400`}
+            color={Theme.basicTheme_C}
+          >
+            시작<SpanText color={Theme.black_C}>해야 되는 이유</SpanText>
+          </Text>
+        </Wrapper>
+        {/* </Bounce> */}
+
+        <Image
+          width={width < 700 ? `100%` : `60%`}
+          alt="image"
+          src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2F%E1%84%91%E1%85%A6%E1%86%BA%E1%84%86%E1%85%A1%E1%84%90%E1%85%B3%E1%84%85%E1%85%B3%E1%86%AF%20%E1%84%89%E1%85%B5%E1%84%8C%E1%85%A1%E1%86%A8%E1%84%92%E1%85%A2%E1%84%8B%E1%85%A3%20%E1%84%83%E1%85%AC%E1%84%82%E1%85%B3%E1%86%AB%20%E1%84%8B%E1%85%B5%E1%84%8B%E1%85%B2.png?alt=media&token=87679fe5-7df9-4b8a-9d83-749d171f0784`}
+        />
       </RsWrapper>
 
-      <Bounce>
-        <CommonSubTitle>
-          지금 펫마트를 시작해야 하는&nbsp;
-          <DotTitle fontWeight={`900`}>이</DotTitle>
-          <DotTitle fontWeight={`900`}>유</DotTitle> !
-        </CommonSubTitle>
-      </Bounce>
-      <Fade bottom>
+      {/* <Fade bottom>
         <Image
           margin={`50px 0 20px`}
           src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2F%E1%84%91%E1%85%A6%E1%86%BA%E1%84%86%E1%85%A1%E1%84%90%E1%85%B3.png?alt=media&token=02eeecf3-dfbd-4274-8c90-6d6ce834598e`}
@@ -288,102 +448,324 @@ const MM00Presenter = ({
         <Image
           src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2F%E1%84%91%E1%85%A6%E1%86%BA%E1%84%86%E1%85%A1%E1%84%90%E1%85%B34.png?alt=media&token=7eb3e81b-935a-4abf-b4e0-af10cdd73a99`}
         />
-      </Fade>
-
-      <CommonSubTitle>펫마트와 함께 인생 제 2막 시작</CommonSubTitle>
+      </Fade> */}
 
       <Wrapper
-        dr={`row`}
-        margin={width < 900 ? `0 0 40px` : `0px 0 100px`}
-        padding={width < 900 ? `60px 10px` : `100px 50px`}
-        bgColor={`${Theme.black_C}`}
+        padding={width < 900 ? `60px 10px` : `100px 0`}
+        bgImg={`url("https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2F%E1%84%91%E1%85%A6%E1%86%BA%E1%84%86%E1%85%A1%E1%84%90%E1%85%B3%E1%84%8B%E1%85%AA%20%E1%84%92%E1%85%A1%E1%86%B7%E1%84%81%E1%85%A6-bgimg.png?alt=media&token=5b1c70e9-f378-4f2a-b469-235f5644357b")`}
+        attachment={`initial`}
       >
-        <Wrapper
-          width={width < 1300 ? `100%` : `30%`}
-          padding={width < 900 ? `0` : `0 60px 0 0`}
-          al={`flex-start`}
-        >
-          <Fade left>
+        <RsWrapper dr={`row`} ju={`space-between`} al={`flex-start`}>
+          <Wrapper width={width < 1300 ? `100%` : `40%`} al={`flex-start`}>
+            <Fade left>
+              <Text
+                fontSize={`72px`}
+                fontWeight={`400`}
+                lineHeight={`1.3`}
+                color={Theme.white_C}
+              >
+                펫마트와
+              </Text>
+              <Text
+                fontSize={`72px`}
+                fontWeight={`400`}
+                color={Theme.basicTheme_C}
+              >
+                함께 인생
+              </Text>
+              <Text
+                fontSize={`72px`}
+                fontWeight={`400`}
+                lineHeight={`1.3`}
+                color={Theme.white_C}
+              >
+                제2막 시작!
+              </Text>
+            </Fade>
+
             <Wrapper
-              fontSize={`60px`}
+              fontSize={`36px`}
               color={`${Theme.white_C}`}
               dr={`row`}
-              width={`auto`}
               ju={`flex-start`}
+              padding={`50px 0 0`}
             >
-              <DotTitle fontSize={width < 1000 && `40px !important`}>
-                가
+              <Text
+                fontSize={width < 1000 ? `40px !important` : `36px`}
+                fontWeight={`400`}
+                color={`${Theme.white_C}`}
+              >
+                가맹점
+              </Text>
+              <DotTitle fontSize={width < 1000 && `36px !important`}>
+                성
               </DotTitle>
-              <DotTitle fontSize={width < 1000 && `40px !important`}>
-                맹
+              <DotTitle fontSize={width < 1000 && `36px !important`}>
+                공
               </DotTitle>
-              <DotTitle fontSize={width < 1000 && `40px !important`}>
-                점
+              <DotTitle fontSize={width < 1000 && `36px !important`}>
+                스
+              </DotTitle>
+              <DotTitle fontSize={width < 1000 && `36px !important`}>
+                토
+              </DotTitle>
+              <DotTitle fontSize={width < 1000 && `36px !important`}>
+                리
               </DotTitle>
             </Wrapper>
             <Text
-              fontSize={width < 1000 ? `40px !important` : `60px`}
-              fontWeight={`600`}
-              borderBottom={`3px solid ${Theme.kakao_C}`}
-              color={`${Theme.white_C}`}
+              fontSize={`36px`}
+              fontWeight={`400`}
+              color={Theme.basicTheme_C}
             >
-              성공스토리
+              68호 군산점
             </Text>
-          </Fade>
-          <Text
-            margin={`40px 0 0px`}
-            fontSize={`19px`}
-            color={`${Theme.white_C}`}
+          </Wrapper>
+          <Wrapper
+            width={width < 1300 ? `100%` : `60%`}
+            height={
+              width < 1300
+                ? width < 900
+                  ? width < 700
+                    ? `300px`
+                    : `400px`
+                  : `500px`
+                : `420px`
+            }
+            isRelative={true}
+            cursor={`pointer`}
           >
-            반려동물 시장 6조원! 반려동물인구 1000만시대!
-          </Text>
+            <iframe
+              width="100%"
+              height="100%"
+              src="https://www.youtube.com/embed/FPzdQh8ahd0"
+            ></iframe>
+          </Wrapper>
 
-          <Text
-            margin={`0px 0 30px`}
-            fontSize={`19px`}
-            color={`${Theme.white_C}`}
+          {/* <Wrapper margin={`100px 0 20px`}>
+            <StartSilder vDatum={vDatum} width={width} />
+          </Wrapper> */}
+
+          <Wrapper
+            dr={`row`}
+            ju={`flex-start`}
+            padding={`100px 0`}
+            color={Theme.white_C}
           >
-            카페 · 외식창업 레드오션! 안정적인 창업을 원한다면?
-          </Text>
+            <Wrapper
+              width={`calc(100% / 3 - 20px)`}
+              margin={`10px`}
+              al={`flex-start`}
+            >
+              <Image
+                alt="image"
+                src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2F%E1%84%86%E1%85%A1%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%20%E1%84%80%E1%85%B3%E1%84%85%E1%85%AE%E1%86%B8%2011.png?alt=media&token=1f286929-ed13-43e3-bec6-9a0b42f8be29`}
+              />
+              <Text padding={`10px 0 15px`}>펫마트 진해점 성공스토리</Text>
+            </Wrapper>
+            <Wrapper
+              width={`calc(100% / 3 - 20px)`}
+              margin={`10px`}
+              al={`flex-start`}
+            >
+              <Image
+                alt="image"
+                src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2F%E1%84%86%E1%85%A1%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%20%E1%84%80%E1%85%B3%E1%84%85%E1%85%AE%E1%86%B8%2011.png?alt=media&token=1f286929-ed13-43e3-bec6-9a0b42f8be29`}
+              />
+              <Text padding={`10px 0 15px`}>펫마트 부산강서점 성공스토리</Text>
+            </Wrapper>
+            <Wrapper
+              width={`calc(100% / 3 - 20px)`}
+              margin={`10px`}
+              al={`flex-start`}
+            >
+              <Image
+                alt="image"
+                src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2F%E1%84%86%E1%85%A1%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%20%E1%84%80%E1%85%B3%E1%84%85%E1%85%AE%E1%86%B8%2011.png?alt=media&token=1f286929-ed13-43e3-bec6-9a0b42f8be29`}
+              />
+              <Text padding={`10px 0 15px`}>펫마트 제주도남점 성공스토리</Text>
+            </Wrapper>
+            <Wrapper
+              width={`calc(100% / 3 - 20px)`}
+              margin={`10px`}
+              al={`flex-start`}
+            >
+              <Image
+                alt="image"
+                src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2F%E1%84%86%E1%85%A1%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%20%E1%84%80%E1%85%B3%E1%84%85%E1%85%AE%E1%86%B8%2011.png?alt=media&token=1f286929-ed13-43e3-bec6-9a0b42f8be29`}
+              />
+              <Text padding={`10px 0 15px`}>펫마트 전주효자점 성공스토리</Text>
+            </Wrapper>
+          </Wrapper>
 
-          <Text color={`${Theme.white_C}`}>
-            많은 예비 창업자들의 선택! 펫마트를 운영하시는 실 운영점주님들의
-            인터뷰를 통해 원하는 해답을 얻을 수 있습니다!
-          </Text>
-          <Text margin={`40px 0`} color={`${Theme.white_C}`}>
-            68호 군산점
-          </Text>
-        </Wrapper>
-
-        <Wrapper
-          width={width < 1300 ? `100%` : `70%`}
-          height={
-            width < 1300
-              ? width < 900
-                ? width < 700
-                  ? `300px`
-                  : `400px`
-                : `500px`
-              : `720px`
-          }
-          isRelative={true}
-          cursor={`pointer`}
-        >
-          <iframe
-            width="100%"
-            height="100%"
-            src="https://www.youtube.com/embed/FPzdQh8ahd0"
-          ></iframe>
-        </Wrapper>
-
-        <Wrapper margin={`100px 0 20px`}>
-          <StartSilder vDatum={vDatum} width={width} />
-        </Wrapper>
+          <CommonButton>더보기</CommonButton>
+        </RsWrapper>
       </Wrapper>
 
-      <CommonSubTitle>왜 펫마트일까 ?</CommonSubTitle>
+      <RsWrapper padding={`100px 0`}>
+        <Text fontSize={`72px`}>
+          왜 <PetmartTitle>펫마트</PetmartTitle>일까 ?
+        </Text>
+        <Text fontSize={`24px`} fontWeight={`400`} margin={`20px 0 0`}>
+          예비 창업자들이 펫마트를 선택하는 이유!
+        </Text>
+        <Wrapper dr={`row`} al={`flex-start`} padding={`80px 0 0`}>
+          <Wrapper width={`calc(100% / 4 - 30px)`} margin={`15px`}>
+            <Image
+              al="image"
+              margin={`0 0 30px`}
+              src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2F%E1%84%8B%E1%85%AB%20%E1%84%91%E1%85%A6%E1%86%BA%E1%84%86%E1%85%A1%E1%84%90%E1%85%B3%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%81%E1%85%A1-image.png?alt=media&token=567644db-1799-48ea-8797-d29c687fbf89`}
+            />
+            <Image
+              width={`170px`}
+              alt="title"
+              margin={`0 0 30px`}
+              src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2Ftitle.png?alt=media&token=54662563-5a1e-4495-a5cd-70b136bb9db6`}
+            />
+            <Text fontSize={`15px`}>
+              체계적이고 안정적인 물류 시스템으로 일주일에
+            </Text>
+            <Text fontSize={`15px`}>
+              한번씩 본사 직접 배송으로 불필요한 재고를
+            </Text>
+            <Text fontSize={`15px`}>보유할 필요없음</Text>
+          </Wrapper>
+          <Wrapper width={`calc(100% / 4 - 30px)`} margin={`15px`}>
+            <Image
+              al="image"
+              margin={`0 0 30px`}
+              src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2F%E1%84%8B%E1%85%AB%20%E1%84%91%E1%85%A6%E1%86%BA%E1%84%86%E1%85%A1%E1%84%90%E1%85%B3%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%81%E1%85%A1-image.png?alt=media&token=567644db-1799-48ea-8797-d29c687fbf89`}
+            />
+            <Image
+              width={`270px`}
+              alt="title"
+              margin={`0 0 30px`}
+              src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2Ftitle-02.png?alt=media&token=5826e146-2c18-41a5-b2bf-a4c88acaddd5`}
+            />
+            <Text fontSize={`15px`}>
+              강아지, 고양이, 소동물까지 펫을 위한 마트!
+            </Text>
+          </Wrapper>
+          <Wrapper width={`calc(100% / 4 - 30px)`} margin={`15px`}>
+            <Image
+              al="image"
+              margin={`0 0 30px`}
+              src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2F%E1%84%8B%E1%85%AB%20%E1%84%91%E1%85%A6%E1%86%BA%E1%84%86%E1%85%A1%E1%84%90%E1%85%B3%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%81%E1%85%A1-image.png?alt=media&token=567644db-1799-48ea-8797-d29c687fbf89`}
+            />
+            <Image
+              width={`115px`}
+              alt="title"
+              margin={`0 0 30px`}
+              src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2Ftitle-03.png?alt=media&token=aed7cd2f-a151-428e-85f6-84368bc23de3`}
+            />
+            <Text fontSize={`15px`}>
+              가장 많은 비용을 차지하는 인테리어 비용을
+            </Text>
+            <Text fontSize={`15px`}>창업자 직접처리로 창업 비용 절감</Text>
+          </Wrapper>
+          <Wrapper width={`calc(100% / 4 - 30px)`} margin={`15px`}>
+            <Image
+              al="image"
+              margin={`0 0 30px`}
+              src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2F%E1%84%8B%E1%85%AB%20%E1%84%91%E1%85%A6%E1%86%BA%E1%84%86%E1%85%A1%E1%84%90%E1%85%B3%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%81%E1%85%A1-image.png?alt=media&token=567644db-1799-48ea-8797-d29c687fbf89`}
+            />
+            <Image
+              width={`230px`}
+              alt="title"
+              margin={`0 0 30px`}
+              src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2Ftitle-04.png?alt=media&token=5facaee5-bbc1-4f36-94b0-5b20ca63737f`}
+            />
+            <Text fontSize={`15px`}>
+              코로나로 인해 폐업률이 높은 자영업계에
+            </Text>
+            <Text fontSize={`15px`}>비해 낮은 폐업률을 자랑하는 펫마트!</Text>
+          </Wrapper>
+        </Wrapper>
+        <Wrapper dr={`row`} ju={`space-between`}>
+          <Image
+            width={`auto`}
+            al="업계유일"
+            src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2F%E1%84%8B%E1%85%A5%E1%86%B8%E1%84%80%E1%85%A8%E1%84%8B%E1%85%B2%E1%84%8B%E1%85%B5%E1%86%AF.png?alt=media&token=8d06f89a-e701-4e27-9fa1-ffb4f2854265`}
+          />
+          <Image
+            width={`auto`}
+            al="업계최초"
+            src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2F%E1%84%8B%E1%85%A5%E1%86%B8%E1%84%80%E1%85%A8%E1%84%8E%E1%85%AC%E1%84%83%E1%85%A1.png?alt=media&token=8b603778-c340-463d-aba3-9f148de88677`}
+          />
+          <Image
+            width={`auto`}
+            al="업계최다"
+            src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2F%E1%84%8B%E1%85%A5%E1%86%B8%E1%84%80%E1%85%A8%E1%84%8E%E1%85%AC%E1%84%8E%E1%85%A9.png?alt=media&token=f445f760-cb41-420c-8da4-73e996187bd4`}
+          />
+        </Wrapper>
+        <Wrapper dr={`row`} al={`flex-start`}>
+          <Wrapper width={`calc(100% / 4 - 30px)`} margin={`15px`}>
+            <Image
+              al="image"
+              margin={`0 0 30px`}
+              src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2F%E1%84%8B%E1%85%AB%20%E1%84%91%E1%85%A6%E1%86%BA%E1%84%86%E1%85%A1%E1%84%90%E1%85%B3%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%81%E1%85%A1-image.png?alt=media&token=567644db-1799-48ea-8797-d29c687fbf89`}
+            />
+            <Image
+              width={`240px`}
+              alt="title"
+              margin={`0 0 30px`}
+              src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2Ftitle-05.png?alt=media&token=eda7268e-61e3-4052-b46b-bfcc57af5542`}
+            />
+            <Text fontSize={`15px`}>
+              월별, 분기별, 시즌에 맞는 이벤트 기획 운영
+            </Text>
+          </Wrapper>
+          <Wrapper width={`calc(100% / 4 - 30px)`} margin={`15px`}>
+            <Image
+              al="image"
+              margin={`0 0 30px`}
+              src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2F%E1%84%8B%E1%85%AB%20%E1%84%91%E1%85%A6%E1%86%BA%E1%84%86%E1%85%A1%E1%84%90%E1%85%B3%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%81%E1%85%A1-image.png?alt=media&token=567644db-1799-48ea-8797-d29c687fbf89`}
+            />
+            <Image
+              width={`200px`}
+              alt="title"
+              margin={`0 0 30px`}
+              src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2Ftitle-06.png?alt=media&token=666fe200-a8f9-4657-a922-e88268082a68`}
+            />
+            <Text fontSize={`15px`}>
+              매장 담당자 지정관리로 빠른 피드백은 물론
+            </Text>
+            <Text fontSize={`15px`}>매장수익분석, 교육 등 컨설팅 가능</Text>
+          </Wrapper>
+          <Wrapper width={`calc(100% / 4 - 30px)`} margin={`15px`}>
+            <Image
+              al="image"
+              margin={`0 0 30px`}
+              src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2F%E1%84%8B%E1%85%AB%20%E1%84%91%E1%85%A6%E1%86%BA%E1%84%86%E1%85%A1%E1%84%90%E1%85%B3%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%81%E1%85%A1-image.png?alt=media&token=567644db-1799-48ea-8797-d29c687fbf89`}
+            />
+            <Image
+              width={`195px`}
+              alt="title"
+              margin={`0 0 30px`}
+              src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2Ftitle-07.png?alt=media&token=181789d6-6729-4eac-b9d3-f1aefccde640`}
+            />
+            <Text fontSize={`15px`}>신상 품평회를 개최하여</Text>
+            <Text fontSize={`15px`}>최신 트렌드에 맞는 신상입고</Text>
+          </Wrapper>
+          <Wrapper width={`calc(100% / 4 - 30px)`} margin={`15px`}>
+            <Image
+              al="image"
+              margin={`0 0 30px`}
+              src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2F%E1%84%8B%E1%85%AB%20%E1%84%91%E1%85%A6%E1%86%BA%E1%84%86%E1%85%A1%E1%84%90%E1%85%B3%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%81%E1%85%A1-image.png?alt=media&token=567644db-1799-48ea-8797-d29c687fbf89`}
+            />
+            <Image
+              width={`170px`}
+              alt="title"
+              margin={`0 0 30px`}
+              src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2Ftitle-08.png?alt=media&token=1342bc6d-6bd8-4d0e-8de3-04762d72192e`}
+            />
+            <Text fontSize={`15px`}>TV, 옥외광고 등 브랜딩, 바이럴,</Text>
+            <Text fontSize={`15px`}>신규고객 창출을 위한 마케팅 기획운영</Text>
+          </Wrapper>
+        </Wrapper>
+      </RsWrapper>
 
-      <Wrapper
+      {/* <Wrapper
         margin={`50px 0`}
         padding={`30px 0`}
         fontSize={`40px`}
@@ -391,9 +773,9 @@ const MM00Presenter = ({
         bgColor={`${Theme.basicTheme_C}`}
       >
         예비 창업자들이 펫마트를 선택하는 이유 !
-      </Wrapper>
+      </Wrapper> */}
 
-      <Wrapper
+      {/* <Wrapper
         dr={`row`}
         al={`flex-start`}
         padding={width < 900 ? `30px 0` : `30px`}
@@ -723,14 +1105,118 @@ const MM00Presenter = ({
             </Wrapper>
           </Fade>
         </Wrapper>
+      </Wrapper> */}
+      <Wrapper bgColor={`rgb(34, 34, 34)`} padding={`100px 0`}>
+        <Wrapper fontSize={`48px`} color={Theme.white_C}>
+          매장 인테리어
+        </Wrapper>
+        <Text
+          fontSize={`24px`}
+          fontWeight={`400`}
+          color={Theme.white_C}
+          margin={`30px 0 0`}
+        >
+          불필요한 것은 빼고
+          <SpanText color={Theme.basicTheme_C}>&nbsp;꼭 필요한 것</SpanText>만
+          담았습니다.
+        </Text>
+
+        <InteriorSilder />
       </Wrapper>
-
-      <RsWrapper>
-        <CommonSubTitle>창업문의</CommonSubTitle>
-
+      <RsWrapper padding={`100px 0`}>
+        <Wrapper fontSize={`48px`}>개설비용</Wrapper>
         <Wrapper
+          margin={`50px 0`}
+          height={`700px`}
+          attachment={`initial`}
+          bgImg={`url("https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2F%E1%84%80%E1%85%A2%E1%84%89%E1%85%A5%E1%86%AF%E1%84%87%E1%85%B5%E1%84%8B%E1%85%AD%E1%86%BC.png?alt=media&token=928f4b0a-ff96-4bbc-8a90-0d1e02747425")`}
+        >
+          <Wrapper
+            width={`50%`}
+            bgColor={Theme.white_C}
+            radius={`20px`}
+            shadow={`3px 3px 3px #eee`}
+          >
+            <Wrapper padding={`50px 110px`}>
+              <Text fontSize={`48px`}>창업문의</Text>
+              <Text
+                fontSize={`18px`}
+                fontWeight={`400`}
+                color={`rgb(170, 170, 170)`}
+              >
+                펫마트의 전문 창업상담사 항시대기
+              </Text>
+              <Text
+                fontSize={`18px`}
+                fontWeight={`400`}
+                color={`rgb(170, 170, 170)`}
+              >
+                1:1문의로 편안하고 빠른 안내를 받아보세요.
+              </Text>
+              <Wrapper
+                dr={`row`}
+                padding={`30px 0 0`}
+                ju={`flex-start`}
+                al={`flex-start`}
+              >
+                <Wrapper dr={`row`} width={`auto`} margin={`0 30px 0 0`}>
+                  <Image
+                    width={`25px`}
+                    alt="phone"
+                    margin={`0 10px 0 0`}
+                    src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2Fphone.png?alt=media&token=2da32b63-c01f-415d-bbe6-2850c7d7d0ae`}
+                  />
+                  <Text width={`auto`} fontSize={`24px`} fontWeight={`400`}>
+                    연락처
+                  </Text>
+                </Wrapper>
+                <Text
+                  fontSize={`24px`}
+                  fontWeight={`400`}
+                  color={`rgb(102, 102, 102)`}
+                >
+                  1588-1684
+                </Text>
+              </Wrapper>
+              <Wrapper dr={`row`} ju={`flex-start`} al={`flex-start`}>
+                <Wrapper dr={`row`} width={`auto`} margin={`0 30px 0 0`}>
+                  <Image
+                    width={`25px`}
+                    alt="mail"
+                    margin={`0 10px 0 0`}
+                    src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2Fmail.png?alt=media&token=a879f66c-9984-48c8-b7f4-be5013e808dc`}
+                  />
+                  <Text fontSize={`24px`} fontWeight={`400`}>
+                    E-mail
+                  </Text>
+                </Wrapper>
+                <Text
+                  fontSize={`24px`}
+                  fontWeight={`400`}
+                  color={`rgb(102, 102, 102)`}
+                >
+                  ebajslee@sunjinpet.co.kr
+                </Text>
+              </Wrapper>
+            </Wrapper>
+            <Wrapper
+              bgColor={`rgb(34, 34, 34)`}
+              radius={`0 0 20px 20px`}
+              color={Theme.white_C}
+              padding={`30px 0`}
+              fontSize={`24px`}
+            >
+              신청하기
+            </Wrapper>
+          </Wrapper>
+        </Wrapper>
+        <Text fontSize={`18px`}>
+          ※상기 자료는 지역, 상권의 특성 및 매장 구조 등의 시장 상황에 따라 변동
+          될 수 있습니다. (별도 : 임차보증금, 임차료, 기타)
+        </Text>
+        {/* <Wrapper
           width={`100%`}
-          padding={width < 900 ? `40px 15px` : `80px`}
+          padding={width < 900 ?  `40px 15px` : `80px`}
           margin={`0 0 100px`}
           bgColor={`${Theme.greyArea_C}`}
           shadow={`3px 3px 3px ${Theme.grey_C}`}
@@ -753,7 +1239,7 @@ const MM00Presenter = ({
               문의하러가기
             </CommonButton>
           </Link>
-        </Wrapper>
+        </Wrapper> */}
       </RsWrapper>
       <Popup />
     </WholeWrapper>
