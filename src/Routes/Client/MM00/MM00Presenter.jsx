@@ -152,7 +152,7 @@ const MM00Presenter = ({
       {/* <MainSlider
         mainBannerData={width < 700 ? mobileBannerData : mainBannerData}
       /> */}
-      <RsWrapper padding={width < 700 ? `60px 0` : `100px 0`}>
+      <RsWrapper padding={width < 700 ? `60px 0 30px` : `100px 0`}>
         <MainTilte>매장현황</MainTilte>
       </RsWrapper>
 

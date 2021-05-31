@@ -59,8 +59,8 @@ const ShopImage = styled(Image)`
   }
 
   @media (max-width: 800px) {
-    width: 150px;
-    height: 150px;
+    width: 180px;
+    height: 180px;
   }
 `;
 
