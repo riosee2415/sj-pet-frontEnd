@@ -357,7 +357,9 @@ const MM00Presenter = ({
             5000여개의 품목을 취급하고 있습니다.
           </Text>
         </Wrapper>
-        <BrandSilder width={width} bDatum={currentBrand} />
+        <Wrapper margin={`0px 0 70px 285px`}>
+          <BrandSilder width={width} bDatum={currentBrand} />
+        </Wrapper>
       </Wrapper>
       <Wrapper
         display={width < 700 ? `flex` : `none`}

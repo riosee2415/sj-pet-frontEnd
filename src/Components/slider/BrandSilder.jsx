@@ -23,6 +23,8 @@ export default ({ width, bDatum, isColumn, moveLinkHandler }) => {
       flex-direction: ${(props) => (props.isColumn ? `row` : `column`)};
     }
     .swiper-slide {
+      display: flex;
+      justify-content: center;
       margin-top: ${(props) => (props.isColumn ? `0 !important` : `0`)};
     }
   `;
@@ -30,9 +32,9 @@ export default ({ width, bDatum, isColumn, moveLinkHandler }) => {
   return (
     <Container isColumn={isColumn}>
       <Swiper
-        spaceBetween={1}
-        slidesPerView={isColumn ? 1 : width > 1000 ? 5 : width > 800 ? 2 : 1}
-        slidesPerColumn={isColumn ? 5 : 1}
+        // spaceBetween={1}
+        slidesPerView={isColumn ? 4.9 : width > 1000 ? 5 : width > 800 ? 3 : 2}
+        slidesPerColumn={isColumn ? 2 : 1}
         centeredSlides={isColumn}
         autoplay={true}
         navigation={false}
@@ -49,9 +51,8 @@ export default ({ width, bDatum, isColumn, moveLinkHandler }) => {
                       <BrandLogo
                         alt="brand"
                         src={brand.thumbnail}
-                        isFilter={true}
-                        isHover={true}
-                        width={`200px`}
+                        // isFilter={false}
+                        // isHover={true}
                         margin={`10px 0`}
                       />
                     );
