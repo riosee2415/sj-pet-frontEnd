@@ -108,6 +108,11 @@ const PetmartTitle = styled(SpanText)`
     background-color: ${(props) => props.theme.basicTheme_C};
     padding: 0 10px 10px;
     z-index: -1000;
+
+    @media (max-width: 700px) {
+      padding: 0 5px 5px;
+      left: -5px;
+    }
   }
 `;
 
@@ -451,12 +456,16 @@ const MM00Presenter = ({
       </Fade> */}
 
       <Wrapper
-        padding={width < 900 ? `60px 10px` : `100px 0`}
+        padding={width < 900 ? `60px 0` : `100px 0`}
         bgImg={`url("https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2F%E1%84%91%E1%85%A6%E1%86%BA%E1%84%86%E1%85%A1%E1%84%90%E1%85%B3%E1%84%8B%E1%85%AA%20%E1%84%92%E1%85%A1%E1%86%B7%E1%84%81%E1%85%A6-bgimg.png?alt=media&token=5b1c70e9-f378-4f2a-b469-235f5644357b")`}
         attachment={`initial`}
       >
         <RsWrapper dr={`row`} ju={`space-between`} al={`flex-start`}>
-          <Wrapper width={width < 1300 ? `100%` : `40%`} al={`flex-start`}>
+          <Wrapper
+            display={width > 700 ? `flex` : `none`}
+            width={width < 1300 ? `100%` : `40%`}
+            al={`flex-start`}
+          >
             <Fade left>
               <Text
                 fontSize={`72px`}
@@ -521,6 +530,24 @@ const MM00Presenter = ({
               68호 군산점
             </Text>
           </Wrapper>
+
+          <Wrapper display={width < 700 ? `flex` : `none`} al={`flex-start`}>
+            <Text color={Theme.white_C} fontSize={`24px !important`}>
+              펫마트와
+              <SpanText color={Theme.basicTheme_C}>함께 인생 제2막</SpanText>
+              시작!
+            </Text>
+          </Wrapper>
+          <Wrapper display={width < 700 ? `flex` : `none`} padding={`20px 0`}>
+            <Text
+              color={Theme.white_C}
+              fontSize={`18px !important`}
+              fontWeight={`400`}
+            >
+              가맹점 성공스토리 68호 군산점
+            </Text>
+          </Wrapper>
+
           <Wrapper
             width={width < 1300 ? `100%` : `60%`}
             height={
@@ -549,11 +576,11 @@ const MM00Presenter = ({
           <Wrapper
             dr={`row`}
             ju={`flex-start`}
-            padding={`100px 0`}
+            padding={width < 900 ? `50px 0` : `100px 0`}
             color={Theme.white_C}
           >
             <Wrapper
-              width={`calc(100% / 3 - 20px)`}
+              width={width < 900 ? `100%` : `calc(100% / 3 - 20px)`}
               margin={`10px`}
               al={`flex-start`}
             >
@@ -564,7 +591,7 @@ const MM00Presenter = ({
               <Text padding={`10px 0 15px`}>펫마트 진해점 성공스토리</Text>
             </Wrapper>
             <Wrapper
-              width={`calc(100% / 3 - 20px)`}
+              width={width < 900 ? `100%` : `calc(100% / 3 - 20px)`}
               margin={`10px`}
               al={`flex-start`}
             >
@@ -575,7 +602,7 @@ const MM00Presenter = ({
               <Text padding={`10px 0 15px`}>펫마트 부산강서점 성공스토리</Text>
             </Wrapper>
             <Wrapper
-              width={`calc(100% / 3 - 20px)`}
+              width={width < 900 ? `100%` : `calc(100% / 3 - 20px)`}
               margin={`10px`}
               al={`flex-start`}
             >
@@ -586,7 +613,7 @@ const MM00Presenter = ({
               <Text padding={`10px 0 15px`}>펫마트 제주도남점 성공스토리</Text>
             </Wrapper>
             <Wrapper
-              width={`calc(100% / 3 - 20px)`}
+              width={width < 900 ? `100%` : `calc(100% / 3 - 20px)`}
               margin={`10px`}
               al={`flex-start`}
             >
@@ -602,15 +629,24 @@ const MM00Presenter = ({
         </RsWrapper>
       </Wrapper>
 
-      <RsWrapper padding={`100px 0`}>
-        <Text fontSize={`72px`}>
+      <RsWrapper padding={width < 700 ? `60px 0` : `100px 0`}>
+        <Text fontSize={width < 700 ? `24px !important` : `72px`}>
           왜 <PetmartTitle>펫마트</PetmartTitle>일까 ?
         </Text>
-        <Text fontSize={`24px`} fontWeight={`400`} margin={`20px 0 0`}>
+        <Text
+          fontSize={width < 700 ? `14px !important` : `24px`}
+          fontWeight={`400`}
+          margin={`20px 0 0`}
+        >
           예비 창업자들이 펫마트를 선택하는 이유!
         </Text>
         <Wrapper dr={`row`} al={`flex-start`} padding={`80px 0 0`}>
-          <Wrapper width={`calc(100% / 4 - 30px)`} margin={`15px`}>
+          <Wrapper
+            width={
+              width < 1100 ? `calc(100% / 2 - 30px)` : `calc(100% / 4 - 30px)`
+            }
+            margin={`15px`}
+          >
             <Image
               al="image"
               margin={`0 0 30px`}
@@ -630,7 +666,12 @@ const MM00Presenter = ({
             </Text>
             <Text fontSize={`15px`}>보유할 필요없음</Text>
           </Wrapper>
-          <Wrapper width={`calc(100% / 4 - 30px)`} margin={`15px`}>
+          <Wrapper
+            width={
+              width < 1100 ? `calc(100% / 2 - 30px)` : `calc(100% / 4 - 30px)`
+            }
+            margin={`15px`}
+          >
             <Image
               al="image"
               margin={`0 0 30px`}
@@ -646,7 +687,12 @@ const MM00Presenter = ({
               강아지, 고양이, 소동물까지 펫을 위한 마트!
             </Text>
           </Wrapper>
-          <Wrapper width={`calc(100% / 4 - 30px)`} margin={`15px`}>
+          <Wrapper
+            width={
+              width < 1100 ? `calc(100% / 2 - 30px)` : `calc(100% / 4 - 30px)`
+            }
+            margin={`15px`}
+          >
             <Image
               al="image"
               margin={`0 0 30px`}
@@ -663,7 +709,12 @@ const MM00Presenter = ({
             </Text>
             <Text fontSize={`15px`}>창업자 직접처리로 창업 비용 절감</Text>
           </Wrapper>
-          <Wrapper width={`calc(100% / 4 - 30px)`} margin={`15px`}>
+          <Wrapper
+            width={
+              width < 1100 ? `calc(100% / 2 - 30px)` : `calc(100% / 4 - 30px)`
+            }
+            margin={`15px`}
+          >
             <Image
               al="image"
               margin={`0 0 30px`}
@@ -699,7 +750,12 @@ const MM00Presenter = ({
           />
         </Wrapper>
         <Wrapper dr={`row`} al={`flex-start`}>
-          <Wrapper width={`calc(100% / 4 - 30px)`} margin={`15px`}>
+          <Wrapper
+            width={
+              width < 1100 ? `calc(100% / 2 - 30px)` : `calc(100% / 4 - 30px)`
+            }
+            margin={`15px`}
+          >
             <Image
               al="image"
               margin={`0 0 30px`}
@@ -715,7 +771,12 @@ const MM00Presenter = ({
               월별, 분기별, 시즌에 맞는 이벤트 기획 운영
             </Text>
           </Wrapper>
-          <Wrapper width={`calc(100% / 4 - 30px)`} margin={`15px`}>
+          <Wrapper
+            width={
+              width < 1100 ? `calc(100% / 2 - 30px)` : `calc(100% / 4 - 30px)`
+            }
+            margin={`15px`}
+          >
             <Image
               al="image"
               margin={`0 0 30px`}
@@ -732,7 +793,12 @@ const MM00Presenter = ({
             </Text>
             <Text fontSize={`15px`}>매장수익분석, 교육 등 컨설팅 가능</Text>
           </Wrapper>
-          <Wrapper width={`calc(100% / 4 - 30px)`} margin={`15px`}>
+          <Wrapper
+            width={
+              width < 1100 ? `calc(100% / 2 - 30px)` : `calc(100% / 4 - 30px)`
+            }
+            margin={`15px`}
+          >
             <Image
               al="image"
               margin={`0 0 30px`}
@@ -747,7 +813,12 @@ const MM00Presenter = ({
             <Text fontSize={`15px`}>신상 품평회를 개최하여</Text>
             <Text fontSize={`15px`}>최신 트렌드에 맞는 신상입고</Text>
           </Wrapper>
-          <Wrapper width={`calc(100% / 4 - 30px)`} margin={`15px`}>
+          <Wrapper
+            width={
+              width < 1100 ? `calc(100% / 2 - 30px)` : `calc(100% / 4 - 30px)`
+            }
+            margin={`15px`}
+          >
             <Image
               al="image"
               margin={`0 0 30px`}
@@ -1106,15 +1177,21 @@ const MM00Presenter = ({
           </Fade>
         </Wrapper>
       </Wrapper> */}
-      <Wrapper bgColor={`rgb(34, 34, 34)`} padding={`100px 0`}>
-        <Wrapper fontSize={`48px`} color={Theme.white_C}>
+      <Wrapper
+        bgColor={`rgb(34, 34, 34)`}
+        padding={width < 700 ? `60px 0` : `100px 0`}
+      >
+        <Wrapper
+          fontSize={width < 700 ? `24px !important` : `48px`}
+          color={Theme.white_C}
+        >
           매장 인테리어
         </Wrapper>
         <Text
-          fontSize={`24px`}
+          fontSize={width < 700 ? `14px !important` : `24px`}
           fontWeight={`400`}
           color={Theme.white_C}
-          margin={`30px 0 0`}
+          margin={width < 700 ? `20px 0` : `30px 0`}
         >
           불필요한 것은 빼고
           <SpanText color={Theme.basicTheme_C}>&nbsp;꼭 필요한 것</SpanText>만
@@ -1123,7 +1200,7 @@ const MM00Presenter = ({
 
         <InteriorSilder />
       </Wrapper>
-      <RsWrapper padding={`100px 0`}>
+      <RsWrapper padding={`100px 0`} display={width > 700 ? `flex` : `none`}>
         <Wrapper fontSize={`48px`}>개설비용</Wrapper>
         <Wrapper
           margin={`50px 0`}
@@ -1132,13 +1209,15 @@ const MM00Presenter = ({
           bgImg={`url("https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2F%E1%84%80%E1%85%A2%E1%84%89%E1%85%A5%E1%86%AF%E1%84%87%E1%85%B5%E1%84%8B%E1%85%AD%E1%86%BC.png?alt=media&token=928f4b0a-ff96-4bbc-8a90-0d1e02747425")`}
         >
           <Wrapper
-            width={`50%`}
+            width={width < 1100 ? `70%` : `50%`}
             bgColor={Theme.white_C}
             radius={`20px`}
             shadow={`3px 3px 3px #eee`}
           >
-            <Wrapper padding={`50px 110px`}>
-              <Text fontSize={`48px`}>창업문의</Text>
+            <Wrapper padding={width < 900 ? `30px 70px` : `50px 110px`}>
+              <Text fontSize={width < 900 ? `30px !important` : `48px`}>
+                창업문의
+              </Text>
               <Text
                 fontSize={`18px`}
                 fontWeight={`400`}
@@ -1166,12 +1245,16 @@ const MM00Presenter = ({
                     margin={`0 10px 0 0`}
                     src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2Fphone.png?alt=media&token=2da32b63-c01f-415d-bbe6-2850c7d7d0ae`}
                   />
-                  <Text width={`auto`} fontSize={`24px`} fontWeight={`400`}>
+                  <Text
+                    width={`auto`}
+                    fontSize={width < 1200 ? `20px` : `24px`}
+                    fontWeight={`400`}
+                  >
                     연락처
                   </Text>
                 </Wrapper>
                 <Text
-                  fontSize={`24px`}
+                  fontSize={width < 1200 ? `20px` : `24px`}
                   fontWeight={`400`}
                   color={`rgb(102, 102, 102)`}
                 >
@@ -1186,12 +1269,15 @@ const MM00Presenter = ({
                     margin={`0 10px 0 0`}
                     src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2Fmail.png?alt=media&token=a879f66c-9984-48c8-b7f4-be5013e808dc`}
                   />
-                  <Text fontSize={`24px`} fontWeight={`400`}>
+                  <Text
+                    fontSize={width < 1200 ? `20px` : `24px`}
+                    fontWeight={`400`}
+                  >
                     E-mail
                   </Text>
                 </Wrapper>
                 <Text
-                  fontSize={`24px`}
+                  fontSize={width < 1200 ? `20px` : `24px`}
                   fontWeight={`400`}
                   color={`rgb(102, 102, 102)`}
                 >
@@ -1241,6 +1327,16 @@ const MM00Presenter = ({
           </Link>
         </Wrapper> */}
       </RsWrapper>
+
+      <Wrapper
+        display={width < 700 ? `flex` : `none`}
+        bgColor={`#FFCB08`}
+        color={Theme.white_C}
+      >
+        <Text fontSize={width < 900 ? `30px !important` : `48px`}>
+          창업문의
+        </Text>
+      </Wrapper>
       <Popup />
     </WholeWrapper>
   );
