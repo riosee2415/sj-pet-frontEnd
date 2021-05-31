@@ -46,6 +46,22 @@ const Fade = withSplitting(() => import("react-reveal/Fade"));
 const LightSpeed = withSplitting(() => import("react-reveal/LightSpeed"));
 const Bounce = withSplitting(() => import("react-reveal/Bounce"));
 
+const ShopWrapper = styled(Wrapper)`
+  margin: 0px 0 70px 285px;
+
+  @media (max-width: 1600px) {
+    margin: 0px 0 70px 380px;
+  }
+
+  @media (max-width: 1100px) {
+    margin: 0 0 70px;
+  }
+
+  @media (max-width: 700px) {
+    margin: 0 0 70px;
+  }
+`;
+
 const MainTilte = styled(Wrapper)`
   font-size: 36px;
   align-items: flex-start;
@@ -145,7 +161,11 @@ const MM00Presenter = ({
           isAbsolute={true}
           top={`0`}
           left={`0`}
-          src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2Fmain.png?alt=media&token=513742c3-4314-4e37-8c2d-8262c1e12fd9`}
+          src={
+            width < 700
+              ? `https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2Fmainbanner-mobile.png?alt=media&token=956361d1-b562-4922-b06a-72c35d87956f`
+              : `https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2Fmain.png?alt=media&token=513742c3-4314-4e37-8c2d-8262c1e12fd9`
+          }
         />
       </Wrapper>
 
@@ -156,13 +176,13 @@ const MM00Presenter = ({
         <MainTilte>매장현황</MainTilte>
       </RsWrapper>
 
-      <Wrapper margin={width < 700 ? `0 0 70px` : `0px 0 70px 285px`}>
+      <ShopWrapper>
         <ShopSilder
           sDatum={sDatum}
           moveLinkHandler={moveLinkHandler}
           width={width}
         />
-      </Wrapper>
+      </ShopWrapper>
       <Wrapper bgColor={`#032950`} padding={width < 700 ? `60px 0` : `100px 0`}>
         <RsWrapper>
           <Wrapper dr={`row`} isRelative={true}>
