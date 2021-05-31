@@ -153,7 +153,7 @@ export const RsWrapper = styled.div`
   height: ${(props) => props.height || `100%`};
   ${(props) => props.minHeight && `min-height: ${props.minHeight};`}
   color: ${(props) => props.color};
-  display: flex;
+  display: ${(props) => props.display || `flex`};
   background: ${(props) => props.bgColor};
   color: ${(props) => props.color};
   flex-direction: ${(props) => props.dr || `column`};
