@@ -634,10 +634,12 @@ const MM00Presenter = ({
               <Text padding={`10px 0 15px`}>펫마트 전주효자점 성공스토리</Text>
             </Wrapper>
           </Wrapper>
-          <Wrapper>
-            <CommonButton width={`40%`} fontSize={`18px`}>
-              더보기
-            </CommonButton>
+          <Wrapper
+            padding={`15px 0`}
+            border={`1px solid ${Theme.white_C}`}
+            color={Theme.white_C}
+          >
+            더보기
           </Wrapper>
         </RsWrapper>
       </Wrapper>
