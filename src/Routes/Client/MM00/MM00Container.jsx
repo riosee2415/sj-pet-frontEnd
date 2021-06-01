@@ -15,6 +15,7 @@ import { animateScroll as scroll } from "react-scroll";
 
 const MM00Container = ({ history }) => {
   ////////////// - USE STATE- ///////////////
+  const [isMore, setIsMore] = useState(false);
 
   ////////////// - USE QUERY- ///////////////
   const {
@@ -103,6 +104,8 @@ const MM00Container = ({ history }) => {
   return (
     <MM00Presenter
       currentBrand={currentBrand}
+      isMore={isMore}
+      setIsMore={setIsMore}
       //
       sDatum={sDatum && sDatum.getAllStoreByImportant}
       vDatum={vDatum && vDatum.getAllStoryViewList}
