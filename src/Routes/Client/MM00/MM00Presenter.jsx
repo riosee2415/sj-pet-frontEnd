@@ -26,8 +26,8 @@ import CircularIndeterminate from "../../../Components/loading/CircularIndetermi
 const Popup = withSplitting(() =>
   import("../../../Components/popup/Popup.jsx")
 );
-const MainSlider = withSplitting(() =>
-  import("../../../Components/slider/MainSlider.jsx")
+const EventSlider = withSplitting(() =>
+  import("../../../Components/slider/EventSlider.jsx")
 );
 const ShopSilder = withSplitting(() =>
   import("../../../Components/slider/ShopSilder.jsx")
@@ -60,7 +60,7 @@ const ShopWrapper = styled(Wrapper)`
   }
 
   @media (max-width: 700px) {
-    margin: 0 0 70px;
+    margin: 0 0 70px 10px;
   }
 `;
 
@@ -68,15 +68,15 @@ const BrandWrapper = styled(Wrapper)`
   padding: 0px 0 100px 285px;
 
   @media (max-width: 1600px) {
-    margin: 0px 0 70px 380px;
+    padding: 0px 0 70px 380px;
   }
 
   @media (max-width: 1100px) {
-    margin: 0 0 70px;
+    padding: 0 0 70px;
   }
 
   @media (max-width: 700px) {
-    margin: 0 0 70px;
+    padding: 0 0 40px;
   }
 `;
 
@@ -134,6 +134,7 @@ const PetmartTitle = styled(SpanText)`
   width: auto;
   color: ${(props) => props.theme.white_C};
   position: relative;
+  margin: 0 3px;
 
   &:before {
     content: "";
@@ -143,7 +144,7 @@ const PetmartTitle = styled(SpanText)`
     width: 100%;
     height: 100%;
     background-color: ${(props) => props.theme.basicTheme_C};
-    padding: 0 10px 10px;
+    padding: 0 5px 10px;
     z-index: -1000;
 
     @media (max-width: 700px) {
@@ -365,7 +366,7 @@ const MM00Presenter = ({
 
       <Wrapper
         bgColor={width < 700 ? `none` : `rgb(238, 238, 238)`}
-        padding={width < 700 ? `40px 10px` : `100px 0 0`}
+        padding={width < 700 ? `40px 10px 0` : `100px 0 0`}
       >
         <Wrapper
           fontSize={width < 700 ? `18px !important` : `48px`}
@@ -387,7 +388,7 @@ const MM00Presenter = ({
         <Wrapper
           display={width < 700 ? `flex` : `none`}
           al={`flex-start`}
-          margin={`10px 0 0`}
+          margin={`10px 0 30px`}
         >
           <Text
             fontSize={width < 700 ? `12px !important` : `24px`}
@@ -426,7 +427,7 @@ const MM00Presenter = ({
           al={`flex-start`}
         >
           <Text lineHeight={`1.3`} fontSize={`72px`} fontWeight={`400`}>
-            지금!
+            지금!&nbsp;
           </Text>
           <Text
             lineHeight={`1.3`}
@@ -460,7 +461,7 @@ const MM00Presenter = ({
             fontSize={`24px !important`}
             fontWeight={`400`}
           >
-            지금!<SpanText color={Theme.basicTheme_C}>펫마트</SpanText>를
+            지금!&nbsp;<SpanText color={Theme.basicTheme_C}>펫마트</SpanText>를
           </Text>
 
           <Text
@@ -480,9 +481,8 @@ const MM00Presenter = ({
           alt="image"
           src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2F%E1%84%91%E1%85%A6%E1%86%BA%E1%84%86%E1%85%A1%E1%84%90%E1%85%B3%E1%84%85%E1%85%B3%E1%86%AF%20%E1%84%89%E1%85%B5%E1%84%8C%E1%85%A1%E1%86%A8%E1%84%92%E1%85%A2%E1%84%8B%E1%85%A3%20%E1%84%83%E1%85%AC%E1%84%82%E1%85%B3%E1%86%AB%20%E1%84%8B%E1%85%B5%E1%84%8B%E1%85%B2.png?alt=media&token=87679fe5-7df9-4b8a-9d83-749d171f0784`}
         />
-
         <Wrapper display={width < 700 ? `flex` : `none`}>
-          <StartSilder vDatum={vDatum} width={width} />
+          <EventSlider />
         </Wrapper>
       </RsWrapper>
 
@@ -1467,9 +1467,11 @@ const MM00Presenter = ({
             </Text>
           </Wrapper>
         </Wrapper>
-        <Wrapper padding={`15px 0`} bgColor={Theme.black_C}>
-          신청하기
-        </Wrapper>
+        <LinkTag to="/contact">
+          <CommonButton width={`100%`} kindOf={`black`} height={`40px`}>
+            신청하기
+          </CommonButton>
+        </LinkTag>
       </Wrapper>
       <Popup />
     </WholeWrapper>

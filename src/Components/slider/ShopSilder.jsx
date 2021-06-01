@@ -40,7 +40,7 @@ const Title = styled(Text)`
 
   @media (max-width: 700px) {
     font-size: 11px !important;
-    margin: -70px 0 0 -70px;
+    margin: -50px 0 0 -70px;
   }
 `;
 
@@ -64,8 +64,8 @@ const ShopImage = styled(Wrapper)`
   }
 
   @media (max-width: 800px) {
-    width: 180px;
-    height: 180px;
+    width: 159px;
+    height: 159px;
   }
 `;
 
@@ -89,7 +89,7 @@ export default ({ width, sDatum, isColumn, moveLinkHandler }) => {
     <Container isColumn={isColumn}>
       <Swiper
         slidesPerView={
-          isColumn ? 4.9 : width > 1200 ? 4.9 : width > 800 ? 3 : 2
+          isColumn ? 4.9 : width > 1200 ? 4.9 : width > 800 ? 3 : 2.1
         }
         slidesPerColumn={isColumn ? 2 : 1}
         centeredSlides={isColumn}
