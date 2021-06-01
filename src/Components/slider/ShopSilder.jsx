@@ -21,7 +21,7 @@ const Title = styled(Text)`
   font-family: "Averia Serif Libre", cursive;
   color: ${(props) => props.theme.white_C};
   position: relative;
-  margin: -70px 0 0 -100px;
+  margin: -90px 0 0 -130px;
 
   &:before {
     content: "";
@@ -44,9 +44,9 @@ const Title = styled(Text)`
   }
 `;
 
-const ShopImage = styled(Image)`
-  width: 330px;
-  height: 330px;
+const ShopImage = styled(Wrapper)`
+  width: 325px;
+  height: 325px;
   position: relative;
 
   &:hover {
@@ -88,7 +88,9 @@ export default ({ width, sDatum, isColumn, moveLinkHandler }) => {
   return (
     <Container isColumn={isColumn}>
       <Swiper
-        slidesPerView={isColumn ? 4.9 : width > 1000 ? 4 : width > 800 ? 3 : 2}
+        slidesPerView={
+          isColumn ? 4.9 : width > 1200 ? 4.9 : width > 800 ? 3 : 2
+        }
         slidesPerColumn={isColumn ? 2 : 1}
         centeredSlides={isColumn}
         autoplay
@@ -100,10 +102,14 @@ export default ({ width, sDatum, isColumn, moveLinkHandler }) => {
           ) : (
             sDatum.map((data, idx) => (
               <SwiperSlide key={data._id} onClick={() => moveLinkHandler(data)}>
-                <Wrapper>
-                  <ShopImage margin={`10px 0`} src={data.thumbnailPath} />
+                <ShopImage>
+                  <Image
+                    height={`100%`}
+                    margin={`10px 0`}
+                    src={data.thumbnailPath}
+                  />
                   <Title>{data.title}</Title>
-                </Wrapper>
+                </ShopImage>
               </SwiperSlide>
             ))
           )

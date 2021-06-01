@@ -9,7 +9,8 @@ import Theme from "../../Styles/Theme";
 import CircularIndeterminate from "../loading/CircularIndeterminate";
 
 const BrandLogo = styled(Image)`
-  width: 170px;
+  width: auto;
+  object-fit: contain;
   @media (max-width: 800px) {
     width: 350px;
   }
@@ -34,7 +35,7 @@ export default ({ width, bDatum, isColumn, moveLinkHandler }) => {
     <Container isColumn={isColumn}>
       <Swiper
         spaceBetween={1}
-        slidesPerView={5}
+        slidesPerView={7}
         slidesPerColumn={1}
         autoplay={true}
         navigation={false}
@@ -47,11 +48,13 @@ export default ({ width, bDatum, isColumn, moveLinkHandler }) => {
             bDatum.map((data, idx) => {
               return (
                 <SwiperSlide key={idx}>
-                  <BrandLogo
-                    alt="brand"
-                    src={data.thumbnail}
-                    margin={`10px 0`}
-                  />
+                  <Wrapper width={`170px`}>
+                    <BrandLogo
+                      alt="brand"
+                      src={data.thumbnail}
+                      margin={`10px 0`}
+                    />
+                  </Wrapper>
                 </SwiperSlide>
               );
             })

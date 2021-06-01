@@ -49,7 +49,23 @@ const LightSpeed = withSplitting(() => import("react-reveal/LightSpeed"));
 const Bounce = withSplitting(() => import("react-reveal/Bounce"));
 
 const ShopWrapper = styled(Wrapper)`
-  margin: 0px 0 70px 285px;
+  margin: 0px 0 100px 285px;
+
+  @media (max-width: 1600px) {
+    margin: 0px 0 70px 380px;
+  }
+
+  @media (max-width: 1100px) {
+    margin: 0 0 70px;
+  }
+
+  @media (max-width: 700px) {
+    margin: 0 0 70px;
+  }
+`;
+
+const BrandWrapper = styled(Wrapper)`
+  padding: 0px 0 100px 285px;
 
   @media (max-width: 1600px) {
     margin: 0px 0 70px 380px;
@@ -180,7 +196,7 @@ const MM00Presenter = ({
       {/* <MainSlider
         mainBannerData={width < 700 ? mobileBannerData : mainBannerData}
       /> */}
-      <RsWrapper padding={width < 700 ? `60px 0 30px` : `100px 0`}>
+      <RsWrapper padding={width < 700 ? `60px 0 30px` : `100px 0 10px`}>
         <MainTilte>매장현황</MainTilte>
       </RsWrapper>
 
@@ -349,7 +365,7 @@ const MM00Presenter = ({
 
       <Wrapper
         bgColor={width < 700 ? `none` : `rgb(238, 238, 238)`}
-        padding={width < 700 ? `40px 10px` : `100px 0`}
+        padding={width < 700 ? `40px 10px` : `100px 0 0`}
       >
         <Wrapper
           fontSize={width < 700 ? `18px !important` : `48px`}
@@ -362,7 +378,7 @@ const MM00Presenter = ({
           fontSize={`24px`}
           fontWeight={`400`}
           color={`#616161`}
-          margin={`20px 0 0`}
+          margin={`20px 0 50px`}
           textAlign={`center`}
         >
           펫마트는 약 700여개의 유명,신규브랜드와 5000여개의 품목을 취급하고
@@ -388,9 +404,9 @@ const MM00Presenter = ({
             5000여개의 품목을 취급하고 있습니다.
           </Text>
         </Wrapper>
-        <Wrapper>
+        <BrandWrapper>
           <BrandSilder width={width} bDatum={bDatum} />
-        </Wrapper>
+        </BrandWrapper>
       </Wrapper>
       <Wrapper
         display={width < 700 ? `flex` : `none`}
