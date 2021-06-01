@@ -230,13 +230,13 @@ const MM00Presenter = ({
             >
               <Text
                 fontSize={width < 800 ? `18px !important` : `48px`}
-                fontWeight={`400`}
+                fontWeight={`300`}
               >
                 업계유일 최소 마진율 41%!
               </Text>
               <Text
                 fontSize={width < 800 ? `18px !important` : `48px`}
-                fontWeight={`400`}
+                fontWeight={`300`}
               >
                 매장 규모별 순수익 공개!
               </Text>
@@ -382,7 +382,7 @@ const MM00Presenter = ({
         <Text
           display={width < 800 ? `none` : `flex`}
           fontSize={`24px`}
-          fontWeight={`400`}
+          fontWeight={`300`}
           color={`#616161`}
           margin={`20px 0 50px`}
           textAlign={`center`}
@@ -397,14 +397,14 @@ const MM00Presenter = ({
         >
           <Text
             fontSize={width < 800 ? `12px !important` : `24px`}
-            fontWeight={`400`}
+            fontWeight={`300`}
             color={`#616161`}
           >
             펫마트는 약 700여개의 유명, 신규브랜드와
           </Text>
           <Text
             fontSize={width < 800 ? `12px !important` : `24px`}
-            fontWeight={`400`}
+            fontWeight={`300`}
             color={`#616161`}
           >
             5000여개의 품목을 취급하고 있습니다.
@@ -431,13 +431,13 @@ const MM00Presenter = ({
           width={`40%`}
           al={`flex-start`}
         >
-          <Text lineHeight={`1.3`} fontSize={`72px`} fontWeight={`400`}>
+          <Text lineHeight={`1.3`} fontSize={`72px`} fontWeight={`300`}>
             지금!&nbsp;
           </Text>
           <Text
             lineHeight={`1.3`}
             fontSize={`72px`}
-            fontWeight={`400`}
+            fontWeight={`300`}
             color={Theme.basicTheme_C}
           >
             펫마트<SpanText color={Theme.black_C}>를</SpanText>
@@ -445,12 +445,12 @@ const MM00Presenter = ({
           <Text
             lineHeight={`1.3`}
             fontSize={`72px`}
-            fontWeight={`400`}
+            fontWeight={`300`}
             color={Theme.basicTheme_C}
           >
             시작<SpanText color={Theme.black_C}>해야</SpanText>
           </Text>
-          <Text lineHeight={`1.3`} fontSize={`72px`} fontWeight={`400`}>
+          <Text lineHeight={`1.3`} fontSize={`72px`} fontWeight={`300`}>
             되는 이유
           </Text>
         </Wrapper>
@@ -464,7 +464,7 @@ const MM00Presenter = ({
           <Text
             lineHeight={`1.3`}
             fontSize={`24px !important`}
-            fontWeight={`400`}
+            fontWeight={`300`}
           >
             지금!&nbsp;<SpanText color={Theme.basicTheme_C}>펫마트</SpanText>를
           </Text>
@@ -472,7 +472,7 @@ const MM00Presenter = ({
           <Text
             lineHeight={`1.3`}
             fontSize={`24px !important`}
-            fontWeight={`400`}
+            fontWeight={`300`}
             color={Theme.basicTheme_C}
           >
             시작<SpanText color={Theme.black_C}>해야 되는 이유</SpanText>
@@ -528,7 +528,7 @@ const MM00Presenter = ({
             <Fade left>
               <Text
                 fontSize={`72px`}
-                fontWeight={`400`}
+                fontWeight={`300`}
                 lineHeight={`1.3`}
                 color={Theme.white_C}
               >
@@ -536,14 +536,14 @@ const MM00Presenter = ({
               </Text>
               <Text
                 fontSize={`72px`}
-                fontWeight={`400`}
+                fontWeight={`300`}
                 color={Theme.basicTheme_C}
               >
                 함께 인생
               </Text>
               <Text
                 fontSize={`72px`}
-                fontWeight={`400`}
+                fontWeight={`300`}
                 lineHeight={`1.3`}
                 color={Theme.white_C}
               >
@@ -560,7 +560,7 @@ const MM00Presenter = ({
             >
               <Text
                 fontSize={width < 1000 ? `40px !important` : `36px`}
-                fontWeight={`400`}
+                fontWeight={`300`}
                 color={`${Theme.white_C}`}
               >
                 가맹점
@@ -601,7 +601,7 @@ const MM00Presenter = ({
             <Text
               color={Theme.white_C}
               fontSize={`18px !important`}
-              fontWeight={`400`}
+              fontWeight={`300`}
             >
               가맹점 성공스토리 68호 군산점
             </Text>
@@ -686,7 +686,7 @@ const MM00Presenter = ({
         </Text>
         <Text
           fontSize={width < 800 ? `14px !important` : `24px`}
-          fontWeight={`400`}
+          fontWeight={`300`}
           margin={`20px 0 0`}
         >
           예비 창업자들이 펫마트를 선택하는 이유!
@@ -928,7 +928,7 @@ const MM00Presenter = ({
         </Text>
         <Text
           fontSize={width < 800 ? `14px !important` : `24px`}
-          fontWeight={`400`}
+          fontWeight={`300`}
           margin={`20px 0 0`}
         >
           예비 창업자들이 펫마트를 선택하는 이유!
@@ -1290,7 +1290,7 @@ const MM00Presenter = ({
         </Wrapper>
         <Text
           fontSize={width < 800 ? `14px !important` : `24px`}
-          fontWeight={`400`}
+          fontWeight={`300`}
           color={Theme.white_C}
           margin={width < 800 ? `20px 0` : `30px 0`}
         >
@@ -1321,14 +1321,14 @@ const MM00Presenter = ({
               </Text>
               <Text
                 fontSize={`18px`}
-                fontWeight={`400`}
+                fontWeight={`300`}
                 color={`rgb(170, 170, 170)`}
               >
                 펫마트의 전문 창업상담사 항시대기
               </Text>
               <Text
                 fontSize={`18px`}
-                fontWeight={`400`}
+                fontWeight={`300`}
                 color={`rgb(170, 170, 170)`}
               >
                 1:1문의로 편안하고 빠른 안내를 받아보세요.
@@ -1349,14 +1349,14 @@ const MM00Presenter = ({
                   <Text
                     width={`auto`}
                     fontSize={width < 1200 ? `20px` : `24px`}
-                    fontWeight={`400`}
+                    fontWeight={`300`}
                   >
                     연락처
                   </Text>
                 </Wrapper>
                 <Text
                   fontSize={width < 1200 ? `20px` : `24px`}
-                  fontWeight={`400`}
+                  fontWeight={`300`}
                   color={`rgb(102, 102, 102)`}
                 >
                   1588-1684
@@ -1372,14 +1372,14 @@ const MM00Presenter = ({
                   />
                   <Text
                     fontSize={width < 1200 ? `20px` : `24px`}
-                    fontWeight={`400`}
+                    fontWeight={`300`}
                   >
                     E-mail
                   </Text>
                 </Wrapper>
                 <Text
                   fontSize={width < 1200 ? `20px` : `24px`}
-                  fontWeight={`400`}
+                  fontWeight={`300`}
                   color={`rgb(102, 102, 102)`}
                 >
                   ebajslee@sunjinpet.co.kr
@@ -1439,12 +1439,12 @@ const MM00Presenter = ({
         <Text fontSize={`24px !important`} margin={`0 0 20px`}>
           창업문의
         </Text>
-        <Text fontSize={`14px !important`} fontWeight={`400`}>
+        <Text fontSize={`14px !important`} fontWeight={`300`}>
           펫마트의 전문 창업상담사 항시대기 1:1문의로
         </Text>
         <Text
           fontSize={`14px !important`}
-          fontWeight={`400`}
+          fontWeight={`300`}
           margin={`0 0 20px`}
         >
           편안하고 빠른 안내를 받아보세요.
@@ -1455,18 +1455,18 @@ const MM00Presenter = ({
           margin={`0 0 20px`}
         >
           <Wrapper dr={`row`} ju={`flex-start`}>
-            <Text width={`30%`} fontSize={`14px !important`} fontWeight={`400`}>
+            <Text width={`30%`} fontSize={`14px !important`} fontWeight={`300`}>
               연락처
             </Text>
-            <Text width={`70%`} fontSize={`14px !important`} fontWeight={`400`}>
+            <Text width={`70%`} fontSize={`14px !important`} fontWeight={`300`}>
               1588-1684
             </Text>
           </Wrapper>
           <Wrapper dr={`row`} ju={`flex-start`}>
-            <Text width={`30%`} fontSize={`14px !important`} fontWeight={`400`}>
+            <Text width={`30%`} fontSize={`14px !important`} fontWeight={`300`}>
               E-mail
             </Text>
-            <Text width={`70%`} fontSize={`14px !important`} fontWeight={`400`}>
+            <Text width={`70%`} fontSize={`14px !important`} fontWeight={`300`}>
               ebajslee@sunjinpet.co.kr
             </Text>
           </Wrapper>
