@@ -76,10 +76,13 @@ const MM05Presenter = ({
   actionFaqView,
   currentType,
   faqDatum,
+  pData,
   toggleFaqAnswer,
   //
   changeFaqTypeHandler,
   prevAndNextPageChangeHandler,
+  firstPageChangeHandler,
+  endPageChangeHandler,
   changePageHandler,
   searchHandler,
   scrollMoveHandler,
@@ -514,10 +517,13 @@ const MM05Presenter = ({
               actionFaqView={actionFaqView}
               //
               faqDatum={faqDatum}
+              pData={pData}
               //
               toggleFaqAnswer={toggleFaqAnswer}
               changeFaqTypeHandler={changeFaqTypeHandler}
               prevAndNextPageChangeHandler={prevAndNextPageChangeHandler}
+              firstPageChangeHandler={firstPageChangeHandler}
+              endPageChangeHandler={endPageChangeHandler}
               changePageHandler={changePageHandler}
               searchHandler={searchHandler}
             />
@@ -538,6 +544,8 @@ const MM05Presenter = ({
             //
             moveLinkHandler={moveLinkHandler}
             prevAndNextPageChangeHandler={prevAndNextPageChangeHandler}
+            firstPageChangeHandler={firstPageChangeHandler}
+            endPageChangeHandler={endPageChangeHandler}
             changePageHandler={changePageHandler}
             searchHandler={searchHandler}
           />

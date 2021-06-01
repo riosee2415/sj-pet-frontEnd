@@ -36,10 +36,13 @@ const Board = ({
   //
   faqTypeDatum,
   faqDatum,
+  pData,
   //
   toggleFaqAnswer,
   changeFaqTypeHandler,
   prevAndNextPageChangeHandler,
+  firstPageChangeHandler,
+  endPageChangeHandler,
   changePageHandler,
   searchHandler,
 }) => {
@@ -214,7 +217,7 @@ const Board = ({
 
       {pages && pages.length > 0 && (
         <PagenationWrapper width={`auto`} margin={`60px 0 100px`}>
-          <PagenationBtn>
+          <PagenationBtn onClick={() => firstPageChangeHandler(0)}>
             <AiOutlineDoubleLeft />
           </PagenationBtn>
           <PagenationBtn
@@ -238,7 +241,7 @@ const Board = ({
           >
             <IoIosArrowForward />
           </PagenationBtn>
-          <PagenationBtn>
+          <PagenationBtn onClick={() => endPageChangeHandler(pData)}>
             <AiOutlineDoubleRight />
           </PagenationBtn>
         </PagenationWrapper>

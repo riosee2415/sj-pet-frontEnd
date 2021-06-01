@@ -49,14 +49,44 @@ const MM03Container = ({ history, match }) => {
       return;
     }
 
-    if ((currentList + 1) * 5 === page) {
+    if ((currentList + 1) * 10 === page) {
       list += 1;
-    } else if (currentList * 5 - 1 === page) {
+    } else if (currentList * 10 - 1 === page) {
       list -= 1;
+    }
+    setCurrentList(list);
+    setCurrentPage(page);
+  };
+
+  const firstPageChangeHandler = (page) => {
+    let list = currentList;
+
+    if (page < 0) {
+      toast.error("첫 페이지 입니다.");
+      return;
+    }
+
+    if (page > pages.length - 1) {
+      toast.error("마지막 페이지 입니다.");
+      return;
+    }
+
+    if (parseInt(page / 10) <= currentList) {
+      list = 0;
+    }
+    setCurrentList(list);
+    setCurrentPage(page);
+  };
+
+  const endPageChangeHandler = (page) => {
+    let list = currentList;
+
+    if (page) {
+      list = parseInt((pages.length - 1) / 10);
     }
 
     setCurrentList(list);
-    setCurrentPage(page);
+    setCurrentPage(page - 1);
   };
 
   const changePageHandler = (page) => {
@@ -116,9 +146,12 @@ const MM03Container = ({ history, match }) => {
       //
       sDatum={sDatum && sDatum.getAllStore}
       aDatum={aDatum && aDatum.getTotalStore}
+      pData={pData && pData.getStoreTotalPageClient}
       //
       changePageHandler={changePageHandler}
       prevAndNextPageChangeHandler={prevAndNextPageChangeHandler}
+      firstPageChangeHandler={firstPageChangeHandler}
+      endPageChangeHandler={endPageChangeHandler}
       changeScaleHandler={changeScaleHandler}
       dataLinkHandler={dataLinkHandler}
     />

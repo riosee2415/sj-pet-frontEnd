@@ -42,6 +42,8 @@ const Board = ({
   //
   moveLinkHandler,
   prevAndNextPageChangeHandler,
+  firstPageChangeHandler,
+  endPageChangeHandler,
   changePageHandler,
   searchHandler,
   width,
@@ -195,6 +197,9 @@ const Board = ({
 
         {pages && pages.length > 0 && (
           <PagenationWrapper width={`auto`}>
+            <PagenationBtn onClick={() => firstPageChangeHandler(0)}>
+              <AiOutlineDoubleLeft />
+            </PagenationBtn>
             <PagenationBtn
               onClick={() => prevAndNextPageChangeHandler(currentPage - 1)}
             >
@@ -202,8 +207,8 @@ const Board = ({
             </PagenationBtn>
             {pages.map((data, idx) => {
               return (
-                (currentList + 1) * 5 > idx &&
-                currentList * 5 <= idx && (
+                (currentList + 1) * 10 > idx &&
+                currentList * 10 <= idx && (
                   <Pagenation
                     className={data === currentPage ? `active` : ``}
                     key={data}
@@ -218,6 +223,9 @@ const Board = ({
               onClick={() => prevAndNextPageChangeHandler(currentPage + 1)}
             >
               <IoIosArrowForward />
+            </PagenationBtn>
+            <PagenationBtn onClick={() => endPageChangeHandler(pageCnt)}>
+              <AiOutlineDoubleRight />
             </PagenationBtn>
           </PagenationWrapper>
         )}

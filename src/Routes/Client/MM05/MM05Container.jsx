@@ -183,6 +183,8 @@ const MM05Container = ({ history }) => {
   };
 
   const prevAndNextPageChangeHandler = (page) => {
+    let list = currentList;
+
     if (page < 0) {
       toast.error("첫 페이지 입니다.");
       return;
@@ -193,8 +195,47 @@ const MM05Container = ({ history }) => {
       return;
     }
 
+    if ((currentList + 1) * 10 === page) {
+      list += 1;
+    } else if (currentList * 10 - 1 === page) {
+      list -= 1;
+    }
+
+    setCurrentList(list);
     setCurrentPage(page);
   };
+
+  const firstPageChangeHandler = (page) => {
+    let list = currentList;
+
+    if (page < 0) {
+      toast.error("첫 페이지 입니다.");
+      return;
+    }
+
+    if (page > pages.length - 1) {
+      toast.error("마지막 페이지 입니다.");
+      return;
+    }
+
+    if (parseInt(page / 10) <= currentList) {
+      list = 0;
+    }
+    setCurrentList(list);
+    setCurrentPage(page);
+  };
+
+  const endPageChangeHandler = (page) => {
+    let list = currentList;
+
+    if (page) {
+      list = parseInt((pages.length - 1) / 10);
+    }
+
+    setCurrentList(list);
+    setCurrentPage(page - 1);
+  };
+
   const changePageHandler = (page) => {
     setCurrentPage(page);
   };
@@ -290,10 +331,13 @@ const MM05Container = ({ history }) => {
       setCurrentTab={setCurrentTab}
       //
       faqDatum={faqDatum && faqDatum.getFaqDetail}
+      pData={pData && pData.getFaqTotalPage}
       //
       toggleFaqAnswer={toggleFaqAnswer}
       changeFaqTypeHandler={changeFaqTypeHandler}
       prevAndNextPageChangeHandler={prevAndNextPageChangeHandler}
+      firstPageChangeHandler={firstPageChangeHandler}
+      endPageChangeHandler={endPageChangeHandler}
       changePageHandler={changePageHandler}
       searchHandler={searchHandler}
       scrollMoveHandler={scrollMoveHandler}
