@@ -96,6 +96,15 @@ export default ({ width, sDatum, isColumn, moveLinkHandler }) => {
         autoplay
         loop
       >
+        <SwiperSlide>
+          <ShopImage>
+            <Image
+              height={`100%`}
+              margin={`10px 0`}
+              src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2Fslider%2F%E1%84%8C%E1%85%B5%E1%84%8B%E1%85%A7%E1%86%A8_%E1%84%87%E1%85%A2%E1%84%82%E1%85%A5_%E1%84%83%E1%85%A2%E1%84%80%E1%85%AE%E1%84%80%E1%85%A7%E1%86%BC%E1%84%87%E1%85%AE%E1%86%A8.png?alt=media&token=0fba03c8-7231-494c-9079-e0383dd6c7b9`}
+            />
+          </ShopImage>
+        </SwiperSlide>
         {sDatum ? (
           sDatum.length === 0 ? (
             <EmptyList>조회 된 데이터가 없습니다.</EmptyList>
