@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Swiper, SwiperSlide } from "rs-swiper/react";
 import SwiperCore, {
   Navigation,
@@ -10,12 +10,8 @@ import SwiperCore, {
 import styled from "styled-components";
 import "swiper/swiper-bundle.min.css";
 import { EmptyList, Image, SpanText, Text, Wrapper } from "../CommonComponents";
-import { numberWithCommas } from "../../commonUtils";
-import { FaStar } from "react-icons/fa";
-import Theme from "../../Styles/Theme";
-import CircularIndeterminate from "../loading/CircularIndeterminate";
 
-export default ({ width, sDatum, isColumn, moveLinkHandler }) => {
+export default ({ isColumn }) => {
   const Container = styled.div`
     width: 100%;
     position: relative;

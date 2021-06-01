@@ -1,18 +1,21 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Swiper, SwiperSlide } from "rs-swiper/react";
+import SwiperCore, {
+  Navigation,
+  Pagination,
+  Controller,
+  Thumbs,
+  Autoplay,
+} from "rs-swiper";
 import styled from "styled-components";
 import "swiper/swiper-bundle.min.css";
 import { EmptyList, Image, SpanText, Text, Wrapper } from "../CommonComponents";
-import { numberWithCommas } from "../../commonUtils";
-import { FaStar } from "react-icons/fa";
-import Theme from "../../Styles/Theme";
-import CircularIndeterminate from "../loading/CircularIndeterminate";
 
 const MobileText = styled(Text)`
   color: rgb(34, 34, 34);
 `;
 
-export default ({ width, vDatum, isColumn, moveLinkHandler }) => {
+export default ({ isColumn }) => {
   const Container = styled.div`
     width: 100%;
     position: relative;
@@ -20,20 +23,18 @@ export default ({ width, vDatum, isColumn, moveLinkHandler }) => {
     .swiper-container-multirow-column > .swiper-wrapper {
       flex-direction: ${(props) => (props.isColumn ? `row` : `column`)};
     }
-    .swiper-slide {
-      margin-left: ${(props) => (props.isColumn ? `0 !important` : `10px`)};
-    }
   `;
+
+  SwiperCore.use([Navigation, Pagination, Controller, Thumbs, Autoplay]);
 
   return (
     <Container isColumn={isColumn}>
       <Swiper
-        spaceBetween={2}
-        slidesPerView={isColumn ? 1 : width > 1000 ? 3 : width > 800 ? 2 : 1.2}
-        slidesPerColumn={isColumn ? 2 : 1}
+        slidesPerView={1.2}
+        slidesPerColumn={1}
         centeredSlides={isColumn}
-        autoplay={true}
-        navigation={false}
+        autoplay
+        loop
       >
         <SwiperSlide>
           <Wrapper al={`flex-start`}>

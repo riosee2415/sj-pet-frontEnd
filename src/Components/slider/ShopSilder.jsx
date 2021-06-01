@@ -32,13 +32,13 @@ const Title = styled(Text)`
     height: 4px;
     background-color: ${(props) => props.theme.basicTheme_C};
 
-    @media (max-width: 700px) {
+    @media (max-width: 800px) {
       width: 30px;
       height: 2px;
     }
   }
 
-  @media (max-width: 700px) {
+  @media (max-width: 800px) {
     font-size: 11px !important;
     margin: -50px 0 0 -70px;
   }
@@ -59,8 +59,8 @@ const ShopImage = styled(Wrapper)`
   }
 
   @media (max-width: 1100px) {
-    width: 200px;
-    height: 200px;
+    width: 300px;
+    height: 300px;
   }
 
   @media (max-width: 800px) {
