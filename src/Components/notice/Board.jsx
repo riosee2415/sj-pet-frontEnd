@@ -41,6 +41,7 @@ const Board = ({
   pageCnt,
   //
   moveLinkHandler,
+  moveWriteHandler,
   prevAndNextPageChangeHandler,
   firstPageChangeHandler,
   endPageChangeHandler,
@@ -120,7 +121,9 @@ const Board = ({
                         ? data.title.substring(0, 90) + `…`
                         : data.title}
                     </TableBodyLIST>
-                    <TableHeadLIST width={`150px`}>작성자</TableHeadLIST>
+                    <TableHeadLIST width={`150px`}>
+                      {data && data.client}
+                    </TableHeadLIST>
                     <TableBodyLIST width={`200px`}>
                       {data.createdAt.substring(0, 10)}
                     </TableBodyLIST>
@@ -190,7 +193,12 @@ const Board = ({
         </MobileTable>
 
         <Wrapper al={width < 800 ? `center` : `flex-end`}>
-          <CommonButton width={`150px`} height={`50px`} kindOf={`black`}>
+          <CommonButton
+            width={`150px`}
+            height={`50px`}
+            kindOf={`black`}
+            onClick={moveWriteHandler}
+          >
             글쓰기
           </CommonButton>
         </Wrapper>

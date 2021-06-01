@@ -61,6 +61,8 @@ export const GET_NOTICEBOARD = gql`
     ) {
       _id
       title
+      client
+      hit
       createdAt
     }
   }

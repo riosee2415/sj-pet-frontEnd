@@ -95,6 +95,7 @@ const MM05Presenter = ({
   pageCnt,
   //
   moveLinkHandler,
+  moveWriteHandler,
 }) => {
   useTitle("가맹상담 / FAQ | 펫마트");
 
@@ -543,6 +544,7 @@ const MM05Presenter = ({
             pageCnt={pageCnt}
             //
             moveLinkHandler={moveLinkHandler}
+            moveWriteHandler={moveWriteHandler}
             prevAndNextPageChangeHandler={prevAndNextPageChangeHandler}
             firstPageChangeHandler={firstPageChangeHandler}
             endPageChangeHandler={endPageChangeHandler}

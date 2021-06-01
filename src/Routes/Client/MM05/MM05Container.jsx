@@ -257,6 +257,10 @@ const MM05Container = ({ history }) => {
     history.push(`/contact/${link}`);
   };
 
+  const moveWriteHandler = () => {
+    history.push(`/contact-write`);
+  };
+
   ////////////// - USE EFFECT- //////////////
 
   useEffect(() => {
@@ -350,6 +354,7 @@ const MM05Container = ({ history }) => {
       pageCnt={tData && tData.getNoticeBoardTotalPageOnlyCntClient}
       //
       moveLinkHandler={moveLinkHandler}
+      moveWriteHandler={moveWriteHandler}
     />
   );
 };

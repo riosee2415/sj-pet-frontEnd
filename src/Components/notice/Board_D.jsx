@@ -13,10 +13,13 @@ import {
   RsWrapper,
   CommonButton,
   Wrapper,
+  SpanText,
 } from "../CommonComponents";
 import CircularIndeterminate from "../loading/CircularIndeterminate";
 import useTitle from "@4leaf.ysh/use-title";
 import Theme from "../../Styles/Theme";
+import { animateScroll as scroll } from "react-scroll";
+import { saveAs } from "file-saver";
 
 const Board_D_title = styled.h2`
   width: 100%;
@@ -64,6 +67,7 @@ export default withResizeDetector(({ match, history, width }) => {
 
   ////////////// - USE STATE- ///////////////
   const [currentData, setCurrentData] = useState(null);
+  const [currentFile, setCurrentFile] = useState([]);
   ///////////// - USE QUERY- ////////////////
 
   const { data: nData, refetch: nRefetch } = useQuery(GET_NOTICEBOARD_DETAIL, {
@@ -91,6 +95,19 @@ export default withResizeDetector(({ match, history, width }) => {
   );
 
   ///////////// - EVENT HANDLER- ////////////
+  const downloadHandler = async (filePath, fileName) => {
+    if (filePath === `-`) {
+      toast.info("다운받을 파일이 없습니다.");
+      return;
+    }
+
+    let blobData = await fetch(filePath).then((response) => response.blob());
+
+    const element = document.createElement("a");
+    const file = new Blob([blobData]);
+
+    saveAs(file, fileName);
+  };
 
   const _moveBeforeBoard = () => {
     if (beforeData.getNoticeBoardBeforeId === null) {
@@ -119,13 +136,36 @@ export default withResizeDetector(({ match, history, width }) => {
   useEffect(() => {
     if (nData && nData.getNoticeBoardDetail) {
       let tempData = nData.getNoticeBoardDetail;
+      const data = nData.getNoticeBoardDetail;
 
       const desc = document.getElementById("notice_description-js");
+
+      const tempArr = [];
+      if (data.fileOriginName1 !== "-") {
+        tempArr.push({
+          file: data.filePath1,
+          name: data.fileOriginName1,
+        });
+      }
+      if (data.fileOriginName2 !== "-") {
+        tempArr.push({
+          file: data.filePath2,
+          name: data.fileOriginName2,
+        });
+      }
+      if (data.fileOriginName3 !== "-") {
+        tempArr.push({
+          file: data.filePath3,
+          name: data.fileOriginName3,
+        });
+      }
 
       if (desc !== null) {
         desc.innerHTML = tempData.description;
         setCurrentData(tempData);
       }
+
+      setCurrentFile(tempArr);
     }
   }, [nData]);
 
@@ -133,6 +173,8 @@ export default withResizeDetector(({ match, history, width }) => {
     nRefetch();
     nextRefetch();
     beforeRefetch();
+
+    scroll.scrollTo(0);
   }, []);
 
   useTitle(``);
@@ -151,7 +193,7 @@ export default withResizeDetector(({ match, history, width }) => {
             작성자
           </Board_D_List>
           <Board_D_List width={width < 700 ? `100%` : `calc((100% - 150px))`}>
-            관리자
+            {currentData ? currentData.client : <CircularIndeterminate />}
           </Board_D_List>
 
           <Board_D_List
@@ -167,8 +209,18 @@ export default withResizeDetector(({ match, history, width }) => {
               <CircularIndeterminate />
             )}
           </Board_D_List>
-
-          {/* <Board_D_List
+        </Board_D>
+        <Board_D dr={`row`}>
+          <Board_D_List
+            width={width < 700 ? `100%` : `250px`}
+            bgColor={Theme.grey_C}
+          >
+            연락처
+          </Board_D_List>
+          <Board_D_List width={width < 700 ? `100%` : `calc((100% - 150px))`}>
+            {currentData ? currentData.tel : <CircularIndeterminate />}
+          </Board_D_List>
+          <Board_D_List
             width={width < 700 ? `100%` : `250px`}
             bgColor={Theme.grey_C}
           >
@@ -176,9 +228,8 @@ export default withResizeDetector(({ match, history, width }) => {
           </Board_D_List>
           <Board_D_List width={width < 700 ? `100%` : `calc((100% - 150px))`}>
             {currentData ? currentData.hit : <CircularIndeterminate />}
-          </Board_D_List> */}
+          </Board_D_List>
         </Board_D>
-
         <Board_D_Desc>
           <Wrapper
             id={"notice_description-js"}
@@ -186,6 +237,34 @@ export default withResizeDetector(({ match, history, width }) => {
             al={`flex-start`}
           ></Wrapper>
         </Board_D_Desc>
+
+        <Wrapper>
+          {currentFile.map((data, idx) => {
+            return (
+              <Board_D dr={`row`} margin={`5px 0`} key={idx}>
+                <Board_D_List
+                  width={width < 700 ? `100%` : `150px`}
+                  height={`100%`}
+                  bgColor={Theme.subTheme_C}
+                  color={`#fff`}
+                >
+                  첨부파일
+                </Board_D_List>
+                <Board_D_List
+                  width={width < 700 ? `100%` : `calc((100% - 150px))`}
+                  ta={width < 700 ? `center` : `left`}
+                >
+                  <SpanText
+                    cursor={`pointer`}
+                    onClick={() => downloadHandler(data.file, data.name)}
+                  >
+                    {data.name}
+                  </SpanText>
+                </Board_D_List>
+              </Board_D>
+            );
+          })}
+        </Wrapper>
 
         <Wrapper margin={`30px 0px`} ju={`flex-end`} dr={`row`}>
           <CommonButton
