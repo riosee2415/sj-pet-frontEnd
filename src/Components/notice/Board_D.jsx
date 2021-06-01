@@ -23,9 +23,12 @@ import { saveAs } from "file-saver";
 
 const Board_D_title = styled.h2`
   width: 100%;
-  padding: 20px;
+  padding: 30px 0;
   font-size: 22px;
   font-weight: 700;
+
+  border-bottom: ${(props) =>
+    props.borderBottom || `3px solid ${props.theme.black_C}`};
 `;
 
 const Board_D = styled.ul`
@@ -34,7 +37,7 @@ const Board_D = styled.ul`
   display: flex;
   flex-direction: row;
   align-items: center;
-
+  margin: 10px 0 0;
   background: ${(props) => props.bgColor};
 
   @media (max-width: 700px) {
@@ -50,8 +53,8 @@ const Board_D_List = styled.li`
   color: ${(props) => props.color};
   text-align: ${(props) => props.ta || `center`};
   padding: ${(props) => (props.padding ? props.padding : `0px 10px`)};
-  box-shadow: 0px 5px 6px rgba(0, 0, 0, 0.16);
   border-radius: ${(props) => props.radius};
+  border-radius: 20px;
 `;
 
 const Board_D_Desc = styled.div`
@@ -188,21 +191,23 @@ export default withResizeDetector(({ match, history, width }) => {
         <Board_D dr={`row`}>
           <Board_D_List
             width={width < 700 ? `100%` : `150px`}
-            bgColor={Theme.grey_C}
+            bgColor={Theme.black_C}
+            color={Theme.white_C}
           >
             작성자
           </Board_D_List>
-          <Board_D_List width={width < 700 ? `100%` : `calc((100% - 150px))`}>
+          <Board_D_List width={width < 700 ? `100%` : `calc((100% - 300px))`}>
             {currentData ? currentData.client : <CircularIndeterminate />}
           </Board_D_List>
 
           <Board_D_List
-            width={width < 700 ? `100%` : `250px`}
-            bgColor={Theme.grey_C}
+            width={width < 700 ? `100%` : `150px`}
+            bgColor={Theme.black_C}
+            color={Theme.white_C}
           >
             작성일
           </Board_D_List>
-          <Board_D_List width={width < 700 ? `100%` : `calc((100% - 150px))`}>
+          <Board_D_List width={width < 700 ? `100%` : `calc((100% - 300px))`}>
             {currentData ? (
               currentData.createdAt.slice(0, 10)
             ) : (
@@ -212,21 +217,23 @@ export default withResizeDetector(({ match, history, width }) => {
         </Board_D>
         <Board_D dr={`row`}>
           <Board_D_List
-            width={width < 700 ? `100%` : `250px`}
-            bgColor={Theme.grey_C}
+            width={width < 700 ? `100%` : `150px`}
+            bgColor={Theme.black_C}
+            color={Theme.white_C}
           >
             연락처
           </Board_D_List>
-          <Board_D_List width={width < 700 ? `100%` : `calc((100% - 150px))`}>
+          <Board_D_List width={width < 700 ? `100%` : `calc((100% - 300px))`}>
             {currentData ? currentData.tel : <CircularIndeterminate />}
           </Board_D_List>
           <Board_D_List
-            width={width < 700 ? `100%` : `250px`}
-            bgColor={Theme.grey_C}
+            width={width < 700 ? `100%` : `150px`}
+            bgColor={Theme.black_C}
+            color={Theme.white_C}
           >
             조회수
           </Board_D_List>
-          <Board_D_List width={width < 700 ? `100%` : `calc((100% - 150px))`}>
+          <Board_D_List width={width < 700 ? `100%` : `calc((100% - 300px))`}>
             {currentData ? currentData.hit : <CircularIndeterminate />}
           </Board_D_List>
         </Board_D>

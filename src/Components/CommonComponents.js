@@ -1320,3 +1320,32 @@ export const Advanced = styled(Wrapper)`
   box-shadow: 0 3px 3px ${(props) => props.theme.lightGrey_C};
   font-size: 13px;
 `;
+
+////////////////////////////////////////////////file//////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+export const FileInput = styled.input`
+  display: none;
+`;
+
+export const FileLabel = styled.label`
+  width: ${(props) => props.width};
+  min-width: ${(props) => props.minWidth};
+  height: ${(props) => props.height || `30px`};
+  transition: ${(props) => props.transition || props.theme.transition};
+  margin: ${(props) => props.margin};
+  padding: ${(props) => props.padding};
+  font-size: ${(props) => props.fontSize};
+  display: flex;
+  flex-direction: ${(props) => props.dr || `row`};
+  align-items: ${(props) => props.al || `center`};
+  justify-content: ${(props) => props.ju || `center`};
+  color: ${(props) => props.theme.white_C};
+  background: ${(props) => props.theme.basicTheme_C};
+  cursor: pointer;
+
+  &:hover {
+    background-color: ${(props) => props.theme.white_C};
+    color: ${(props) => props.theme.black_C};
+    border: 1px solid ${(props) => props.theme.basicTheme_C};
+  }
+`;

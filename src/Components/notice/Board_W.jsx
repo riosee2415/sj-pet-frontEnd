@@ -9,6 +9,8 @@ import {
   TextInput2,
   WholeWrapper,
   Wrapper,
+  FileInput,
+  FileLabel,
 } from "../CommonComponents";
 import { CREATE_NOTICEBOARD } from "./BoardQueries";
 import styled from "styled-components";
@@ -19,7 +21,6 @@ import Theme from "../../Styles/Theme";
 import useInput from "../Hooks/useInput";
 import Editor from "../editor/Editor";
 import { animateScroll as scroll } from "react-scroll";
-import { Content, FileInput, FileLabel } from "../AdminCommonComponents";
 import storageFn from "../../fsStorage";
 import { confirmAlert } from "react-confirm-alert";
 import "react-confirm-alert/src/react-confirm-alert.css";
@@ -194,12 +195,12 @@ export default withResizeDetector(({ match, history, width }) => {
   }, []);
 
   return (
-    <WholeWrapper padding={`100px 0`}>
-      <RsWrapper margin={`100px 0 0 `}>
+    <WholeWrapper padding={`80px 0`}>
+      <RsWrapper margin={`80px 0 0 `}>
         <Board_D>
           <Board_D_List
             width={width < 700 ? `100%` : `150px`}
-            bgColor={Theme.basicTheme_C}
+            bgColor={Theme.black_C}
             color={Theme.white_C}
           >
             제목
@@ -212,7 +213,7 @@ export default withResizeDetector(({ match, history, width }) => {
         <Board_D>
           <Board_D_List
             width={width < 700 ? `100%` : `150px`}
-            bgColor={Theme.basicTheme_C}
+            bgColor={Theme.black_C}
             color={Theme.white_C}
           >
             이름
@@ -225,7 +226,7 @@ export default withResizeDetector(({ match, history, width }) => {
         <Board_D>
           <Board_D_List
             width={width < 700 ? `100%` : `150px`}
-            bgColor={Theme.basicTheme_C}
+            bgColor={Theme.black_C}
             color={Theme.white_C}
           >
             연락처
@@ -235,7 +236,7 @@ export default withResizeDetector(({ match, history, width }) => {
           </Board_D_List>
         </Board_D>
 
-        <Wrapper dr={`row`} margin={`50px 0 0 0`}>
+        <Wrapper dr={`row`} margin={`50px 0 20px 0`}>
           <Wrapper width={`100%`} height={`500px`}>
             <Editor
               value={inputDesc.value}
@@ -350,7 +351,8 @@ export default withResizeDetector(({ match, history, width }) => {
 
         <Wrapper margin={`30px 0px`} ju={`flex-end`} dr={`row`}>
           <CommonButton
-            width={`80px`}
+            width={`150px`}
+            height={`40px`}
             margin={`0px 10px 0px 0px`}
             onClick={moveLinkHandler}
           >
@@ -358,9 +360,10 @@ export default withResizeDetector(({ match, history, width }) => {
           </CommonButton>
 
           <CommonButton
-            width={`80px`}
+            width={`150px`}
+            height={`40px`}
             margin={`0px 10px 0px 0px`}
-            kindOf={`create`}
+            kindOf={`black`}
             onClick={createBoardHandler}
           >
             등록
