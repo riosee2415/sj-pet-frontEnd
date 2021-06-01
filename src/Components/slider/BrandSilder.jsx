@@ -43,9 +43,9 @@ export default ({ width, bDatum, isColumn, moveLinkHandler }) => {
           bDatum.length === 0 ? (
             <EmptyList>브랜드가 없습니다.</EmptyList>
           ) : (
-            bDatum.map((data) => {
+            bDatum.map((data, idx) => {
               return (
-                <SwiperSlide>
+                <SwiperSlide key={idx}>
                   {data.map((brand) => {
                     return (
                       <BrandLogo

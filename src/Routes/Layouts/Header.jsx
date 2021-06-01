@@ -501,7 +501,7 @@ const Header = ({ history, location, width }) => {
               </Bounce>
 
               {mobileSubMenu === "매장안내" && (
-                <Wrapper>
+                <Wrapper onClick={() => moveLinkHandler("/info")}>
                   <Wrapper
                     borderBottom={`1px solid rgb(238, 238, 238)`}
                     height={`60px`}
@@ -528,7 +528,7 @@ const Header = ({ history, location, width }) => {
               </Bounce>
 
               {mobileSubMenu === "가맹절차" && (
-                <Wrapper>
+                <Wrapper onClick={() => moveLinkHandler("/franchisee")}>
                   <Wrapper
                     borderBottom={`1px solid rgb(238, 238, 238)`}
                     height={`60px`}
