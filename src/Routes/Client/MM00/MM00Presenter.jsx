@@ -619,7 +619,7 @@ const MM00Presenter = ({
           >
             {vDatum ? (
               vDatum.length === 0 ? (
-                <EmptyList>성공 스토리가 없습ㄴ디ㅏ.</EmptyList>
+                <EmptyList>성공 스토리가 없습니다.</EmptyList>
               ) : (
                 vDatum.map((data, idx) => {
                   return (
