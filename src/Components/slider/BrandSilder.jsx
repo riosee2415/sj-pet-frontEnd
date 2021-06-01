@@ -34,11 +34,11 @@ export default ({ width, bDatum, isColumn, moveLinkHandler }) => {
     <Container isColumn={isColumn}>
       <Swiper
         spaceBetween={1}
-        slidesPerView={isColumn ? 7 : width > 1000 ? 5 : width > 800 ? 3 : 2}
-        slidesPerColumn={isColumn ? 2 : 1}
-        centeredSlides={isColumn}
+        slidesPerView={5}
+        slidesPerColumn={1}
         autoplay={true}
         navigation={false}
+        loop={true}
       >
         {bDatum ? (
           bDatum.length === 0 ? (
@@ -47,15 +47,11 @@ export default ({ width, bDatum, isColumn, moveLinkHandler }) => {
             bDatum.map((data, idx) => {
               return (
                 <SwiperSlide key={idx}>
-                  {data.map((brand) => {
-                    return (
-                      <BrandLogo
-                        alt="brand"
-                        src={brand.thumbnail}
-                        margin={`10px 0`}
-                      />
-                    );
-                  })}
+                  <BrandLogo
+                    alt="brand"
+                    src={data.thumbnail}
+                    margin={`10px 0`}
+                  />
                 </SwiperSlide>
               );
             })

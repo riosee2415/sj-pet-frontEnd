@@ -105,7 +105,6 @@ const InteriorSlider = ({ width }) => {
 
   return (
     <Container height={width < 700 ? `270px` : `1000px`}>
-      {/* Main Swiper -> pass thumbs swiper instance */}
       <Swiper
         thumbs={{ swiper: thumbsSwiper }}
         navigation

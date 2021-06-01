@@ -13,6 +13,7 @@ import {
   LiWrapper,
   CommonButton,
   SpanText,
+  EmptyList,
 } from "../../../Components/CommonComponents";
 import styled from "styled-components";
 import { withResizeDetector } from "react-resize-detector";
@@ -20,6 +21,7 @@ import Theme from "../../../Styles/Theme";
 import { Link } from "react-router-dom";
 import useTitle from "@4leaf.ysh/use-title";
 import { scale2 } from "../../../Components/AnimationCommon";
+import CircularIndeterminate from "../../../Components/loading/CircularIndeterminate";
 
 const Popup = withSplitting(() =>
   import("../../../Components/popup/Popup.jsx")
@@ -146,6 +148,8 @@ const MainImage = styled(Image)`
 const MM00Presenter = ({
   width,
   currentBrand,
+  isMore,
+  setIsMore,
   //
   sDatum,
   vDatum,
@@ -384,8 +388,8 @@ const MM00Presenter = ({
             5000여개의 품목을 취급하고 있습니다.
           </Text>
         </Wrapper>
-        <Wrapper margin={`0px 0 70px 285px`}>
-          <BrandSilder width={width} bDatum={currentBrand} />
+        <Wrapper>
+          <BrandSilder width={width} bDatum={bDatum} />
         </Wrapper>
       </Wrapper>
       <Wrapper
@@ -613,60 +617,42 @@ const MM00Presenter = ({
             padding={width < 900 ? `50px 0` : `100px 0`}
             color={Theme.white_C}
           >
-            <Wrapper
-              width={width < 900 ? `100%` : `calc(100% / 3 - 20px)`}
-              margin={`10px`}
-              al={`flex-start`}
-            >
-              <Image
-                alt="image"
-                src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2F%E1%84%86%E1%85%A1%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%20%E1%84%80%E1%85%B3%E1%84%85%E1%85%AE%E1%86%B8%2011.png?alt=media&token=1f286929-ed13-43e3-bec6-9a0b42f8be29`}
-              />
-              <Text padding={`10px 0 15px`}>펫마트 진해점 성공스토리</Text>
-            </Wrapper>
-            <Wrapper
-              width={width < 900 ? `100%` : `calc(100% / 3 - 20px)`}
-              margin={`10px`}
-              al={`flex-start`}
-            >
-              <Image
-                alt="image"
-                src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2F%E1%84%86%E1%85%A1%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%20%E1%84%80%E1%85%B3%E1%84%85%E1%85%AE%E1%86%B8%2011.png?alt=media&token=1f286929-ed13-43e3-bec6-9a0b42f8be29`}
-              />
-              <Text padding={`10px 0 15px`}>펫마트 부산강서점 성공스토리</Text>
-            </Wrapper>
-            <Wrapper
-              width={width < 900 ? `100%` : `calc(100% / 3 - 20px)`}
-              margin={`10px`}
-              al={`flex-start`}
-            >
-              <Image
-                alt="image"
-                src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2F%E1%84%86%E1%85%A1%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%20%E1%84%80%E1%85%B3%E1%84%85%E1%85%AE%E1%86%B8%2011.png?alt=media&token=1f286929-ed13-43e3-bec6-9a0b42f8be29`}
-              />
-              <Text padding={`10px 0 15px`}>펫마트 제주도남점 성공스토리</Text>
-            </Wrapper>
-            <Wrapper
-              width={width < 900 ? `100%` : `calc(100% / 3 - 20px)`}
-              margin={`10px`}
-              al={`flex-start`}
-            >
-              <Image
-                alt="image"
-                src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2F%E1%84%86%E1%85%A1%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%20%E1%84%80%E1%85%B3%E1%84%85%E1%85%AE%E1%86%B8%2011.png?alt=media&token=1f286929-ed13-43e3-bec6-9a0b42f8be29`}
-              />
-              <Text padding={`10px 0 15px`}>펫마트 전주효자점 성공스토리</Text>
-            </Wrapper>
+            {vDatum ? (
+              vDatum.length === 0 ? (
+                <EmptyList>성공 스토리가 없습니다.</EmptyList>
+              ) : (
+                vDatum.map((data, idx) => {
+                  return (
+                    (idx < 6 || isMore) && (
+                      <Wrapper
+                        width={width < 900 ? `100%` : `calc(100% / 3 - 20px)`}
+                        margin={`10px`}
+                        al={`flex-start`}
+                        key={data._id}
+                      >
+                        <Image alt="image" src={data.thumbnail} />
+                        <Text padding={`10px 0 15px`}>{data.title}</Text>
+                      </Wrapper>
+                    )
+                  );
+                })
+              )
+            ) : (
+              <CircularIndeterminate />
+            )}
           </Wrapper>
-          <Wrapper>
-            <CommonButton
-              width={width < 800 ? `100%` : `440px`}
-              height={width < 800 ? `40px` : `60px`}
-              kindOf={`white`}
-            >
-              더보기
-            </CommonButton>
-          </Wrapper>
+          {vDatum && vDatum.length > 6 && !isMore && (
+            <Wrapper>
+              <CommonButton
+                width={width < 800 ? `100%` : `440px`}
+                height={width < 800 ? `40px` : `60px`}
+                kindOf={`white`}
+                onClick={() => setIsMore(true)}
+              >
+                더보기
+              </CommonButton>
+            </Wrapper>
+          )}
         </RsWrapper>
       </Wrapper>
 
