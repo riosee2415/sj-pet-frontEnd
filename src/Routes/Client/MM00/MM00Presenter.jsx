@@ -26,8 +26,8 @@ import CircularIndeterminate from "../../../Components/loading/CircularIndetermi
 const Popup = withSplitting(() =>
   import("../../../Components/popup/Popup.jsx")
 );
-const MainSlider = withSplitting(() =>
-  import("../../../Components/slider/MainSlider.jsx")
+const EventSlider = withSplitting(() =>
+  import("../../../Components/slider/EventSlider.jsx")
 );
 const ShopSilder = withSplitting(() =>
   import("../../../Components/slider/ShopSilder.jsx")
@@ -49,7 +49,7 @@ const LightSpeed = withSplitting(() => import("react-reveal/LightSpeed"));
 const Bounce = withSplitting(() => import("react-reveal/Bounce"));
 
 const ShopWrapper = styled(Wrapper)`
-  margin: 0px 0 70px 285px;
+  margin: 0px 0 100px 285px;
 
   @media (max-width: 1600px) {
     margin: 0px 0 70px 380px;
@@ -59,8 +59,24 @@ const ShopWrapper = styled(Wrapper)`
     margin: 0 0 70px;
   }
 
-  @media (max-width: 700px) {
-    margin: 0 0 70px;
+  @media (max-width: 800px) {
+    margin: 0 0 70px 10px;
+  }
+`;
+
+const BrandWrapper = styled(Wrapper)`
+  padding: 0px 0 100px 285px;
+
+  @media (max-width: 1600px) {
+    padding: 0px 0 70px 380px;
+  }
+
+  @media (max-width: 1100px) {
+    padding: 0 0 70px;
+  }
+
+  @media (max-width: 800px) {
+    padding: 0 0 40px;
   }
 `;
 
@@ -78,14 +94,19 @@ const MainTilte = styled(Wrapper)`
     height: 5px;
     background-color: ${(props) => props.theme.basicTheme_C};
 
-    @media (max-width: 700px) {
+    @media (max-width: 1100px) {
+      left: 25%;
+      width: 300px;
+    }
+
+    @media (max-width: 800px) {
       left: 25%;
       width: 190px;
       height: 2px;
     }
   }
 
-  @media (max-width: 700px) {
+  @media (max-width: 800px) {
     font-size: 18px;
   }
 `;
@@ -118,6 +139,7 @@ const PetmartTitle = styled(SpanText)`
   width: auto;
   color: ${(props) => props.theme.white_C};
   position: relative;
+  margin: 0 3px;
 
   &:before {
     content: "";
@@ -127,10 +149,10 @@ const PetmartTitle = styled(SpanText)`
     width: 100%;
     height: 100%;
     background-color: ${(props) => props.theme.basicTheme_C};
-    padding: 0 10px 10px;
+    padding: 0 5px 10px;
     z-index: -1000;
 
-    @media (max-width: 700px) {
+    @media (max-width: 800px) {
       padding: 0 5px 5px;
       left: -5px;
     }
@@ -178,9 +200,9 @@ const MM00Presenter = ({
       </Wrapper>
 
       {/* <MainSlider
-        mainBannerData={width < 700 ? mobileBannerData : mainBannerData}
+        mainBannerData={width < 800 ? mobileBannerData : mainBannerData}
       /> */}
-      <RsWrapper padding={width < 700 ? `60px 0 30px` : `100px 0`}>
+      <RsWrapper padding={width < 800 ? `60px 0 30px` : `100px 0 10px`}>
         <MainTilte>매장현황</MainTilte>
       </RsWrapper>
 
@@ -191,11 +213,11 @@ const MM00Presenter = ({
           width={width}
         />
       </ShopWrapper>
-      <Wrapper bgColor={`#032950`} padding={width < 700 ? `60px 0` : `100px 0`}>
+      <Wrapper bgColor={`#032950`} padding={width < 800 ? `60px 0` : `100px 0`}>
         <RsWrapper>
           <Wrapper dr={`row`} isRelative={true}>
             <Image
-              display={width > 700 ? `flex` : `none`}
+              display={width > 800 ? `flex` : `none`}
               width={`130px`}
               alt="image"
               margin={`0 20px 0 0`}
@@ -204,16 +226,16 @@ const MM00Presenter = ({
             <Wrapper
               width={`auto`}
               color={Theme.white_C}
-              al={width < 700 ? `center` : `flex-start`}
+              al={width < 800 ? `center` : `flex-start`}
             >
               <Text
-                fontSize={width < 700 ? `18px !important` : `48px`}
+                fontSize={width < 800 ? `18px !important` : `48px`}
                 fontWeight={`400`}
               >
                 업계유일 최소 마진율 41%!
               </Text>
               <Text
-                fontSize={width < 700 ? `18px !important` : `48px`}
+                fontSize={width < 800 ? `18px !important` : `48px`}
                 fontWeight={`400`}
               >
                 매장 규모별 순수익 공개!
@@ -221,10 +243,10 @@ const MM00Presenter = ({
             </Wrapper>
             <Wrapper
               isAbsolute={true}
-              top={width < 700 ? `2px` : `10px`}
-              right={width < 700 ? `19%` : `21%`}
-              width={width < 700 ? `145px` : `390px`}
-              height={width < 700 ? `22px` : `55px`}
+              top={width < 800 ? `2px` : `10px`}
+              right={width < 800 ? `19%` : `21%`}
+              width={width < 800 ? `145px` : `390px`}
+              height={width < 800 ? `22px` : `55px`}
               bgColor={Theme.basicTheme_C}
               zIndex={`-100`}
             ></Wrapper>
@@ -232,12 +254,12 @@ const MM00Presenter = ({
 
           <Wrapper
             dr={`row`}
-            width={width < 700 ? `100%` : `80%`}
-            margin={width < 700 ? `30px 0 0` : `60px 0 0`}
+            width={width < 800 ? `100%` : `80%`}
+            margin={width < 800 ? `30px 0 0` : `60px 0 0`}
           >
             <Wrapper
               width={width < 1000 ? `100%` : `60%`}
-              padding={width < 700 ? `0 0 60px` : `0 20px 0 0`}
+              padding={width < 800 ? `0 0 60px` : `0 20px 0 0`}
             >
               <Fade left>
                 <Image
@@ -348,52 +370,52 @@ const MM00Presenter = ({
       </Wrapper>
 
       <Wrapper
-        bgColor={width < 700 ? `none` : `rgb(238, 238, 238)`}
-        padding={width < 700 ? `40px 10px` : `100px 0`}
+        bgColor={width < 800 ? `none` : `rgb(238, 238, 238)`}
+        padding={width < 800 ? `40px 10px 0` : `100px 0 0`}
       >
         <Wrapper
-          fontSize={width < 700 ? `18px !important` : `48px`}
+          fontSize={width < 800 ? `18px !important` : `48px`}
           al={width < 700 && `flex-start`}
         >
           펫마트 입점 브랜드
         </Wrapper>
         <Text
-          display={width < 700 ? `none` : `flex`}
+          display={width < 800 ? `none` : `flex`}
           fontSize={`24px`}
           fontWeight={`400`}
           color={`#616161`}
-          margin={`20px 0 0`}
+          margin={`20px 0 50px`}
           textAlign={`center`}
         >
           펫마트는 약 700여개의 유명,신규브랜드와 5000여개의 품목을 취급하고
           있습니다.
         </Text>
         <Wrapper
-          display={width < 700 ? `flex` : `none`}
+          display={width < 800 ? `flex` : `none`}
           al={`flex-start`}
-          margin={`10px 0 0`}
+          margin={`10px 0 30px`}
         >
           <Text
-            fontSize={width < 700 ? `12px !important` : `24px`}
+            fontSize={width < 800 ? `12px !important` : `24px`}
             fontWeight={`400`}
             color={`#616161`}
           >
             펫마트는 약 700여개의 유명, 신규브랜드와
           </Text>
           <Text
-            fontSize={width < 700 ? `12px !important` : `24px`}
+            fontSize={width < 800 ? `12px !important` : `24px`}
             fontWeight={`400`}
             color={`#616161`}
           >
             5000여개의 품목을 취급하고 있습니다.
           </Text>
         </Wrapper>
-        <Wrapper>
+        <BrandWrapper>
           <BrandSilder width={width} bDatum={bDatum} />
-        </Wrapper>
+        </BrandWrapper>
       </Wrapper>
       <Wrapper
-        display={width < 700 ? `flex` : `none`}
+        display={width < 800 ? `flex` : `none`}
         borderBottom={`10px solid rgb(238, 238, 238)`}
       ></Wrapper>
 
@@ -401,16 +423,16 @@ const MM00Presenter = ({
         dr={`row`}
         ju={`space-between`}
         al={`flex-start`}
-        padding={width < 700 ? `60px 0` : `200px 0`}
+        padding={width < 800 ? `60px 0` : `200px 0`}
       >
         {/* <Bounce> */}
         <Wrapper
-          display={width > 700 ? `flex` : `none`}
+          display={width > 800 ? `flex` : `none`}
           width={`40%`}
           al={`flex-start`}
         >
           <Text lineHeight={`1.3`} fontSize={`72px`} fontWeight={`400`}>
-            지금!
+            지금!&nbsp;
           </Text>
           <Text
             lineHeight={`1.3`}
@@ -434,7 +456,7 @@ const MM00Presenter = ({
         </Wrapper>
 
         <Wrapper
-          display={width < 700 ? `flex` : `none`}
+          display={width < 800 ? `flex` : `none`}
           width={`100%`}
           al={`flex-start`}
           padding={`0 0 30px`}
@@ -444,7 +466,7 @@ const MM00Presenter = ({
             fontSize={`24px !important`}
             fontWeight={`400`}
           >
-            지금!<SpanText color={Theme.basicTheme_C}>펫마트</SpanText>를
+            지금!&nbsp;<SpanText color={Theme.basicTheme_C}>펫마트</SpanText>를
           </Text>
 
           <Text
@@ -459,14 +481,13 @@ const MM00Presenter = ({
         {/* </Bounce> */}
 
         <Image
-          display={width > 700 ? `flex` : `none`}
-          width={width < 700 ? `100%` : `60%`}
+          display={width > 800 ? `flex` : `none`}
+          width={width < 800 ? `100%` : `60%`}
           alt="image"
           src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2F%E1%84%91%E1%85%A6%E1%86%BA%E1%84%86%E1%85%A1%E1%84%90%E1%85%B3%E1%84%85%E1%85%B3%E1%86%AF%20%E1%84%89%E1%85%B5%E1%84%8C%E1%85%A1%E1%86%A8%E1%84%92%E1%85%A2%E1%84%8B%E1%85%A3%20%E1%84%83%E1%85%AC%E1%84%82%E1%85%B3%E1%86%AB%20%E1%84%8B%E1%85%B5%E1%84%8B%E1%85%B2.png?alt=media&token=87679fe5-7df9-4b8a-9d83-749d171f0784`}
         />
-
-        <Wrapper display={width < 700 ? `flex` : `none`}>
-          <StartSilder vDatum={vDatum} width={width} />
+        <Wrapper display={width < 800 ? `flex` : `none`}>
+          <EventSlider />
         </Wrapper>
       </RsWrapper>
 
@@ -500,7 +521,7 @@ const MM00Presenter = ({
       >
         <RsWrapper dr={`row`} ju={`space-between`} al={`flex-start`}>
           <Wrapper
-            display={width > 700 ? `flex` : `none`}
+            display={width > 800 ? `flex` : `none`}
             width={width < 1300 ? `100%` : `40%`}
             al={`flex-start`}
           >
@@ -569,14 +590,14 @@ const MM00Presenter = ({
             </Text>
           </Wrapper>
 
-          <Wrapper display={width < 700 ? `flex` : `none`} al={`flex-start`}>
+          <Wrapper display={width < 800 ? `flex` : `none`} al={`flex-start`}>
             <Text color={Theme.white_C} fontSize={`24px !important`}>
               펫마트와
               <SpanText color={Theme.basicTheme_C}>함께 인생 제2막</SpanText>
               시작!
             </Text>
           </Wrapper>
-          <Wrapper display={width < 700 ? `flex` : `none`} padding={`20px 0`}>
+          <Wrapper display={width < 800 ? `flex` : `none`} padding={`20px 0`}>
             <Text
               color={Theme.white_C}
               fontSize={`18px !important`}
@@ -614,7 +635,7 @@ const MM00Presenter = ({
           <Wrapper
             dr={`row`}
             ju={`flex-start`}
-            padding={width < 900 ? `50px 0` : `100px 0`}
+            padding={width < 900 ? `10px 0` : `100px 0`}
             color={Theme.white_C}
           >
             {vDatum ? (
@@ -623,7 +644,7 @@ const MM00Presenter = ({
               ) : (
                 vDatum.map((data, idx) => {
                   return (
-                    (idx < 6 || isMore) && (
+                    (idx < (width < 800 ? 0 : 6) || isMore) && (
                       <Wrapper
                         width={width < 900 ? `100%` : `calc(100% / 3 - 20px)`}
                         margin={`10px`}
@@ -641,7 +662,7 @@ const MM00Presenter = ({
               <CircularIndeterminate />
             )}
           </Wrapper>
-          {vDatum && vDatum.length > 6 && !isMore && (
+          {vDatum && vDatum.length > (width < 800 ? 0 : 6) && !isMore && (
             <Wrapper>
               <CommonButton
                 width={width < 800 ? `100%` : `440px`}
@@ -657,14 +678,14 @@ const MM00Presenter = ({
       </Wrapper>
 
       <RsWrapper
-        display={width > 700 ? `flex` : `none`}
-        padding={width < 700 ? `60px 0` : `100px 0`}
+        display={width > 800 ? `flex` : `none`}
+        padding={width < 800 ? `60px 0` : `100px 0`}
       >
-        <Text fontSize={width < 700 ? `24px !important` : `72px`}>
+        <Text fontSize={width < 800 ? `24px !important` : `72px`}>
           왜 <PetmartTitle>펫마트</PetmartTitle>일까 ?
         </Text>
         <Text
-          fontSize={width < 700 ? `14px !important` : `24px`}
+          fontSize={width < 800 ? `14px !important` : `24px`}
           fontWeight={`400`}
           margin={`20px 0 0`}
         >
@@ -680,6 +701,7 @@ const MM00Presenter = ({
             <Image
               width={`300px`}
               height={`300px`}
+              shadow={`3px 5px 5px rgb(206, 206, 206)`}
               al="image"
               margin={`0 0 30px`}
               radius={`300px`}
@@ -708,10 +730,11 @@ const MM00Presenter = ({
             <Image
               width={`300px`}
               height={`300px`}
+              shadow={`3px 5px 5px rgb(206, 206, 206)`}
               al="image"
               margin={`0 0 30px`}
               radius={`300px`}
-              src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2Fimg-00.png?alt=media&token=a0e54868-4bab-457d-8790-f9210397334d`}
+              src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2Fimg-01.png?alt=media&token=a054b3db-9bc1-4c04-ad92-9d87d440622e`}
             />
             <Image
               width={`270px`}
@@ -732,10 +755,11 @@ const MM00Presenter = ({
             <Image
               width={`300px`}
               height={`300px`}
+              shadow={`3px 5px 5px rgb(206, 206, 206)`}
               al="image"
               margin={`0 0 30px`}
               radius={`300px`}
-              src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2Fimg-00.png?alt=media&token=a0e54868-4bab-457d-8790-f9210397334d`}
+              src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2Fimg-02.png?alt=media&token=8a03d6a8-acae-4fe4-b8b6-ff330eb0b418`}
             />
             <Image
               width={`115px`}
@@ -757,10 +781,11 @@ const MM00Presenter = ({
             <Image
               width={`300px`}
               height={`300px`}
+              shadow={`3px 5px 5px rgb(206, 206, 206)`}
               al="image"
               margin={`0 0 30px`}
               radius={`300px`}
-              src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2Fimg-00.png?alt=media&token=a0e54868-4bab-457d-8790-f9210397334d`}
+              src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2Fimg-03.png?alt=media&token=284360dd-52cd-434b-b3db-1414a0a3c328`}
             />
             <Image
               width={`230px`}
@@ -775,7 +800,7 @@ const MM00Presenter = ({
           </Wrapper>
         </Wrapper>
         <Wrapper
-          display={width > 700 ? `flex` : `none`}
+          display={width > 800 ? `flex` : `none`}
           dr={`row`}
           ju={`space-between`}
         >
@@ -805,10 +830,11 @@ const MM00Presenter = ({
             <Image
               width={`300px`}
               height={`300px`}
+              shadow={`3px 5px 5px rgb(206, 206, 206)`}
               al="image"
               margin={`0 0 30px`}
               radius={`300px`}
-              src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2Fimg-00.png?alt=media&token=a0e54868-4bab-457d-8790-f9210397334d`}
+              src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2Fimg-04.png?alt=media&token=f848b436-05f8-403e-b1f9-632d9d7ec4d2`}
             />
             <Image
               width={`240px`}
@@ -829,10 +855,11 @@ const MM00Presenter = ({
             <Image
               width={`300px`}
               height={`300px`}
+              shadow={`3px 5px 5px rgb(206, 206, 206)`}
               al="image"
               margin={`0 0 30px`}
               radius={`300px`}
-              src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2Fimg-00.png?alt=media&token=a0e54868-4bab-457d-8790-f9210397334d`}
+              src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2Fimg-05.png?alt=media&token=3d6f61d3-8f41-429b-9409-af671ec1a8c4`}
             />
             <Image
               width={`200px`}
@@ -854,10 +881,11 @@ const MM00Presenter = ({
             <Image
               width={`300px`}
               height={`300px`}
+              shadow={`3px 5px 5px rgb(206, 206, 206)`}
               al="image"
               margin={`0 0 30px`}
               radius={`300px`}
-              src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2Fimg-00.png?alt=media&token=a0e54868-4bab-457d-8790-f9210397334d`}
+              src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2Fimg-06.png?alt=media&token=d12c3d2f-a2b8-4894-9866-71703fb9231b`}
             />
             <Image
               width={`195px`}
@@ -877,10 +905,11 @@ const MM00Presenter = ({
             <Image
               width={`300px`}
               height={`300px`}
+              shadow={`3px 5px 5px rgb(206, 206, 206)`}
               al="image"
               margin={`0 0 30px`}
               radius={`300px`}
-              src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2Fimg-00.png?alt=media&token=a0e54868-4bab-457d-8790-f9210397334d`}
+              src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2Fimg-07.png?alt=media&token=e75de84c-7f2f-4aa3-9edb-59a73ca42cf2`}
             />
             <Image
               width={`170px`}
@@ -893,22 +922,21 @@ const MM00Presenter = ({
           </Wrapper>
         </Wrapper>
       </RsWrapper>
-      <Wrapper display={width < 700 ? `flex` : `none`} padding={`60px 0`}>
-        <Text fontSize={width < 700 ? `24px !important` : `72px`}>
+      <Wrapper display={width < 800 ? `flex` : `none`} padding={`60px 0`}>
+        <Text fontSize={width < 800 ? `24px !important` : `72px`}>
           왜 <PetmartTitle>펫마트</PetmartTitle>일까 ?
         </Text>
         <Text
-          fontSize={width < 700 ? `14px !important` : `24px`}
+          fontSize={width < 800 ? `14px !important` : `24px`}
           fontWeight={`400`}
           margin={`20px 0 0`}
         >
           예비 창업자들이 펫마트를 선택하는 이유!
         </Text>
-        <Wrapper padding={`30px 0 0`}>
+        <Wrapper padding={`30px 0 0 10px`}>
           <MobileSilder />
         </Wrapper>
       </Wrapper>
-
       {/* <Wrapper
         margin={`50px 0`}
         padding={`30px 0`}
@@ -1252,19 +1280,19 @@ const MM00Presenter = ({
       </Wrapper> */}
       <Wrapper
         bgColor={`rgb(34, 34, 34)`}
-        padding={width < 700 ? `60px 0` : `100px 0`}
+        padding={width < 800 ? `60px 0` : `100px 0`}
       >
         <Wrapper
-          fontSize={width < 700 ? `24px !important` : `48px`}
+          fontSize={width < 800 ? `24px !important` : `48px`}
           color={Theme.white_C}
         >
           매장 인테리어
         </Wrapper>
         <Text
-          fontSize={width < 700 ? `14px !important` : `24px`}
+          fontSize={width < 800 ? `14px !important` : `24px`}
           fontWeight={`400`}
           color={Theme.white_C}
-          margin={width < 700 ? `20px 0` : `30px 0`}
+          margin={width < 800 ? `20px 0` : `30px 0`}
         >
           불필요한 것은 빼고
           <SpanText color={Theme.basicTheme_C}>&nbsp;꼭 필요한 것</SpanText>만
@@ -1273,7 +1301,7 @@ const MM00Presenter = ({
 
         <InteriorSilder />
       </Wrapper>
-      <RsWrapper padding={`100px 0`} display={width > 700 ? `flex` : `none`}>
+      <RsWrapper padding={`100px 0`} display={width > 800 ? `flex` : `none`}>
         <Wrapper fontSize={`48px`}>개설비용</Wrapper>
         <Wrapper
           margin={`50px 0`}
@@ -1403,7 +1431,7 @@ const MM00Presenter = ({
       </RsWrapper>
 
       <Wrapper
-        display={width < 700 ? `flex` : `none`}
+        display={width < 800 ? `flex` : `none`}
         bgColor={`#FFCB08`}
         color={Theme.white_C}
         padding={`60px 10px`}
@@ -1443,9 +1471,11 @@ const MM00Presenter = ({
             </Text>
           </Wrapper>
         </Wrapper>
-        <Wrapper padding={`15px 0`} bgColor={Theme.black_C}>
-          신청하기
-        </Wrapper>
+        <LinkTag to="/contact">
+          <CommonButton width={`100%`} kindOf={`black`} height={`40px`}>
+            신청하기
+          </CommonButton>
+        </LinkTag>
       </Wrapper>
       <Popup />
     </WholeWrapper>

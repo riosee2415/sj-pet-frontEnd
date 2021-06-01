@@ -1,18 +1,21 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Swiper, SwiperSlide } from "rs-swiper/react";
+import SwiperCore, {
+  Navigation,
+  Pagination,
+  Controller,
+  Thumbs,
+  Autoplay,
+} from "rs-swiper";
 import styled from "styled-components";
 import "swiper/swiper-bundle.min.css";
 import { EmptyList, Image, SpanText, Text, Wrapper } from "../CommonComponents";
-import { numberWithCommas } from "../../commonUtils";
-import { FaStar } from "react-icons/fa";
-import Theme from "../../Styles/Theme";
-import CircularIndeterminate from "../loading/CircularIndeterminate";
 
 const MobileText = styled(Text)`
   color: rgb(34, 34, 34);
 `;
 
-export default ({ width, vDatum, isColumn, moveLinkHandler }) => {
+export default ({ isColumn }) => {
   const Container = styled.div`
     width: 100%;
     position: relative;
@@ -20,24 +23,24 @@ export default ({ width, vDatum, isColumn, moveLinkHandler }) => {
     .swiper-container-multirow-column > .swiper-wrapper {
       flex-direction: ${(props) => (props.isColumn ? `row` : `column`)};
     }
-    .swiper-slide {
-      margin-left: ${(props) => (props.isColumn ? `0 !important` : `10px`)};
-    }
   `;
+
+  SwiperCore.use([Navigation, Pagination, Controller, Thumbs, Autoplay]);
 
   return (
     <Container isColumn={isColumn}>
       <Swiper
-        spaceBetween={2}
-        slidesPerView={isColumn ? 1 : width > 1000 ? 3 : width > 800 ? 2 : 1.2}
-        slidesPerColumn={isColumn ? 2 : 1}
+        slidesPerView={1.2}
+        slidesPerColumn={1}
         centeredSlides={isColumn}
-        autoplay={true}
-        navigation={false}
+        autoplay
+        loop
       >
         <SwiperSlide>
           <Wrapper al={`flex-start`}>
             <Image
+              width={`280px`}
+              height={`200px`}
               alt="image"
               src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2Fimg-00.png?alt=media&token=a0e54868-4bab-457d-8790-f9210397334d`}
             />
@@ -61,8 +64,10 @@ export default ({ width, vDatum, isColumn, moveLinkHandler }) => {
         <SwiperSlide>
           <Wrapper al={`flex-start`}>
             <Image
+              width={`280px`}
+              height={`200px`}
               alt="image"
-              src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2Fimg-00.png?alt=media&token=a0e54868-4bab-457d-8790-f9210397334d`}
+              src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2Fimg-01.png?alt=media&token=a054b3db-9bc1-4c04-ad92-9d87d440622e`}
             />
             <Image
               width={`70%`}
@@ -79,8 +84,10 @@ export default ({ width, vDatum, isColumn, moveLinkHandler }) => {
         <SwiperSlide>
           <Wrapper al={`flex-start`}>
             <Image
+              width={`280px`}
+              height={`200px`}
               alt="image"
-              src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2Fimg-00.png?alt=media&token=a0e54868-4bab-457d-8790-f9210397334d`}
+              src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2Fimg-02.png?alt=media&token=8a03d6a8-acae-4fe4-b8b6-ff330eb0b418`}
             />
             <Image
               width={`70%`}
@@ -99,8 +106,10 @@ export default ({ width, vDatum, isColumn, moveLinkHandler }) => {
         <SwiperSlide>
           <Wrapper al={`flex-start`}>
             <Image
+              width={`280px`}
+              height={`200px`}
               alt="image"
-              src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2Fimg-00.png?alt=media&token=a0e54868-4bab-457d-8790-f9210397334d`}
+              src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2Fimg-03.png?alt=media&token=284360dd-52cd-434b-b3db-1414a0a3c328`}
             />
             <Image
               width={`70%`}
@@ -119,8 +128,10 @@ export default ({ width, vDatum, isColumn, moveLinkHandler }) => {
         <SwiperSlide>
           <Wrapper al={`flex-start`}>
             <Image
+              width={`280px`}
+              height={`200px`}
               alt="image"
-              src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2Fimg-00.png?alt=media&token=a0e54868-4bab-457d-8790-f9210397334d`}
+              src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2Fimg-04.png?alt=media&token=f848b436-05f8-403e-b1f9-632d9d7ec4d2`}
             />
             <Image
               width={`60%`}
@@ -136,8 +147,10 @@ export default ({ width, vDatum, isColumn, moveLinkHandler }) => {
         <SwiperSlide>
           <Wrapper al={`flex-start`}>
             <Image
+              width={`280px`}
+              height={`200px`}
               alt="image"
-              src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2Fimg-00.png?alt=media&token=a0e54868-4bab-457d-8790-f9210397334d`}
+              src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2Fimg-05.png?alt=media&token=3d6f61d3-8f41-429b-9409-af671ec1a8c4`}
             />
             <Image
               width={`65%`}
@@ -156,8 +169,10 @@ export default ({ width, vDatum, isColumn, moveLinkHandler }) => {
         <SwiperSlide>
           <Wrapper al={`flex-start`}>
             <Image
+              width={`280px`}
+              height={`200px`}
               alt="image"
-              src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2Fimg-00.png?alt=media&token=a0e54868-4bab-457d-8790-f9210397334d`}
+              src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2Fimg-06.png?alt=media&token=d12c3d2f-a2b8-4894-9866-71703fb9231b`}
             />
             <Image
               width={`70%`}
@@ -174,8 +189,10 @@ export default ({ width, vDatum, isColumn, moveLinkHandler }) => {
         <SwiperSlide>
           <Wrapper al={`flex-start`}>
             <Image
+              width={`280px`}
+              height={`200px`}
               alt="image"
-              src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2Fimg-00.png?alt=media&token=a0e54868-4bab-457d-8790-f9210397334d`}
+              src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2Fimg-07.png?alt=media&token=e75de84c-7f2f-4aa3-9edb-59a73ca42cf2`}
             />
             <Image
               width={`55%`}
