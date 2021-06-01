@@ -442,7 +442,7 @@ export const CommonButton = styled.button`
       ${(props) =>
     props.kindOf === `white` && `border : 1px solid ${props.theme.white_C};`}
      ${(props) =>
-    props.kindOf === `black` && `background : ${props.theme.darkGrey_C};`}
+    props.kindOf === `black` && `background : ${props.theme.black_C};`}
   ${(props) => props.kindOf === `black` && `color : ${props.theme.white_C};`}
   
     ${(props) =>
@@ -455,10 +455,10 @@ export const CommonButton = styled.button`
 ${(props) =>
     props.kindOf === `subTheme2` && `background : ${props.theme.white_C};`}
   ${(props) =>
-    props.kindOf === `subTheme2` && `color : ${props.theme.subTheme_C};`}
+    props.kindOf === `subTheme2` && `color : ${props.theme.black_C};`}
       ${(props) =>
     props.kindOf === `subTheme2` &&
-    `border : 1px solid ${props.theme.subTheme_C};`}
+    `border : 1px solid ${props.theme.black_C};`}
 
     ${(props) =>
     props.kindOf === `grey` && `background : ${props.theme.white_C};`}
@@ -509,20 +509,19 @@ ${(props) => props.kindOf === `google` && `color : ${props.theme.black_C};`}
 ${(props) => props.kindOf === `black` && `background : ${props.theme.white_C};`}
   ${(props) => props.kindOf === `black` && `color : ${props.theme.black_C};`}
   ${(props) =>
-      props.kindOf === `black` &&
-      `border : 1px solid ${props.theme.darkGrey_C};`}
+      props.kindOf === `black` && `border : 1px solid ${props.theme.black_C};`}
         ${(props) =>
       props.kindOf === `subTheme` && `color ${props.theme.subTheme_C};`}
           ${(props) =>
       props.kindOf === `subTheme` && `background ${props.theme.white_C};`}
 
 ${(props) =>
-      props.kindOf === `subTheme2` && `background : ${props.theme.subTheme_C};`}
+      props.kindOf === `subTheme2` && `background : ${props.theme.black_C};`}
   ${(props) =>
       props.kindOf === `subTheme2` && `color : ${props.theme.white_C};`}
       ${(props) =>
       props.kindOf === `subTheme2` &&
-      `border : 1px solid ${props.theme.subTheme_C};`}
+      `border : 1px solid ${props.theme.black_C};`}
 
 
       ${(props) => props.kindOf === `grey` && `color ${props.theme.white_C};`}
@@ -752,8 +751,8 @@ export const TableWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: ${(props) => props.margin || `20px 0px 50px`};
-  padding: ${(props) => props.margin || `20px 0px 50px`};
+  margin: ${(props) => props.margin || `20px 0px 30px`};
+  padding: ${(props) => props.margin};
 
   @media (max-width: 700px) {
     display: none;
@@ -762,16 +761,17 @@ export const TableWrapper = styled.div`
 
 export const TableHead = styled.ul`
   width: 100%;
-  height: 40px;
+  height: 60px;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  box-shadow: ${(props) =>
-    props.shadow || `3px 3px 3px ${props.theme.lightBasicTheme_c}`};
-  margin: ${(props) => props.margin || `0px 0px 10px`};
-  border-bottom: ${(props) => props.borderBottom};
-  border-top: ${(props) => props.borderTop};
+  box-shadow: ${(props) => props.shadow};
+  margin: ${(props) => props.margin};
+  border-bottom: ${(props) =>
+    props.borderBottom || `1px solid ${props.theme.lightGrey_C}`};
+  border-top: ${(props) =>
+    props.borderTop || `3px solid ${props.theme.black_C}`};
   border-radius: ${(props) => props.radius || ``};
   background: ${(props) => props.theme.white_C};
   color: ${(props) => props.theme.black_C};
@@ -784,11 +784,12 @@ export const TableHeadLIST = styled.li`
   flex-direction: row;
   align-items: center;
   justify-content: ${(props) => props.ju || `center`};
+  font-weight: 500;
 `;
 
 export const TableBody = styled.ul`
   width: 100%;
-  height: ${(props) => props.height || `35px`};
+  height: ${(props) => props.height || `55px`};
   font-size: ${(props) => props.fontSize};
   padding: ${(props) => props.padding};
   display: flex;
@@ -818,16 +819,18 @@ export const TableBodyLIST = styled.li`
   color: ${(props) => props.color};
   padding: ${(props) => props.padding};
   line-height: ${(props) => props.lineHeight || `1.2`};
+  font-weight: 300;
 `;
 
 export const MobileTableWrapper = styled.div`
   width: ${(props) => props.width || `100%`};
   padding: 10px;
   box-shadow: ${(props) => props.shadow};
-  border: ${(props) => props.border || `1px solid ${props.theme.darkGrey_C}`};
+  border: ${(props) => props.border};
+  border-top: ${(props) =>
+    props.borderTop || `3px solid ${props.theme.black_C}`};
   margin-bottom: 5px;
   background-color: ${(props) => props.bgColor || ``};
-  border-radius: 10px;
   transition: 0.5s;
   cursor: pointer;
 
@@ -836,12 +839,9 @@ export const MobileTableWrapper = styled.div`
     background: ${(props) => props.theme.lightGrey_C};
   }
 
-  &:nth-child(2n) {
-    background: ${(props) => props.theme.lightGrey_C};
-  }
-
-  &:nth-child(2n):hover {
-    background: ${(props) => props.theme.lightBasicTheme_c};
+  & ul {
+    height: 50px;
+    border-bottom: none;
   }
 `;
 

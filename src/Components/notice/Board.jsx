@@ -17,9 +17,10 @@ import {
   ComboOption,
   MobileTable,
   MobileTableWrapper,
+  CommonButton,
 } from "../CommonComponents";
 import styled from "styled-components";
-import { AiOutlineSearch, AiFillEye } from "react-icons/ai";
+import { withResizeDetector } from "react-resize-detector";
 import { FaUserCircle } from "react-icons/fa";
 import { MdDateRange } from "react-icons/md";
 import { AiOutlineDoubleLeft, AiOutlineDoubleRight } from "react-icons/ai";
@@ -43,6 +44,7 @@ const Board = ({
   prevAndNextPageChangeHandler,
   changePageHandler,
   searchHandler,
+  width,
 }) => {
   return (
     <WholeWrapper>
@@ -84,14 +86,14 @@ const Board = ({
             <TableHeadLIST width={`100px`}>번호</TableHeadLIST>
             <TableHeadLIST
               fontWeight={`800`}
-              width={`calc(100% - 100px - 160px - 120px - 60px)`}
+              width={`calc(100% - 100px - 150px - 200px - 160px)`}
               ju={`flex-start`}
             >
               제목
             </TableHeadLIST>
-            <TableHeadLIST width={`160px`}>이름</TableHeadLIST>
-            <TableHeadLIST width={`120px`}>작성일</TableHeadLIST>
-            <TableHeadLIST width={`60px`}>조회수</TableHeadLIST>
+            <TableHeadLIST width={`150px`}>작성자</TableHeadLIST>
+            <TableHeadLIST width={`200px`}>등록일</TableHeadLIST>
+            <TableHeadLIST width={`160px`}>조회수</TableHeadLIST>
           </TableHead>
 
           {noticeDatum ? (
@@ -109,18 +111,18 @@ const Board = ({
                     </TableBodyLIST>
                     <TableBodyLIST
                       fontWeight={`800`}
-                      width={`calc(100% - 100px - 160px - 120px - 60px)`}
+                      width={`calc(100% - 100px - 150px - 200px - 160px)`}
                       ju={`flex-start`}
                     >
                       {data && data.title.length > 90
                         ? data.title.substring(0, 90) + `…`
                         : data.title}
                     </TableBodyLIST>
-                    <TableBodyLIST width={`160px`}>관리자</TableBodyLIST>
-                    <TableBodyLIST width={`120px`}>
+                    <TableHeadLIST width={`150px`}>작성자</TableHeadLIST>
+                    <TableBodyLIST width={`200px`}>
                       {data.createdAt.substring(0, 10)}
                     </TableBodyLIST>
-                    <TableBodyLIST width={`60px`}>{data.hit}</TableBodyLIST>
+                    <TableBodyLIST width={`160px`}>{data.hit}</TableBodyLIST>
                   </TableBody>
                 );
               })
@@ -154,15 +156,26 @@ const Board = ({
                     </TableBody>
 
                     <TableBody>
-                      <TableBodyLIST ju={`flex-start`} width={`calc(100% / 3)`}>
-                        <FaUserCircle /> 관리자
+                      <TableBodyLIST
+                        color={`rgb(170, 170, 170)`}
+                        ju={`flex-start`}
+                        width={`calc(100% / 3)`}
+                      >
+                        작성자
                       </TableBodyLIST>
-                      <TableBodyLIST ju={`flex-start`} width={`calc(100% / 3)`}>
-                        <MdDateRange />
+                      <TableBodyLIST
+                        color={`rgb(170, 170, 170)`}
+                        ju={`flex-start`}
+                        width={`calc(100% / 3)`}
+                      >
                         {data.createdAt.substring(0, 10)}
                       </TableBodyLIST>
-                      <TableBodyLIST ju={`flex-start`} width={`calc(100% / 3)`}>
-                        <AiFillEye /> {data.hit}
+                      <TableBodyLIST
+                        color={`rgb(170, 170, 170)`}
+                        ju={`flex-start`}
+                        width={`calc(100% / 3)`}
+                      >
+                        {data.hit}
                       </TableBodyLIST>
                     </TableBody>
                   </MobileTableWrapper>
@@ -173,6 +186,12 @@ const Board = ({
             <CircularIndeterminate />
           )}
         </MobileTable>
+
+        <Wrapper al={width < 800 ? `center` : `flex-end`}>
+          <CommonButton width={`150px`} height={`50px`} kindOf={`black`}>
+            글쓰기
+          </CommonButton>
+        </Wrapper>
 
         {pages && pages.length > 0 && (
           <PagenationWrapper width={`auto`}>
@@ -207,4 +226,4 @@ const Board = ({
   );
 };
 
-export default Board;
+export default withResizeDetector(Board);

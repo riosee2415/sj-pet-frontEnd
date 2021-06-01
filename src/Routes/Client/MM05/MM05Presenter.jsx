@@ -376,7 +376,7 @@ const MM05Presenter = ({
                     <CommonButton
                       width={`50%`}
                       height={width < 800 ? `35px` : `40px`}
-                      kindOf={!inputIsStore.value ? `subTheme` : `subTheme2`}
+                      kindOf={!inputIsStore.value ? `black` : `subTheme2`}
                       onClick={() => inputIsStore.setValue(false)}
                     >
                       없음
@@ -384,7 +384,7 @@ const MM05Presenter = ({
                     <CommonButton
                       width={`50%`}
                       height={width < 800 ? `35px` : `40px`}
-                      kindOf={inputIsStore.value ? `subTheme` : `subTheme2`}
+                      kindOf={inputIsStore.value ? `black` : `subTheme2`}
                       onClick={() => inputIsStore.setValue(true)}
                     >
                       있음
@@ -474,6 +474,7 @@ const MM05Presenter = ({
                 </Wrapper>
                 <CommonButton
                   width={width < 700 ? `80px` : `100px`}
+                  height={`50px`}
                   kindOf={`subTheme2`}
                   onClick={(e) => {
                     e.stopPropagation();
