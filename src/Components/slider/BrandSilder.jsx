@@ -9,6 +9,7 @@ import Theme from "../../Styles/Theme";
 import CircularIndeterminate from "../loading/CircularIndeterminate";
 
 const BrandLogo = styled(Image)`
+  width: 170px;
   @media (max-width: 800px) {
     width: 350px;
   }
@@ -51,8 +52,6 @@ export default ({ width, bDatum, isColumn, moveLinkHandler }) => {
                       <BrandLogo
                         alt="brand"
                         src={brand.thumbnail}
-                        // isFilter={false}
-                        // isHover={true}
                         margin={`10px 0`}
                       />
                     );

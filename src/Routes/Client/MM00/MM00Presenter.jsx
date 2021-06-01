@@ -135,6 +135,10 @@ const PetmartTitle = styled(SpanText)`
   }
 `;
 
+const LinkTag = styled(Link)`
+  width: 100%;
+`;
+
 const MainImage = styled(Image)`
   /* animation: ${scale2} 60s forwards; */
 `;
@@ -654,12 +658,14 @@ const MM00Presenter = ({
               <Text padding={`10px 0 15px`}>펫마트 전주효자점 성공스토리</Text>
             </Wrapper>
           </Wrapper>
-          <Wrapper
-            padding={`15px 0`}
-            border={`1px solid ${Theme.white_C}`}
-            color={Theme.white_C}
-          >
-            더보기
+          <Wrapper>
+            <CommonButton
+              width={width < 800 ? `100%` : `440px`}
+              height={width < 800 ? `40px` : `60px`}
+              kindOf={`white`}
+            >
+              더보기
+            </CommonButton>
           </Wrapper>
         </RsWrapper>
       </Wrapper>
@@ -1366,15 +1372,16 @@ const MM00Presenter = ({
                 </Text>
               </Wrapper>
             </Wrapper>
-            <Wrapper
-              bgColor={`rgb(34, 34, 34)`}
-              radius={`0 0 20px 20px`}
-              color={Theme.white_C}
-              padding={`30px 0`}
-              fontSize={`24px`}
-            >
-              신청하기
-            </Wrapper>
+            <LinkTag to="/contact">
+              <CommonButton
+                width={`100%`}
+                kindOf={`black`}
+                radius={`0 0 20px 20px`}
+                fontSize={`24px`}
+              >
+                신청하기
+              </CommonButton>
+            </LinkTag>
           </Wrapper>
         </Wrapper>
         <Text fontSize={`18px`}>
