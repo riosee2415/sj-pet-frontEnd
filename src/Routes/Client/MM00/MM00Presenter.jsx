@@ -1285,7 +1285,7 @@ const MM00Presenter = ({
             width={width < 1100 ? `70%` : `50%`}
             bgColor={Theme.white_C}
             radius={`20px`}
-            shadow={`3px 3px 3px #eee`}
+            shadow={`1px 3px 10px rgba(0, 0, 0, 0.16)`}
           >
             <Wrapper padding={width < 900 ? `30px 70px` : `50px 110px`}>
               <Text fontSize={width < 900 ? `30px !important` : `48px`}>
