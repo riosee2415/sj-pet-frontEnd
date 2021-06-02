@@ -593,20 +593,24 @@ const MM00Presenter = ({
           </Wrapper>
 
           <Wrapper display={width < 800 ? `flex` : `none`} al={`flex-start`}>
-            <Text color={Theme.white_C} fontSize={`24px !important`}>
-              펫마트와
-              <SpanText color={Theme.basicTheme_C}>함께 인생 제2막</SpanText>
-              시작!
-            </Text>
+            <Fade left>
+              <Text color={Theme.white_C} fontSize={`24px !important`}>
+                펫마트와
+                <SpanText color={Theme.basicTheme_C}>함께 인생 제2막</SpanText>
+                시작!
+              </Text>
+            </Fade>
           </Wrapper>
           <Wrapper display={width < 800 ? `flex` : `none`} padding={`20px 0`}>
-            <Text
-              color={Theme.white_C}
-              fontSize={`18px !important`}
-              fontWeight={`300`}
-            >
-              가맹점 성공스토리 68호 군산점
-            </Text>
+            <Fade left>
+              <Text
+                color={Theme.white_C}
+                fontSize={`18px !important`}
+                fontWeight={`300`}
+              >
+                가맹점 성공스토리 68호 군산점
+              </Text>
+            </Fade>
           </Wrapper>
 
           <Wrapper
