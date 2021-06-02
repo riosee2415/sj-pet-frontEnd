@@ -61,16 +61,6 @@ const MM03Container = ({ history, match }) => {
   const firstPageChangeHandler = (page) => {
     let list = currentList;
 
-    if (page < 0) {
-      toast.error("첫 페이지 입니다.");
-      return;
-    }
-
-    if (page > pages.length - 1) {
-      toast.error("마지막 페이지 입니다.");
-      return;
-    }
-
     if (parseInt(page / 10) <= currentList) {
       list = 0;
     }

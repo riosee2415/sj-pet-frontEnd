@@ -32,9 +32,9 @@ import Theme from "../../Styles/Theme";
 const Board = ({
   inputSearch,
   pages,
+  currentNoticeList,
+  currentNoticePage,
   limit,
-  currentPage,
-  currentList,
   sortValue,
   //
   noticeDatum,
@@ -42,10 +42,10 @@ const Board = ({
   //
   moveLinkHandler,
   moveWriteHandler,
-  prevAndNextPageChangeHandler,
-  firstPageChangeHandler,
-  endPageChangeHandler,
-  changePageHandler,
+  noticePrevAndNextPageChangeHandler,
+  noticeFirstPageChangeHandler,
+  noticeEndPageChangeHandler,
+  changeNoticePageHandler,
   searchHandler,
   width,
 }) => {
@@ -110,7 +110,7 @@ const Board = ({
                     onClick={() => moveLinkHandler(data._id)}
                   >
                     <TableBodyLIST width={`100px`}>
-                      {pageCnt - (currentPage * limit + idx) + ""}
+                      {pageCnt - (currentNoticePage * limit + idx) + ""}
                     </TableBodyLIST>
                     <TableBodyLIST
                       fontWeight={`800`}
@@ -205,22 +205,24 @@ const Board = ({
 
         {pages && pages.length > 0 && (
           <PagenationWrapper width={`auto`}>
-            <PagenationBtn onClick={() => firstPageChangeHandler(0)}>
+            <PagenationBtn onClick={() => noticeFirstPageChangeHandler(0)}>
               <AiOutlineDoubleLeft />
             </PagenationBtn>
             <PagenationBtn
-              onClick={() => prevAndNextPageChangeHandler(currentPage - 1)}
+              onClick={() =>
+                noticePrevAndNextPageChangeHandler(currentNoticePage - 1)
+              }
             >
               <IoIosArrowBack />
             </PagenationBtn>
             {pages.map((data, idx) => {
               return (
-                (currentList + 1) * 10 > idx &&
-                currentList * 10 <= idx && (
+                (currentNoticeList + 1) * 10 > idx &&
+                currentNoticeList * 10 <= idx && (
                   <Pagenation
-                    className={data === currentPage ? `active` : ``}
+                    className={data === currentNoticePage ? `active` : ``}
                     key={data}
-                    onClick={() => changePageHandler(data)}
+                    onClick={() => changeNoticePageHandler(data)}
                   >
                     {data + 1}
                   </Pagenation>
@@ -228,11 +230,13 @@ const Board = ({
               );
             })}
             <PagenationBtn
-              onClick={() => prevAndNextPageChangeHandler(currentPage + 1)}
+              onClick={() =>
+                noticePrevAndNextPageChangeHandler(currentNoticePage + 1)
+              }
             >
               <IoIosArrowForward />
             </PagenationBtn>
-            <PagenationBtn onClick={() => endPageChangeHandler(pageCnt)}>
+            <PagenationBtn onClick={() => noticeEndPageChangeHandler(pageCnt)}>
               <AiOutlineDoubleRight />
             </PagenationBtn>
           </PagenationWrapper>

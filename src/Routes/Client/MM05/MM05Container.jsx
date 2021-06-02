@@ -34,24 +34,26 @@ const MM05Container = ({ history }) => {
   const [isToggle, setIsToggle] = useState(false);
 
   //
+  const [currentTab, setCurrentTab] = useState(1);
   const [actionFaqView, setActionFaqView] = useState(null);
   const [currentType, setCurrentType] = useState(0);
-  const [currentPage, setCurrentPage] = useState(0);
+  const [currentFaqPage, setCurrentFaqPage] = useState(0);
+  const [currentFaqList, setCurrentFaqList] = useState(0);
   const [limit, setLimit] = useState(5);
   const [pages, setPages] = useState(null);
   const inputSearch = useInput("");
   const [searchValue, setSearchValue] = useState("");
-  const [currentTab, setCurrentTab] = useState(1);
 
   //
-  const [currentList, setCurrentList] = useState(0);
+  const [currentNoticePage, setCurrentNoticePage] = useState(0);
+  const [currentNoticeList, setCurrentNoticeList] = useState(0);
   const sortValue = useInput("createdAt");
   ////////////// - USE QUERY- ///////////////
 
   const { data: faqDatum, refetch: faqRefetch } = useQuery(GET_FAQ, {
     variables: {
       limit,
-      currentPage,
+      currentPage: currentFaqPage,
       searchValue,
     },
   });
@@ -67,7 +69,7 @@ const MM05Container = ({ history }) => {
     variables: {
       searchValue,
       limit,
-      currentPage: currentPage,
+      currentPage: currentNoticePage,
       sort: sortValue.value,
     },
   });
@@ -182,8 +184,8 @@ const MM05Container = ({ history }) => {
     setCurrentType(type);
   };
 
-  const prevAndNextPageChangeHandler = (page) => {
-    let list = currentList;
+  const faqPrevAndNextPageChangeHandler = (page) => {
+    let list = currentFaqList;
 
     if (page < 0) {
       toast.error("첫 페이지 입니다.");
@@ -195,53 +197,92 @@ const MM05Container = ({ history }) => {
       return;
     }
 
-    if ((currentList + 1) * 10 === page) {
+    if ((currentFaqList + 1) * 10 === page) {
       list += 1;
-    } else if (currentList * 10 - 1 === page) {
+    } else if (currentFaqList * 10 - 1 === page) {
       list -= 1;
     }
 
-    setCurrentList(list);
-    setCurrentPage(page);
+    setCurrentFaqList(list);
+    setCurrentFaqPage(page);
   };
 
-  const firstPageChangeHandler = (page) => {
-    let list = currentList;
+  const faqFirstPageChangeHandler = (page) => {
+    let list = currentFaqList;
 
-    if (page < 0) {
-      toast.error("첫 페이지 입니다.");
-      return;
-    }
-
-    if (page > pages.length - 1) {
-      toast.error("마지막 페이지 입니다.");
-      return;
-    }
-
-    if (parseInt(page / 10) <= currentList) {
+    if (parseInt(page / 10) <= currentFaqList) {
       list = 0;
     }
-    setCurrentList(list);
-    setCurrentPage(page);
+    setCurrentFaqList(list);
+    setCurrentFaqPage(page);
   };
 
-  const endPageChangeHandler = (page) => {
-    let list = currentList;
+  const faqEndPageChangeHandler = (page) => {
+    let list = currentFaqList;
 
     if (page) {
       list = parseInt((pages.length - 1) / 10);
     }
 
-    setCurrentList(list);
-    setCurrentPage(page - 1);
+    setCurrentFaqList(list);
+    setCurrentFaqPage(page - 1);
   };
 
-  const changePageHandler = (page) => {
-    setCurrentPage(page);
+  const noticePrevAndNextPageChangeHandler = (page) => {
+    let list = currentNoticeList;
+
+    if (page < 0) {
+      toast.error("첫 페이지 입니다.");
+      return;
+    }
+
+    if (page > pages.length - 1) {
+      toast.error("마지막 페이지 입니다.");
+      return;
+    }
+
+    if ((currentNoticeList + 1) * 10 === page) {
+      list += 1;
+    } else if (currentNoticeList * 10 - 1 === page) {
+      list -= 1;
+    }
+
+    setCurrentNoticeList(list);
+    setCurrentNoticePage(page);
+  };
+
+  const noticeFirstPageChangeHandler = (page) => {
+    let list = currentNoticeList;
+
+    if (parseInt(page / 10) <= currentNoticeList) {
+      list = 0;
+    }
+    setCurrentNoticeList(list);
+    setCurrentNoticePage(page);
+  };
+
+  const noticeEndPageChangeHandler = (page) => {
+    let list = currentNoticeList;
+
+    if (page) {
+      list = parseInt((pages.length - 1) / 10);
+    }
+
+    setCurrentNoticeList(list);
+    setCurrentNoticePage(page - 1);
+  };
+
+  const changeFaqPageHandler = (page) => {
+    setCurrentFaqPage(page);
+  };
+
+  const changeNoticePageHandler = (page) => {
+    setCurrentNoticePage(page);
   };
 
   const searchHandler = () => {
-    setCurrentPage(0);
+    setCurrentFaqPage(0);
+    setCurrentNoticePage(0);
     setSearchValue(inputSearch.value);
   };
 
@@ -274,7 +315,7 @@ const MM05Container = ({ history }) => {
 
   useEffect(() => {
     setActionFaqView(null);
-  }, [currentPage]);
+  }, [currentFaqPage]);
 
   useEffect(() => {
     if (faqDatum && !actionFaqView) {
@@ -323,30 +364,32 @@ const MM05Container = ({ history }) => {
       setIsAgree={setIsAgree}
       isToggle={isToggle}
       setIsToggle={setIsToggle}
+      currentTab={currentTab}
+      setCurrentTab={setCurrentTab}
       //
       createRequestHandler={createRequestHandler}
       ///////////////////// FAQ
-      inputSearch={inputSearch}
       pages={pages}
-      currentPage={currentPage}
+      inputSearch={inputSearch}
       actionFaqView={actionFaqView}
       currentType={currentType}
-      currentTab={currentTab}
-      setCurrentTab={setCurrentTab}
+      currentFaqList={currentFaqList}
+      currentFaqPage={currentFaqPage}
       //
       faqDatum={faqDatum && faqDatum.getFaqDetail}
       pData={pData && pData.getFaqTotalPage}
       //
       toggleFaqAnswer={toggleFaqAnswer}
       changeFaqTypeHandler={changeFaqTypeHandler}
-      prevAndNextPageChangeHandler={prevAndNextPageChangeHandler}
-      firstPageChangeHandler={firstPageChangeHandler}
-      endPageChangeHandler={endPageChangeHandler}
-      changePageHandler={changePageHandler}
+      faqPrevAndNextPageChangeHandler={faqPrevAndNextPageChangeHandler}
+      faqFirstPageChangeHandler={faqFirstPageChangeHandler}
+      faqEndPageChangeHandler={faqEndPageChangeHandler}
+      changeFaqPageHandler={changeFaqPageHandler}
       searchHandler={searchHandler}
       scrollMoveHandler={scrollMoveHandler}
       /////////////// NOTICE
-      currentList={currentList}
+      currentNoticeList={currentNoticeList}
+      currentNoticePage={currentNoticePage}
       limit={limit}
       sortValue={sortValue}
       //
@@ -355,6 +398,10 @@ const MM05Container = ({ history }) => {
       //
       moveLinkHandler={moveLinkHandler}
       moveWriteHandler={moveWriteHandler}
+      noticePrevAndNextPageChangeHandler={noticePrevAndNextPageChangeHandler}
+      noticeFirstPageChangeHandler={noticeFirstPageChangeHandler}
+      noticeEndPageChangeHandler={noticeEndPageChangeHandler}
+      changeNoticePageHandler={changeNoticePageHandler}
     />
   );
 };
