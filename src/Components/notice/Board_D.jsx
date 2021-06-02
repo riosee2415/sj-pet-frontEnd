@@ -33,12 +33,13 @@ const Board_D_title = styled.h2`
 
 const Board_D = styled.ul`
   width: 100%;
-  height: ${(props) => (props.height ? props.height : `40px`)};
+  height: ${(props) => (props.height ? props.height : `50px`)};
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin: 10px 0 0;
   background: ${(props) => props.bgColor};
+  border-bottom: ${(props) =>
+    props.borderBottom || `1px solid ${props.theme.lightGrey_C}`};
 
   @media (max-width: 700px) {
     flex-direction: column;
@@ -48,13 +49,12 @@ const Board_D = styled.ul`
 
 const Board_D_List = styled.li`
   width: ${(props) => props.width};
-  line-height: 40px;
+  line-height: 50px;
   background: ${(props) => props.bgColor};
   color: ${(props) => props.color};
   text-align: ${(props) => props.ta || `center`};
   padding: ${(props) => (props.padding ? props.padding : `0px 10px`)};
   border-radius: ${(props) => props.radius};
-  border-radius: 20px;
 `;
 
 const Board_D_Desc = styled.div`
@@ -62,7 +62,8 @@ const Board_D_Desc = styled.div`
   min-height: 500px;
   padding: 15px;
   line-height: 1.4;
-  box-shadow: 0px 5px 6px rgba(0, 0, 0, 0.16);
+  border-bottom: ${(props) =>
+    props.borderBottom || `1px solid ${props.theme.lightGrey_C}`};
 `;
 
 export default withResizeDetector(({ match, history, width }) => {
@@ -180,63 +181,39 @@ export default withResizeDetector(({ match, history, width }) => {
     scroll.scrollTo(0);
   }, []);
 
-  useTitle(``);
+  useTitle("PET MART 선진펫");
   return (
-    <WholeWrapper margin={`150px 0 0 0`}>
-      <RsWrapper padding={`100px 0`}>
+    <WholeWrapper margin={`80px 0 0 0`}>
+      <RsWrapper padding={`80px 0`}>
         <Board_D_title>
           {currentData ? currentData.title : <CircularIndeterminate />}
         </Board_D_title>
 
         <Board_D dr={`row`}>
-          <Board_D_List
-            width={width < 700 ? `100%` : `150px`}
-            bgColor={Theme.black_C}
-            color={Theme.white_C}
-          >
-            작성자
-          </Board_D_List>
-          <Board_D_List width={width < 700 ? `100%` : `calc((100% - 300px))`}>
+          <Board_D_List>작성자</Board_D_List>
+          <Board_D_List color={Theme.subTheme_C}>
             {currentData ? currentData.client : <CircularIndeterminate />}
           </Board_D_List>
-
-          <Board_D_List
-            width={width < 700 ? `100%` : `150px`}
-            bgColor={Theme.black_C}
-            color={Theme.white_C}
-          >
-            작성일
+          <Board_D_List>연락처</Board_D_List>
+          <Board_D_List color={Theme.subTheme_C}>
+            {currentData ? currentData.tel : <CircularIndeterminate />}
           </Board_D_List>
-          <Board_D_List width={width < 700 ? `100%` : `calc((100% - 300px))`}>
+
+          <Board_D_List>작성일</Board_D_List>
+          <Board_D_List color={Theme.subTheme_C}>
             {currentData ? (
               currentData.createdAt.slice(0, 10)
             ) : (
               <CircularIndeterminate />
             )}
           </Board_D_List>
-        </Board_D>
-        <Board_D dr={`row`}>
-          <Board_D_List
-            width={width < 700 ? `100%` : `150px`}
-            bgColor={Theme.black_C}
-            color={Theme.white_C}
-          >
-            연락처
-          </Board_D_List>
-          <Board_D_List width={width < 700 ? `100%` : `calc((100% - 300px))`}>
-            {currentData ? currentData.tel : <CircularIndeterminate />}
-          </Board_D_List>
-          <Board_D_List
-            width={width < 700 ? `100%` : `150px`}
-            bgColor={Theme.black_C}
-            color={Theme.white_C}
-          >
-            조회수
-          </Board_D_List>
-          <Board_D_List width={width < 700 ? `100%` : `calc((100% - 300px))`}>
+
+          <Board_D_List>조회수</Board_D_List>
+          <Board_D_List color={Theme.subTheme_C}>
             {currentData ? currentData.hit : <CircularIndeterminate />}
           </Board_D_List>
         </Board_D>
+
         <Board_D_Desc>
           <Wrapper
             id={"notice_description-js"}
@@ -275,15 +252,18 @@ export default withResizeDetector(({ match, history, width }) => {
 
         <Wrapper margin={`30px 0px`} ju={`flex-end`} dr={`row`}>
           <CommonButton
-            width={`80px`}
+            height={`40px`}
+            width={`100px`}
             margin={`0px 10px 0px 0px`}
             onClick={_moveListBoard}
+            kindOf={`black`}
           >
             목록
           </CommonButton>
 
           <CommonButton
-            width={`80px`}
+            height={`40px`}
+            width={`100px`}
             margin={`0px 10px 0px 0px`}
             onClick={_moveBeforeBoard}
           >
@@ -291,7 +271,8 @@ export default withResizeDetector(({ match, history, width }) => {
           </CommonButton>
 
           <CommonButton
-            width={`80px`}
+            height={`40px`}
+            width={`100px`}
             margin={`0px 10px 0px 0px`}
             onClick={_moveNextBoard}
           >
