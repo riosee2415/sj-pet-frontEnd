@@ -110,8 +110,8 @@ export default withResizeDetector(({ match, history, width }) => {
     setIsLoading(false);
   };
 
-  const moveLinkHandler = () => {
-    history.goBack();
+  const moveLinkHandler = (link, tab) => {
+    history.push(`/${link}?type=${tab}`);
   };
 
   const createBoardHandler = () => {
@@ -358,7 +358,7 @@ export default withResizeDetector(({ match, history, width }) => {
             width={`150px`}
             height={`40px`}
             margin={`0px 10px 0px 0px`}
-            onClick={moveLinkHandler}
+            onClick={() => moveLinkHandler("contact", "faq")}
           >
             목록
           </CommonButton>

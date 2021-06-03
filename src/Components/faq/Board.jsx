@@ -225,15 +225,18 @@ const Board = ({
           >
             <IoIosArrowBack />
           </PagenationBtn>
-          {pages.map((data) => {
+          {pages.map((data, idx) => {
             return (
-              <Pagenation
-                className={data === currentFaqPage ? `active` : ``}
-                key={data}
-                onClick={() => changeFaqPageHandler(data)}
-              >
-                {data + 1}
-              </Pagenation>
+              (currentFaqList + 1) * (width < 900 ? 5 : 10) > idx &&
+              currentFaqList * (width < 900 ? 5 : 10) <= idx && (
+                <Pagenation
+                  className={data === currentFaqPage ? `active` : ``}
+                  key={data}
+                  onClick={() => changeFaqPageHandler(data)}
+                >
+                  {data + 1}
+                </Pagenation>
+              )
             );
           })}
           <PagenationBtn
