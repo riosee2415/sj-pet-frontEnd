@@ -14,6 +14,7 @@ export const GET_NOTICEBOARD = gql`
       _id
       type
       title
+      tel
       createdAt
       isDelete
       description

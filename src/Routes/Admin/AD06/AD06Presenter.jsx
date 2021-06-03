@@ -118,13 +118,12 @@ export default ({
           </Wrapper>
           <Wrapper>
             <TableWrapper>
-              <TableHeadColumn width={`5%`}>번호</TableHeadColumn>
+              <TableHeadColumn width={`10%`}>번호</TableHeadColumn>
               <TableHeadColumn width={`10%`}>유형</TableHeadColumn>
-              <TableHeadColumn width={`40%`}>제목</TableHeadColumn>
-              <TableHeadColumn width={`10%`}>작성자</TableHeadColumn>
-              <TableHeadColumn width={`15%`}>작성일</TableHeadColumn>
-              <TableHeadColumn width={`5%`}>삭제</TableHeadColumn>
-              <TableHeadColumn width={`15%`}>삭제여부</TableHeadColumn>
+              <TableHeadColumn width={`30%`}>제목</TableHeadColumn>
+              <TableHeadColumn width={`15%`}>연락처</TableHeadColumn>
+              <TableHeadColumn width={`15%`}>작성자</TableHeadColumn>
+              <TableHeadColumn width={`20%`}>작성일</TableHeadColumn>
             </TableWrapper>
           </Wrapper>
           <Wrapper isBorder={true} height={`407px`} ju={`flex-start`}>
@@ -140,7 +139,7 @@ export default ({
                   return (
                     <Fade key={data._id} delay={idx * 20}>
                       <TableWrapper isData={true} isDelete={data.isDelete}>
-                        <TableHeadColumn isData={true} width={`5%`}>
+                        <TableHeadColumn isData={true} width={`10%`}>
                           {totalAllPage &&
                             totalAllPage - idx - limit * currentPage}
                         </TableHeadColumn>
@@ -149,7 +148,7 @@ export default ({
                         </TableHeadColumn>
                         <TableHeadColumn
                           isData={true}
-                          width={`40%`}
+                          width={`30%`}
                           onClick={() =>
                             data.isDelete
                               ? null
@@ -164,25 +163,14 @@ export default ({
                         >
                           {data.title}
                         </TableHeadColumn>
-                        <TableHeadColumn isData={true} width={`10%`}>
+                        <TableHeadColumn isData={true} width={`15%`}>
+                          {data.tel}
+                        </TableHeadColumn>
+                        <TableHeadColumn isData={true} width={`15%`}>
                           관리자
                         </TableHeadColumn>
-                        <TableHeadColumn isData={true} width={`15%`}>
+                        <TableHeadColumn isData={true} width={`20%`}>
                           {data.createdAt}
-                        </TableHeadColumn>
-                        <TableHeadColumn
-                          isData={true}
-                          width={`5%`}
-                          isSvg={true}
-                        >
-                          <FiDelete
-                            size={20}
-                            color={Theme.delete_B_C}
-                            onClick={() => boardDeleteHandler(data._id)}
-                          />
-                        </TableHeadColumn>
-                        <TableHeadColumn isData={true} width={`15%`}>
-                          {data.isDelete ? data.deletedAt : ``}
                         </TableHeadColumn>
                       </TableWrapper>
                     </Fade>
@@ -331,6 +319,7 @@ export default ({
             </Wrapper>
             <Wrapper al={`flex-start`} size={`15px`} padding={`10px`}>
               <TextInput
+                readOnly={true}
                 type="text"
                 value={detailTitle}
                 onChange={(e) => setDetailTitle(e.target.value)}
@@ -348,6 +337,7 @@ export default ({
           </Wrapper>
 
           <Editor
+            readOnly={true}
             value={detailDescription}
             componentHeight="h-300"
             editorChangeHandler={(html) => setDetailDescription(html)}
