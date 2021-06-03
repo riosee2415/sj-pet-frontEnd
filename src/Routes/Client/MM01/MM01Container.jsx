@@ -6,8 +6,9 @@ import {} from "./MM01Queries";
 import { animateScroll as scroll } from "react-scroll";
 import useInput from "../../../Components/Hooks/useInput";
 import { toast } from "react-toastify";
+import queryString from "query-string";
 
-const MM01Container = ({ history }) => {
+const MM01Container = ({ history, location }) => {
   ////////////// - USE REF- ///////////////
   const greRef = useRef();
   const hisRef = useRef();
@@ -33,6 +34,16 @@ const MM01Container = ({ history }) => {
   useEffect(() => {
     scroll.scrollTo(0);
   }, []);
+
+  useEffect(() => {
+    const query = queryString.parse(location.search);
+
+    if (query.type === "ceo") {
+      setCurrentTab(0);
+    } else if (query.type === "his") {
+      setCurrentTab(1);
+    }
+  }, [location.search]);
 
   return (
     <MM01Presenter
