@@ -119,11 +119,10 @@ export default ({
           <Wrapper>
             <TableWrapper>
               <TableHeadColumn width={`10%`}>번호</TableHeadColumn>
-              <TableHeadColumn width={`10%`}>유형</TableHeadColumn>
-              <TableHeadColumn width={`30%`}>제목</TableHeadColumn>
+              <TableHeadColumn width={`35%`}>제목</TableHeadColumn>
               <TableHeadColumn width={`15%`}>연락처</TableHeadColumn>
               <TableHeadColumn width={`15%`}>작성자</TableHeadColumn>
-              <TableHeadColumn width={`20%`}>작성일</TableHeadColumn>
+              <TableHeadColumn width={`25%`}>작성일</TableHeadColumn>
             </TableWrapper>
           </Wrapper>
           <Wrapper isBorder={true} height={`407px`} ju={`flex-start`}>
@@ -143,12 +142,11 @@ export default ({
                           {totalAllPage &&
                             totalAllPage - idx - limit * currentPage}
                         </TableHeadColumn>
-                        <TableHeadColumn isData={true} width={`10%`}>
-                          {data.type}
-                        </TableHeadColumn>
+
                         <TableHeadColumn
                           isData={true}
-                          width={`30%`}
+                          isToday
+                          width={`35%`}
                           onClick={() =>
                             data.isDelete
                               ? null
@@ -169,7 +167,7 @@ export default ({
                         <TableHeadColumn isData={true} width={`15%`}>
                           {data.client}
                         </TableHeadColumn>
-                        <TableHeadColumn isData={true} width={`20%`}>
+                        <TableHeadColumn isData={true} width={`25%`}>
                           {data.createdAt}
                         </TableHeadColumn>
                       </TableWrapper>
@@ -296,7 +294,7 @@ export default ({
         maxWidth={`lg`}
       >
         <DialogTitle id="alert-dialog-slide-title">
-          {`NOTICE QNA 상세보기`}
+          {`Q&A 상세보기`}
         </DialogTitle>
         <DialogContent>
           <Wrapper
@@ -306,17 +304,6 @@ export default ({
             isBorder={true}
             margin={`0px 0px 15px 0px`}
           >
-            <Wrapper
-              width={`100px`}
-              height={`100%`}
-              margin={`0px 10px 0px 0px`}
-              size={`13px`}
-              isSearchBox={true}
-              color={Theme.white_C}
-              padding={`10px`}
-            >
-              {detailType}
-            </Wrapper>
             <Wrapper al={`flex-start`} size={`15px`} padding={`10px`}>
               <TextInput
                 readOnly={true}

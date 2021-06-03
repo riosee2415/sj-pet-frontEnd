@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[19],{823:function(e,n,t){"use strict";t.r(n);var c=t(1),l=t.n(c),o=t(33),u=t(691),r=Object(o.a)((function(){return Promise.all([t.e(1),t.e(0),t.e(4),t.e(5),t.e(43)]).then(t.bind(null,826))}));n.default=function(e){return Object(c.useEffect)((function(){u.animateScroll.scrollTo(0)}),[]),l.a.createElement(r,null)}}}]);
