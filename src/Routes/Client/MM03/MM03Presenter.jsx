@@ -187,7 +187,7 @@ const MM03Presenter = ({
                         isAbsolute={true}
                         top={`50%`}
                         left={`52px`}
-                        margin={`-7.5px 0 0`}
+                        margin={`-8px 0 0`}
                         width={`auto`}
                         fontSize={`15px`}
                       >
@@ -218,6 +218,7 @@ const MM03Presenter = ({
                   height={`100%`}
                   padding={`25px 15px`}
                   dr={`row`}
+                  wrap={`nowrap`}
                 >
                   <Wrapper
                     width={width < 900 ? `40px` : `70px`}
@@ -241,8 +242,11 @@ const MM03Presenter = ({
                   </Wrapper>
                   <Wrapper
                     al={`flex-start`}
-                    width={`auto`}
+                    width={
+                      width < 900 ? `calc(100% - 140px)` : `calc(100% - 170px)`
+                    }
                     color={Theme.darkGrey_C}
+                    lineHeight={`1.4`}
                   >
                     {store.address}
                   </Wrapper>
@@ -385,7 +389,7 @@ const MM03Presenter = ({
                           isAbsolute={true}
                           top={`50%`}
                           left={`52px`}
-                          margin={`-7.5px 0 0`}
+                          margin={`-8px 0 0`}
                           width={`auto`}
                           fontSize={`15px`}
                         >
