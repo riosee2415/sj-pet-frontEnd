@@ -35,7 +35,7 @@ import DialogTitle from "@material-ui/core/DialogTitle";
 import Slide from "@material-ui/core/Slide";
 import useTitle from "@4leaf.ysh/use-title";
 
-const tabs = ["공지사항 리스트", "공지사항 등록"];
+const tabs = ["Q&A 리스트"];
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -79,12 +79,12 @@ export default ({
   dialogToggle,
   noticeModifyHandler,
 }) => {
-  useTitle(`ADMIN | 공지사항`);
+  useTitle(`ADMIN | Q&A`);
 
   return (
     <WholeWrapper al={`flex-start`} ju={`flex-start`}>
       <Fade right>
-        <Title text="공지사항 관리" />
+        <Title text="Q&#38;A 관리" />
         <Tabs
           tabs={tabs}
           currentTab={currentTab}
@@ -291,7 +291,7 @@ export default ({
 
           <Wrapper al={`flex-end`} ju={`flex-end`}>
             <CommonButton kindOf={`create`} onClick={createNoticeHandler}>
-              공지사항 등록
+              Q&#38;A 등록
             </CommonButton>
           </Wrapper>
         </Wrapper>
@@ -308,7 +308,7 @@ export default ({
         maxWidth={`lg`}
       >
         <DialogTitle id="alert-dialog-slide-title">
-          {`NOTICE 공지사항 상세보기`}
+          {`NOTICE QNA 상세보기`}
         </DialogTitle>
         <DialogContent>
           <Wrapper
