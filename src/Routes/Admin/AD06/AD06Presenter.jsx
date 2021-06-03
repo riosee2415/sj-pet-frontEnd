@@ -167,7 +167,7 @@ export default ({
                           {data.tel}
                         </TableHeadColumn>
                         <TableHeadColumn isData={true} width={`15%`}>
-                          관리자
+                          {data.client}
                         </TableHeadColumn>
                         <TableHeadColumn isData={true} width={`20%`}>
                           {data.createdAt}
