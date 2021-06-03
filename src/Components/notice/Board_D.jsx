@@ -71,15 +71,10 @@ export default withResizeDetector(({ match, history, width }) => {
 
   ////////////// - USE STATE- ///////////////
   const [currentData, setCurrentData] = useState(null);
+  const [currentTelData, setCurrentTelData] = useState(null);
   const [currentFile, setCurrentFile] = useState([]);
 
-  // const telData = currentData.tel;
-
-  // const nextData1 = telData.substr(0, 3);
-  // const nextData2 = telData.substr(7, 4);
-
-  // const resultData = `${nextData1}****${nextData2};`;
-
+  // console.log(resultData);
   ///////////// - USE QUERY- ////////////////
 
   const { data: nData, refetch: nRefetch } = useQuery(GET_NOTICEBOARD_DETAIL, {
@@ -140,35 +135,41 @@ export default withResizeDetector(({ match, history, width }) => {
     history.push(`/contact/${nextData.getNoticeBoardNextId._id}`);
   };
 
-  const _moveListBoard = () => {
-    history.push(`/contact`);
+  const _moveListBoard = (link, tab) => {
+    history.push(`/${link}?type=${tab}`);
   };
 
   ///////////// - USE EFFECT- ///////////////
   useEffect(() => {
     if (nData && nData.getNoticeBoardDetail) {
       let tempData = nData.getNoticeBoardDetail;
-      const data = nData.getNoticeBoardDetail;
+
+      const telData = nData.getNoticeBoardDetail.tel;
+
+      const nextData1 = telData.substr(0, 3);
+      const nextData2 = telData.substr(7, 4);
+
+      const resultData = `${nextData1}****${nextData2}`;
 
       const desc = document.getElementById("notice_description-js");
 
       const tempArr = [];
-      if (data.fileOriginName1 !== "-") {
+      if (tempData.fileOriginName1 !== "-") {
         tempArr.push({
-          file: data.filePath1,
-          name: data.fileOriginName1,
+          file: tempData.filePath1,
+          name: tempData.fileOriginName1,
         });
       }
-      if (data.fileOriginName2 !== "-") {
+      if (tempData.fileOriginName2 !== "-") {
         tempArr.push({
-          file: data.filePath2,
-          name: data.fileOriginName2,
+          file: tempData.filePath2,
+          name: tempData.fileOriginName2,
         });
       }
-      if (data.fileOriginName3 !== "-") {
+      if (tempData.fileOriginName3 !== "-") {
         tempArr.push({
-          file: data.filePath3,
-          name: data.fileOriginName3,
+          file: tempData.filePath3,
+          name: tempData.fileOriginName3,
         });
       }
 
@@ -177,9 +178,11 @@ export default withResizeDetector(({ match, history, width }) => {
         setCurrentData(tempData);
       }
 
+      setCurrentTelData(resultData);
       setCurrentFile(tempArr);
     }
   }, [nData]);
+  console.log(currentTelData);
 
   useEffect(() => {
     nRefetch();
@@ -204,7 +207,7 @@ export default withResizeDetector(({ match, history, width }) => {
           </Board_D_List>
           <Board_D_List>연락처</Board_D_List>
           <Board_D_List color={Theme.subTheme_C}>
-            {currentData ? currentData.tel : <CircularIndeterminate />}
+            {currentTelData ? currentTelData : <CircularIndeterminate />}
           </Board_D_List>
 
           <Board_D_List>작성일</Board_D_List>
@@ -263,7 +266,7 @@ export default withResizeDetector(({ match, history, width }) => {
             height={`40px`}
             width={`100px`}
             margin={`0px 10px 0px 0px`}
-            onClick={_moveListBoard}
+            onClick={() => _moveListBoard("contact", "faq")}
             kindOf={`black`}
           >
             목록
