@@ -35,7 +35,7 @@ const MM05Container = ({ history, location }) => {
   const [isToggle, setIsToggle] = useState(false);
 
   //
-  const [currentTab, setCurrentTab] = useState(1);
+  const [currentTab, setCurrentTab] = useState(0);
   const [actionFaqView, setActionFaqView] = useState(null);
   const [currentType, setCurrentType] = useState(0);
   const [currentFaqPage, setCurrentFaqPage] = useState(0);

@@ -77,10 +77,10 @@ export const allMenus = [
       //   subMenuName: "공지사항 유형 관리",
       //   subMenuLink: "/admin/noticeTypeManagement",
       // },
-      // {
-      //   subMenuName: "공지사항 관리",
-      //   subMenuLink: "/admin/noticeManagement",
-      // },
+      {
+        subMenuName: "Q&A 관리",
+        subMenuLink: "/admin/noticeManagement",
+      },
       {
         subMenuName: "자주묻는 질문 관리",
         subMenuLink: "/admin/faqManagement",
