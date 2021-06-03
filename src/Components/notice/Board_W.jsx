@@ -232,7 +232,11 @@ export default withResizeDetector(({ match, history, width }) => {
             연락처
           </Board_D_List>
           <Board_D_List width={width < 700 ? `100%` : `calc(100% - 150px )`}>
-            <TextInput width={`100%`} {...inputTel} />
+            <TextInput
+              width={`100%`}
+              {...inputTel}
+              placeholder="`-`빼고 입력"
+            />
           </Board_D_List>
         </Board_D>
 

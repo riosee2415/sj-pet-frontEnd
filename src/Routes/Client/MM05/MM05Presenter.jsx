@@ -482,8 +482,8 @@ const MM05Presenter = ({
                   </Wrapper>
                 </Wrapper>
                 <CommonButton
-                  width={width < 700 ? `80px` : `100px`}
-                  height={`50px`}
+                  width={width < 700 ? `90px` : `100px`}
+                  height={`40px`}
                   kindOf={`subTheme2`}
                   onClick={(e) => {
                     e.stopPropagation();

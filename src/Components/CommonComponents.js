@@ -827,20 +827,15 @@ export const MobileTableWrapper = styled.div`
   padding: 10px;
   box-shadow: ${(props) => props.shadow};
   border: ${(props) => props.border};
-  border-top: ${(props) =>
-    props.borderTop || `3px solid ${props.theme.black_C}`};
-  margin-bottom: 5px;
+
+  border-bottom: ${(props) =>
+    props.borderBottom || `1px solid ${props.theme.lightGrey_C}`};
   background-color: ${(props) => props.bgColor || ``};
   transition: 0.5s;
   cursor: pointer;
 
-  &:hover {
-    box-shadow: 0px 5px 10px ${(props) => props.theme.grey_C};
-    background: ${(props) => props.theme.lightGrey_C};
-  }
-
   & ul {
-    height: 50px;
+    height: 40px;
     border-bottom: none;
   }
 `;
@@ -850,6 +845,8 @@ export const MobileTable = styled.div`
   margin-top: 30px;
   margin-bottom: 30px;
   display: none;
+  border-top: ${(props) =>
+    props.borderTop || `3px solid ${props.theme.black_C}`};
 
   @media (max-width: 700px) {
     display: block;
