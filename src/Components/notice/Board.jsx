@@ -166,7 +166,7 @@ const Board = ({
                         ju={`flex-start`}
                         width={`calc(100% / 3)`}
                       >
-                        작성자
+                        {data && data.client}
                       </TableBodyLIST>
                       <TableBodyLIST
                         color={`rgb(170, 170, 170)`}
@@ -217,8 +217,8 @@ const Board = ({
             </PagenationBtn>
             {pages.map((data, idx) => {
               return (
-                (currentNoticeList + 1) * 10 > idx &&
-                currentNoticeList * 10 <= idx && (
+                (currentNoticeList + 1) * (width < 900 ? 5 : 10) > idx &&
+                currentNoticeList * (width < 900 ? 5 : 10) <= idx && (
                   <Pagenation
                     className={data === currentNoticePage ? `active` : ``}
                     key={data}
