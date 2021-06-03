@@ -15,8 +15,9 @@ import useInput from "../../../Components/Hooks/useInput";
 import { toast } from "react-toastify";
 import { confirmAlert } from "react-confirm-alert";
 import "react-confirm-alert/src/react-confirm-alert.css";
+import queryString from "query-string";
 
-const MM05Container = ({ history }) => {
+const MM05Container = ({ history, location }) => {
   ////////////// - USE REF- ///////////////
   const conRef = useRef();
   const faqRef = useRef();
@@ -347,6 +348,16 @@ const MM05Container = ({ history }) => {
       setPages(temp);
     }
   }, [pgData]);
+
+  useEffect(() => {
+    const query = queryString.parse(location.search);
+
+    if (query.type === "request") {
+      setCurrentTab(0);
+    } else if (query.type === "faq") {
+      setCurrentTab(1);
+    }
+  }, [location.search]);
 
   return (
     <MM05Presenter
