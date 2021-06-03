@@ -228,12 +228,30 @@ const MM00Presenter = ({
               color={Theme.white_C}
               al={width < 800 ? `center` : `flex-start`}
             >
-              <Text
-                fontSize={width < 800 ? `18px !important` : `48px`}
-                fontWeight={`300`}
-              >
-                업계유일 최소 마진율 41%!
-              </Text>
+              <Wrapper dr={`row`}>
+                <Text
+                  fontSize={width < 800 ? `18px !important` : `48px`}
+                  fontWeight={`300`}
+                >
+                  업계유일&nbsp;
+                </Text>
+                <Wrapper width={`auto`} isRelative={true} padding={`0 5px`}>
+                  <Wrapper
+                    isAbsolute={true}
+                    top={`0`}
+                    right={`0`}
+                    bgColor={Theme.basicTheme_C}
+                    zIndex={`-100`}
+                    height={`100%`}
+                  ></Wrapper>
+                  <Text
+                    fontSize={width < 800 ? `18px !important` : `48px`}
+                    fontWeight={`300`}
+                  >
+                    최소 마진율 41%!
+                  </Text>
+                </Wrapper>
+              </Wrapper>
               <Text
                 fontSize={width < 800 ? `18px !important` : `48px`}
                 fontWeight={`300`}
@@ -241,15 +259,6 @@ const MM00Presenter = ({
                 매장 규모별 순수익 공개!
               </Text>
             </Wrapper>
-            <Wrapper
-              isAbsolute={true}
-              top={width < 800 ? `2px` : `10px`}
-              right={width < 800 ? `19%` : `21%`}
-              width={width < 800 ? `145px` : `390px`}
-              height={width < 800 ? `22px` : `55px`}
-              bgColor={Theme.basicTheme_C}
-              zIndex={`-100`}
-            ></Wrapper>
           </Wrapper>
 
           <Wrapper

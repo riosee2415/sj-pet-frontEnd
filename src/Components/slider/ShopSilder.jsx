@@ -18,7 +18,6 @@ import CircularIndeterminate from "../loading/CircularIndeterminate";
 const Title = styled(Text)`
   font-weight: 400;
   font-size: 24px;
-  font-family: "Averia Serif Libre", cursive;
   color: ${(props) => props.theme.white_C};
   position: absolute;
   bottom: 10px;
