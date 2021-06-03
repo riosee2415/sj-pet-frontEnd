@@ -72,6 +72,14 @@ export default withResizeDetector(({ match, history, width }) => {
   ////////////// - USE STATE- ///////////////
   const [currentData, setCurrentData] = useState(null);
   const [currentFile, setCurrentFile] = useState([]);
+
+  // const telData = currentData.tel;
+
+  // const nextData1 = telData.substr(0, 3);
+  // const nextData2 = telData.substr(7, 4);
+
+  // const resultData = `${nextData1}****${nextData2};`;
+
   ///////////// - USE QUERY- ////////////////
 
   const { data: nData, refetch: nRefetch } = useQuery(GET_NOTICEBOARD_DETAIL, {
