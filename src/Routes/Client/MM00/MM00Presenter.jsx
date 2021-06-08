@@ -116,7 +116,7 @@ const MainTilte = styled(Wrapper)`
 const DotTitle = styled(Text)`
   position: relative;
   font-size: inherit;
-  font-weight: 700;
+  font-weight: 300;
 
   &:before {
     content: "";
@@ -633,7 +633,7 @@ const MM00Presenter = ({
             >
               <Text
                 fontSize={width < 1000 ? `40px !important` : `36px`}
-                fontWeight={`700`}
+                fontWeight={`300`}
                 lineHeight={`1`}
                 color={`${Theme.white_C}`}
                 margin={`0 8px 0 0`}
@@ -658,7 +658,7 @@ const MM00Presenter = ({
             </Wrapper>
             <Text
               fontSize={`36px`}
-              fontWeight={`700`}
+              fontWeight={`300`}
               color={Theme.basicTheme_C}
             >
               68호 군산점
@@ -1522,7 +1522,7 @@ const MM00Presenter = ({
             </Fade>
           </Wrapper>
         </Wrapper>
-        <Text fontSize={`18px`}>
+        <Text color={`rgb(34, 34, 34)`} fontSize={`18px`}>
           ※상기 자료는 지역, 상권의 특성 및 매장 구조 등의 시장 상황에 따라 변동
           될 수 있습니다. (별도 : 임차보증금, 임차료, 기타)
         </Text>
