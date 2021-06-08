@@ -84,6 +84,8 @@ const MainTilte = styled(Wrapper)`
   font-size: 36px;
   align-items: flex-start;
   position: relative;
+  font-family: "BMDOHYEON", sans-serif;
+  margin-bottom: 15px;
 
   &:before {
     content: "";
@@ -114,7 +116,7 @@ const MainTilte = styled(Wrapper)`
 const DotTitle = styled(Text)`
   position: relative;
   font-size: inherit;
-  font-weight: 400;
+  font-weight: 700;
 
   &:before {
     content: "";
@@ -140,21 +142,22 @@ const PetmartTitle = styled(SpanText)`
   color: ${(props) => props.theme.white_C};
   position: relative;
   margin: 0 3px;
+  line-height: 1;
 
   &:before {
     content: "";
     position: absolute;
-    top: 0;
-    left: -10px;
+    top: -5px;
+    left: -5px;
     width: 100%;
-    height: 100%;
+    height: 90%;
     background-color: ${(props) => props.theme.basicTheme_C};
-    padding: 0 5px 10px;
+    padding: 5px;
     z-index: -1000;
 
     @media (max-width: 800px) {
-      padding: 0 5px 5px;
-      left: -5px;
+      padding: 3px;
+      left: -3px;
     }
   }
 `;
@@ -232,21 +235,28 @@ const MM00Presenter = ({
                 <Text
                   fontSize={width < 800 ? `18px !important` : `48px`}
                   fontWeight={`300`}
+                  isBMFont
                 >
                   업계유일&nbsp;
                 </Text>
-                <Wrapper width={`auto`} isRelative={true} padding={`0 5px`}>
+                <Wrapper
+                  width={`auto`}
+                  isRelative={true}
+                  padding={width < 800 ? `5px` : `0 5px`}
+                >
                   <Wrapper
                     isAbsolute={true}
-                    top={`0`}
+                    top={width < 800 ? `-3px` : `0`}
                     right={`0`}
                     bgColor={Theme.basicTheme_C}
                     zIndex={`-100`}
                     height={`100%`}
                   ></Wrapper>
                   <Text
+                    isBMFont
                     fontSize={width < 800 ? `18px !important` : `48px`}
                     fontWeight={`300`}
+                    lineHeight={`1`}
                   >
                     최소 마진율 41%!
                   </Text>
@@ -255,6 +265,7 @@ const MM00Presenter = ({
               <Text
                 fontSize={width < 800 ? `18px !important` : `48px`}
                 fontWeight={`300`}
+                isBMFont
               >
                 매장 규모별 순수익 공개!
               </Text>
@@ -267,14 +278,28 @@ const MM00Presenter = ({
             margin={width < 800 ? `30px 0 0` : `60px 0 0`}
           >
             <Wrapper
+              display={width < 800 ? `none` : `flex`}
               width={width < 1000 ? `100%` : `60%`}
-              padding={width < 800 ? `0 0 60px` : `0 20px 0 0`}
+              padding={width < 800 ? `0 0 60px` : `0 50px 0 0`}
             >
               <Fade left>
                 <Image
                   width={width < 900 ? `100%` : `100%`}
                   alt="graph"
                   src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2Fmain-graph.png?alt=media&token=77a02b4c-e985-412a-a3fe-ea885894b2aa`}
+                />
+              </Fade>
+            </Wrapper>
+            <Wrapper
+              display={width < 800 ? `flex` : `none`}
+              width={width < 1000 ? `100%` : `60%`}
+              padding={width < 800 ? `30px 0 60px` : `0 50px 0 0`}
+            >
+              <Fade left>
+                <Image
+                  width={width < 900 ? `100%` : `100%`}
+                  alt="mobile-graph"
+                  src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2Fmobile-graph.png?alt=media&token=28918d9a-6b5e-4d8f-989a-abbb350b81ec`}
                 />
               </Fade>
             </Wrapper>
@@ -290,9 +315,15 @@ const MM00Presenter = ({
                   fontSize={`20px`}
                   borderTop={`1px solid ${Theme.white_C}`}
                 >
-                  <LiWrapper width={`20%`}>항목</LiWrapper>
-                  <LiWrapper width={`60%`}>금액</LiWrapper>
-                  <LiWrapper width={`20%`}>구성비</LiWrapper>
+                  <LiWrapper width={`20%`} fontWeight={`bold`}>
+                    항목
+                  </LiWrapper>
+                  <LiWrapper width={`60%`} fontWeight={`bold`}>
+                    금액
+                  </LiWrapper>
+                  <LiWrapper width={`20%`} fontWeight={`bold`}>
+                    구성비
+                  </LiWrapper>
                 </UlWrapper>
 
                 <UlWrapper
@@ -301,9 +332,15 @@ const MM00Presenter = ({
                   borderTop={`3px solid ${Theme.white_C}`}
                   borderBottom={`1px solid ${Theme.white_C}`}
                 >
-                  <LiWrapper width={`20%`}>월매출</LiWrapper>
-                  <LiWrapper width={`60%`}>80,000,000</LiWrapper>
-                  <LiWrapper width={`20%`}>100%</LiWrapper>
+                  <LiWrapper width={`20%`} fontWeight={`bold`}>
+                    월매출
+                  </LiWrapper>
+                  <LiWrapper width={`60%`} fontWeight={`bold`}>
+                    80,000,000
+                  </LiWrapper>
+                  <LiWrapper width={`20%`} fontWeight={`bold`}>
+                    100%
+                  </LiWrapper>
                 </UlWrapper>
 
                 <UlWrapper dr={`row`} height={`45px`}>
@@ -352,9 +389,15 @@ const MM00Presenter = ({
                   borderTop={`1px solid ${Theme.white_C}`}
                   borderBottom={`1px solid ${Theme.white_C}`}
                 >
-                  <LiWrapper width={`20%`}>영업이익</LiWrapper>
-                  <LiWrapper width={`60%`}>32,800,000</LiWrapper>
-                  <LiWrapper width={`20%`}>최소41%</LiWrapper>
+                  <LiWrapper width={`20%`} fontWeight={`bold`}>
+                    영업이익
+                  </LiWrapper>
+                  <LiWrapper width={`60%`} fontWeight={`bold`}>
+                    32,800,000
+                  </LiWrapper>
+                  <LiWrapper width={`20%`} fontWeight={`bold`}>
+                    최소41%
+                  </LiWrapper>
                 </UlWrapper>
 
                 <UlWrapper
@@ -362,13 +405,13 @@ const MM00Presenter = ({
                   height={`60px`}
                   borderBottom={`1px solid ${Theme.white_C}`}
                 >
-                  <LiWrapper width={`20%`} fontWeight={`700`}>
+                  <LiWrapper width={`20%`} fontWeight={`bold`}>
                     월 순이익
                   </LiWrapper>
-                  <LiWrapper width={`60%`} fontWeight={`700`}>
+                  <LiWrapper width={`60%`} fontWeight={`bold`}>
                     19,300,000
                   </LiWrapper>
-                  <LiWrapper width={`20%`} fontWeight={`700`}>
+                  <LiWrapper width={`20%`} fontWeight={`bold`}>
                     24%
                   </LiWrapper>
                 </UlWrapper>
@@ -385,6 +428,7 @@ const MM00Presenter = ({
         <Wrapper
           fontSize={width < 800 ? `18px !important` : `48px`}
           al={width < 700 && `flex-start`}
+          isBMFont
         >
           펫마트 입점 브랜드
         </Wrapper>
@@ -440,7 +484,12 @@ const MM00Presenter = ({
           al={`flex-start`}
         >
           <Fade left>
-            <Text lineHeight={`1.3`} fontSize={`72px`} fontWeight={`300`}>
+            <Text
+              lineHeight={`1.3`}
+              fontSize={`72px`}
+              fontWeight={`300`}
+              isBMFont
+            >
               지금!&nbsp;
             </Text>
             <Text
@@ -448,6 +497,7 @@ const MM00Presenter = ({
               fontSize={`72px`}
               fontWeight={`300`}
               color={Theme.basicTheme_C}
+              isBMFont
             >
               펫마트<SpanText color={Theme.black_C}>를</SpanText>
             </Text>
@@ -456,10 +506,16 @@ const MM00Presenter = ({
               fontSize={`72px`}
               fontWeight={`300`}
               color={Theme.basicTheme_C}
+              isBMFont
             >
               시작<SpanText color={Theme.black_C}>해야</SpanText>
             </Text>
-            <Text lineHeight={`1.3`} fontSize={`72px`} fontWeight={`300`}>
+            <Text
+              lineHeight={`1.3`}
+              fontSize={`72px`}
+              fontWeight={`300`}
+              isBMFont
+            >
               되는 이유
             </Text>
           </Fade>
@@ -475,6 +531,7 @@ const MM00Presenter = ({
             lineHeight={`1.3`}
             fontSize={`24px !important`}
             fontWeight={`300`}
+            isBMFont
           >
             지금!&nbsp;<SpanText color={Theme.basicTheme_C}>펫마트</SpanText>를
           </Text>
@@ -484,6 +541,7 @@ const MM00Presenter = ({
             fontSize={`24px !important`}
             fontWeight={`300`}
             color={Theme.basicTheme_C}
+            isBMFont
           >
             시작<SpanText color={Theme.black_C}>해야 되는 이유</SpanText>
           </Text>
@@ -540,23 +598,27 @@ const MM00Presenter = ({
               <Text
                 fontSize={`72px`}
                 fontWeight={`300`}
-                lineHeight={`1.3`}
+                lineHeight={`1`}
                 color={Theme.white_C}
+                isBMFont
               >
                 펫마트와
               </Text>
               <Text
                 fontSize={`72px`}
                 fontWeight={`300`}
+                lineHeight={`1`}
                 color={Theme.basicTheme_C}
+                isBMFont
               >
                 함께 인생
               </Text>
               <Text
                 fontSize={`72px`}
                 fontWeight={`300`}
-                lineHeight={`1.3`}
+                lineHeight={`1`}
                 color={Theme.white_C}
+                isBMFont
               >
                 제2막 시작!
               </Text>
@@ -571,8 +633,10 @@ const MM00Presenter = ({
             >
               <Text
                 fontSize={width < 1000 ? `40px !important` : `36px`}
-                fontWeight={`300`}
+                fontWeight={`700`}
+                lineHeight={`1`}
                 color={`${Theme.white_C}`}
+                margin={`0 8px 0 0`}
               >
                 가맹점
               </Text>
@@ -594,7 +658,7 @@ const MM00Presenter = ({
             </Wrapper>
             <Text
               fontSize={`36px`}
-              fontWeight={`400`}
+              fontWeight={`700`}
               color={Theme.basicTheme_C}
             >
               68호 군산점
@@ -667,7 +731,9 @@ const MM00Presenter = ({
                         key={data._id}
                       >
                         <Image alt="image" src={data.thumbnail} />
-                        <Text padding={`10px 0 15px`}>{data.title}</Text>
+                        <Text padding={`10px 0 15px`} fontSize={`18px`}>
+                          {data.title}
+                        </Text>
                       </Wrapper>
                     )
                   );
@@ -697,13 +763,20 @@ const MM00Presenter = ({
         padding={width < 800 ? `60px 0` : `100px 0`}
       >
         <Bounce>
-          <Text fontSize={width < 800 ? `24px !important` : `72px`}>
+          <Text
+            fontSize={width < 800 ? `24px !important` : `72px`}
+            isBMFont
+            lineHeight={`1`}
+            margin={`0 0 10px`}
+          >
             왜 <PetmartTitle>펫마트</PetmartTitle>일까 ?
           </Text>
           <Text
             fontSize={width < 800 ? `14px !important` : `24px`}
             fontWeight={`300`}
             margin={`20px 0 0`}
+            isBMFont
+            lineHeight={`1`}
           >
             예비 창업자들이 펫마트를 선택하는 이유!
           </Text>
@@ -961,13 +1034,14 @@ const MM00Presenter = ({
         </Wrapper>
       </RsWrapper>
       <Wrapper display={width < 800 ? `flex` : `none`} padding={`60px 0`}>
-        <Text fontSize={width < 800 ? `24px !important` : `72px`}>
+        <Text fontSize={width < 800 ? `24px !important` : `72px`} isBMFont>
           왜 <PetmartTitle>펫마트</PetmartTitle>일까 ?
         </Text>
         <Text
           fontSize={width < 800 ? `14px !important` : `24px`}
           fontWeight={`300`}
           margin={`20px 0 0`}
+          isBMFont
         >
           예비 창업자들이 펫마트를 선택하는 이유!
         </Text>
@@ -1324,6 +1398,7 @@ const MM00Presenter = ({
           <Wrapper
             fontSize={width < 800 ? `24px !important` : `48px`}
             color={Theme.white_C}
+            isBMFont
           >
             매장 인테리어
           </Wrapper>
@@ -1333,6 +1408,7 @@ const MM00Presenter = ({
               fontWeight={`300`}
               color={Theme.white_C}
               margin={width < 800 ? `20px 0` : `30px 0`}
+              isBMFont
             >
               불필요한 것은 빼고
               <SpanText color={Theme.basicTheme_C}>&nbsp;꼭 필요한 것</SpanText>
@@ -1343,7 +1419,9 @@ const MM00Presenter = ({
         <InteriorSilder />
       </Wrapper>
       <RsWrapper padding={`100px 0`} display={width > 800 ? `flex` : `none`}>
-        <Wrapper fontSize={`48px`}>개설비용</Wrapper>
+        <Wrapper fontSize={`48px`} isBMFont>
+          개설비용
+        </Wrapper>
         <Wrapper
           margin={`50px 0`}
           height={`700px`}
@@ -1358,7 +1436,10 @@ const MM00Presenter = ({
           >
             <Fade bottom>
               <Wrapper padding={width < 900 ? `30px 70px` : `50px 110px`}>
-                <Text fontSize={width < 900 ? `30px !important` : `48px`}>
+                <Text
+                  fontSize={width < 900 ? `30px !important` : `48px`}
+                  isBMFont
+                >
                   창업문의
                 </Text>
                 <Text
@@ -1391,14 +1472,14 @@ const MM00Presenter = ({
                     <Text
                       width={`auto`}
                       fontSize={width < 1200 ? `20px` : `24px`}
-                      fontWeight={`300`}
+                      fontWeight={`700`}
                     >
                       연락처
                     </Text>
                   </Wrapper>
                   <Text
                     fontSize={width < 1200 ? `20px` : `24px`}
-                    fontWeight={`300`}
+                    fontWeight={`500`}
                     color={`rgb(102, 102, 102)`}
                   >
                     1588-1684
@@ -1414,14 +1495,14 @@ const MM00Presenter = ({
                     />
                     <Text
                       fontSize={width < 1200 ? `20px` : `24px`}
-                      fontWeight={`300`}
+                      fontWeight={`00`}
                     >
                       E-mail
                     </Text>
                   </Wrapper>
                   <Text
                     fontSize={width < 1200 ? `20px` : `24px`}
-                    fontWeight={`300`}
+                    fontWeight={`500`}
                     color={`rgb(102, 102, 102)`}
                   >
                     ebajslee@sunjinpet.co.kr
@@ -1479,7 +1560,7 @@ const MM00Presenter = ({
         color={Theme.white_C}
         padding={`60px 10px`}
       >
-        <Text fontSize={`24px !important`} margin={`0 0 20px`}>
+        <Text fontSize={`24px !important`} margin={`0 0 20px`} isBMFont>
           창업문의
         </Text>
         <Text fontSize={`14px !important`} fontWeight={`300`}>
@@ -1498,18 +1579,26 @@ const MM00Presenter = ({
           margin={`0 0 20px`}
         >
           <Wrapper dr={`row`} ju={`flex-start`}>
-            <Text width={`30%`} fontSize={`14px !important`} fontWeight={`300`}>
+            <Text
+              width={`30%`}
+              fontSize={`14px !important`}
+              fontWeight={`bold`}
+            >
               연락처
             </Text>
-            <Text width={`70%`} fontSize={`14px !important`} fontWeight={`300`}>
+            <Text
+              width={`70%`}
+              fontSize={`14px !important`}
+              fontWeight={`bold`}
+            >
               1588-1684
             </Text>
           </Wrapper>
           <Wrapper dr={`row`} ju={`flex-start`}>
-            <Text width={`30%`} fontSize={`14px !important`} fontWeight={`300`}>
+            <Text width={`30%`} fontSize={`14px !important`} fontWeight={`600`}>
               E-mail
             </Text>
-            <Text width={`70%`} fontSize={`14px !important`} fontWeight={`300`}>
+            <Text width={`70%`} fontSize={`14px !important`} fontWeight={`600`}>
               ebajslee@sunjinpet.co.kr
             </Text>
           </Wrapper>

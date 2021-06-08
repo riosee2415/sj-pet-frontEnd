@@ -54,6 +54,7 @@ const MM01Presenter = ({
           height={`100%`}
           cursor={`pointer`}
           borderBottom={currentTab === 0 && `2px solid ${Theme.basicTheme_C}`}
+          fontSize={`16px !important`}
           onClick={() => setCurrentTab(0)}
         >
           CEO 인사말
@@ -64,6 +65,7 @@ const MM01Presenter = ({
           width={`150px`}
           height={`100%`}
           borderBottom={currentTab === 1 && `2px solid ${Theme.basicTheme_C}`}
+          fontSize={`16px !important`}
           onClick={() => setCurrentTab(1)}
         >
           연혁
@@ -107,13 +109,15 @@ const MM01Presenter = ({
                 <Text
                   fontSize={width < 900 ? `18px !important` : `48px`}
                   fontWeight={`300`}
+                  isBMFont
                 >
-                  <SpanText color={Theme.basicTheme_C}>선진적</SpanText>{" "}
+                  <SpanText color={Theme.basicTheme_C}>선진적</SpanText>&nbsp;
                   반려동물
                 </Text>
                 <Text
                   fontSize={width < 900 ? `18px !important` : `48px`}
                   fontWeight={`300`}
+                  isBMFont
                 >
                   <SpanText color={Theme.basicTheme_C}>문화</SpanText>를
                   선도하는 기업

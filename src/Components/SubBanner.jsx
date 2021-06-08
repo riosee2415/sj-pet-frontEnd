@@ -31,6 +31,7 @@ const SubBannerBox = styled.div`
 const SubBannerTitle = styled.h2`
   font-size: 60px;
   color: ${(props) => props.theme.white_C};
+  font-family: "BMDOHYEON", sans-serif;
 
   @media (max-width: 900px) {
     font-size: 40px;
@@ -41,7 +42,7 @@ const SubBannerTitle = styled.h2`
   }
 
   @media (max-width: 500px) {
-    font-size: 20px;
+    font-size: 24px;
   }
 `;
 

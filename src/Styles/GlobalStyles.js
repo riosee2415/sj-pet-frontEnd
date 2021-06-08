@@ -18,6 +18,8 @@ import SCDream8_otf from "./fonts/SCDream8.otf";
 import SCDream8_woff from "./fonts/SCDream8.woff";
 import SCDream9_otf from "./fonts/SCDream9.otf";
 import SCDream9_woff from "./fonts/SCDream9.woff";
+import BMDOHYEON_woff from "./fonts/BMDOHYEON_ttf.woff";
+import BMDOHYEON_otf from "./fonts/BMDOHYEON_ttf.otf";
 
 const sliderCss = css`
   /* gallerySlider */
@@ -130,68 +132,12 @@ const editorCss = css`
 
 export default createGlobalStyle`
 /* font */
-@font-face {
-      font-family: 'SCDream';
-      font-style: 100;
-      font-weight: 100;
-      src: url(${SCDream1_woff}) format('woff'),
-           url(${SCDream1_otf}) format('opentype');
-    }
     @font-face {
-      font-family: 'SCDream';
-      font-style: 200;
-      font-weight: 200;
-      src: url(${SCDream2_woff}) format('woff'),
-           url(${SCDream2_otf}) format('opentype');
-    }
-    @font-face {
-      font-family: 'SCDream';
-      font-style: 300;
-      font-weight: 300;
-      src: url(${SCDream3_woff}) format('woff'),
-           url(${SCDream3_otf}) format('opentype');
-    }
-    @font-face {
-      font-family: 'SCDream';
-      font-style: 400;
-      font-weight: 400;
-      src: url(${SCDream4_woff}) format('woff'),
-           url(${SCDream4_otf}) format('opentype');
-    }
-    @font-face {
-      font-family: 'SCDream';
+      font-family: 'BMDOHYEON';
       font-style: 500;
       font-weight: 500;
-      src: url(${SCDream5_woff}) format('woff'),
-           url(${SCDream5_otf}) format('opentype');
-    }
-    @font-face {
-      font-family: 'SCDream';
-      font-style: 600;
-      font-weight: 600;
-      src: url(${SCDream6_woff}) format('woff'),
-           url(${SCDream6_otf}) format('opentype');
-    }
-    @font-face {
-      font-family: 'SCDream';
-      font-style: 700;
-      font-weight: 700;
-      src: url(${SCDream7_woff}) format('woff'),
-           url(${SCDream7_otf}) format('opentype');
-    }
-    @font-face {
-      font-family: 'SCDream';
-      font-style: 800;
-      font-weight: 800;
-      src: url(${SCDream8_woff}) format('woff')
-           url(${SCDream8_otf}) format('opentype');
-    }
-    @font-face {
-      font-family: 'SCDream';
-      font-style: 900;
-      font-weight: 900;
-      src: url(${SCDream9_woff}) format('woff')
-           url(${SCDream9_otf}) format('opentype');
+      src: url(${BMDOHYEON_woff}) format('woff')
+           url(${BMDOHYEON_otf}) format('opentype');
     }
 
     ${reset};
@@ -200,12 +146,12 @@ export default createGlobalStyle`
     ${editorCss};
     * {
         box-sizing : border-box;
-        font-family: 'SCDream', sans-serif;
+       font-family: 'Noto Sans KR', sans-serif;
     }
     body {
         background-color: ${(props) => props.theme.bgColor};
         color : ${(props) => props.theme.blackColor};
-        font-family: 'SCDream', sans-serif;
+       font-family: 'Noto Sans KR', sans-serif;
     }
     a {
         color : inherit;

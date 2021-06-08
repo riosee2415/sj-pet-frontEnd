@@ -105,6 +105,9 @@ export const Wrapper = styled.div`
   text-align: ${(props) => props.textAlign};
   animation: ${appearAnimation} 1s forwards;
 
+  font-family: ${(props) =>
+    props.isBMFont ? `"BMDOHYEON", sans-serif` : `'Noto Sans KR', sans-serif`};
+
   & pre {
     white-space: pre-wrap;
     line-height: 1.4;
@@ -616,6 +619,7 @@ export const CommonSubTitle = styled.h2`
   padding-bottom: 25px;
   display: flex;
   align-items: center;
+  font-family: "BMDOHYEON", sans-serif;
 
   &:before {
     content: "";
@@ -904,7 +908,7 @@ export const Pagenation = styled.div`
   align-items: ${(props) => props.al || `center`};
   justify-content: ${(props) => props.ju || `center`};
   cursor: pointer;
-  padding-top: 3px;
+  padding-bottom: 3px;
   margin: 0px 5px;
 
   &.active {
@@ -982,6 +986,8 @@ export const Text = styled.p`
   z-index: 1;
   white-space: pre-wrap;
   border-bottom: ${(props) => props.borderBottom};
+  font-family: ${(props) =>
+    props.isBMFont ? `"BMDOHYEON", sans-serif` : `'Noto Sans KR', sans-serif`};
 
   & svg {
     color: ${(props) => props.color};

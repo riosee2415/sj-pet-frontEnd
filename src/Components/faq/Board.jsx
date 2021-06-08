@@ -128,9 +128,11 @@ const Board = ({
                         bgColor={Theme.black_C}
                       >
                         <Text
-                          fontSize={width < 700 ? `16px` : `24px`}
+                          fontSize={width < 700 ? `18px !important` : `30px`}
                           fontWeight={`300`}
                           color={Theme.white_C}
+                          isBMFont
+                          lineHeight={`1`}
                         >
                           Q
                         </Text>
@@ -147,7 +149,7 @@ const Board = ({
                         <Text
                           color={Theme.black_C}
                           padding={`10px`}
-                          fontSize={width < 700 ? `16px` : `20px`}
+                          fontSize={width < 700 ? `18px !important` : `20px`}
                         >
                           {data.question}
                         </Text>
@@ -169,6 +171,7 @@ const Board = ({
                     }
                     padding={`20px`}
                     ju={`flex-start`}
+                    al={`flex-start`}
                     dr={`row`}
                     wrap={`initial`}
                   >
@@ -180,9 +183,11 @@ const Board = ({
                       bgColor={Theme.basicTheme_C}
                     >
                       <Text
-                        fontSize={width < 700 ? `16px` : `24px`}
+                        fontSize={width < 700 ? `18px !important` : `30px`}
                         fontWeight={`300`}
                         color={Theme.white_C}
+                        isBMFont
+                        lineHeight={`1`}
                       >
                         A
                       </Text>
@@ -197,12 +202,13 @@ const Board = ({
                       <Wrapper
                         className={`ql-editor`}
                         id={`faq-answer-${idx}`}
-                        padding={`10px`}
+                        padding={`0 10px`}
                         width={`100%`}
-                        fontSize={width < 700 ? `16px` : `18px`}
+                        fontSize={width < 700 ? `14px !important` : `18px`}
                         al={`flex-start`}
+                        ju={`flex-start`}
                         fontWeight={`300`}
-                        lineHeight={`1.4`}
+                        lineHeight={`1.6`}
                       ></Wrapper>
                     </Wrapper>
                   </Wrapper>

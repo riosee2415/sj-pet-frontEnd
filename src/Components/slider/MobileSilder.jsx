@@ -18,7 +18,6 @@ const Container = styled.div`
   width: 100%;
   position: relative;
 
-<<<<<<< HEAD
   .swiper-container-multirow-column > .swiper-wrapper {
     flex-direction: ${(props) => (props.isColumn ? `row` : `column`)};
   }
@@ -27,8 +26,6 @@ const Container = styled.div`
   }
 `;
 
-export default ({ width, vDatum, isColumn, moveLinkHandler }) => {
-=======
 export default ({ isColumn }) => {
   const Container = styled.div`
     width: 100%;
@@ -41,7 +38,6 @@ export default ({ isColumn }) => {
 
   SwiperCore.use([Navigation, Pagination, Controller, Thumbs, Autoplay]);
 
->>>>>>> 741e5c8c566172474513eb9db6cce5d339f5cb76
   return (
     <Container isColumn={isColumn}>
       <Swiper
