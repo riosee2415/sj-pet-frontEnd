@@ -827,20 +827,15 @@ export const MobileTableWrapper = styled.div`
   padding: 10px;
   box-shadow: ${(props) => props.shadow};
   border: ${(props) => props.border};
-  border-top: ${(props) =>
-    props.borderTop || `3px solid ${props.theme.black_C}`};
-  margin-bottom: 5px;
+
+  border-bottom: ${(props) =>
+    props.borderBottom || `1px solid ${props.theme.lightGrey_C}`};
   background-color: ${(props) => props.bgColor || ``};
   transition: 0.5s;
   cursor: pointer;
 
-  &:hover {
-    box-shadow: 0px 5px 10px ${(props) => props.theme.grey_C};
-    background: ${(props) => props.theme.lightGrey_C};
-  }
-
   & ul {
-    height: 50px;
+    height: 40px;
     border-bottom: none;
   }
 `;
@@ -850,6 +845,8 @@ export const MobileTable = styled.div`
   margin-top: 30px;
   margin-bottom: 30px;
   display: none;
+  border-top: ${(props) =>
+    props.borderTop || `3px solid ${props.theme.black_C}`};
 
   @media (max-width: 700px) {
     display: block;
@@ -1319,4 +1316,33 @@ export const Advanced = styled(Wrapper)`
   color: #1e3799;
   box-shadow: 0 3px 3px ${(props) => props.theme.lightGrey_C};
   font-size: 13px;
+`;
+
+////////////////////////////////////////////////file//////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+export const FileInput = styled.input`
+  display: none;
+`;
+
+export const FileLabel = styled.label`
+  width: ${(props) => props.width};
+  min-width: ${(props) => props.minWidth};
+  height: ${(props) => props.height || `30px`};
+  transition: ${(props) => props.transition || props.theme.transition};
+  margin: ${(props) => props.margin};
+  padding: ${(props) => props.padding};
+  font-size: ${(props) => props.fontSize};
+  display: flex;
+  flex-direction: ${(props) => props.dr || `row`};
+  align-items: ${(props) => props.al || `center`};
+  justify-content: ${(props) => props.ju || `center`};
+  color: ${(props) => props.theme.white_C};
+  background: ${(props) => props.theme.basicTheme_C};
+  cursor: pointer;
+
+  &:hover {
+    background-color: ${(props) => props.theme.white_C};
+    color: ${(props) => props.theme.black_C};
+    border: 1px solid ${(props) => props.theme.basicTheme_C};
+  }
 `;

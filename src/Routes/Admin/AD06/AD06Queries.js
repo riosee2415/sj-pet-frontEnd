@@ -13,7 +13,9 @@ export const GET_NOTICEBOARD = gql`
     ) {
       _id
       type
+      client
       title
+      tel
       createdAt
       isDelete
       description

@@ -13,26 +13,33 @@ import {
   RsWrapper,
   CommonButton,
   Wrapper,
+  SpanText,
 } from "../CommonComponents";
 import CircularIndeterminate from "../loading/CircularIndeterminate";
 import useTitle from "@4leaf.ysh/use-title";
 import Theme from "../../Styles/Theme";
+import { animateScroll as scroll } from "react-scroll";
+import { saveAs } from "file-saver";
 
 const Board_D_title = styled.h2`
   width: 100%;
-  padding: 20px;
+  padding: 30px 0;
   font-size: 22px;
   font-weight: 700;
+
+  border-bottom: ${(props) =>
+    props.borderBottom || `3px solid ${props.theme.black_C}`};
 `;
 
 const Board_D = styled.ul`
   width: 100%;
-  height: ${(props) => (props.height ? props.height : `40px`)};
+  height: ${(props) => (props.height ? props.height : `50px`)};
   display: flex;
   flex-direction: row;
   align-items: center;
-
   background: ${(props) => props.bgColor};
+  border-bottom: ${(props) =>
+    props.borderBottom || `1px solid ${props.theme.lightGrey_C}`};
 
   @media (max-width: 700px) {
     flex-direction: column;
@@ -42,12 +49,11 @@ const Board_D = styled.ul`
 
 const Board_D_List = styled.li`
   width: ${(props) => props.width};
-  line-height: 40px;
+  line-height: 50px;
   background: ${(props) => props.bgColor};
   color: ${(props) => props.color};
   text-align: ${(props) => props.ta || `center`};
   padding: ${(props) => (props.padding ? props.padding : `0px 10px`)};
-  box-shadow: 0px 5px 6px rgba(0, 0, 0, 0.16);
   border-radius: ${(props) => props.radius};
 `;
 
@@ -56,7 +62,8 @@ const Board_D_Desc = styled.div`
   min-height: 500px;
   padding: 15px;
   line-height: 1.4;
-  box-shadow: 0px 5px 6px rgba(0, 0, 0, 0.16);
+  border-bottom: ${(props) =>
+    props.borderBottom || `1px solid ${props.theme.lightGrey_C}`};
 `;
 
 export default withResizeDetector(({ match, history, width }) => {
@@ -64,6 +71,10 @@ export default withResizeDetector(({ match, history, width }) => {
 
   ////////////// - USE STATE- ///////////////
   const [currentData, setCurrentData] = useState(null);
+  const [currentTelData, setCurrentTelData] = useState(null);
+  const [currentFile, setCurrentFile] = useState([]);
+
+  // console.log(resultData);
   ///////////// - USE QUERY- ////////////////
 
   const { data: nData, refetch: nRefetch } = useQuery(GET_NOTICEBOARD_DETAIL, {
@@ -91,6 +102,19 @@ export default withResizeDetector(({ match, history, width }) => {
   );
 
   ///////////// - EVENT HANDLER- ////////////
+  const downloadHandler = async (filePath, fileName) => {
+    if (filePath === `-`) {
+      toast.info("다운받을 파일이 없습니다.");
+      return;
+    }
+
+    let blobData = await fetch(filePath).then((response) => response.blob());
+
+    const element = document.createElement("a");
+    const file = new Blob([blobData]);
+
+    saveAs(file, fileName);
+  };
 
   const _moveBeforeBoard = () => {
     if (beforeData.getNoticeBoardBeforeId === null) {
@@ -111,8 +135,8 @@ export default withResizeDetector(({ match, history, width }) => {
     history.push(`/contact/${nextData.getNoticeBoardNextId._id}`);
   };
 
-  const _moveListBoard = () => {
-    history.push(`/contact`);
+  const _moveListBoard = (link, tab) => {
+    history.push(`/${link}?type=${tab}`);
   };
 
   ///////////// - USE EFFECT- ///////////////
@@ -120,47 +144,74 @@ export default withResizeDetector(({ match, history, width }) => {
     if (nData && nData.getNoticeBoardDetail) {
       let tempData = nData.getNoticeBoardDetail;
 
+      const telData = nData.getNoticeBoardDetail.tel;
+
+      const nextData1 = telData.substr(0, 3);
+      const nextData2 = telData.substr(7, 4);
+
+      const resultData = `${nextData1}****${nextData2}`;
+
       const desc = document.getElementById("notice_description-js");
+
+      const tempArr = [];
+      if (tempData.fileOriginName1 !== "-") {
+        tempArr.push({
+          file: tempData.filePath1,
+          name: tempData.fileOriginName1,
+        });
+      }
+      if (tempData.fileOriginName2 !== "-") {
+        tempArr.push({
+          file: tempData.filePath2,
+          name: tempData.fileOriginName2,
+        });
+      }
+      if (tempData.fileOriginName3 !== "-") {
+        tempArr.push({
+          file: tempData.filePath3,
+          name: tempData.fileOriginName3,
+        });
+      }
 
       if (desc !== null) {
         desc.innerHTML = tempData.description;
         setCurrentData(tempData);
       }
+
+      setCurrentTelData(resultData);
+      setCurrentFile(tempArr);
     }
   }, [nData]);
+  console.log(currentTelData);
 
   useEffect(() => {
     nRefetch();
     nextRefetch();
     beforeRefetch();
+
+    scroll.scrollTo(0);
   }, []);
 
-  useTitle(``);
+  useTitle("PET MART 선진펫");
   return (
-    <WholeWrapper margin={`150px 0 0 0`}>
-      <RsWrapper padding={`100px 0`}>
+    <WholeWrapper margin={`80px 0 0 0`}>
+      <RsWrapper padding={`80px 0`}>
         <Board_D_title>
           {currentData ? currentData.title : <CircularIndeterminate />}
         </Board_D_title>
 
         <Board_D dr={`row`}>
-          <Board_D_List
-            width={width < 700 ? `100%` : `150px`}
-            bgColor={Theme.grey_C}
-          >
-            작성자
+          <Board_D_List>작성자</Board_D_List>
+          <Board_D_List color={Theme.subTheme_C}>
+            {currentData ? currentData.client : <CircularIndeterminate />}
           </Board_D_List>
-          <Board_D_List width={width < 700 ? `100%` : `calc((100% - 150px))`}>
-            관리자
+          <Board_D_List>연락처</Board_D_List>
+          <Board_D_List color={Theme.subTheme_C}>
+            {currentTelData ? currentTelData : <CircularIndeterminate />}
           </Board_D_List>
 
-          <Board_D_List
-            width={width < 700 ? `100%` : `250px`}
-            bgColor={Theme.grey_C}
-          >
-            작성일
-          </Board_D_List>
-          <Board_D_List width={width < 700 ? `100%` : `calc((100% - 150px))`}>
+          <Board_D_List>작성일</Board_D_List>
+          <Board_D_List color={Theme.subTheme_C}>
             {currentData ? (
               currentData.createdAt.slice(0, 10)
             ) : (
@@ -168,15 +219,10 @@ export default withResizeDetector(({ match, history, width }) => {
             )}
           </Board_D_List>
 
-          {/* <Board_D_List
-            width={width < 700 ? `100%` : `250px`}
-            bgColor={Theme.grey_C}
-          >
-            조회수
-          </Board_D_List>
-          <Board_D_List width={width < 700 ? `100%` : `calc((100% - 150px))`}>
+          <Board_D_List>조회수</Board_D_List>
+          <Board_D_List color={Theme.subTheme_C}>
             {currentData ? currentData.hit : <CircularIndeterminate />}
-          </Board_D_List> */}
+          </Board_D_List>
         </Board_D>
 
         <Board_D_Desc>
@@ -187,17 +233,48 @@ export default withResizeDetector(({ match, history, width }) => {
           ></Wrapper>
         </Board_D_Desc>
 
+        <Wrapper>
+          {currentFile.map((data, idx) => {
+            return (
+              <Board_D dr={`row`} margin={`5px 0`} key={idx}>
+                <Board_D_List
+                  width={width < 700 ? `100%` : `150px`}
+                  height={`100%`}
+                  bgColor={Theme.subTheme_C}
+                  color={`#fff`}
+                >
+                  첨부파일
+                </Board_D_List>
+                <Board_D_List
+                  width={width < 700 ? `100%` : `calc((100% - 150px))`}
+                  ta={width < 700 ? `center` : `left`}
+                >
+                  <SpanText
+                    cursor={`pointer`}
+                    onClick={() => downloadHandler(data.file, data.name)}
+                  >
+                    {data.name}
+                  </SpanText>
+                </Board_D_List>
+              </Board_D>
+            );
+          })}
+        </Wrapper>
+
         <Wrapper margin={`30px 0px`} ju={`flex-end`} dr={`row`}>
           <CommonButton
-            width={`80px`}
+            height={`40px`}
+            width={`100px`}
             margin={`0px 10px 0px 0px`}
-            onClick={_moveListBoard}
+            onClick={() => _moveListBoard("contact", "faq")}
+            kindOf={`black`}
           >
             목록
           </CommonButton>
 
           <CommonButton
-            width={`80px`}
+            height={`40px`}
+            width={`100px`}
             margin={`0px 10px 0px 0px`}
             onClick={_moveBeforeBoard}
           >
@@ -205,7 +282,8 @@ export default withResizeDetector(({ match, history, width }) => {
           </CommonButton>
 
           <CommonButton
-            width={`80px`}
+            height={`40px`}
+            width={`100px`}
             margin={`0px 10px 0px 0px`}
             onClick={_moveNextBoard}
           >

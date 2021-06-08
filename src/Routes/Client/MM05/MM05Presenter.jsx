@@ -69,22 +69,26 @@ const MM05Presenter = ({
   setCurrentTab,
   //
   createRequestHandler,
-  //
-  inputSearch,
+  //faq
   pages,
-  currentPage,
+  inputSearch,
+  currentFaqList,
+  currentFaqPage,
   actionFaqView,
   currentType,
   faqDatum,
+  pData,
   toggleFaqAnswer,
   //
   changeFaqTypeHandler,
-  prevAndNextPageChangeHandler,
-  changePageHandler,
+  faqPrevAndNextPageChangeHandler,
+  faqFirstPageChangeHandler,
+  faqEndPageChangeHandler,
+  changeFaqPageHandler,
   searchHandler,
-  scrollMoveHandler,
-  //
-  currentList,
+  //notice
+  currentNoticeList,
+  currentNoticePage,
   limit,
   sortValue,
   //
@@ -92,6 +96,11 @@ const MM05Presenter = ({
   pageCnt,
   //
   moveLinkHandler,
+  moveWriteHandler,
+  noticePrevAndNextPageChangeHandler,
+  noticeFirstPageChangeHandler,
+  noticeEndPageChangeHandler,
+  changeNoticePageHandler,
 }) => {
   useTitle("가맹상담 / FAQ | 펫마트");
 
@@ -473,8 +482,8 @@ const MM05Presenter = ({
                   </Wrapper>
                 </Wrapper>
                 <CommonButton
-                  width={width < 700 ? `80px` : `100px`}
-                  height={`50px`}
+                  width={width < 700 ? `90px` : `100px`}
+                  height={`40px`}
                   kindOf={`subTheme2`}
                   onClick={(e) => {
                     e.stopPropagation();
@@ -509,16 +518,20 @@ const MM05Presenter = ({
             <Board
               inputSearch={inputSearch}
               pages={pages}
-              currentPage={currentPage}
+              currentFaqList={currentFaqList}
+              currentFaqPage={currentFaqPage}
               currentType={currentType}
               actionFaqView={actionFaqView}
               //
               faqDatum={faqDatum}
+              pData={pData}
               //
               toggleFaqAnswer={toggleFaqAnswer}
               changeFaqTypeHandler={changeFaqTypeHandler}
-              prevAndNextPageChangeHandler={prevAndNextPageChangeHandler}
-              changePageHandler={changePageHandler}
+              faqPrevAndNextPageChangeHandler={faqPrevAndNextPageChangeHandler}
+              faqFirstPageChangeHandler={faqFirstPageChangeHandler}
+              faqEndPageChangeHandler={faqEndPageChangeHandler}
+              changeFaqPageHandler={changeFaqPageHandler}
               searchHandler={searchHandler}
             />
           </Wrapper>
@@ -528,8 +541,8 @@ const MM05Presenter = ({
           <NoticeBoard
             inputSearch={inputSearch}
             pages={pages}
-            currentPage={currentPage}
-            currentList={currentList}
+            currentNoticeList={currentNoticeList}
+            currentNoticePage={currentNoticePage}
             limit={limit}
             sortValue={sortValue}
             //
@@ -537,8 +550,13 @@ const MM05Presenter = ({
             pageCnt={pageCnt}
             //
             moveLinkHandler={moveLinkHandler}
-            prevAndNextPageChangeHandler={prevAndNextPageChangeHandler}
-            changePageHandler={changePageHandler}
+            moveWriteHandler={moveWriteHandler}
+            noticePrevAndNextPageChangeHandler={
+              noticePrevAndNextPageChangeHandler
+            }
+            noticeFirstPageChangeHandler={noticeFirstPageChangeHandler}
+            noticeEndPageChangeHandler={noticeEndPageChangeHandler}
+            changeNoticePageHandler={changeNoticePageHandler}
             searchHandler={searchHandler}
           />
         </RsWrapper>

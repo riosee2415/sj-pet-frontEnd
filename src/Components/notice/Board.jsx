@@ -32,17 +32,20 @@ import Theme from "../../Styles/Theme";
 const Board = ({
   inputSearch,
   pages,
+  currentNoticeList,
+  currentNoticePage,
   limit,
-  currentPage,
-  currentList,
   sortValue,
   //
   noticeDatum,
   pageCnt,
   //
   moveLinkHandler,
-  prevAndNextPageChangeHandler,
-  changePageHandler,
+  moveWriteHandler,
+  noticePrevAndNextPageChangeHandler,
+  noticeFirstPageChangeHandler,
+  noticeEndPageChangeHandler,
+  changeNoticePageHandler,
   searchHandler,
   width,
 }) => {
@@ -107,7 +110,7 @@ const Board = ({
                     onClick={() => moveLinkHandler(data._id)}
                   >
                     <TableBodyLIST width={`100px`}>
-                      {pageCnt - (currentPage * limit + idx) + ""}
+                      {pageCnt - (currentNoticePage * limit + idx) + ""}
                     </TableBodyLIST>
                     <TableBodyLIST
                       fontWeight={`800`}
@@ -118,7 +121,9 @@ const Board = ({
                         ? data.title.substring(0, 90) + `…`
                         : data.title}
                     </TableBodyLIST>
-                    <TableHeadLIST width={`150px`}>작성자</TableHeadLIST>
+                    <TableHeadLIST width={`150px`}>
+                      {data && data.client}
+                    </TableHeadLIST>
                     <TableBodyLIST width={`200px`}>
                       {data.createdAt.substring(0, 10)}
                     </TableBodyLIST>
@@ -161,7 +166,7 @@ const Board = ({
                         ju={`flex-start`}
                         width={`calc(100% / 3)`}
                       >
-                        작성자
+                        {data && data.client}
                       </TableBodyLIST>
                       <TableBodyLIST
                         color={`rgb(170, 170, 170)`}
@@ -188,26 +193,36 @@ const Board = ({
         </MobileTable>
 
         <Wrapper al={width < 800 ? `center` : `flex-end`}>
-          <CommonButton width={`150px`} height={`50px`} kindOf={`black`}>
+          <CommonButton
+            width={`150px`}
+            height={`50px`}
+            kindOf={`black`}
+            onClick={moveWriteHandler}
+          >
             글쓰기
           </CommonButton>
         </Wrapper>
 
         {pages && pages.length > 0 && (
           <PagenationWrapper width={`auto`}>
+            <PagenationBtn onClick={() => noticeFirstPageChangeHandler(0)}>
+              <AiOutlineDoubleLeft />
+            </PagenationBtn>
             <PagenationBtn
-              onClick={() => prevAndNextPageChangeHandler(currentPage - 1)}
+              onClick={() =>
+                noticePrevAndNextPageChangeHandler(currentNoticePage - 1)
+              }
             >
               <IoIosArrowBack />
             </PagenationBtn>
             {pages.map((data, idx) => {
               return (
-                (currentList + 1) * 5 > idx &&
-                currentList * 5 <= idx && (
+                (currentNoticeList + 1) * (width < 900 ? 5 : 10) > idx &&
+                currentNoticeList * (width < 900 ? 5 : 10) <= idx && (
                   <Pagenation
-                    className={data === currentPage ? `active` : ``}
+                    className={data === currentNoticePage ? `active` : ``}
                     key={data}
-                    onClick={() => changePageHandler(data)}
+                    onClick={() => changeNoticePageHandler(data)}
                   >
                     {data + 1}
                   </Pagenation>
@@ -215,9 +230,14 @@ const Board = ({
               );
             })}
             <PagenationBtn
-              onClick={() => prevAndNextPageChangeHandler(currentPage + 1)}
+              onClick={() =>
+                noticePrevAndNextPageChangeHandler(currentNoticePage + 1)
+              }
             >
               <IoIosArrowForward />
+            </PagenationBtn>
+            <PagenationBtn onClick={() => noticeEndPageChangeHandler(pageCnt)}>
+              <AiOutlineDoubleRight />
             </PagenationBtn>
           </PagenationWrapper>
         )}

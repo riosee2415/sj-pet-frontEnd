@@ -44,7 +44,7 @@ import { GET_USER_LOGIN_RESULT_FOR_ADMIN } from "./A_LayoutQueries";
 import useInput from "../../Components/Hooks/useInput";
 
 const A_Content = () => {
-  const [isLogin, setIsLogin] = useState(true);
+  const [isLogin, setIsLogin] = useState(false);
   const [loginSkip, setLoginSkip] = useState(true);
   const [isLoginProcess, setIsLoginProcess] = useState(false);
   const inputUserId = useInput("");

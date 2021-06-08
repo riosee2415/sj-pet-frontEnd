@@ -63,7 +63,7 @@ export default ({
   return (
     <WholeWrapper al={`flex-start`} ju={`flex-start`}>
       <Fade>
-        <Title text="가맹정 상세정보" />
+        <Title text="가맹점 상세정보" />
 
         <Wrapper margin={`0px 0px 20px 0px`}>
           <FieldsSet margin={`0px 0px 5px 0px`}>가맹점 기본정보</FieldsSet>

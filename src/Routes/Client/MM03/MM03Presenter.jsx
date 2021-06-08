@@ -93,9 +93,12 @@ const MM03Presenter = ({
   //
   sDatum,
   aDatum,
+  pData,
   //
   changePageHandler,
   prevAndNextPageChangeHandler,
+  firstPageChangeHandler,
+  endPageChangeHandler,
   changeScaleHandler,
   dataLinkHandler,
 }) => {
@@ -184,7 +187,7 @@ const MM03Presenter = ({
                         isAbsolute={true}
                         top={`50%`}
                         left={`52px`}
-                        margin={`-7.5px 0 0`}
+                        margin={`-8px 0 0`}
                         width={`auto`}
                         fontSize={`15px`}
                       >
@@ -215,6 +218,7 @@ const MM03Presenter = ({
                   height={`100%`}
                   padding={`25px 15px`}
                   dr={`row`}
+                  wrap={`nowrap`}
                 >
                   <Wrapper
                     width={width < 900 ? `40px` : `70px`}
@@ -238,8 +242,11 @@ const MM03Presenter = ({
                   </Wrapper>
                   <Wrapper
                     al={`flex-start`}
-                    width={`auto`}
+                    width={
+                      width < 900 ? `calc(100% - 140px)` : `calc(100% - 170px)`
+                    }
                     color={Theme.darkGrey_C}
+                    lineHeight={`1.4`}
                   >
                     {store.address}
                   </Wrapper>
@@ -378,6 +385,16 @@ const MM03Presenter = ({
                           height={`100%`}
                           src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2Ficon%2F01_icon_Location-pin.png?alt=media&token=ca53caa2-d8e2-4844-a3b0-0b829438154d`}
                         />
+                        <Wrapper
+                          isAbsolute={true}
+                          top={`50%`}
+                          left={`52px`}
+                          margin={`-8px 0 0`}
+                          width={`auto`}
+                          fontSize={`15px`}
+                        >
+                          {data.title}
+                        </Wrapper>
                       </Wrapper>
                     </Wrapper>
                   }
@@ -491,7 +508,7 @@ const MM03Presenter = ({
         </Wrapper>
         {pages && pages.length > 0 && (
           <PagenationWrapper width={`auto`}>
-            <PagenationBtn>
+            <PagenationBtn onClick={() => firstPageChangeHandler(0)}>
               <AiOutlineDoubleLeft />
             </PagenationBtn>
             <PagenationBtn
@@ -518,7 +535,7 @@ const MM03Presenter = ({
             >
               <IoIosArrowForward />
             </PagenationBtn>
-            <PagenationBtn>
+            <PagenationBtn onClick={() => endPageChangeHandler(pData)}>
               <AiOutlineDoubleRight />
             </PagenationBtn>
           </PagenationWrapper>

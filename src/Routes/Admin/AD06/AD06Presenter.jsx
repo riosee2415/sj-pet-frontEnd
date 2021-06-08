@@ -35,7 +35,7 @@ import DialogTitle from "@material-ui/core/DialogTitle";
 import Slide from "@material-ui/core/Slide";
 import useTitle from "@4leaf.ysh/use-title";
 
-const tabs = ["공지사항 리스트", "공지사항 등록"];
+const tabs = ["Q&A 리스트"];
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -79,12 +79,12 @@ export default ({
   dialogToggle,
   noticeModifyHandler,
 }) => {
-  useTitle(`ADMIN | 공지사항`);
+  useTitle(`ADMIN | Q&A`);
 
   return (
     <WholeWrapper al={`flex-start`} ju={`flex-start`}>
       <Fade right>
-        <Title text="공지사항 관리" />
+        <Title text="Q&#38;A 관리" />
         <Tabs
           tabs={tabs}
           currentTab={currentTab}
@@ -118,13 +118,11 @@ export default ({
           </Wrapper>
           <Wrapper>
             <TableWrapper>
-              <TableHeadColumn width={`5%`}>번호</TableHeadColumn>
-              <TableHeadColumn width={`10%`}>유형</TableHeadColumn>
-              <TableHeadColumn width={`40%`}>제목</TableHeadColumn>
-              <TableHeadColumn width={`10%`}>작성자</TableHeadColumn>
-              <TableHeadColumn width={`15%`}>작성일</TableHeadColumn>
-              <TableHeadColumn width={`5%`}>삭제</TableHeadColumn>
-              <TableHeadColumn width={`15%`}>삭제여부</TableHeadColumn>
+              <TableHeadColumn width={`10%`}>번호</TableHeadColumn>
+              <TableHeadColumn width={`35%`}>제목</TableHeadColumn>
+              <TableHeadColumn width={`15%`}>연락처</TableHeadColumn>
+              <TableHeadColumn width={`15%`}>작성자</TableHeadColumn>
+              <TableHeadColumn width={`25%`}>작성일</TableHeadColumn>
             </TableWrapper>
           </Wrapper>
           <Wrapper isBorder={true} height={`407px`} ju={`flex-start`}>
@@ -140,16 +138,15 @@ export default ({
                   return (
                     <Fade key={data._id} delay={idx * 20}>
                       <TableWrapper isData={true} isDelete={data.isDelete}>
-                        <TableHeadColumn isData={true} width={`5%`}>
+                        <TableHeadColumn isData={true} width={`10%`}>
                           {totalAllPage &&
                             totalAllPage - idx - limit * currentPage}
                         </TableHeadColumn>
-                        <TableHeadColumn isData={true} width={`10%`}>
-                          {data.type}
-                        </TableHeadColumn>
+
                         <TableHeadColumn
                           isData={true}
-                          width={`40%`}
+                          isToday
+                          width={`35%`}
                           onClick={() =>
                             data.isDelete
                               ? null
@@ -164,25 +161,14 @@ export default ({
                         >
                           {data.title}
                         </TableHeadColumn>
-                        <TableHeadColumn isData={true} width={`10%`}>
-                          관리자
+                        <TableHeadColumn isData={true} width={`15%`}>
+                          {data.tel}
                         </TableHeadColumn>
                         <TableHeadColumn isData={true} width={`15%`}>
+                          {data.client}
+                        </TableHeadColumn>
+                        <TableHeadColumn isData={true} width={`25%`}>
                           {data.createdAt}
-                        </TableHeadColumn>
-                        <TableHeadColumn
-                          isData={true}
-                          width={`5%`}
-                          isSvg={true}
-                        >
-                          <FiDelete
-                            size={20}
-                            color={Theme.delete_B_C}
-                            onClick={() => boardDeleteHandler(data._id)}
-                          />
-                        </TableHeadColumn>
-                        <TableHeadColumn isData={true} width={`15%`}>
-                          {data.isDelete ? data.deletedAt : ``}
                         </TableHeadColumn>
                       </TableWrapper>
                     </Fade>
@@ -291,7 +277,7 @@ export default ({
 
           <Wrapper al={`flex-end`} ju={`flex-end`}>
             <CommonButton kindOf={`create`} onClick={createNoticeHandler}>
-              공지사항 등록
+              Q&#38;A 등록
             </CommonButton>
           </Wrapper>
         </Wrapper>
@@ -308,7 +294,7 @@ export default ({
         maxWidth={`lg`}
       >
         <DialogTitle id="alert-dialog-slide-title">
-          {`NOTICE 공지사항 상세보기`}
+          {`Q&A 상세보기`}
         </DialogTitle>
         <DialogContent>
           <Wrapper
@@ -318,19 +304,9 @@ export default ({
             isBorder={true}
             margin={`0px 0px 15px 0px`}
           >
-            <Wrapper
-              width={`100px`}
-              height={`100%`}
-              margin={`0px 10px 0px 0px`}
-              size={`13px`}
-              isSearchBox={true}
-              color={Theme.white_C}
-              padding={`10px`}
-            >
-              {detailType}
-            </Wrapper>
             <Wrapper al={`flex-start`} size={`15px`} padding={`10px`}>
               <TextInput
+                readOnly={true}
                 type="text"
                 value={detailTitle}
                 onChange={(e) => setDetailTitle(e.target.value)}
@@ -348,6 +324,7 @@ export default ({
           </Wrapper>
 
           <Editor
+            readOnly={true}
             value={detailDescription}
             componentHeight="h-300"
             editorChangeHandler={(html) => setDetailDescription(html)}

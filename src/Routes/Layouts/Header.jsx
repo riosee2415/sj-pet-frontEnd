@@ -267,6 +267,10 @@ const Header = ({ history, location, width }) => {
     history.push(link);
   };
 
+  const moveLinkTabHandler = (link, tab) => {
+    history.push(`/${link}?type=${tab}`);
+  };
+
   const logoutHandler = () => {
     sessionStorage.removeItem("KLJHQOSKXJKDAODU");
     setLogin("");
@@ -471,6 +475,10 @@ const Header = ({ history, location, width }) => {
                     al={`flex-start`}
                     padding={`0 15px`}
                     color={`rgb(97, 97, 97)`}
+                    onClick={() => {
+                      moveLinkTabHandler("about", "ceo");
+                      mobileMenuToggle();
+                    }}
                   >
                     CEO 인사말
                   </Wrapper>
@@ -480,6 +488,10 @@ const Header = ({ history, location, width }) => {
                     al={`flex-start`}
                     padding={`0 15px`}
                     color={`rgb(97, 97, 97)`}
+                    onClick={() => {
+                      moveLinkTabHandler("about", "his");
+                      mobileMenuToggle();
+                    }}
                   >
                     연혁
                   </Wrapper>
@@ -561,6 +573,10 @@ const Header = ({ history, location, width }) => {
                     al={`flex-start`}
                     padding={`0 15px`}
                     color={`rgb(97, 97, 97)`}
+                    onClick={() => {
+                      moveLinkTabHandler("contact", "request");
+                      mobileMenuToggle();
+                    }}
                   >
                     상담문의
                   </Wrapper>
@@ -570,6 +586,10 @@ const Header = ({ history, location, width }) => {
                     al={`flex-start`}
                     padding={`0 15px`}
                     color={`rgb(97, 97, 97)`}
+                    onClick={() => {
+                      moveLinkTabHandler("contact", "faq");
+                      mobileMenuToggle();
+                    }}
                   >
                     FAQ / Q&#38;A
                   </Wrapper>

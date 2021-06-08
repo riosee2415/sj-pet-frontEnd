@@ -28,19 +28,22 @@ import Theme from "../../Styles/Theme";
 
 const Board = ({
   width,
-  currentType,
-  actionFaqView,
   inputSearch,
   pages,
-  currentPage,
+  currentFaqList,
+  currentFaqPage,
+  currentType,
+  actionFaqView,
   //
-  faqTypeDatum,
   faqDatum,
+  pData,
   //
   toggleFaqAnswer,
   changeFaqTypeHandler,
-  prevAndNextPageChangeHandler,
-  changePageHandler,
+  faqPrevAndNextPageChangeHandler,
+  faqFirstPageChangeHandler,
+  faqEndPageChangeHandler,
+  changeFaqPageHandler,
   searchHandler,
 }) => {
   return (
@@ -214,31 +217,34 @@ const Board = ({
 
       {pages && pages.length > 0 && (
         <PagenationWrapper width={`auto`} margin={`60px 0 100px`}>
-          <PagenationBtn>
+          <PagenationBtn onClick={() => faqFirstPageChangeHandler(0)}>
             <AiOutlineDoubleLeft />
           </PagenationBtn>
           <PagenationBtn
-            onClick={() => prevAndNextPageChangeHandler(currentPage - 1)}
+            onClick={() => faqPrevAndNextPageChangeHandler(currentFaqPage - 1)}
           >
             <IoIosArrowBack />
           </PagenationBtn>
-          {pages.map((data) => {
+          {pages.map((data, idx) => {
             return (
-              <Pagenation
-                className={data === currentPage ? `active` : ``}
-                key={data}
-                onClick={() => changePageHandler(data)}
-              >
-                {data + 1}
-              </Pagenation>
+              (currentFaqList + 1) * (width < 900 ? 5 : 10) > idx &&
+              currentFaqList * (width < 900 ? 5 : 10) <= idx && (
+                <Pagenation
+                  className={data === currentFaqPage ? `active` : ``}
+                  key={data}
+                  onClick={() => changeFaqPageHandler(data)}
+                >
+                  {data + 1}
+                </Pagenation>
+              )
             );
           })}
           <PagenationBtn
-            onClick={() => prevAndNextPageChangeHandler(currentPage + 1)}
+            onClick={() => faqPrevAndNextPageChangeHandler(currentFaqPage + 1)}
           >
             <IoIosArrowForward />
           </PagenationBtn>
-          <PagenationBtn>
+          <PagenationBtn onClick={() => faqEndPageChangeHandler(pData)}>
             <AiOutlineDoubleRight />
           </PagenationBtn>
         </PagenationWrapper>

@@ -9,7 +9,6 @@ import {
   CREATE_NOTICEBOARD,
   MOODIFY_NOTICEBOARD,
 } from "./AD06Queries.js";
-import { GET_NOTICEBOARD_TYPE } from "../AD05/AD05Queries";
 import { toast } from "react-toastify";
 import storageFn from "../../../fsStorage";
 import { confirmAlert } from "react-confirm-alert";
@@ -79,14 +78,6 @@ export default () => {
       pageArr.push(i);
     }
   }
-
-  const {
-    data: typeDatum,
-    loading: typeLoading,
-    refetch: typeRefetch,
-  } = useQuery(GET_NOTICEBOARD_TYPE);
-
-  typeRefetch();
 
   ///////////// - USE MUTATION- /////////////
   const [deleteNoticeBoardMutation] = useMutation(DELETE_NOTICEBOARD);
@@ -258,7 +249,6 @@ export default () => {
       setCurrentPage={setCurrentPage}
       //
       noticeDatum={noticeDatum && noticeDatum.getNoticeBoard}
-      typeDatum={typeDatum && typeDatum.getNoticeBoardType}
       //
       changePageHandler={changePageHandler}
       prevAndNextPageChangeHandler={prevAndNextPageChangeHandler}
