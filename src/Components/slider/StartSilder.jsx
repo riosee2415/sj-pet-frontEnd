@@ -8,19 +8,19 @@ import { FaStar } from "react-icons/fa";
 import Theme from "../../Styles/Theme";
 import CircularIndeterminate from "../loading/CircularIndeterminate";
 
+const Container = styled.div`
+  width: 100%;
+  position: relative;
+
+  .swiper-container-multirow-column > .swiper-wrapper {
+    flex-direction: ${(props) => (props.isColumn ? `row` : `column`)};
+  }
+  .swiper-slide {
+    margin-top: ${(props) => (props.isColumn ? `0 !important` : `0`)};
+  }
+`;
+
 export default ({ width, vDatum, isColumn, moveLinkHandler }) => {
-  const Container = styled.div`
-    width: 100%;
-    position: relative;
-
-    .swiper-container-multirow-column > .swiper-wrapper {
-      flex-direction: ${(props) => (props.isColumn ? `row` : `column`)};
-    }
-    .swiper-slide {
-      margin-top: ${(props) => (props.isColumn ? `0 !important` : `0`)};
-    }
-  `;
-
   return (
     <Container isColumn={isColumn}>
       <Swiper

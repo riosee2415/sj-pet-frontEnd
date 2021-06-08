@@ -11,20 +11,19 @@ import CircularIndeterminate from "../loading/CircularIndeterminate";
 const MobileText = styled(Text)`
   color: rgb(34, 34, 34);
 `;
+const Container = styled.div`
+  width: 100%;
+  position: relative;
+
+  .swiper-container-multirow-column > .swiper-wrapper {
+    flex-direction: ${(props) => (props.isColumn ? `row` : `column`)};
+  }
+  .swiper-slide {
+    margin-left: ${(props) => (props.isColumn ? `0 !important` : `10px`)};
+  }
+`;
 
 export default ({ width, vDatum, isColumn, moveLinkHandler }) => {
-  const Container = styled.div`
-    width: 100%;
-    position: relative;
-
-    .swiper-container-multirow-column > .swiper-wrapper {
-      flex-direction: ${(props) => (props.isColumn ? `row` : `column`)};
-    }
-    .swiper-slide {
-      margin-left: ${(props) => (props.isColumn ? `0 !important` : `10px`)};
-    }
-  `;
-
   return (
     <Container isColumn={isColumn}>
       <Swiper

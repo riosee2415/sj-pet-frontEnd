@@ -69,20 +69,20 @@ const ShopImage = styled(Image)`
   }
 `;
 
+const Container = styled.div`
+  width: 100%;
+  position: relative;
+
+  .swiper-container-multirow-column > .swiper-wrapper {
+    flex-direction: ${(props) => (props.isColumn ? `row` : `column`)};
+  }
+  .swiper-slide {
+    display: flex;
+    justify-content: center;
+  }
+`;
+
 export default ({ width, sDatum, isColumn, moveLinkHandler }) => {
-  const Container = styled.div`
-    width: 100%;
-    position: relative;
-
-    .swiper-container-multirow-column > .swiper-wrapper {
-      flex-direction: ${(props) => (props.isColumn ? `row` : `column`)};
-    }
-    .swiper-slide {
-      display: flex;
-      justify-content: center;
-    }
-  `;
-
   SwiperCore.use([Navigation, Pagination, Controller, Thumbs, Autoplay]);
 
   return (
