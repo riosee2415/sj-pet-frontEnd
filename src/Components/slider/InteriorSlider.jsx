@@ -57,10 +57,6 @@ const Container = styled.div`
     margin: 30px 0 0;
   }
 
-  .small .swiper-slide-active img {
-    border: 10px solid ${(props) => props.theme.basicTheme_C};
-  }
-
   .swiper-slide {
     position: relative;
     text-align: center;

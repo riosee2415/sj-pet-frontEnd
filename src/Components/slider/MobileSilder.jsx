@@ -56,8 +56,8 @@ export default ({ isColumn }) => {
               src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2Fimg-00.png?alt=media&token=a0e54868-4bab-457d-8790-f9210397334d`}
             />
             <Image
-              width={`60%`}
-              margin={`20px 0`}
+              width={`auto`}
+              margin={`20px 0 10px`}
               alt="title"
               src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2Ftitle.png?alt=media&token=54662563-5a1e-4495-a5cd-70b136bb9db6`}
             />
@@ -81,8 +81,8 @@ export default ({ isColumn }) => {
               src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2Fimg-01.png?alt=media&token=a054b3db-9bc1-4c04-ad92-9d87d440622e`}
             />
             <Image
-              width={`70%`}
-              margin={`20px 0`}
+              width={`auto`}
+              margin={`20px 0 10px`}
               alt="title"
               src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2Fmobile-02.png?alt=media&token=2324d95b-435f-4c48-8e91-ef28a7c1135c`}
             />
@@ -101,8 +101,8 @@ export default ({ isColumn }) => {
               src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2Fimg-02.png?alt=media&token=8a03d6a8-acae-4fe4-b8b6-ff330eb0b418`}
             />
             <Image
-              width={`70%`}
-              margin={`20px 0`}
+              width={`auto`}
+              margin={`20px 0 10px`}
               alt="title"
               src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2Fmobile-03.png?alt=media&token=06f218d5-3f8e-4831-950e-15ae9160b94d`}
             />
@@ -123,8 +123,8 @@ export default ({ isColumn }) => {
               src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2Fimg-03.png?alt=media&token=284360dd-52cd-434b-b3db-1414a0a3c328`}
             />
             <Image
-              width={`70%`}
-              margin={`20px 0`}
+              width={`auto`}
+              margin={`20px 0 10px`}
               alt="title"
               src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2Fmobile-04.png?alt=media&token=b53d1a7e-da5f-4b63-8479-b17d80280ec2`}
             />
@@ -145,8 +145,8 @@ export default ({ isColumn }) => {
               src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2Fimg-04.png?alt=media&token=f848b436-05f8-403e-b1f9-632d9d7ec4d2`}
             />
             <Image
-              width={`60%`}
-              margin={`20px 0`}
+              width={`auto`}
+              margin={`20px 0 10px`}
               alt="title"
               src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2Fmobile-05.png?alt=media&token=5812959e-412b-4e02-aa0f-fb17174ff752`}
             />
@@ -164,8 +164,8 @@ export default ({ isColumn }) => {
               src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2Fimg-05.png?alt=media&token=3d6f61d3-8f41-429b-9409-af671ec1a8c4`}
             />
             <Image
-              width={`65%`}
-              margin={`20px 0`}
+              width={`auto`}
+              margin={`20px 0 10px`}
               alt="title"
               src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2Fmobile-06.png?alt=media&token=e166947d-da3a-4956-8244-bbdf4437edbd`}
             />
@@ -186,8 +186,8 @@ export default ({ isColumn }) => {
               src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2Fimg-06.png?alt=media&token=d12c3d2f-a2b8-4894-9866-71703fb9231b`}
             />
             <Image
-              width={`70%`}
-              margin={`20px 0`}
+              width={`auto`}
+              margin={`20px 0 10px`}
               alt="title"
               src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2Fmobile-07.png?alt=media&token=6e2a2a5b-2d7d-4550-a68f-1268b2a8be7f`}
             />
@@ -206,8 +206,8 @@ export default ({ isColumn }) => {
               src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2Fimg-07.png?alt=media&token=e75de84c-7f2f-4aa3-9edb-59a73ca42cf2`}
             />
             <Image
-              width={`55%`}
-              margin={`20px 0`}
+              width={`auto`}
+              margin={`20px 0 10px`}
               alt="title"
               src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2Ftitle-08.png?alt=media&token=1342bc6d-6bd8-4d0e-8de3-04762d72192e`}
             />

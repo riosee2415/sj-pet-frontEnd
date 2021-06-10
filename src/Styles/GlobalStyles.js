@@ -1,25 +1,9 @@
 import { createGlobalStyle, css } from "styled-components";
 import reset from "styled-reset";
-import SCDream1_otf from "./fonts/SCDream1.otf";
-import SCDream1_woff from "./fonts/SCDream1.woff";
-import SCDream2_otf from "./fonts/SCDream2.otf";
-import SCDream2_woff from "./fonts/SCDream2.woff";
-import SCDream3_otf from "./fonts/SCDream3.otf";
-import SCDream3_woff from "./fonts/SCDream3.woff";
-import SCDream4_otf from "./fonts/SCDream4.otf";
-import SCDream4_woff from "./fonts/SCDream4.woff";
-import SCDream5_otf from "./fonts/SCDream5.otf";
-import SCDream5_woff from "./fonts/SCDream5.woff";
-import SCDream6_otf from "./fonts/SCDream6.otf";
-import SCDream6_woff from "./fonts/SCDream6.woff";
-import SCDream7_otf from "./fonts/SCDream7.otf";
-import SCDream7_woff from "./fonts/SCDream7.woff";
-import SCDream8_otf from "./fonts/SCDream8.otf";
-import SCDream8_woff from "./fonts/SCDream8.woff";
-import SCDream9_otf from "./fonts/SCDream9.otf";
-import SCDream9_woff from "./fonts/SCDream9.woff";
+
 import BMDOHYEON_woff from "./fonts/BMDOHYEON_ttf.woff";
 import BMDOHYEON_otf from "./fonts/BMDOHYEON_ttf.otf";
+import BMDOHYEON_ttf from "./fonts/BMDOHYEON_ttf.ttf";
 
 const sliderCss = css`
   /* gallerySlider */
@@ -137,7 +121,8 @@ export default createGlobalStyle`
       font-style: 500;
       font-weight: 500;
       src: url(${BMDOHYEON_woff}) format('woff')
-           url(${BMDOHYEON_otf}) format('opentype');
+           url(${BMDOHYEON_otf}) format('opentype')
+           url(${BMDOHYEON_ttf}) format('truetype');
     }
 
     ${reset};
