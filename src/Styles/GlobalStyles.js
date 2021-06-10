@@ -125,6 +125,13 @@ export default createGlobalStyle`
            url(${BMDOHYEON_ttf}) format('truetype');
     }
 
+    @font-face {
+    font-family: 'BMDOHYEON';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMDOHYEON.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
     ${reset};
     ${scrollCss};
     ${sliderCss};
