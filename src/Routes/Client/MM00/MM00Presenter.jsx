@@ -1036,9 +1036,15 @@ const MM00Presenter = ({
         </Wrapper>
       </RsWrapper>
       <Wrapper display={width < 800 ? `flex` : `none`} padding={`60px 0`}>
-        <Wrapper>
-          <Text fontSize={width < 800 ? `24px !important` : `72px`} isBMFont>
-            왜 <PetmartTitle>펫마트</PetmartTitle>일까 ?
+        <Wrapper dr={`row`} wrap={`nowrap`}>
+          <Text fontSize={`24px !important`} isBMFont>
+            왜&nbsp;
+          </Text>
+          <Text fontSize={`24px !important`} isBMFont>
+            <PetmartTitle>펫마트</PetmartTitle>
+          </Text>
+          <Text fontSize={`24px !important`} isBMFont>
+            일까 ?
           </Text>
         </Wrapper>
         <Text
