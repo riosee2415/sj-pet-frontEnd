@@ -762,25 +762,27 @@ const MM00Presenter = ({
         display={width > 800 ? `flex` : `none`}
         padding={width < 800 ? `60px 0` : `100px 0`}
       >
-        <Bounce>
-          <Text
-            fontSize={width < 800 ? `24px !important` : `72px`}
-            isBMFont
-            lineHeight={`1`}
-            margin={`0 0 10px`}
-          >
-            왜 <PetmartTitle>펫마트</PetmartTitle>일까 ?
-          </Text>
-          <Text
-            fontSize={width < 800 ? `14px !important` : `24px`}
-            fontWeight={`300`}
-            margin={`20px 0 0`}
-            isBMFont
-            lineHeight={`1`}
-          >
-            예비 창업자들이 펫마트를 선택하는 이유!
-          </Text>
-        </Bounce>
+        <Wrapper>
+          <Bounce>
+            <Text
+              fontSize={width < 800 ? `24px !important` : `72px`}
+              isBMFont
+              lineHeight={`1`}
+              margin={`0 0 10px`}
+            >
+              왜 <PetmartTitle>펫마트</PetmartTitle>일까 ?
+            </Text>
+            <Text
+              fontSize={width < 800 ? `14px !important` : `24px`}
+              fontWeight={`300`}
+              margin={`20px 0 0`}
+              isBMFont
+              lineHeight={`1`}
+            >
+              예비 창업자들이 펫마트를 선택하는 이유!
+            </Text>
+          </Bounce>
+        </Wrapper>
         <Fade bottom>
           <Wrapper dr={`row`} al={`flex-start`} padding={`80px 0 0`}>
             <Wrapper
@@ -1034,9 +1036,11 @@ const MM00Presenter = ({
         </Wrapper>
       </RsWrapper>
       <Wrapper display={width < 800 ? `flex` : `none`} padding={`60px 0`}>
-        <Text fontSize={width < 800 ? `24px !important` : `72px`} isBMFont>
-          왜 <PetmartTitle>펫마트</PetmartTitle>일까 ?
-        </Text>
+        <Wrapper>
+          <Text fontSize={width < 800 ? `24px !important` : `72px`} isBMFont>
+            왜 <PetmartTitle>펫마트</PetmartTitle>일까 ?
+          </Text>
+        </Wrapper>
         <Text
           fontSize={width < 800 ? `14px !important` : `24px`}
           fontWeight={`300`}
