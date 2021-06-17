@@ -211,7 +211,7 @@ const MM00Presenter = ({
 
       <ShopWrapper>
         <ShopSilder
-          sDatum={sDatum}
+          // sDatum={sDatum}
           moveLinkHandler={moveLinkHandler}
           width={width}
         />
