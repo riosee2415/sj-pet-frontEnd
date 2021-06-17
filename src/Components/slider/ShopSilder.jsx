@@ -105,17 +105,8 @@ export default ({ width, sDatum, isColumn, moveLinkHandler }) => {
               <SwiperSlide key={data._id} onClick={() => moveLinkHandler(data)}>
                 <ShopImage>
                   <Image
-                  
                    height={`100%`} src={data.thumbnailPath} />
                   <Title>{data.title}</Title>
-                  <Image
-                  
-                 
-                    alt="image"
-                    src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM00%2FKakaoTalk_20210302_114556833_25.jpg?alt=media&token=240708f6-a176-44e4-825e-93bd3ed8e94f`}
-                  />
-                 
-                  <Title>01호-동구점</Title>
                 </ShopImage>
               </SwiperSlide>
               
