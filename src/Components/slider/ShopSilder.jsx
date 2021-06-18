@@ -116,7 +116,18 @@ export default ({ width, sDatum, isColumn, moveLinkHandler }) => {
           <CircularIndeterminate />
         )} */}
 
-        <SwiperSlide>
+        <SwiperSlide
+          onClick={() =>
+            moveLinkHandler({
+              title: "펫마트 동구점",
+              address: "대구광역시 동구 동촌로 403-1 ",
+              lnt: "128.68324850753916",
+              att: "35.87612923970815",
+              tel: "053-253-1550",
+              workTime: "-",
+            })
+          }
+        >
           <ShopImage>
             <Image
               height={`100%`}
@@ -126,7 +137,19 @@ export default ({ width, sDatum, isColumn, moveLinkHandler }) => {
             <Title>01호_동구점</Title>
           </ShopImage>
         </SwiperSlide>
-        <SwiperSlide>
+
+        <SwiperSlide
+          onClick={() =>
+            moveLinkHandler({
+              title: "펫마트 서구점",
+              address: "대구광역시 남구 대명로 30 ",
+              lnt: "128.5607564383875",
+              att: "35.838097713813994",
+              tel: "053-628-1550",
+              workTime: "-",
+            })
+          }
+        >
           <ShopImage>
             <Image
               height={`100%`}
@@ -136,7 +159,20 @@ export default ({ width, sDatum, isColumn, moveLinkHandler }) => {
             <Title>02호_서구점</Title>
           </ShopImage>
         </SwiperSlide>
-        <SwiperSlide>
+
+        <SwiperSlide
+          onClick={() =>
+            moveLinkHandler({
+              title: "펫마트 중구점",
+              address:
+                "대구광역시 중구 달구벌대로 2100 메트로센터 지하 E105~108호",
+              lnt: "128.59798019972783",
+              att: "35.864666880659776",
+              tel: "053-253-1550",
+              workTime: "-",
+            })
+          }
+        >
           <ShopImage>
             <Image
               height={`100%`}
@@ -146,7 +182,19 @@ export default ({ width, sDatum, isColumn, moveLinkHandler }) => {
             <Title>03호_중구점</Title>
           </ShopImage>
         </SwiperSlide>
-        <SwiperSlide>
+
+        <SwiperSlide
+          onClick={() =>
+            moveLinkHandler({
+              title: "펫마트 칠곡점",
+              address: "대구광역시 북구 칠곡중앙대로 291 ",
+              lnt: "128.5464162501566",
+              att: "35.921771906663075",
+              tel: "053-326-1550",
+              workTime: "-",
+            })
+          }
+        >
           <ShopImage>
             <Image
               height={`100%`}
@@ -156,7 +204,19 @@ export default ({ width, sDatum, isColumn, moveLinkHandler }) => {
             <Title>04호_칠곡점</Title>
           </ShopImage>
         </SwiperSlide>
-        <SwiperSlide>
+
+        <SwiperSlide
+          onClick={() =>
+            moveLinkHandler({
+              title: "펫마트 포항점",
+              address: "경상북도 포항시 남구 중앙로 165 ",
+              lnt: "129.36694063839457",
+              att: "36.02788423365332",
+              tel: "054-255-1550",
+              workTime: "-",
+            })
+          }
+        >
           <ShopImage>
             <Image
               height={`100%`}
@@ -166,7 +226,19 @@ export default ({ width, sDatum, isColumn, moveLinkHandler }) => {
             <Title>05호_포항점</Title>
           </ShopImage>
         </SwiperSlide>
-        <SwiperSlide>
+
+        <SwiperSlide
+          onClick={() =>
+            moveLinkHandler({
+              title: "펫마트 수성점",
+              address: "대구광역시 수성구 청수로 284 1층 펫마트 수성점",
+              lnt: "128.61941378503062",
+              att: "35.84049256328142",
+              tel: "053-746-1550",
+              workTime: "-",
+            })
+          }
+        >
           <ShopImage>
             <Image
               height={`100%`}
@@ -176,7 +248,19 @@ export default ({ width, sDatum, isColumn, moveLinkHandler }) => {
             <Title>06호_수성점</Title>
           </ShopImage>
         </SwiperSlide>
-        <SwiperSlide>
+
+        <SwiperSlide
+          onClick={() =>
+            moveLinkHandler({
+              title: "펫마트 구포점",
+              address: "부산광역시 사상구 백양대로 987 스파캐슬 1층",
+              lnt: "128.99264641192542",
+              att: "35.19412848670047",
+              tel: "051-303-1550",
+              workTime: "-",
+            })
+          }
+        >
           <ShopImage>
             <Image
               height={`100%`}
@@ -186,7 +270,19 @@ export default ({ width, sDatum, isColumn, moveLinkHandler }) => {
             <Title>07호_구포점</Title>
           </ShopImage>
         </SwiperSlide>
-        <SwiperSlide>
+
+        <SwiperSlide
+          onClick={() =>
+            moveLinkHandler({
+              title: "펫마트 부곡점",
+              address: "부산광역시 금정구 중앙대로 1675 ",
+              lnt: "129.09143152314994",
+              att: "35.23403504539832",
+              tel: "051-513-1550",
+              workTime: "-",
+            })
+          }
+        >
           <ShopImage>
             <Image
               height={`100%`}
@@ -196,7 +292,19 @@ export default ({ width, sDatum, isColumn, moveLinkHandler }) => {
             <Title>13호-부곡점</Title>
           </ShopImage>
         </SwiperSlide>
-        <SwiperSlide>
+
+        <SwiperSlide
+          onClick={() =>
+            moveLinkHandler({
+              title: "펫마트 항구점",
+              address: "경상북도 포항시 북구 삼호로 143 태원빌딩",
+              lnt: "129.3732396354743",
+              att: "36.052527268407914",
+              tel: "054-241-1550",
+              workTime: "-",
+            })
+          }
+        >
           <ShopImage>
             <Image
               height={`100%`}
@@ -206,7 +314,19 @@ export default ({ width, sDatum, isColumn, moveLinkHandler }) => {
             <Title>27호_포항항구점</Title>
           </ShopImage>
         </SwiperSlide>
-        <SwiperSlide>
+
+        <SwiperSlide
+          onClick={() =>
+            moveLinkHandler({
+              title: "펫마트 시지점",
+              address: "대구광역시 수성구 달구벌대로 3144 ",
+              lnt: "128.70082608027548",
+              att: "35.841477658731165",
+              tel: "053-795-1550",
+              workTime: "-",
+            })
+          }
+        >
           <ShopImage>
             <Image
               height={`100%`}
@@ -216,7 +336,19 @@ export default ({ width, sDatum, isColumn, moveLinkHandler }) => {
             <Title>45호_시지점</Title>
           </ShopImage>
         </SwiperSlide>
-        <SwiperSlide>
+
+        <SwiperSlide
+          onClick={() =>
+            moveLinkHandler({
+              title: "펫마트 대전점",
+              address: "대전광역시 대덕구 대전로 1013 ",
+              lnt: "127.41853100742824",
+              att: "36.34566259387338",
+              tel: "042-623-1550",
+              workTime: "-",
+            })
+          }
+        >
           <ShopImage>
             <Image
               height={`100%`}
@@ -226,7 +358,19 @@ export default ({ width, sDatum, isColumn, moveLinkHandler }) => {
             <Title>73호_대전점</Title>
           </ShopImage>
         </SwiperSlide>
-        <SwiperSlide>
+
+        <SwiperSlide
+          onClick={() =>
+            moveLinkHandler({
+              title: "펫마트 홍은점",
+              address: "서울특별시 서대문구 가좌로 110 펫마트 홍은점",
+              lnt: "126.92628025426862",
+              att: "37.58242946991557",
+              tel: "02-372-1550",
+              workTime: "-",
+            })
+          }
+        >
           <ShopImage>
             <Image
               height={`100%`}
