@@ -38,9 +38,14 @@ const Title = styled(Text)`
     }
   }
 
-  @media (max-width: 800px) {
+  @media (max-width: 900px) {
     font-size: 11px !important;
     bottom: 30px;
+  }
+
+  @media (max-width: 700px) {
+    font-size: 11px !important;
+    bottom: 10px !important;
   }
 `;
 
