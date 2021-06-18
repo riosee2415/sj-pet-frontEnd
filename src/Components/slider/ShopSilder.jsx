@@ -20,7 +20,7 @@ const Title = styled(Text)`
   font-size: 24px;
   color: ${(props) => props.theme.white_C};
   position: absolute;
-  bottom: 50px;
+  bottom: 15px;
   left: 20px;
 
   &:before {
@@ -119,7 +119,7 @@ export default ({ width, sDatum, isColumn, moveLinkHandler }) => {
         <SwiperSlide>
           <ShopImage>
             <Image
-              height={width < 1100 ? (900 ? `200px` : `120px`) : `240px`}
+              height={`100%`}
               alt="image"
               src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2F%EB%A7%A4%EC%9E%A5%2F%E1%84%83%E1%85%A9%E1%86%BC%E1%84%80%E1%85%AE%E1%84%8C%E1%85%A5%E1%86%B7.jpeg?alt=media&token=8bf45485-657d-4931-a1fd-4baf767ced29`}
             />
@@ -129,7 +129,7 @@ export default ({ width, sDatum, isColumn, moveLinkHandler }) => {
         <SwiperSlide>
           <ShopImage>
             <Image
-              height={width < 1100 ? (900 ? `200px` : `120px`) : `240px`}
+              height={`100%`}
               alt="image"
               src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2F%EB%A7%A4%EC%9E%A5%2F%E1%84%89%E1%85%A5%E1%84%80%E1%85%AE%E1%84%8C%E1%85%A5%E1%86%B7.jpeg?alt=media&token=96dc0b79-457b-4033-86ce-eb174798c335`}
             />
@@ -139,7 +139,7 @@ export default ({ width, sDatum, isColumn, moveLinkHandler }) => {
         <SwiperSlide>
           <ShopImage>
             <Image
-              height={width < 1100 ? (900 ? `200px` : `120px`) : `240px`}
+              height={`100%`}
               alt="image"
               src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2F%EB%A7%A4%EC%9E%A5%2F%E1%84%8C%E1%85%AE%E1%86%BC%E1%84%80%E1%85%AE%E1%84%8C%E1%85%A5%E1%86%B7.jpeg?alt=media&token=0c853eea-f5db-4d22-9249-e56fb31f4b68`}
             />
@@ -149,7 +149,7 @@ export default ({ width, sDatum, isColumn, moveLinkHandler }) => {
         <SwiperSlide>
           <ShopImage>
             <Image
-              height={width < 1100 ? (900 ? `200px` : `120px`) : `240px`}
+              height={`100%`}
               alt="image"
               src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2F%EB%A7%A4%EC%9E%A5%2F%E1%84%8E%E1%85%B5%E1%86%AF%E1%84%80%E1%85%A9%E1%86%A8%E1%84%8C%E1%85%A5%E1%86%B7.jpeg?alt=media&token=da685113-e12e-485d-b880-b4b15849ad1a`}
             />
@@ -159,7 +159,7 @@ export default ({ width, sDatum, isColumn, moveLinkHandler }) => {
         <SwiperSlide>
           <ShopImage>
             <Image
-              height={width < 1100 ? (900 ? `200px` : `120px`) : `240px`}
+              height={`100%`}
               alt="image"
               src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2F%EB%A7%A4%EC%9E%A5%2F%E1%84%91%E1%85%A9%E1%84%92%E1%85%A1%E1%86%BC%E1%84%8C%E1%85%A5%E1%86%B7.jpeg?alt=media&token=7e0f061e-96be-4b9a-bda9-13942e7dfdd1`}
             />
@@ -169,7 +169,7 @@ export default ({ width, sDatum, isColumn, moveLinkHandler }) => {
         <SwiperSlide>
           <ShopImage>
             <Image
-              height={width < 1100 ? (900 ? `200px` : `120px`) : `240px`}
+              height={`100%`}
               alt="image"
               src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2F%EB%A7%A4%EC%9E%A5%2F%E1%84%89%E1%85%AE%E1%84%89%E1%85%A5%E1%86%BC%E1%84%8C%E1%85%A5%E1%86%B7.jpeg?alt=media&token=dff6503d-2dc7-4958-8664-c142e73a9705`}
             />
@@ -179,7 +179,7 @@ export default ({ width, sDatum, isColumn, moveLinkHandler }) => {
         <SwiperSlide>
           <ShopImage>
             <Image
-              height={width < 1100 ? (900 ? `200px` : `120px`) : `240px`}
+              height={`100%`}
               alt="image"
               src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2F%EB%A7%A4%EC%9E%A5%2F%E1%84%87%E1%85%AE%E1%84%80%E1%85%A9%E1%86%A8%E1%84%8C%E1%85%A5%E1%86%B7.jpeg?alt=media&token=4f06f995-cba4-465e-83cf-4e95b8fc6fe1`}
             />
@@ -189,7 +189,7 @@ export default ({ width, sDatum, isColumn, moveLinkHandler }) => {
         <SwiperSlide>
           <ShopImage>
             <Image
-              height={width < 1100 ? (900 ? `200px` : `120px`) : `240px`}
+              height={`100%`}
               alt="image"
               src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2F%EB%A7%A4%EC%9E%A5%2F%E1%84%87%E1%85%AE%E1%84%80%E1%85%A9%E1%86%A8%E1%84%8C%E1%85%A5%E1%86%B7.jpeg?alt=media&token=4f06f995-cba4-465e-83cf-4e95b8fc6fe1`}
             />
@@ -199,7 +199,7 @@ export default ({ width, sDatum, isColumn, moveLinkHandler }) => {
         <SwiperSlide>
           <ShopImage>
             <Image
-              height={width < 1100 ? (900 ? `200px` : `120px`) : `240px`}
+              height={`100%`}
               alt="image"
               src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2F%EB%A7%A4%EC%9E%A5%2F%E1%84%91%E1%85%A9%E1%84%92%E1%85%A1%E1%86%BC%E1%84%92%E1%85%A1%E1%86%BC%E1%84%80%E1%85%AE%E1%84%8C%E1%85%A5%E1%86%B7.jpeg?alt=media&token=a1c76b0a-0cbc-4622-b69c-bff1db6f1256`}
             />
@@ -209,7 +209,7 @@ export default ({ width, sDatum, isColumn, moveLinkHandler }) => {
         <SwiperSlide>
           <ShopImage>
             <Image
-              height={width < 1100 ? (900 ? `200px` : `120px`) : `240px`}
+              height={`100%`}
               alt="image"
               src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2F%EB%A7%A4%EC%9E%A5%2F%E1%84%89%E1%85%B5%E1%84%8C%E1%85%B5%E1%84%8C%E1%85%A5%E1%86%B7.jpeg?alt=media&token=d2a7e2b2-51a0-418f-900f-b055e25f164a`}
             />
@@ -219,7 +219,7 @@ export default ({ width, sDatum, isColumn, moveLinkHandler }) => {
         <SwiperSlide>
           <ShopImage>
             <Image
-              height={width < 1100 ? (900 ? `200px` : `120px`) : `240px`}
+              height={`100%`}
               alt="image"
               src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2F%EB%A7%A4%EC%9E%A5%2F%E1%84%83%E1%85%A2%E1%84%8C%E1%85%A5%E1%86%AB%E1%84%8C%E1%85%A5%E1%86%B7.jpeg?alt=media&token=fdaea8b2-898f-4496-a922-4a197a2d846f`}
             />
@@ -229,7 +229,7 @@ export default ({ width, sDatum, isColumn, moveLinkHandler }) => {
         <SwiperSlide>
           <ShopImage>
             <Image
-              height={width < 1100 ? (900 ? `200px` : `120px`) : `240px`}
+              height={`100%`}
               alt="image"
               src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2F%EB%A7%A4%EC%9E%A5%2F%E1%84%92%E1%85%A9%E1%86%BC%E1%84%8B%E1%85%B3%E1%86%AB%E1%84%8C%E1%85%A5%E1%86%B7.jpeg?alt=media&token=0181f68e-f55a-47dd-b241-3e6d56a9909c`}
             />
