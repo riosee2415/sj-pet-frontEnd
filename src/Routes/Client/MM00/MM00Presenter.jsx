@@ -118,6 +118,10 @@ const DotTitle = styled(Text)`
   font-size: inherit;
   font-weight: 300;
 
+  @media (max-width: 1000px) {
+    font-size: 36px;
+  }
+
   &:before {
     content: "";
     position: absolute;
@@ -211,7 +215,7 @@ const MM00Presenter = ({
 
       <ShopWrapper>
         <ShopSilder
-          // sDatum={sDatum}
+          sDatum={sDatum}
           moveLinkHandler={moveLinkHandler}
           width={width}
         />
@@ -640,21 +644,11 @@ const MM00Presenter = ({
               >
                 가맹점
               </Text>
-              <DotTitle fontSize={width < 1000 && `36px !important`}>
-                성
-              </DotTitle>
-              <DotTitle fontSize={width < 1000 && `36px !important`}>
-                공
-              </DotTitle>
-              <DotTitle fontSize={width < 1000 && `36px !important`}>
-                스
-              </DotTitle>
-              <DotTitle fontSize={width < 1000 && `36px !important`}>
-                토
-              </DotTitle>
-              <DotTitle fontSize={width < 1000 && `36px !important`}>
-                리
-              </DotTitle>
+              <DotTitle>성</DotTitle>
+              <DotTitle>공</DotTitle>
+              <DotTitle>스</DotTitle>
+              <DotTitle>토</DotTitle>
+              <DotTitle>리</DotTitle>
             </Wrapper>
             <Text
               fontSize={`36px`}
