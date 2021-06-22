@@ -372,16 +372,16 @@ const MM03Presenter = ({
                     <Wrapper
                       className={`marker ${idx}`}
                       width={`auto`}
-                      height={`40px`}
+                      height={`60px`}
                       radius={`50%`}
                       fontSize={`12px`}
                       isAbsolute={true}
-                      top={`-10px`}
+                      top={`-20px`}
                       left={`0px`}
                     >
                       <Wrapper width={`auto`} height={`60px`} isRelative={true}>
                         <Image
-                          width={`auto`}
+                          width={`205px`}
                           height={`100%`}
                           src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2Ficon%2F01_icon_Location-pin.png?alt=media&token=ca53caa2-d8e2-4844-a3b0-0b829438154d`}
                         />
@@ -389,7 +389,7 @@ const MM03Presenter = ({
                           isAbsolute={true}
                           top={`50%`}
                           left={`52px`}
-                          margin={`-8px 0 0`}
+                          margin={`-11px 0 0`}
                           width={`auto`}
                           fontSize={`15px`}
                         >
