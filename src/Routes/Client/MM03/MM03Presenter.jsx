@@ -54,7 +54,7 @@ const InnerSubTitle = styled.h3`
 `;
 
 const MartWrapper = styled(Wrapper)`
-  width: calc(100% / 3 - (40px / 3));
+  width: calc(100% / 3 - (45px / 3));
   margin: 20px 20px 20px 0;
 
   &:nth-child(3n) {
@@ -442,7 +442,6 @@ const MM03Presenter = ({
               sDatum.map((data, idx) => (
                 <MartWrapper
                   key={data._id}
-                  margin={`20px`}
                   onClick={() => dataLinkHandler(data)}
                 >
                   <Image
