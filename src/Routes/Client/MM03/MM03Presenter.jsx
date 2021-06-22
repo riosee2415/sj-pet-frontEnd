@@ -155,7 +155,7 @@ const MM03Presenter = ({
             isRelative={true}
           >
             <KakaoMap
-              apiUrl={`//dapi.kakao.com/v2/maps/sdk.js?appkey=a8e290d0abd70336680c1d1ea1a681da&autoload=false`}
+              apiUrl={`//dapi.kakao.com/v2/maps/sdk.js?appkey=22f83047130a02879a60a4e16461a846&autoload=false`}
               width={`100%`}
               height={width < 800 ? `360px` : `600px`}
               level={4}
@@ -353,7 +353,7 @@ const MM03Presenter = ({
         isRelative={true}
       >
         <KakaoMap
-          apiUrl={`//dapi.kakao.com/v2/maps/sdk.js?appkey=a8e290d0abd70336680c1d1ea1a681da&autoload=false`}
+          apiUrl={`//dapi.kakao.com/v2/maps/sdk.js?appkey=22f83047130a02879a60a4e16461a846&autoload=false`}
           width={`100%`}
           height={width < 800 ? `360px` : `600px`}
           level={6}
