@@ -284,7 +284,7 @@ const MM05Presenter = ({
                     al={`flex-start`}
                   >
                     <SpanText
-                      color={Theme.red_C}
+                      color={Theme.white_C}
                       fontSize={`7px`}
                       margin={`0 10px 0 0`}
                     >
@@ -316,7 +316,7 @@ const MM05Presenter = ({
                     width={width < 900 ? `130px` : `165px`}
                   >
                     <SpanText
-                      color={Theme.red_C}
+                      color={Theme.white_C}
                       fontSize={`7px`}
                       margin={`0 10px 0 0`}
                     >
@@ -369,7 +369,7 @@ const MM05Presenter = ({
                     al={`flex-start`}
                   >
                     <SpanText
-                      color={Theme.red_C}
+                      color={Theme.white_C}
                       fontSize={`7px`}
                       margin={`0 10px 0 0`}
                     >
@@ -414,7 +414,7 @@ const MM05Presenter = ({
                   padding={`20px 0`}
                 >
                   <SpanText
-                    color={Theme.red_C}
+                    color={Theme.white_C}
                     fontSize={`7px`}
                     margin={`0 10px 0 0`}
                   >
