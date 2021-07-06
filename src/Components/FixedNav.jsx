@@ -6,6 +6,7 @@ import {
   Wrapper,
   Image,
   CommonButton,
+  TextInput,
 } from "../Components/CommonComponents";
 import Theme from "../Styles/Theme";
 import { translate } from "../Components/AnimationCommon";
@@ -23,6 +24,10 @@ const FixedWraper = styled.div`
 
   @media (max-width: 900px) {
     height: 55px;
+  }
+
+  & input:focus {
+    box-shadow: none;
   }
 `;
 
@@ -44,6 +49,8 @@ const FixedNav = ({ width }) => {
         >
           가맹문의 1588.1684
         </Wrapper>
+        <TextInput placeholder={`이름`} type={`text`} />
+        <TextInput placeholder={`연락처`} type={`number`} />
         <Link to="/contact">
           <CommonButton
             width={width < 900 ? `100px` : `150px`}
