@@ -107,18 +107,18 @@ const MM05Container = ({ history, location }) => {
       toast.error("연락처를 입력해주세요.");
       return;
     }
-    // if (!inputLoc.value || inputLoc.value.trim() === "") {
-    //   toast.error("창업희망지역을 입력해주세요.");
-    //   return;
-    // }
-    // if (!inputMayPay.value || inputMayPay.value.trim() === "") {
-    //   toast.error("예상 창업 비용을 입력해주세요.");
-    //   return;
-    // }
-    // if (!inputDesc.value || inputDesc.value.trim() === "") {
-    //   toast.error("문의 내용을 입력해주세요.");
-    //   return;
-    // }
+    if (!inputLoc.value || inputLoc.value.trim() === "") {
+      toast.error("창업희망지역을 입력해주세요.");
+      return;
+    }
+    if (!inputMayPay.value || inputMayPay.value.trim() === "") {
+      toast.error("예상 창업 비용을 입력해주세요.");
+      return;
+    }
+    if (!inputDesc.value || inputDesc.value.trim() === "") {
+      toast.error("문의 내용을 입력해주세요.");
+      return;
+    }
     if (!isAgree) {
       toast.error("개인정보취급방침에 동의해주세요.");
       return;
@@ -146,12 +146,12 @@ const MM05Container = ({ history, location }) => {
     const { data } = await createDirectRequestMutation({
       variables: {
         name: inputName.value,
-        loc: inputLoc.value || "-",
+        loc: inputLoc.value,
         mobile: inputMobile.value,
-        mayPay: inputMayPay.value || "0",
-        email: inputEmail.value || "-",
-        isExistStore: inputIsStore.value || false,
-        description: inputDesc.value || "-",
+        mayPay: inputMayPay.value,
+        email: inputEmail.value,
+        isExistStore: inputIsStore.value,
+        description: inputDesc.value,
         isAgreement: true,
       },
     });
