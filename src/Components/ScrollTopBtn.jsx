@@ -17,6 +17,7 @@ const FixedWraper = styled.div`
   justify-content: center;
   color: #fff;
   z-index: 10;
+
   & svg {
     font-size: 25px;
     margin: 5px 0px;
@@ -27,7 +28,7 @@ const FixedWraper = styled.div`
     transform: rotateY(360deg);
   }
   @media (max-width: 700px) {
-    bottom: 65px;
+    bottom: 100px;
     right: 10px;
   }
 `;
