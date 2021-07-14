@@ -270,7 +270,7 @@ export default ({ width, sDatum, isColumn, moveLinkHandler }) => {
             <Image
               height={`100%`}
               alt="image"
-              src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2F%EB%A7%A4%EC%9E%A5%2F%E1%84%87%E1%85%AE%E1%84%80%E1%85%A9%E1%86%A8%E1%84%8C%E1%85%A5%E1%86%B7.jpeg?alt=media&token=4f06f995-cba4-465e-83cf-4e95b8fc6fe1`}
+              src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fuploads%2Fstore%2F202132218323420210109_175613.jpg?alt=media&token=0e40ffaf-3283-40ca-9eeb-1d715a20f1a8`}
             />
             <Title>07호점_구포점</Title>
           </ShopImage>
@@ -292,7 +292,7 @@ export default ({ width, sDatum, isColumn, moveLinkHandler }) => {
             <Image
               height={`100%`}
               alt="image"
-              src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fuploads%2Fstore%2F202132218323420210109_175613.jpg?alt=media&token=0e40ffaf-3283-40ca-9eeb-1d715a20f1a8`}
+              src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2F%EB%A7%A4%EC%9E%A5%2F%E1%84%87%E1%85%AE%E1%84%80%E1%85%A9%E1%86%A8%E1%84%8C%E1%85%A5%E1%86%B7.jpeg?alt=media&token=4f06f995-cba4-465e-83cf-4e95b8fc6fe1`}
             />
             <Title>13호점_부곡점</Title>
           </ShopImage>
