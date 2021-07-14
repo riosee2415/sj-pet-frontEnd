@@ -29,7 +29,8 @@ const FixedWraper = styled.div`
   animation: ${translate} 1s forwards;
 
   @media (max-width: 900px) {
-    height: 55px;
+    height: auto;
+    padding: 10px;
   }
 
   & input:focus {
@@ -108,12 +109,27 @@ const FixedNav = ({ width }) => {
         >
           가맹문의 1588.1684
         </Wrapper>
-        <TextInput placeholder={`이름`} type={`text`} {...inputName} />
-        <TextInput placeholder={`연락처`} type={`text`} {...inputMobile} />
+        <TextInput
+          margin={width < 900 && `5px 0 0`}
+          width={width < 900 && `120px`}
+          height={width < 900 ? `30px` : `40px`}
+          placeholder={`이름`}
+          type={`text`}
+          {...inputName}
+        />
+        <TextInput
+          margin={width < 900 && `5px 0 0`}
+          width={width < 900 && `120px`}
+          height={width < 900 ? `30px` : `40px`}
+          placeholder={`연락처`}
+          type={`text`}
+          {...inputMobile}
+        />
 
         <CommonButton
+          margin={width < 900 && `5px 0 0`}
           width={width < 900 ? `100px` : `150px`}
-          height={width < 900 ? `30px` : `40px`}
+          height={width < 900 ? `32px` : `40px`}
           fontSize={width < 900 ? `15px` : `17px`}
           onClick={createNavStoreHandler}
         >
