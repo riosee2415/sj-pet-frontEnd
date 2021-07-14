@@ -39,12 +39,14 @@ const AppRouter = ({ width }) => {
       <Route exact path="/contact-write" component={Header} />
 
       {/* FixedNav  */}
-      {/* <Route exact path="/" component={FixedNav} />
+      <Route exact path="/" component={FixedNav} />
       <Route exact path="/about" component={FixedNav} />
       <Route exact path="/interior" component={FixedNav} />
       <Route exact path="/info" component={FixedNav} />
       <Route exact path="/franchisee" component={FixedNav} />
-      <Route exact path="/contact" component={FixedNav} /> */}
+      <Route exact path="/contact" component={FixedNav} />
+      <Route exact path="/contact/:key" component={FixedNav} />
+      <Route exact path="/contact-write" component={FixedNav} />
 
       {/* ScrollTopBtn */}
       <Route exact path="/" component={ScrollTopBtn} />
