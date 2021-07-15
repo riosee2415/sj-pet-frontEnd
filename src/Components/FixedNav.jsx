@@ -78,12 +78,12 @@ const FixedNav = ({ width }) => {
   const createNavStoreHandlerAfter = async () => {
     const { data } = await createNavStoreContactMutation({
       variables: {
-        name: inputName.value,
-        mobile: inputMobile.value,
+        client: inputName.value,
+        tel: inputMobile.value,
       },
     });
 
-    if (data.createNavStoreContact) {
+    if (data.createNavNoticeBoard) {
       toast.success("가맹점 상담을 신청하셨습니다.");
       inputName.setValue("");
       inputMobile.setValue("");
