@@ -51,7 +51,7 @@ const Popup = ({ cookies, width }) => {
               width={`350px`}
             >
               <Wrapper>
-                <Image src={data.imagePath} height={`450px`} />
+                <Image src={data.imagePath} height={`480px`} />
               </Wrapper>
               <UlWrapper dr={`row`}>
                 <LiWrapper
