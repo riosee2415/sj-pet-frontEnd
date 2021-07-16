@@ -95,15 +95,15 @@ export const allMenus = [
       // },
     ],
   },
-  // {
-  //   menuName: "고객 문의",
-  //   subMenu: [
-  //     {
-  //       subMenuName: "1:1 문의",
-  //       subMenuLink: "/admin/directRequestManagement",
-  //     },
-  //   ],
-  // },
+  {
+    menuName: "고객 문의",
+    subMenu: [
+      {
+        subMenuName: "1:1 문의",
+        subMenuLink: "/admin/directRequestManagement",
+      },
+    ],
+  },
   {
     menuName: "가맹점 관리",
     subMenu: [

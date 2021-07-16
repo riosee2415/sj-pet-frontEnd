@@ -56,9 +56,9 @@ export default ({
           <TableHeadColumn width={`15%`}>이메일</TableHeadColumn>
           <TableHeadColumn width={`10%`}>창업희망지역</TableHeadColumn>
           <TableHeadColumn width={`10%`}>예상창업비용</TableHeadColumn>
+          <TableHeadColumn width={`15%`}>점포보유유무</TableHeadColumn>
           <TableHeadColumn width={`10%`}>처리상태</TableHeadColumn>
           <TableHeadColumn width={`15%`}>작성일</TableHeadColumn>
-          <TableHeadColumn width={`15%`}>메모작성일</TableHeadColumn>
         </TableWrapper>
 
         <Wrapper
@@ -94,20 +94,23 @@ export default ({
                       <TableHeadColumn isData={true} width={`5%`}>
                         {idx + 1}
                       </TableHeadColumn>
-                      <TableHeadColumn isData={true} width={`5%`}>
+                      <TableHeadColumn isData={true} width={`10%`}>
                         {data.name}
                       </TableHeadColumn>
-                      <TableHeadColumn isData={true} width={`20%`}>
+                      <TableHeadColumn isData={true} width={`10%`}>
                         {data.mobile}
                       </TableHeadColumn>
-                      <TableHeadColumn isData={true} width={`20%`}>
+                      <TableHeadColumn isData={true} width={`15%`}>
                         {data.email}
                       </TableHeadColumn>
                       <TableHeadColumn isData={true} width={`10%`}>
-                        {data.isExistStore}
+                        {data.loc}
                       </TableHeadColumn>
                       <TableHeadColumn isData={true} width={`10%`}>
-                        {data.maypay}
+                        {data.mayPay}원
+                      </TableHeadColumn>
+                      <TableHeadColumn isData={true} width={`15%`}>
+                        {data.isExistStore ? "있음" : "없음"}
                       </TableHeadColumn>
                       <TableHeadColumn isData={true} width={`10%`}>
                         <StatusText status={data.isComplete ? false : true}>
@@ -116,9 +119,6 @@ export default ({
                       </TableHeadColumn>
                       <TableHeadColumn isData={true} width={`15%`}>
                         {data.createdAt}
-                      </TableHeadColumn>
-                      <TableHeadColumn isData={true} width={`15%`}>
-                        {data.completedAt}
                       </TableHeadColumn>
                     </TableWrapper>
                   </Fade>

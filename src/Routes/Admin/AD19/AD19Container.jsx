@@ -26,14 +26,15 @@ export default ({ history }) => {
   ////////////// - VARIABLE- ////////////////
 
   ////////////// - USE QUERY- ///////////////
-  const { data: dqDatum, loading: dqLoading, refetch: dqRefetch } = useQuery(
-    GET_STORECONTACT,
-    {
-      variables: {
-        isComplete: currentTab === 0 ? false : true,
-      },
-    }
-  );
+  const {
+    data: dqDatum,
+    loading: dqLoading,
+    refetch: dqRefetch,
+  } = useQuery(GET_STORECONTACT, {
+    variables: {
+      isComplete: currentTab === 0 ? false : true,
+    },
+  });
 
   ///////////// - USE MUTATION- /////////////
   const [modifyStoreContactCompleteMutation] = useMutation(
@@ -76,7 +77,7 @@ export default ({ history }) => {
   const completeHandlerAfter = async () => {
     const { data } = await modifyStoreContactCompleteMutation({
       variables: {
-        id: currentData.id,
+        id: currentId,
       },
     });
 
