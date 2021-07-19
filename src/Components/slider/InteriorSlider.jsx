@@ -48,14 +48,14 @@ const Container = styled.div`
     }
   }
 
-  .small .swiper-container {
+  /* .small .swiper-container {
     overflow: hidden !important;
     width: 100%;
-  }
+  } */
 
-  .small .swiper-slide {
+  /* .small .swiper-slide {
     margin: 30px 0 0;
-  }
+  } */
 
   .swiper-slide {
     position: relative;
@@ -72,8 +72,7 @@ const Container = styled.div`
     }
   }
 
-  .swiper-slide-active:before,
-  .small .swiper-slide:before {
+  .swiper-slide-active:before {
     background-color: transparent;
   }
 
@@ -84,6 +83,14 @@ const Container = styled.div`
     @media (max-width: 700px) {
       width: 300px;
     }
+  }
+
+  .swiper-slide-active::before {
+    background-color: rgba(57, 57, 57, 0.5);
+  }
+
+  .swiper-slide-thumb-active::before {
+    background-color: transparent;
   }
 
   .swiper-pagination {
@@ -221,114 +228,126 @@ const InteriorSlider = ({ width }) => {
         </SwiperSlide>
       </Swiper>
 
-      <RsWrapper className="small" margin={`0 auto`} overflow={`hidden`}>
-        <Swiper spaceBetween={5} slidesPerView={4} onSwiper={setThumbsSwiper}>
-          <SwiperSlide>
-            <Image
-              width={`98%`}
-              height={`150px`}
-              src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM02%2F%EB%8D%A4%ED%94%84%2F1.jpg?alt=media&token=fe1191b5-b3fa-44b4-81d7-44b4d2e724a1`}
-              alt={`Thumbnail 0`}
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <Image
-              width={`98%`}
-              height={`150px`}
-              src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM02%2F%EB%8D%A4%ED%94%84%2FDSC09636.png?alt=media&token=cc006b2e-ce98-4082-9fb9-fcabf2fcc021`}
-              alt={`Thumbnail 1`}
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <Image
-              width={`98%`}
-              height={`150px`}
-              src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM02%2F%EB%8D%A4%ED%94%84%2FKakaoTalk_20201109_095546008_06.png?alt=media&token=c1d7c614-723e-4991-859b-768e6cf78e2b`}
-              alt={`Thumbnail 2`}
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <Image
-              width={`98%`}
-              height={`150px`}
-              src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM02%2F%EB%8D%A4%ED%94%84%2FKakaoTalk_20201202_160548915_02.jpg?alt=media&token=81e33933-8155-451b-bac2-ab0bbdd4b3e0`}
-              alt={`Thumbnail 3`}
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <Image
-              width={`98%`}
-              height={`150px`}
-              src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM02%2F%EB%8D%A4%ED%94%84%2FKakaoTalk_20210302_084955928_10.jpg?alt=media&token=c80b2181-bc2d-4cf5-af59-96cc9aaa37d8`}
-              alt={`Thumbnail 4`}
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <Image
-              width={`98%`}
-              height={`150px`}
-              src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM02%2F%EB%8D%A4%ED%94%84%2FKakaoTalk_20210302_114556833_03.jpg?alt=media&token=bb3c69c1-f79e-4043-a355-e7f8757cb0ca`}
-              alt={`Thumbnail 4`}
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <Image
-              width={`98%`}
-              height={`150px`}
-              src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM02%2F%EB%8D%A4%ED%94%84%2FKakaoTalk_20210315_095843786_05.jpg?alt=media&token=8b581921-eefa-4bce-8916-6ff0c6c34129`}
-              alt={`Thumbnail 4`}
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <Image
-              width={`98%`}
-              height={`150px`}
-              src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM02%2F%EB%8D%A4%ED%94%84%2FKakaoTalk_20210315_095843786_19.jpg?alt=media&token=757ee1e7-8b44-435a-999b-d11e3c5861de`}
-              alt={`Thumbnail 4`}
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <Image
-              width={`98%`}
-              height={`150px`}
-              src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM02%2F%EB%8D%A4%ED%94%84%2FKakaoTalk_20210315_101212847_17.jpg?alt=media&token=dca0723d-697c-462a-9c27-3882c2b44091`}
-              alt={`Thumbnail 4`}
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <Image
-              width={`98%`}
-              height={`150px`}
-              src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM02%2F%EB%8D%A4%ED%94%84%2FKakaoTalk_20210315_102408414_03.jpg?alt=media&token=39f4ef67-3bfc-4c01-921d-49b859ff22f8`}
-              alt={`Thumbnail 4`}
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <Image
-              width={`98%`}
-              height={`150px`}
-              src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM02%2F%EB%8D%A4%ED%94%84%2FKakaoTalk_20210315_102408414_15.jpg?alt=media&token=131bd2d2-6e4d-4cdb-943e-dd41fcf90e90`}
-              alt={`Thumbnail 4`}
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <Image
-              width={`98%`}
-              height={`150px`}
-              src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM02%2F%EB%8D%A4%ED%94%84%2FKakaoTalk_20210315_102408414_22.jpg?alt=media&token=a1a36702-1e78-4801-93d1-1334b9344729`}
-              alt={`Thumbnail 4`}
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <Image
-              width={`98%`}
-              height={`150px`}
-              src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM02%2F%EB%8D%A4%ED%94%84%2FKakaoTalk_20210315_102408414_28.jpg?alt=media&token=a3d4c339-644e-437a-8b5a-e0c9a74ee2d1`}
-              alt={`Thumbnail 4`}
-            />
-          </SwiperSlide>
-        </Swiper>
-      </RsWrapper>
+      {/* <RsWrapper className="small" margin={`0 auto`} overflow={`hidden`}> */}
+      <Wrapper
+        overflow={`hidden`}
+        width={`880px`}
+        height={`200px`}
+        margin={`0 auto`}
+        isRelative={true}
+        className={`small`}
+      >
+        <Wrapper isAbsolute={true}>
+          <Swiper spaceBetween={5} slidesPerView={4} onSwiper={setThumbsSwiper}>
+            <SwiperSlide>
+              <Image
+                width={`220px`}
+                height={`150px`}
+                src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM02%2F%EB%8D%A4%ED%94%84%2F1.jpg?alt=media&token=fe1191b5-b3fa-44b4-81d7-44b4d2e724a1`}
+                alt={`Thumbnail 0`}
+              />
+            </SwiperSlide>
+            <SwiperSlide>
+              <Image
+                width={`220px`}
+                height={`150px`}
+                src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM02%2F%EB%8D%A4%ED%94%84%2FDSC09636.png?alt=media&token=cc006b2e-ce98-4082-9fb9-fcabf2fcc021`}
+                alt={`Thumbnail 1`}
+              />
+            </SwiperSlide>
+            <SwiperSlide>
+              <Image
+                width={`220px`}
+                height={`150px`}
+                src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM02%2F%EB%8D%A4%ED%94%84%2FKakaoTalk_20201109_095546008_06.png?alt=media&token=c1d7c614-723e-4991-859b-768e6cf78e2b`}
+                alt={`Thumbnail 2`}
+              />
+            </SwiperSlide>
+            <SwiperSlide>
+              <Image
+                width={`220px`}
+                height={`150px`}
+                src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM02%2F%EB%8D%A4%ED%94%84%2FKakaoTalk_20201202_160548915_02.jpg?alt=media&token=81e33933-8155-451b-bac2-ab0bbdd4b3e0`}
+                alt={`Thumbnail 3`}
+              />
+            </SwiperSlide>
+            <SwiperSlide>
+              <Image
+                width={`220px`}
+                height={`150px`}
+                src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM02%2F%EB%8D%A4%ED%94%84%2FKakaoTalk_20210302_084955928_10.jpg?alt=media&token=c80b2181-bc2d-4cf5-af59-96cc9aaa37d8`}
+                alt={`Thumbnail 4`}
+              />
+            </SwiperSlide>
+            <SwiperSlide>
+              <Image
+                width={`220px`}
+                height={`150px`}
+                src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM02%2F%EB%8D%A4%ED%94%84%2FKakaoTalk_20210302_114556833_03.jpg?alt=media&token=bb3c69c1-f79e-4043-a355-e7f8757cb0ca`}
+                alt={`Thumbnail 4`}
+              />
+            </SwiperSlide>
+            <SwiperSlide>
+              <Image
+                width={`220px`}
+                height={`150px`}
+                src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM02%2F%EB%8D%A4%ED%94%84%2FKakaoTalk_20210315_095843786_05.jpg?alt=media&token=8b581921-eefa-4bce-8916-6ff0c6c34129`}
+                alt={`Thumbnail 4`}
+              />
+            </SwiperSlide>
+            <SwiperSlide>
+              <Image
+                width={`220px`}
+                height={`150px`}
+                src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM02%2F%EB%8D%A4%ED%94%84%2FKakaoTalk_20210315_095843786_19.jpg?alt=media&token=757ee1e7-8b44-435a-999b-d11e3c5861de`}
+                alt={`Thumbnail 4`}
+              />
+            </SwiperSlide>
+            <SwiperSlide>
+              <Image
+                width={`220px`}
+                height={`150px`}
+                src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM02%2F%EB%8D%A4%ED%94%84%2FKakaoTalk_20210315_101212847_17.jpg?alt=media&token=dca0723d-697c-462a-9c27-3882c2b44091`}
+                alt={`Thumbnail 4`}
+              />
+            </SwiperSlide>
+            <SwiperSlide>
+              <Image
+                width={`220px`}
+                height={`150px`}
+                src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM02%2F%EB%8D%A4%ED%94%84%2FKakaoTalk_20210315_102408414_03.jpg?alt=media&token=39f4ef67-3bfc-4c01-921d-49b859ff22f8`}
+                alt={`Thumbnail 4`}
+              />
+            </SwiperSlide>
+            <SwiperSlide>
+              <Image
+                width={`220px`}
+                height={`150px`}
+                src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM02%2F%EB%8D%A4%ED%94%84%2FKakaoTalk_20210315_102408414_15.jpg?alt=media&token=131bd2d2-6e4d-4cdb-943e-dd41fcf90e90`}
+                alt={`Thumbnail 4`}
+              />
+            </SwiperSlide>
+            <SwiperSlide>
+              <Image
+                width={`220px`}
+                height={`150px`}
+                src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM02%2F%EB%8D%A4%ED%94%84%2FKakaoTalk_20210315_102408414_22.jpg?alt=media&token=a1a36702-1e78-4801-93d1-1334b9344729`}
+                alt={`Thumbnail 4`}
+              />
+            </SwiperSlide>
+            <SwiperSlide>
+              <Image
+                width={`220px`}
+                height={`150px`}
+                src={`https://firebasestorage.googleapis.com/v0/b/storage-4leaf.appspot.com/o/SJPET%2Fassets%2FImages%2FMM02%2F%EB%8D%A4%ED%94%84%2FKakaoTalk_20210315_102408414_28.jpg?alt=media&token=a3d4c339-644e-437a-8b5a-e0c9a74ee2d1`}
+                alt={`Thumbnail 4`}
+              />
+            </SwiperSlide>
+          </Swiper>
+        </Wrapper>
+      </Wrapper>
+
+      {/* </RsWrapper> */}
     </Container>
   );
 };
