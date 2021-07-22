@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import {
@@ -84,7 +84,7 @@ const FixedNav = ({ width }) => {
     });
 
     if (data.createNavNoticeBoard) {
-      toast.success("가맹점 상담을 신청하셨습니다.");
+      toast.success("가맹점 상담 신청이 완료되었습니다.");
       inputName.setValue("");
       inputMobile.setValue("");
     } else {
