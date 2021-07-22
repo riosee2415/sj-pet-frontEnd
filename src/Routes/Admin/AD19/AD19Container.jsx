@@ -18,7 +18,6 @@ export default ({ history }) => {
   const [currentData, setCurrentData] = useState("");
   const [currentId, setCurrentId] = useState("");
   const [currentMemo, setCurrentMemo] = useState("");
-  const [canEditor, setCanEditor] = useState(false);
   const [currentFiles, setCurrentFiles] = useState(null);
 
   const descRef = useRef();
@@ -42,16 +41,13 @@ export default ({ history }) => {
     {
       variables: {
         id: currentId,
-        memo: currentMemo,
       },
     }
   );
 
   ///////////// - EVENT HANDLER- ////////////
-  const getDetailDataHandler = (description, memo, id) => {
-    setCurrentMemo(memo);
+  const getDetailDataHandler = (description, id) => {
     setCurrentId(id);
-    setCanEditor(true);
     descRef.current.innerHTML = description;
   };
 
@@ -84,7 +80,7 @@ export default ({ history }) => {
     if (data.modifyStoreContactComplete) {
       toast.info("UPDATE STORECONTACT!");
       dqRefetch();
-      dialogOpenToggleHandler();
+      descRef.current.innerHTML = "";
     } else {
       toast.error("잠시 후 다시 시도 해주세요");
     }
@@ -98,7 +94,6 @@ export default ({ history }) => {
   }, []);
 
   useEffect(() => {
-    setCanEditor(false);
     descRef.current.innerHTML = "";
     dqRefetch();
   }, [currentTab]);
@@ -110,7 +105,6 @@ export default ({ history }) => {
       isLoading={isLoading}
       currentData={currentData}
       setCurrentData={setCurrentData}
-      canEditor={canEditor}
       currentId={currentId}
       currentMemo={currentMemo}
       setCurrentMemo={setCurrentMemo}

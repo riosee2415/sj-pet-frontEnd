@@ -20,7 +20,7 @@ export const GET_STORECONTACT = gql`
 `;
 
 export const MODIFY_STORECONTACT_COMPLETE = gql`
-  mutation modifyStoreContactComplete($id: String!, $memo: String!) {
-    modifyStoreContactComplete(id: $id, memo: $memo)
+  mutation modifyStoreContactComplete($id: String!) {
+    modifyStoreContactComplete(id: $id)
   }
 `;

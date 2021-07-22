@@ -84,11 +84,7 @@ export default ({
                       isActive={currentId === data._id}
                       isData={true}
                       onClick={() =>
-                        getDetailDataHandler(
-                          data.description,
-                          data.memo,
-                          data._id
-                        )
+                        getDetailDataHandler(data.description, data._id)
                       }
                     >
                       <TableHeadColumn isData={true} width={`5%`}>
@@ -132,7 +128,7 @@ export default ({
 
         <Wrapper dr={`row`}>
           <Wrapper
-            width={`50%`}
+            width={`100%`}
             height={`370px`}
             isBorder={true}
             margin={`0px 10px 0px 0px`}
@@ -151,34 +147,11 @@ export default ({
               ju={`flex-start`}
               isScroll={true}
             ></Wrapper>
-          </Wrapper>
-          <Wrapper
-            width={`50%`}
-            height={`370px`}
-            isBorder={true}
-            al={`flex-start`}
-            ju={`flex-start`}
-          >
-            <TableWrapper>
-              <TableHeadColumn width={`100%`}>메모</TableHeadColumn>
-            </TableWrapper>
-            {canEditor ? (
-              <Editor
-                value={currentMemo}
-                componentHeight="h-300"
-                editorChangeHandler={(html) => setCurrentMemo(html)}
-              />
-            ) : (
-              <Wrapper padding={`20px`}> 문의를 선택해주세요. </Wrapper>
-            )}
-
-            {canEditor ? (
-              <Wrapper al={`flex-end`} ju={`flex-end`}>
-                <CommonButton kindOf={`update`} onClick={completeHandler}>
-                  처리완료
-                </CommonButton>
-              </Wrapper>
-            ) : null}
+            <Wrapper al={`flex-end`} ju={`flex-end`}>
+              <CommonButton kindOf={`update`} onClick={completeHandler}>
+                처리완료
+              </CommonButton>
+            </Wrapper>
           </Wrapper>
         </Wrapper>
       </Wrapper>
