@@ -84,6 +84,13 @@ const FixedNav = ({ width }) => {
     });
 
     if (data.createNavNoticeBoard) {
+      if (typeof wcs != "undefined") {
+        if (!wcs_add) var wcs_add = {};
+        wcs_add["wa"] = "s_41a1a461cae6";
+        var _nasa = {};
+        _nasa["cnv"] = wcs.cnv("4", "1");
+        wcs_do(_nasa);
+      }
       toast.success("가맹점 상담 신청이 완료되었습니다.");
       inputName.setValue("");
       inputMobile.setValue("");
