@@ -747,27 +747,6 @@ const MM00Presenter = ({
             )}
           </Wrapper>
 
-          <Modal
-            onOk={() => {
-              modalToggle();
-            }}
-            onCancel={() => {
-              modalToggle();
-            }}
-            footer={null}
-            visible={modalOpen}
-            width={width < 900 ? (width < 700 ? 350 : 500) : 900}
-            height={width < 900 ? (width < 700 ? 300 : 400) : 500}
-          >
-            <Wrapper padding={`20px 0 0`}>
-              <Image alt="image" src={info.thumbnail} />
-              <Text padding={`10px 0 15px`} fontSize={`18px`}>
-                {info.title}
-              </Text>
-              <Text>{info.content}</Text>
-            </Wrapper>
-          </Modal>
-
           {vDatum && vDatum.length > (width < 800 ? 0 : 6) && !isMore && (
             <Wrapper>
               <CommonButton
@@ -782,6 +761,27 @@ const MM00Presenter = ({
           )}
         </RsWrapper>
       </Wrapper>
+
+      <Modal
+        onOk={() => {
+          modalToggle();
+        }}
+        onCancel={() => {
+          modalToggle();
+        }}
+        footer={null}
+        visible={modalOpen}
+        width={width < 900 ? (width < 700 ? 350 : 500) : 900}
+        height={width < 900 ? (width < 700 ? 300 : 400) : 500}
+      >
+        <Wrapper padding={`20px 0 0`}>
+          <Image alt="image" src={info.thumbnail} />
+          <Text padding={`10px 0 15px`} fontSize={`18px`}>
+            {info.title}
+          </Text>
+          <Text>{info.content}</Text>
+        </Wrapper>
+      </Modal>
 
       <RsWrapper
         display={width > 800 ? `flex` : `none`}
