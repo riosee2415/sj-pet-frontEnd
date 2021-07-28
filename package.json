@@ -13,6 +13,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "4leaf-antd": "^1.0.9",
     "@4leaf.ysh/use-title": "^1.0.4",
     "@apollo/client": "^3.3.11",
     "@material-ui/core": "^4.11.0",

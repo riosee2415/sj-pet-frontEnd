@@ -22,6 +22,7 @@ import { Link } from "react-router-dom";
 import useTitle from "@4leaf.ysh/use-title";
 import { scale2 } from "../../../Components/AnimationCommon";
 import CircularIndeterminate from "../../../Components/loading/CircularIndeterminate";
+import { Modal } from "4leaf-antd";
 
 const Popup = withSplitting(() =>
   import("../../../Components/popup/Popup.jsx")
@@ -179,6 +180,9 @@ const MM00Presenter = ({
   currentBrand,
   isMore,
   setIsMore,
+  modalOpen,
+  info,
+  setInfo,
   //
   sDatum,
   vDatum,
@@ -187,6 +191,7 @@ const MM00Presenter = ({
   mainBannerData,
   //
   moveLinkHandler,
+  modalToggle,
 }) => {
   useTitle("PET MART 선진펫");
   return (
@@ -723,6 +728,10 @@ const MM00Presenter = ({
                         margin={`10px`}
                         al={`flex-start`}
                         key={data._id}
+                        onClick={() => {
+                          modalToggle(), setInfo(data);
+                        }}
+                        cursor={`pointer`}
                       >
                         <Image alt="image" src={data.thumbnail} />
                         <Text padding={`10px 0 15px`} fontSize={`18px`}>
@@ -737,6 +746,30 @@ const MM00Presenter = ({
               <CircularIndeterminate />
             )}
           </Wrapper>
+
+          {console.log(info)}
+
+          <Modal
+            onOk={() => {
+              modalToggle();
+            }}
+            onCancel={() => {
+              modalToggle();
+            }}
+            footer={null}
+            visible={modalOpen}
+            width={width < 900 ? (width < 700 ? 350 : 500) : 900}
+            height={width < 900 ? (width < 700 ? 300 : 400) : 500}
+          >
+            <Wrapper padding={`20px 0 0`}>
+              <Image alt="image" src={info.thumbnail} />
+              <Text padding={`10px 0 15px`} fontSize={`18px`}>
+                {info.title}
+              </Text>
+              <Text>{info.content}</Text>
+            </Wrapper>
+          </Modal>
+
           {vDatum && vDatum.length > (width < 800 ? 0 : 6) && !isMore && (
             <Wrapper>
               <CommonButton

@@ -78,12 +78,12 @@ const FixedNav = ({ width }) => {
   const createNavStoreHandlerAfter = async () => {
     const { data } = await createNavStoreContactMutation({
       variables: {
-        client: inputName.value,
-        tel: inputMobile.value,
+        name: inputName.value,
+        mobile: inputMobile.value,
       },
     });
 
-    if (data.createNavNoticeBoard) {
+    if (data.createNavStoreContact) {
       if (typeof wcs != "undefined") {
         if (!wcs_add) var wcs_add = {};
         wcs_add["wa"] = "s_41a1a461cae6";

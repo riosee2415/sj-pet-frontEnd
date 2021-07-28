@@ -17,6 +17,9 @@ const MM00Container = ({ history }) => {
   ////////////// - USE STATE- ///////////////
   const [isMore, setIsMore] = useState(false);
 
+  const [modalOpen, setModalOpen] = useState(false);
+  const [info, setInfo] = useState("");
+
   ////////////// - USE QUERY- ///////////////
   const {
     data: mainBannerData,
@@ -65,6 +68,10 @@ const MM00Container = ({ history }) => {
     history.push(`/info`);
   };
 
+  const modalToggle = () => {
+    setModalOpen(!modalOpen);
+  };
+
   ////////////// - USE EFFECT- //////////////
   useEffect(() => {
     const item = sessionStorage.getItem("ALKJSDLJOQIUALSX");
@@ -106,6 +113,9 @@ const MM00Container = ({ history }) => {
       currentBrand={currentBrand}
       isMore={isMore}
       setIsMore={setIsMore}
+      modalOpen={modalOpen}
+      info={info}
+      setInfo={setInfo}
       //
       sDatum={sDatum && sDatum.getAllStoreByImportant}
       vDatum={vDatum && vDatum.getAllStoryViewList}
@@ -116,6 +126,7 @@ const MM00Container = ({ history }) => {
       }
       //
       moveLinkHandler={moveLinkHandler}
+      modalToggle={modalToggle}
     />
   );
 };

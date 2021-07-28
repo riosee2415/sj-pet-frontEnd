@@ -8,7 +8,7 @@ import ReactDOM from "react-dom";
 import App from "./Components/App.jsx";
 import { ApolloProvider } from "@apollo/client";
 import Client from "./Apollo/Client";
-import "antd/dist/antd.css";
+import "4leaf-antd/dist/antd.css";
 
 ReactDOM.render(
   <ApolloProvider client={Client}>
