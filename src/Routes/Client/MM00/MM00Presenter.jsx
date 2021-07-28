@@ -775,11 +775,29 @@ const MM00Presenter = ({
         height={width < 900 ? (width < 700 ? 300 : 400) : 500}
       >
         <Wrapper padding={`20px 0 0`}>
-          <Image alt="image" src={info.thumbnail} />
-          <Text padding={`10px 0 15px`} fontSize={`18px`}>
-            {info.title}
-          </Text>
-          <Text>{info.content}</Text>
+          <Wrapper
+            height={`600px`}
+            overflow={`auto`}
+            className={`scroll`}
+            wrap={`nowrap`}
+            ju={`flex-start`}
+            padding={`20px 0`}
+          >
+            <Image alt="image" src={info.thumbnail} />
+            <Text
+              padding={`10px 0 15px`}
+              fontSize={width < 700 ? `16px !important` : `23px`}
+              fontWeight={`bold`}
+            >
+              {info.title}
+            </Text>
+            <Wrapper
+              width={`100px`}
+              margin={`0px 0 25px`}
+              border={`2px solid ${Theme.basicTheme_C}`}
+            ></Wrapper>
+            <Text fontSize={`17px`}>{info.content}</Text>
+          </Wrapper>
         </Wrapper>
       </Modal>
 
