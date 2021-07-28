@@ -747,8 +747,6 @@ const MM00Presenter = ({
             )}
           </Wrapper>
 
-          {console.log(info)}
-
           <Modal
             onOk={() => {
               modalToggle();
