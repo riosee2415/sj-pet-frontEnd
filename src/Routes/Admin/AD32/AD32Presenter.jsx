@@ -39,6 +39,7 @@ export default ({
   currentThumbnail,
   currentTitle,
   currentContent,
+  setCurrentContent,
 
   //
   fileChangeHandler,
@@ -128,7 +129,11 @@ export default ({
             <Wrapper dr={`row`} margin={`5px 0px`}>
               <Wrapper dr={`row`} al={`flex-start`}>
                 <InputContent>스토리 내용</InputContent>
-                <Textarea height={`500px`} {...currentContent} />
+                <Editor
+                  value={currentContent}
+                  componentHeight="h-500"
+                  editorChangeHandler={(html) => setCurrentContent(html)}
+                />
               </Wrapper>
             </Wrapper>
           </Wrapper>

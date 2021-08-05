@@ -43,6 +43,7 @@ export default ({
   currentThumbnailPath,
   openDialog,
   currentContent,
+  setCurrentContent,
   //
   datum,
   //
@@ -173,15 +174,6 @@ export default ({
                     </FileLabel>
                   )}
 
-                  <Wrapper dr={`row`} margin={`0px 0px 20px 0px`}>
-                    <Content>등록일</Content>
-                    <TextInput
-                      type="text"
-                      readOnly={true}
-                      value={currentData && currentData.createdAt}
-                    />
-                  </Wrapper>
-
                   <Wrapper dr={`row`} al={`flex-end`} ju={`flex-end`}>
                     <CommonButton
                       margin={`0px 10px 0px 0px`}
@@ -236,7 +228,11 @@ export default ({
         </DialogTitle>
         <DialogContent>
           <Content margin={`0px 0px 50px 0px`}>스토리 내용</Content>
-          <Textarea height={`500px`} {...currentContent} />
+          <Editor
+            value={currentContent}
+            componentHeight="h-500"
+            editorChangeHandler={(html) => setCurrentContent(html)}
+          />
         </DialogContent>
         <DialogActions>
           <Button onClick={() => contentSaveHandler()} color="primary">

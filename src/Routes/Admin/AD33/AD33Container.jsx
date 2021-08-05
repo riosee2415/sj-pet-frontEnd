@@ -22,7 +22,7 @@ export default () => {
   const [currentId, setCurrentId] = useState("");
   const [currentData, setCurrentData] = useState(null);
   const [openDialog, setOpenDialog] = useState(false);
-  const currentContent = useInput();
+  const [currentContent, setCurrentContent] = useState();
   const currentThumbnailPath = useInput();
   const currentTitle = useInput();
 
@@ -42,7 +42,7 @@ export default () => {
     setCurrentData(data);
     currentTitle.setValue(data.title);
     currentThumbnailPath.setValue(data.thumbnail);
-    currentContent.setValue(data.content);
+    setCurrentContent(data.content);
   };
 
   const fileChangeHandler = async (e) => {
@@ -68,7 +68,7 @@ export default () => {
     const { data } = await modifyStoryViewMutation({
       variables: {
         id: currentId,
-        content: currentContent.value,
+        content: currentContent,
       },
     });
 
@@ -150,6 +150,7 @@ export default () => {
       currentTitle={currentTitle}
       openDialog={openDialog}
       currentContent={currentContent}
+      setCurrentContent={setCurrentContent}
       //
       datum={data && data.getStoryViewList}
       //
