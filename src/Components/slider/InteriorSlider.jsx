@@ -85,12 +85,12 @@ const Container = styled.div`
     }
   }
 
-  .swiper-slide-active::before {
+  .small .swiper-slide-active::before {
     background-color: rgba(57, 57, 57, 0.5);
   }
 
   .swiper-slide-thumb-active::before {
-    background-color: transparent;
+    background-color: transparent !important;
   }
 
   .swiper-pagination {
