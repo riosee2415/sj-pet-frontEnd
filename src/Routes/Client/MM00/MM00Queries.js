@@ -54,8 +54,8 @@ export const GET_STORYVIEW = gql`
 `;
 
 export const GET_BRAND = gql`
-  query getAllBrandList {
-    getAllBrandList {
+  query getBrandList {
+    getBrandList {
       _id
       thumbnail
     }

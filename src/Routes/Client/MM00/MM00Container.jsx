@@ -89,7 +89,7 @@ const MM00Container = ({ history }) => {
 
   useEffect(() => {
     if (bDatum) {
-      const brand = bDatum.getAllBrandList;
+      const brand = bDatum.getBrandList;
       const temp = parseInt(
         brand.length % 3 === 0 ? brand.length / 3 : brand.length / 3 + 1
       );
@@ -119,7 +119,7 @@ const MM00Container = ({ history }) => {
       //
       sDatum={sDatum && sDatum.getAllStoreByImportant}
       vDatum={vDatum && vDatum.getAllStoryViewList}
-      bDatum={bDatum && bDatum.getAllBrandList}
+      bDatum={bDatum && bDatum.getBrandList}
       mainBannerData={mainBannerData && mainBannerData.getMainBanner}
       mobileBannerData={
         mobileBannerData && mobileBannerData.getMobileMainBanner
