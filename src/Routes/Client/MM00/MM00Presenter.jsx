@@ -23,6 +23,7 @@ import useTitle from "@4leaf.ysh/use-title";
 import { scale2 } from "../../../Components/AnimationCommon";
 import CircularIndeterminate from "../../../Components/loading/CircularIndeterminate";
 import { Modal } from "4leaf-antd";
+import EditorViewer from "../../../Components/editor/EditorViewer";
 
 const Popup = withSplitting(() =>
   import("../../../Components/popup/Popup.jsx")
@@ -796,7 +797,7 @@ const MM00Presenter = ({
               margin={`0px 0 25px`}
               border={`2px solid ${Theme.basicTheme_C}`}
             ></Wrapper>
-            <Text fontSize={`17px`}>{info.content}</Text>
+            <EditorViewer fontSize={`17px`} value={info.content} />
           </Wrapper>
         </Wrapper>
       </Modal>
