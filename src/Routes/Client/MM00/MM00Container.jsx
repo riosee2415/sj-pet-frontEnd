@@ -118,7 +118,7 @@ const MM00Container = ({ history }) => {
       setInfo={setInfo}
       //
       sDatum={sDatum && sDatum.getAllStoreByImportant}
-      vDatum={vDatum && vDatum.getAllStoryViewList}
+      vDatum={vDatum && vDatum.getStoryViewList}
       bDatum={bDatum && bDatum.getBrandList}
       mainBannerData={mainBannerData && mainBannerData.getMainBanner}
       mobileBannerData={

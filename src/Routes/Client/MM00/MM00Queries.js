@@ -43,8 +43,8 @@ export const GET_STORE = gql`
 `;
 
 export const GET_STORYVIEW = gql`
-  query getAllStoryViewList {
-    getAllStoryViewList {
+  query getStoryViewList {
+    getStoryViewList {
       _id
       title
       content
