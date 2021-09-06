@@ -4,7 +4,6 @@ import styled from "styled-components";
 import "swiper/swiper-bundle.min.css";
 import { EmptyList, Image, SpanText, Text, Wrapper } from "../CommonComponents";
 import { numberWithCommas } from "../../commonUtils";
-import { FaStar } from "react-icons/fa";
 import Theme from "../../Styles/Theme";
 import CircularIndeterminate from "../loading/CircularIndeterminate";
 
@@ -36,19 +35,20 @@ export default ({ width, bDatum, isColumn, moveLinkHandler }) => {
     .swiper-slide {
       display: flex;
       justify-content: center;
+      align-items: center;
       margin-top: ${(props) => (props.isColumn ? `0 !important` : `0`)};
     }
   `;
 
   return (
-    <Container isColumn={isColumn}>
+    <Container isColumn={true}>
       <Swiper
         spaceBetween={1}
-        slidesPerView={isColumn ? 7 : width > 1200 ? 5 : width > 800 ? 4 : 3}
-        slidesPerColumn={1}
+        slidesPerView={width > 1200 ? 5 : width > 800 ? 4 : 3}
+        slidesPerColumn={2}
         autoplay={true}
         navigation={false}
-        loop={true}
+        loop={false}
       >
         {bDatum ? (
           bDatum.length === 0 ? (
