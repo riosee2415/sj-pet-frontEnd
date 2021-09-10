@@ -39,12 +39,14 @@ const AD33 = withSplitting(() => import("../Admin/AD33"));
 const AD34 = withSplitting(() => import("../Admin/AD34"));
 const AD35 = withSplitting(() => import("../Admin/AD35"));
 const AD36 = withSplitting(() => import("../Admin/AD36"));
+const AD37 = withSplitting(() => import("../Admin/AD37"));
+const AD38 = withSplitting(() => import("../Admin/AD38"));
 
 import { GET_USER_LOGIN_RESULT_FOR_ADMIN } from "./A_LayoutQueries";
 import useInput from "../../Components/Hooks/useInput";
 
 const A_Content = () => {
-  const [isLogin, setIsLogin] = useState(false);
+  const [isLogin, setIsLogin] = useState(true);
   const [loginSkip, setLoginSkip] = useState(true);
   const [isLoginProcess, setIsLoginProcess] = useState(false);
   const inputUserId = useInput("");
@@ -176,6 +178,12 @@ const A_Content = () => {
               component={AD35}
             />
             <Route exact path="/admin/brandManagement/" component={AD36} />
+            <Route exact path="/admin/newStoreManagement/" component={AD37} />
+            <Route
+              exact
+              path="/admin/newStoreManagement/:id"
+              component={AD38}
+            />
           </Wrapper>
         </>
       ) : (

@@ -111,6 +111,10 @@ export const allMenus = [
         subMenuName: "가맹점 등록관리",
         subMenuLink: "/admin/storeManagement",
       },
+      {
+        subMenuName: "신규 가맹점 관리",
+        subMenuLink: "/admin/newStoreManagement",
+      },
     ],
   },
   {
