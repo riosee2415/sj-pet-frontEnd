@@ -9,3 +9,13 @@ export const GET_NEW_STORE_ONE = gql`
     }
   }
 `;
+
+export const UPDATE_NEW_STORE_ONE = gql`
+  mutation updateNewStoreOne(
+    $id: String!
+    $title: String!
+    $thumbnailPath: String!
+  ) {
+    updateNewStoreOne(id: $id, title: $title, thumbnailPath: $thumbnailPath)
+  }
+`;

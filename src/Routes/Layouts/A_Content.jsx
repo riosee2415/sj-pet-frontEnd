@@ -181,7 +181,7 @@ const A_Content = () => {
             <Route exact path="/admin/newStoreManagement/" component={AD37} />
             <Route
               exact
-              path="/admin/newStoreManagement/:id"
+              path="/admin/newStoreDetailManagement/:id"
               component={AD38}
             />
           </Wrapper>
