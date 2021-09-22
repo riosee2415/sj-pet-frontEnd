@@ -1143,6 +1143,7 @@ export const Image = styled.img`
   position: ${(props) => (props.isAbsolute ? `absolute` : ``)};
   position: ${(props) => (props.isRelative ? `relative` : ``)};
   box-shadow: ${(props) => props.shadow};
+  border: ${(props) => props.border};
   border-radius: ${(props) => props.radius};
   z-index: ${(props) => props.zIndex};
   top: ${(props) => props.top};

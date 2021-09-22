@@ -431,6 +431,59 @@ const MM00Presenter = ({
         </RsWrapper>
       </Wrapper>
 
+      <RsWrapper padding={width < 800 ? `60px 0` : `100px 0`}>
+        <Wrapper fontSize={width < 800 ? `22px !important` : `48px`} isBMFont>
+          신규매장
+        </Wrapper>
+        <Wrapper dr={`row`} ju={`space-around`} margin={`50px 0 0`}>
+          <Wrapper width={`350px`} margin={`0 0 20px`}>
+            <Image
+              alt="매장"
+              src={``}
+              height={`350px`}
+              radius={`100%`}
+              border={`3px solid ${Theme.basicTheme_C}`}
+            />
+            <Text
+              margin={`15px 0 0`}
+              fontSize={width < 800 ? `18px !important` : `25px`}
+            >
+              매장이름
+            </Text>
+          </Wrapper>
+          <Wrapper width={`350px`} margin={`0 0 20px`}>
+            <Image
+              alt="매장"
+              src={``}
+              height={`350px`}
+              radius={`100%`}
+              border={`3px solid ${Theme.basicTheme_C}`}
+            />
+            <Text
+              margin={`15px 0 0`}
+              fontSize={width < 800 ? `18px !important` : `25px`}
+            >
+              매장이름
+            </Text>
+          </Wrapper>
+          <Wrapper width={`350px`} margin={`0 0 20px`}>
+            <Image
+              alt="매장"
+              src={``}
+              height={`350px`}
+              radius={`100%`}
+              border={`3px solid ${Theme.basicTheme_C}`}
+            />
+            <Text
+              margin={`15px 0 0`}
+              fontSize={width < 800 ? `18px !important` : `25px`}
+            >
+              매장이름
+            </Text>
+          </Wrapper>
+        </Wrapper>
+      </RsWrapper>
+
       <Wrapper
         bgColor={width < 800 ? `none` : `rgb(238, 238, 238)`}
         padding={width < 800 ? `40px 10px 0` : `100px 0 0`}
