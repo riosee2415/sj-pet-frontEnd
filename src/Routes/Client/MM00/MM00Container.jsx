@@ -10,6 +10,7 @@ import {
   GET_MOBILEBANNER,
   GET_STORE,
   GET_STORYVIEW,
+  GET_ALL_NEW_STORE,
 } from "./MM00Queries";
 import { animateScroll as scroll } from "react-scroll";
 
@@ -36,6 +37,7 @@ const MM00Container = ({ history }) => {
   const { data: sDatum, refetch: sRefetch } = useQuery(GET_STORE);
   const { data: vDatum, refetch: vRefetch } = useQuery(GET_STORYVIEW);
   const { data: bDatum, refetch: bRefetch } = useQuery(GET_BRAND);
+  const { data: nDatum, refetch: nRefetch } = useQuery(GET_ALL_NEW_STORE);
 
   ///////////// - USE MUTATION- /////////////
   const [addAcceptRecordMutation] = useMutation(ADD_ACCEPT_RECORD);
@@ -124,6 +126,7 @@ const MM00Container = ({ history }) => {
       mobileBannerData={
         mobileBannerData && mobileBannerData.getMobileMainBanner
       }
+      nDatum={nDatum && nDatum.getAllNewStore}
       //
       moveLinkHandler={moveLinkHandler}
       modalToggle={modalToggle}

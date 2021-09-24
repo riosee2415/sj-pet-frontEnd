@@ -61,3 +61,13 @@ export const GET_BRAND = gql`
     }
   }
 `;
+
+export const GET_ALL_NEW_STORE = gql`
+  query getAllNewStore {
+    getAllNewStore {
+      _id
+      title
+      thumbnailPath
+    }
+  }
+`;
