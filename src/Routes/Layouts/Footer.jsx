@@ -123,17 +123,17 @@ const Footer = ({ width }) => {
               />
             </Wrapper>
           </Wrapper>
-          <Wrapper width={`50%`} dr={`row`} ju={`space-between`}>
-            <Wrapper width={`auto`}>
+          <Wrapper width={`50%`} dr={`row`} ju={`flex-end`}>
+            <Wrapper width={`auto`} margin={width < 900 ? `0` : `0 50px 0 0`}>
               <Text fontWeight={`300`}>창업문의</Text>
               <ATag href="tel:15881684">
                 <Text fontSize={`30px`}>1588-1684</Text>
               </ATag>
               <ATag href="mailto:ebajslee@sunjinpet.co.kr">
-                <Text fontWeight={`300`}>ebajslee@sunjinpet.co.kr</Text>{" "}
+                <Text fontWeight={`300`}>ebajslee@sunjinpet.co.kr</Text>
               </ATag>
             </Wrapper>
-            <Wrapper width={`auto`}>
+            {/* <Wrapper width={`auto`}>
               <Text fontWeight={`300`}>서울/수도권 가맹문의</Text>
               <ATag href="tel:15770731">
                 <Text fontSize={`30px`}>1577-0731</Text>
@@ -141,7 +141,7 @@ const Footer = ({ width }) => {
               <ATag href="mailto:vvvkmvvv@sunjinpet.co.kr">
                 <Text fontWeight={`300`}>vvvkmvvv@sunjinpet.co.kr</Text>
               </ATag>
-            </Wrapper>
+            </Wrapper> */}
             <Wrapper width={`auto`} al={`flex-start`}>
               <Text fontWeight={`300`} margin={`0 0 5px`}>
                 평일 : 8:30 - 17:30
