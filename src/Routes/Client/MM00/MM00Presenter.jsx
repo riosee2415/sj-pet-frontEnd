@@ -435,17 +435,17 @@ const MM00Presenter = ({
 
       <RsWrapper padding={width < 800 ? `60px 0` : `100px 0`}>
         <Wrapper fontSize={width < 800 ? `22px !important` : `48px`} isBMFont>
-          신규매장
+          신규오픈매장
         </Wrapper>
         <Wrapper dr={`row`} ju={`space-around`} margin={`50px 0 0`}>
           {nDatum &&
             nDatum.map((data) => {
               return (
-                <Wrapper width={`350px`} margin={`0 0 20px`} key={data._id}>
+                <Wrapper width={`300px`} margin={`0 0 20px`} key={data._id}>
                   <Image
                     alt="매장"
                     src={data.thumbnailPath}
-                    height={`350px`}
+                    height={`300px`}
                     radius={`100%`}
                     border={`3px solid ${Theme.basicTheme_C}`}
                   />
